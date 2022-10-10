@@ -4,12 +4,13 @@ from .models import Store
 from .serializers import StoreSerializer
 
 
-# class StoreImageCreateAPI(generics.CreateAPIView):
-#
+
+
 
 
 class StoreCreateAPI(generics.CreateAPIView):
     queryset = Store.objects.all()
+    print(queryset)
     serializer_class = StoreSerializer
 
 class StoreDetailAPI(generics.ListAPIView):
