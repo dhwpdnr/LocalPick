@@ -18,3 +18,8 @@ class Category(models.Model):
     
     def __str__(self):
         return self.category_name
+
+
+class Image(models.Model):
+    store = models.ForeignKey("Store", on_delete=models.CASCADE, null=True, db_column="store_id")
+    image_tag = models.TextField(null=True)
