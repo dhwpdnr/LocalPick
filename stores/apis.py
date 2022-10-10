@@ -5,6 +5,10 @@ from .serializers import StoreSerializer
 
 
 
+class StoreCreateAPI(generics.CreateAPIView):
+    queryset = Store.objects.all()
+    serializer_class = StoreSerializer
+
 class StoreDetailAPI(generics.ListAPIView):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer

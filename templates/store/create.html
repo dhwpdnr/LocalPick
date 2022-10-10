@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Store 생성</title>
+
+    <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <style>
         .storewrap {
             display: flex;
@@ -82,7 +86,7 @@
         <p><input type="text" id="adress" class = "text" placeholder="adress..."></p>
         <p><input type="text" id="tell" class = "in" placeholder="tell number ..."></p>
         <p>
-            <select name="category">
+            <select id="category" name="category">
                 {% for store in category_list %}
                     <option value="{{store.id}}">{{store.category_name}}</option>
                 {% endfor %}
@@ -195,6 +199,38 @@
                 }
             }
         )('att_zone', 'btnAtt')
+
+        $('#submit').click(function () {
+
+          let store_name = $('#name').val();
+          let store_time = $('#time').val();
+          let store_adress = $('#adress').val();
+          let store_tel = $('#tell').val();
+          let category = $('#category option:selected').val();
+
+            console.log(store_name);
+
+            $.ajax({
+                url: "/store/api/create/",
+                data: {
+                    store_name:store_name,
+                    store_time:store_time,
+                    store_adress:store_adress,
+                    store_tel:store_tel,
+                    category:category
+                },
+                method: "POST",
+                success: function (data){
+                    alert("STORE 생성 성공!");
+                },
+                error:function (request, status, error){
+                    alert("STORE 생성 실패!");
+                },
+                complete: function (data) {
+                    location.replace("/store/duffufkckaRo");
+                },
+            });
+      });
     </script>
 </body>
 
