@@ -10,7 +10,6 @@ from .serializers import StoreSerializer
 
 class StoreCreateAPI(generics.CreateAPIView):
     queryset = Store.objects.all()
-    print(queryset)
     serializer_class = StoreSerializer
 
 class StoreDetailAPI(generics.ListAPIView):
