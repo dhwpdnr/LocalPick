@@ -237,7 +237,10 @@
             },
             async: false,
             method: "POST",
-            success: function (data) {
+            success: function (response,data) {
+                let store_id = response.id;
+                form_data.append('store_id', store_id);
+
                 alert("Todo 생성 성공!");
                 if (len > 0) {
                     $.ajax({
