@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬픽</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        input {
+        width: 100%;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 10px 12px;
+        font-size: 10px;
+        }
+        .loginbox > input{
+            background:transparent;
+            border-radius: 5px;
+            padding:20px 0px 15px 0px;
+            font-size:10pt;
+            width:100%;
+        }
+        input[type=submit]{
+            background-color: #33C7F7;
+            border:none;
+            color:white;
+            border-radius: 5px;
+            width:100%;
+            height:50px;
+            font-size: 12pt;
+            margin-top:50px;
+        }
+    </style>
+</head>
+<body>
+    <img src="#" alt="로컬픽" width="100%">
+    <div class="loginbox">
+        <i class="fa-solid fa-phone"></i>
+        <input id="userPhone" type="text" placeholder="본인 명의의 휴대폰 번호를 입력하세요." required>
+    </div>
+    <div class="loginbox">
+        <i class="fa-solid fa-lock-keyhole"></i>
+        <input id="userPassword" type="password" placeholder="비밀번호를 입력하세요.">
+    </div>
+    <div class="login">
+        <input type="submit" value="로그인">
+    </div>
+        <p>비밀번호를 잊으셨나요?</p>
+        <p><a href="password.html">비밀번호 찾기></a></p>
+        <button id="signupClick" type="button" onclick="location.href='signup.html'"><b>로컬픽의 회원이 되어보아요!<span style="color: #33C7F7"><ins>회원가입하기</ins></span></b></button>
+</body>
+</html>
