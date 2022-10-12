@@ -1,22 +1,24 @@
 from django.urls import path
 from .apis import SignupAPI, LoginAPI
-from .views import SignupView, LoginView
+from .views import SignupView, LoginView, FindPasswordView, ChangePasswordView
 
 app_name = 'users'
 
 urlpatterns=[
-    #{% url 'users:signup_api' %}
+    # {% url 'users:signup_api' %}
     path("api/signup/", SignupAPI.as_view(), name="signup_api"),
-    #https://localpick-ycqet.run.goorm.io/auth/signup/
-    #{% url 'users:signup' %}
+    # {% url 'users:signup' %}
     path("signup/", SignupView.as_view(),name="signup"),
 
     
-    #{% url 'users:login_api' %}
+    # {% url 'users:login_api' %}
     path("api/login/", LoginAPI.as_view(), name = "login_api"),
-    #https://localpick-ycqet.run.goorm.io/auth/login/
-    #{% url 'users:login' %}
-    path("login/", LoginView.as_view(), name = "login")
+    # {% url 'users:login' %}
+    path("login/", LoginView.as_view(), name = "login"),
+
+    # {% url 'users:find_password' %}
+    path("findpasswd/", FindPasswordView.as_view(), name="find_password"),
+    path("chpasswd/", ChangePasswordView.as_view(), name="change_password")
 ]
 
 
