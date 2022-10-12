@@ -212,13 +212,11 @@
         let category = $('#category option:selected').val();
         let len = document.getElementById('btnAtt').files.length;
 
-        console.log(document.getElementById('btnAtt').files[0]);
-
 
         let form_data = new FormData();
 
         for (let i = 0; i < len; i++) {
-            form_data.append("files[]", document.getElementById('btnAtt').files[i]);
+            form_data.append("files", document.getElementById('btnAtt').files[i]);
         }
         form_data.append('csrfmiddlewaretoken', "{{ csrf_token }}");
 
@@ -244,8 +242,10 @@
                 if (len > 0) {
                     $.ajax({
                         url: "{% url 'store:create_image' %}",
-                        data: JSON.stringify(form_data),
+                        data: form_data,
                         method: "POST",
+                        processData: false,
+                        contentType: false,
                         async: false,
                         success: function (data) {
                             alert("IMAGE 생성 성공!");

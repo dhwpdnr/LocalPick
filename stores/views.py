@@ -13,5 +13,8 @@ class StoreCreateView(APIView):
 class StoreImageCreate(APIView):
     @csrf_exempt
     def post(self, request):
-        print(request.POST)
-        return render(request, "hi")
+        print(request.FILES)
+        return render(request, "store/create.html")
+
+    # < MultiValueDict: {'files': [ < InMemoryUploadedFile: 툴바1.png(image / png) >, < InMemoryUploadedFile: 툴바2.png(
+    #     image / png) >, < InMemoryUploadedFile: Flowchart.jpg(image /) >]} >
