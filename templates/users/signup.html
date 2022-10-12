@@ -5,80 +5,113 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로컬픽</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
-<style>
-    .input-box{
-        position:relative;
-        margin:10px 0;
-    }
-    .input-box > input{
-        background:transparent;
-        border-radius: 5px;
-        padding:20px 0px 15px 0px;
-        font-size:10pt;
-        width:100%;
-    }
-    #birth {
-        padding:20px 0px 15px 0px;
-    }
-    input:placeholder-shown + label{
-        color:#aaa;
-        font-size:10pt;
-        top:15px;
-    }
-    /*input:focus, input:not(:placeholder-shown){
-        border: solid 1px #33C7F7;
-        outline:none;
-    }*/
-    button[type=button]{
-        background-color: white;
-        color: black;
-        border-radius: 5px;
-        width:100%;
-        height:50px;
-        font-size: 12pt;
-        margin-top:50px;
-    }
-</style>
+    <style>
+        .input-box {
+            position: relative;
+            margin: 10px 0;
+        }
+
+        .input-box > input {
+            background: transparent;
+            border-radius: 5px;
+            padding: 20px 0px 15px 0px;
+            font-size: 10pt;
+            width: 100%;
+        }
+
+        #birth {
+            padding: 20px 0px 15px 0px;
+        }
+
+        input:placeholder-shown + label {
+            color: #aaa;
+            font-size: 10pt;
+            top: 15px;
+        }
+
+        /*input:focus, input:not(:placeholder-shown){
+            border: solid 1px #33C7F7;
+            outline:none;
+        }*/
+        button[type=button] {
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            width: 100%;
+            height: 50px;
+            font-size: 12pt;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="title">
-            <h2><b>로컬 픽에서</b><br><b>이용하실 정보를 입력해주세요.</b></h2>
-        </div>
-        <div class="input-box">
-            <input id="name" type="text" name="name" placeholder="이름을 입력하세요.">
-        </div>
-        <div class="input-box">
-            <input id="phone" type="text" placeholder="본인 명의의 휴대폰 번호를 입력하세요.">
-        </div>
-        <div class="input-box">
-            <input id="password" type="password" placeholder="사용하실 비밀번호를 입력하세요.">
-        </div>
-        <div class="input-box">
-            <input id="passwordCheck" type="password" placeholder="사용하실 비밀번호를 다시 입력하세요.">
-        </div>
-        <div class="input-box">
-            <input id="nickname" type="text" placeholder="사용하실 닉네임을 입력해주세요.">
-        </div>
-        <div class="input-box">
-            <input id="birth" type="text" size="6" maxlength="6" placeholder="생년월일 6자리">
-        </div>
-
-        <label><input type="radio" name="gender" value="M">남</label>
-        <label><input type="radio" name="gender" value="F">여</label>
-
-        <div class="next">
-            <button id="next" type="button" disabled onclick="signupcheck()">다음</button>
-        </div>
+<div class="wrapper">
+    <div class="title">
+        <h2><b>로컬 픽에서</b><br><b>이용하실 정보를 입력해주세요.</b></h2>
     </div>
-</body>
-    <script>
+    <div class="input-box">
+        <input id="name" type="text" name="name" placeholder="이름을 입력하세요.">
+    </div>
+    <div class="input-box">
+        <input id="phone" type="text" placeholder="본인 명의의 휴대폰 번호를 입력하세요.">
+    </div>
+    <div class="input-box">
+        <input id="password" type="password" placeholder="사용하실 비밀번호를 입력하세요.">
+    </div>
+    <div class="input-box">
+        <input id="passwordCheck" type="password" placeholder="사용하실 비밀번호를 다시 입력하세요.">
+    </div>
+    <div class="input-box">
+        <input id="nickname" type="text" placeholder="사용하실 닉네임을 입력해주세요.">
+    </div>
+    <div class="input-box">
+        <input id="birth" type="text" size="6" maxlength="6" placeholder="생년월일 6자리">
+    </div>
 
-    </script>
+    <label><input type="radio" name="gender" value="M">남</label>
+    <label><input type="radio" name="gender" value="F">여</label>
+
+    <div class="next">
+        <button id="next" type="button" disabled onclick="signupcheck()">다음</button>
+    </div>
+</div>
+</body>
+<script>
+    $('#next').click(function () {
+
+        let username = $('#name').val();
+        let phone_number = $('#phone').val();
+        let password = $('#password').val();
+        let nickname = $('#nickname').val();
+
+
+        $.ajax({
+            url: "/content/upload",
+            data: {
+                'csrfmiddlewaretoken': "{{ csrf_token }}",
+                username : username,
+                phone_number : phone_number,
+                password : password,
+                nickname : nickname
+            },
+            method: "POST",
+            success: function (data) {
+                console.log("성공");
+            },
+            error: function (request, status, error) {
+                console.log("에러");
+            },
+            complete: function () {
+                console.log("성공");
+                location.replace('/');
+            }
+        })
+    });
+</script>
 </html>

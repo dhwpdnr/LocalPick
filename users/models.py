@@ -55,5 +55,3 @@ class User(AbstractUser):
     class Meta:
         # 테이블 명 정하기 가능
         db_table = "User"
-
-
