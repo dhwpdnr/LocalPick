@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Store 생성</title>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        .storewrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .storewrap .box {
+            box-shadow: 1em 0 2em rgb(0 0 0 / 20%);
+            border-radius: 5px;
+            padding: 30px;
+        }
+
+        .storewrap .box h2 {
+            font-weight: 100;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        #att_zone {
+            width: 660px;
+            min-height: 150px;
+            padding: 10px;
+            border: 1px dotted #00f;
+        }
+
+        #att_zone:empty:before {
+            content: attr(data-placeholder);
+            color: #999;
+            font-size: .9em;
+        }
+
+        .text {
+            width: 95%;
+            padding: 10px;
+            height: 3.25em;
+            resize: none;
+            margin-top: 2rem;
+            border-radius: 5px;
+        }
+
+        .in {
+            width: 95%;
+            padding: 10px;
+            resize: none;
+            margin-top: 2rem;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 120px;
+            height: 40px;
+            color: #fff;
+            background: #004fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="storewrap">
+<div class="box">
+    <p>
+    <h2>Store Create Page</h2>
+    </p>
+
+    <p><input type="text" id="name" class="in" placeholder="Name..."></p>
+    <div id='image_preview'>
+        <h3>식당 이미지 업로드</h3>
+        <input type='file' id='btnAtt' name="file" multiple="true">
+
+        <div id='att_zone' data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
+
+    </div>
+    <p><input type="text" id="time" class="text" placeholder="time..."></p>
+    <p><input type="text" id="adress" class="text" placeholder="adress..."></p>
+    <p><input type="text" id="tell" class="in" placeholder="tell number ..."></p>
+    <p>
+        <select id="category" name="category">
+            {% for store in category_list %}
+                <option value="{{ store.id }}">{{ store.category_name }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <div class="btn-box">
+        <button type="submit" id="submit">submit</button>
+    </div>
+</div>
+
+
+<script>
+    ( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
+        imageView = function imageView(att_zone, btn) {
+
+            let attZone = document.getElementById(att_zone);
+            let btnAtt = document.getElementById(btn)
+            let sel_files = [];
+
+            // 이미지와 체크 박스를 감싸고 있는 div 속성
+            let div_style = 'display:inline-block;position:relative;'
+                + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
+            // 미리보기 이미지 속성
+            let img_style = 'width:100%;height:100%;z-index:none';
+            // 이미지안에 표시되는 체크박스의 속성
+            let chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
+                + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
+
+            btnAtt.onchange = function (e) {
+                let files = e.target.files;
+                let fileArr = Array.prototype.slice.call(files)
+                for (f of fileArr) {
+                    imageLoader(f);
+                }
+            }
+
+
+            // 탐색기에서 드래그앤 드롭 사용
+            attZone.addEventListener('dragenter', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }, false)
+
+            attZone.addEventListener('dragover', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+            }, false)
+
+            attZone.addEventListener('drop', function (e) {
+                let files = {};
+                e.preventDefault();
+                e.stopPropagation();
+                let dt = e.dataTransfer;
+                files = dt.files;
+                for (f of files) {
+                    imageLoader(f);
+                }
+
+            }, false)
+
+
+            /*첨부된 이미리즐을 배열에 넣고 미리보기 */
+            imageLoader = function (file) {
+                sel_files.push(file);
+                let reader = new FileReader();
+                reader.onload = function (ee) {
+                    let img = document.createElement('img')
+                    img.setAttribute('style', img_style)
+                    img.src = ee.target.result;
+                    attZone.appendChild(makeDiv(img, file));
+                }
+
+                reader.readAsDataURL(file);
+            }
+
+
+            /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
+            makeDiv = function (img, file) {
+                let div = document.createElement('div')
+                div.setAttribute('style', div_style)
+
+                let btn = document.createElement('input')
+                btn.setAttribute('type', 'button')
+                btn.setAttribute('value', 'x')
+                btn.setAttribute('delFile', file.name);
+                btn.setAttribute('style', chk_style);
+                btn.onclick = function (ev) {
+                    let ele = ev.srcElement;
+                    let delFile = ele.getAttribute('delFile');
+                    for (let i = 0; i < sel_files.length; i++) {
+                        if (delFile == sel_files[i].name) {
+                            sel_files.splice(i, 1);
+                        }
+                    }
+
+                    dt = new DataTransfer();
+                    for (f in sel_files) {
+                        let file = sel_files[f];
+                        dt.items.add(file);
+                    }
+                    btnAtt.files = dt.files;
+                    let p = ele.parentNode;
+                    attZone.removeChild(p)
+                }
+                div.appendChild(img)
+                div.appendChild(btn)
+                return div
+            }
+        }
+    )('att_zone', 'btnAtt')
+
+
+    $('#submit').click(function () {
+
+
+        let store_name = $('#name').val();
+        let store_time = $('#time').val();
+        let store_adress = $('#adress').val();
+        let store_tel = $('#tell').val();
+        let category = $('#category option:selected').val();
+        let len = document.getElementById('btnAtt').files.length;
+
+
+        let form_data = new FormData();
+
+        for (let i = 0; i < len; i++) {
+            form_data.append("files", document.getElementById('btnAtt').files[i]);
+        }
+        form_data.append('csrfmiddlewaretoken', "{{ csrf_token }}");
+
+        for (let value of form_data.values()) {
+            console.log(value);
+        }
+        console.log(store_name);
+
+        $.ajax({
+            url: "{% url 'store:create_api' %}",
+            data: {
+                'csrfmiddlewaretoken': "{{ csrf_token }}",
+                store_name: store_name,
+                store_time: store_time,
+                store_adress: store_adress,
+                store_tel: store_tel,
+                category: category
+            },
+            async: false,
+            method: "POST",
+            success: function (response,data) {
+                let store_id = response.id;
+                form_data.append('store_id', store_id);
+
+                alert("store 생성 성공!");
+                if (len > 0) {
+                    $.ajax({
+                        url: "{% url 'store:create_image' %}",
+                        data: form_data,
+                        method: "POST",
+                        processData: false,
+                        contentType: false,
+                        async: false,
+                        success: function (data) {
+                            alert("IMAGE 생성 성공!");
+                            console.log('test');
+                        },
+                        error: function (request, status, error) {
+                            alert("IMAGE 생성 실패!");
+                            console.log('test');
+                            console.log(status);
+                        },
+                        complete: function (data) {
+                            console.log('끝');
+                            location.replace("/store/duffufkckaRo");
+                        }
+                    });
+                }
+            },
+            error: function (request, status, error) {
+                alert("Todo 생성 실패!");
+            },
+             complete: function (data) {
+                 location.replace("/store/duffufkckaRo");
+            }
+        });
+
+
+    });
+
+</script>
+
+</body>
+</html>
