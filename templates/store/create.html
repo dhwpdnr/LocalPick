@@ -241,7 +241,7 @@
                 let store_id = response.id;
                 form_data.append('store_id', store_id);
 
-                alert("Todo 생성 성공!");
+                alert("store 생성 성공!");
                 if (len > 0) {
                     $.ajax({
                         url: "{% url 'store:create_image' %}",
@@ -269,9 +269,9 @@
             error: function (request, status, error) {
                 alert("Todo 생성 실패!");
             },
-            // complete: function (data) {
-            //     location.replace("/store/duffufkckaRo");
-            // }
+             complete: function (data) {
+                 location.replace("/store/duffufkckaRo");
+            }
         });
 
 
