@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬픽</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+    .navbar{
+    width:100%;
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    background-color: white;
+    bottom: 0;
+    z-index: 90;
+    text-align: center;
+    }
+    .n-box{
+    width: 20%;
+    }
+    .fc-blue{
+    color: blue;
+    }
+</style>
+
+</head>
+<body>
+<p>store list</p>
+
+{% for store in store_list %}
+
+    <div class="listbox">
+        <a href="{% url 'store:detail' pk=store.id %}">
+            {{store.store_name}}
+        </a>
+    </div>
+
+    {% endfor %}
+
+<div class="navbar">
+    <div class="n-box fc-blue">
+        <i class="fas fa-home fa-1x"></i>
+        <p class="navtit">홈</p>
+
+    </div>
+
+    <div class="n-box">
+        <i class="fas fa-search"></i>
+        <p class="navtit">검색</p>
+    </div>
+
+    <div class="n-box">
+        <i class="far fa-heart"></i>
+        <p class="navtit">좋아요</p>
+    </div>
+
+
+    <div class="n-box">
+        <i class="fas fa-user"></i>
+        <p class="navtit">마이</p>
+    </div>
+</div>
+</body>
+</html>
