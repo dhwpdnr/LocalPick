@@ -10,3 +10,11 @@ class SignupView(APIView):
 class LoginView(APIView):
     def get(self, request):
         return render(request, "users/login.html")
+
+class FindPasswordView(APIView):
+    def get(self,request):
+        return render(request, "users/password.html")
+
+class ChangePasswordView(APIView):
+    def get(self, request):
+        return render(request, "users/passwordch.html")
