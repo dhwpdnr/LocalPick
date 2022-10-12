@@ -11,10 +11,9 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+<style>
     .navbar{
     width:100%;
-    border: 1px solid red;
     display: flex;
     justify-content: space-evenly;
     position: fixed;
@@ -29,9 +28,32 @@
     .fc-blue{
     color: blue;
     }
+</style>
+
 </head>
 <body>
-{% block content %}
-{% endblock %}
+<div class="navbar">
+    <div class="n-box fc-blue">
+        <i class="fas fa-home fa-1x"></i>
+        <p class="navtit">홈</p>
+
+    </div>
+
+    <div class="n-box">
+        <i class="fas fa-search"></i>
+        <p class="navtit">검색</p>
+    </div>
+
+    <div class="n-box">
+        <i class="far fa-heart"></i>
+        <p class="navtit">좋아요</p>
+    </div>
+
+
+    <div class="n-box">
+        <i class="fas fa-user"></i>
+        <p class="navtit">마이</p>
+    </div>
+</div>
 </body>
 </html>

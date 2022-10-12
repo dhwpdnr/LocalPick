@@ -65,53 +65,63 @@
         <input id="password" type="password" placeholder="사용하실 비밀번호를 입력하세요.">
     </div>
     <div class="input-box">
-        <input id="passwordCheck" type="password" placeholder="사용하실 비밀번호를 다시 입력하세요.">
+        <input id="password2" type="password" placeholder="사용하실 비밀번호를 다시 입력하세요.">
     </div>
     <div class="input-box">
         <input id="nickname" type="text" placeholder="사용하실 닉네임을 입력해주세요.">
     </div>
     <div class="input-box">
-        <input id="birth" type="text" size="6" maxlength="6" placeholder="생년월일 6자리">
+        <input id="birth" type="date" value="1999-09-01">
     </div>
 
     <label><input type="radio" name="gender" value="M">남</label>
     <label><input type="radio" name="gender" value="F">여</label>
 
     <div class="next">
-        <button id="next" type="button" disabled onclick="signupcheck()">다음</button>
+        <button id="next" type="button">다음</button>
     </div>
 </div>
 </body>
 <script>
-    $('#next').click(function () {
 
-        let username = $('#name').val();
-        let phone_number = $('#phone').val();
-        let password = $('#password').val();
-        let nickname = $('#nickname').val();
+        $('#next').click(function () {
 
+            let username = $('#name').val();
+            let phone_number = $('#phone').val();
+            let password = $('#password').val();
+            let password2 = $('#password2').val();
+            let nickname = $('#nickname').val();
+            let birth = $('#birth').val();
+            let gender = $('input[name=gender]:checked').val();
+            console.log(gender);
+            $.ajax({
+                url: "{% url 'users:signup_api' %}",
+                dataType : "json",
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}",
+                    username: username,
+                    phone_number: phone_number,
+                    password: password,
+                    nickname: nickname,
+                    birth: birth,
+                    gender: gender,
+                    password2:password2
+                },
+                method: "POST",
+                success: function (data) {
+                    console.log("성공");
+                    location.replace("{% url 'users:login' %}");
+                },
 
-        $.ajax({
-            url: "/content/upload",
-            data: {
-                'csrfmiddlewaretoken': "{{ csrf_token }}",
-                username : username,
-                phone_number : phone_number,
-                password : password,
-                nickname : nickname
-            },
-            method: "POST",
-            success: function (data) {
-                console.log("성공");
-            },
-            error: function (request, status, error) {
-                console.log("에러");
-            },
-            complete: function () {
-                console.log("성공");
-                location.replace('/');
-            }
-        })
-    });
+                error: function (request, status, error) {
+                    console.log("에러");
+                },
+                complete: function () {
+                    console.log("성공");
+
+                }
+            })
+        });
+
 </script>
 </html>
