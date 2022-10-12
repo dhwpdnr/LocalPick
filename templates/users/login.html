@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로컬픽</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
     <style>
         input {
         width: 100%;
@@ -21,7 +22,7 @@
             font-size:10pt;
             width:100%;
         }
-        input[type=submit]{
+        #btn_login{
             background-color: #33C7F7;
             border:none;
             color:white;
@@ -37,17 +38,50 @@
     <img src="#" alt="로컬픽" width="100%">
     <div class="loginbox">
         <i class="fa-solid fa-phone"></i>
-        <input id="userPhone" type="text" placeholder="본인 명의의 휴대폰 번호를 입력하세요." required>
+        <input id="phone_number" type="text" placeholder="본인 명의의 휴대폰 번호를 입력하세요." required>
     </div>
     <div class="loginbox">
         <i class="fa-solid fa-lock-keyhole"></i>
-        <input id="userPassword" type="password" placeholder="비밀번호를 입력하세요.">
+        <input id="password" type="password" placeholder="비밀번호를 입력하세요.">
     </div>
     <div class="login">
-        <input type="submit" value="로그인">
+        <button id="btn_login" type="submit" >로그인</button>
     </div>
+
         <p>비밀번호를 잊으셨나요?</p>
-        <p><a href="password.html">비밀번호 찾기></a></p>
-        <button id="signupClick" type="button" onclick="location.href='signup.html'"><b>로컬픽의 회원이 되어보아요!<span style="color: #33C7F7"><ins>회원가입하기</ins></span></b></button>
+        <p><a href="#">비밀번호 찾기></a></p>
+
+        <button id="signupClick" type="button"><b>로컬픽의 회원이 되어보아요!<span style="color: #33C7F7"><ins>회원가입하기</ins></span></b></button>
 </body>
+<script>
+ $('#btn_login').click(function () {
+            let phone_number = $('#phone').val();
+            let password = $('#password').val();
+            $.ajax({
+                url: "{% url 'users:login_api' %}}",
+                dataType : "json",
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}",
+                    phone_number: phone_number,
+                    password: password,
+                },
+                method: "POST",
+                success: function (response, data) {
+                    alert("로그인 성공");
+                    location.replace("{% url 'store:list' %}");
+                },
+
+                error: function (request, status, error) {
+                    alert("로그인 실패");
+                    console.log(error);
+                },
+                complete: function () {
+                    console.log("성공");
+
+                }
+            })
+        });
+
+
+</script>
 </html>
