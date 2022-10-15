@@ -11,20 +11,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
     .navbar{
-    width:100%;
-    display: flex;
-    justify-content: space-evenly;
-    position: fixed;
-    background-color: white;
-    bottom: 0;
-    z-index: 90;
-    text-align: center;
+        width:100%;
+        border-top: 1px solid lightgrey;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background-color: white;
+        z-index: 90;
+        justify-content: space-between;
+
     }
     .n-box{
-    width: 20%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+        margin-right: 40px;
+        margin-left: 20px;
     }
     .fc-blue{
-    color: blue;
+        color: #33C7F7;
     }
 </style>
 
@@ -32,25 +37,16 @@
 <body>
 <div class="navbar">
     <div class="n-box fc-blue">
-        <i class="fas fa-home fa-1x"></i>
-        <p class="nav_tit">홈</p>
-
+        <i class="fas fa-th fa-2x"></i>
     </div>
-
     <div class="n-box">
-        <i class="fas fa-search"></i>
-        <p class="nav_tit">검색</p>
+        <i class="fas fa-search fa-2x"></i>
     </div>
-
     <div class="n-box">
-        <i class="far fa-heart"></i>
-        <p class="nav_tit">좋아요</p>
+        <i class="fas fa-heart fa-2x"></i>
     </div>
-
-
     <div class="n-box">
-        <i class="fas fa-user"></i>
-        <p class="nav_tit">마이</p>
+        <i class="fas fa-user-circle fa-2x"></i>
     </div>
 </div>
 </body>

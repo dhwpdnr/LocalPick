@@ -12,24 +12,36 @@
 <style>
     .navbar{
         width:100%;
-        box-sizing: border-box;
+        border-top: 1px solid lightgrey;
         display: flex;
-        justify-content: space-evenly;
         position: fixed;
-        background-color: white;
         bottom: 0;
+        background-color: white;
         z-index: 90;
-        text-align: center;
+        justify-content: space-between;
     }
     .n-box{
-        width: 20%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+        margin-right: 40px;
+        margin-left: 20px;
     }
     .fc-blue{
-        color: blue;
+        color: #33C7F7;
+    }
+    .top_box {
+        width: 100%;
+        position: fixed;
+        background-color: white;
+        padding-top: 85px;
+        top: 0;
     }
     .top{
-        margin-top: 60px;
-        margin-bottom: 20px;
+        margin-top: -45px;
+        position: fixed;
+        background-color: white;
+        width: 100%;
     }
     #back{
         border: none;
@@ -44,11 +56,12 @@
         padding: 85px 0px 85px 0px;
         border: 3px solid gray;
         border-radius: 5px;
-        margin: 0px;
+        margin-top: 100px;
     }
     .result{
         margin-top: 20px;
-        margin-left: 10px;
+        display: flex;
+        justify-content: space-between;
     }
     #write{
         float: right;
@@ -74,18 +87,22 @@
         margin-top: 20px;
         color: dimgray;
     }
-    .review2{
+    .review_detail{
         width: 100%;
         box-sizing: border-box;
         padding: 50px 0px 50px 0px;
         border: 1px solid gray;
         border-radius: 5px;
         margin-top: 20px;
+        overflow: auto;
     }
 </style>
 </head>
 <body>
-<<<<<<< HEAD
+<div class="top_box">
+
+</div>
+
 <div class="top">
      <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
      <b id="store_name">{{ store.store_name }}</b>
@@ -105,45 +122,42 @@
 </div>
 
 <div class="result">
-    <b>전체 리뷰 결과</b>
+    <b id="">전체 리뷰 결과</b>
     <button id="write"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
 </div>
+<div class="scroll">
 
+</div>
 <div class="review">
     <button id="local"><b>현지인</b></button>
     <button id="outsider"><b>외부인</b></button>
 </div>
 
-<div class="review2">
+<div class="review_detail">
 
 </div>
-=======
-<p>{{ store.store_name }} detail page</p>
-<p>주소 {{ store.store_adress }}</p>
-<p>전화번호 {{ store.store_tel }}</p>
-<p>영업시간 {{ store.store_time }}</p>
->>>>>>> c68c0b252a84271bb3e8ae0fef65db22fb0a7c69
+<div class="review_detail">
+
+</div>
+<div class="review_detail">
+
+</div>
+<div class="review_detail">
+
+</div>
 
 <div class="navbar">
-    <div class="n-box fc-blue">
-        <i class="fas fa-home fa-1x"></i>
-        <p class="nav_tit">홈</p>
-
-    </div>
-
     <div class="n-box">
-        <i class="fas fa-search"></i>
-        <p class="nav_tit">검색</p>
+        <i class="fas fa-th fa-2x fc-blue"></i>
     </div>
-
     <div class="n-box">
-        <i class="far fa-heart"></i>
-        <p class="nav_tit">좋아요</p>
+        <i class="fas fa-search fa-2x"></i>
     </div>
-
     <div class="n-box">
-        <i class="fas fa-user"></i>
-        <p class="nav_tit">마이</p>
+        <i class="fas fa-heart fa-2x"></i>
+    </div>
+    <div class="n-box">
+        <i class="fas fa-user-circle fa-2x"></i>
     </div>
 </div>
 </body>
