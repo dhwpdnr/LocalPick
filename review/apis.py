@@ -6,9 +6,12 @@ from .serializers import ReviewSerializer
 
 
 
-class StoreCreateAPI(generics.CreateAPIView):
+class ReviewCreateAPI(generics.CreateAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+
+
+
     # def get(self, request, pk):
     #     review = Review.objects.get(id=pk)
     #     serializer = self.get_serializer(review)
