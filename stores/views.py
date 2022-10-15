@@ -14,6 +14,7 @@ class StoreCreateView(APIView):
         category_list = Category.objects.all()
         return render(request, "store/create.html", {"category_list" : category_list})
 
+
 class StoreImageCreate(APIView):
     @csrf_exempt
     def post(self, request):
@@ -36,8 +37,8 @@ class StoreImageCreate(APIView):
 
 
 class StoreDetailView(APIView):
-    def get(self, request):
-        return render(request, "store/detail.html")
+    def get(self, request, pk):
+        return render(request, "store/detail.html", {"pk" : pk})
 
 
 class StoreListView(APIView):

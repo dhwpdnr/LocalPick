@@ -9,85 +9,97 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<style>
-    .navbar{
-        width:100%;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: space-evenly;
-        position: fixed;
-        background-color: white;
-        bottom: 0;
-        z-index: 90;
-        text-align: center;
-    }
-    .n-box{
-        width: 20%;
-    }
-    .fc-blue{
-        color: blue;
-    }
-    .top{
-        margin-top: 60px;
-        margin-bottom: 20px;
-    }
-    #back{
-        border: none;
-        background-color: white;
-    }
-    #store_name{
-        text-align: center;
-    }
-    .store {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 85px 0px 85px 0px;
-        border: 3px solid gray;
-        border-radius: 5px;
-        margin: 0px;
-    }
-    .result{
-        margin-top: 20px;
-        margin-left: 10px;
-    }
-    #write{
-        float: right;
-        border: none;
-        background-color: white;
-        color: dimgray;
-    }
-    .review{
-        display: flex;
-    }
-    #local{
-        width: 100%;
-        border: none;
-        padding: 20px 68px 20px 68px;
-        margin-top: 20px;
-        background-color: #33C7F7;
-        color: white;
-    }
-    #outsider{
-        width: 100%;
-        border: none;
-        padding: 20px 68px 20px 68px;
-        margin-top: 20px;
-        color: dimgray;
-    }
-    .review2{
-        width: 100%;
-        box-sizing: border-box;
-        padding: 50px 0px 50px 0px;
-        border: 1px solid gray;
-        border-radius: 5px;
-        margin-top: 20px;
-    }
-</style>
+    <style>
+        .navbar {
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-evenly;
+            position: fixed;
+            background-color: white;
+            bottom: 0;
+            z-index: 90;
+            text-align: center;
+        }
+
+        .n-box {
+            width: 20%;
+        }
+
+        .fc-blue {
+            color: blue;
+        }
+
+        .top {
+            margin-top: 60px;
+            margin-bottom: 20px;
+        }
+
+        #back {
+            border: none;
+            background-color: white;
+        }
+
+        #store_name {
+            text-align: center;
+        }
+
+        .store {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 85px 0px 85px 0px;
+            border: 3px solid gray;
+            border-radius: 5px;
+            margin: 0px;
+        }
+
+        .result {
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        #write {
+            float: right;
+            border: none;
+            background-color: white;
+            color: dimgray;
+        }
+
+        .review {
+            display: flex;
+        }
+
+        #local {
+            width: 100%;
+            border: none;
+            padding: 20px 68px 20px 68px;
+            margin-top: 20px;
+            background-color: #33C7F7;
+            color: white;
+        }
+
+        #outsider {
+            width: 100%;
+            border: none;
+            padding: 20px 68px 20px 68px;
+            margin-top: 20px;
+            color: dimgray;
+        }
+
+        .review2 {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 50px 0px 50px 0px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 <div class="top">
-     <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-     <b id="store_name">{{ store.store_name }}</b>
+    <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
+    <b id="store_name">{{ store.store_name }}</b>
 </div>
 
 <div class="store">
@@ -95,11 +107,11 @@
 </div>
 
 <div class="detail">
-    <p><b>{{ store.store_name }}</b></p>
+    <p id="req_store_name"><b></b></p>
     <ul>
-        <li><p>{{ store.store_adress }}</p></li>
-        <li><p>{{ store.store_tel }}</p></li>
-        <li><p>{{ store.store_time }}</p></li>
+        <li><p id="req_store_adress"></p></li>
+        <li><p id="req_store_tel"></p></li>
+        <li><p id="req_store_time"></p></li>
     </ul>
 </div>
 
@@ -138,5 +150,29 @@
         <p class="nav_tit">마이</p>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "{% url 'store:detail_api' pk=pk %}",
+            datatype: 'json',
+            success: function (data) {
+                console.log(data.store_name);
+                $('#req_store_name').text(data.store_name);
+                $('#store_name').text(data.store_name);
+                $('#req_store_adress').text(data.store_adress);
+                $('#req_store_tel').text(data.store_tel);
+                $('#req_store_time').text(data.store_time);
+            },
+            error: function (request, status, error) {
+                alert("error");
+                console.log('error');
+                console.log(error);
+            },
+            complete: function (data) {
+                console.log('끝');
+            }
+        });
+    });
+</script>
 </body>
 </html>
