@@ -14,6 +14,7 @@ class StoreCreateView(APIView):
         category_list = Category.objects.all()
         return render(request, "store/create.html", {"category_list" : category_list})
 
+
 class StoreImageCreate(APIView):
     @csrf_exempt
     def post(self, request):
@@ -32,14 +33,13 @@ class StoreImageCreate(APIView):
             image = uuid_name
 
             Image.objects.create(image_tag=image, store_id=store_id)
-
-
         return Response(status=200)
 
+
 class StoreDetailView(APIView):
-    def get(self, request,pk):
-        store = Store.objects.filter(id = pk).first()
-        return render(request, "store/detail.html", {"store": store})
+    def get(self, request, pk):
+        return render(request, "store/detail.html", {"pk" : pk})
+
 
 class StoreListView(APIView):
     def get(self, request):
