@@ -39,10 +39,10 @@ class StoreImageCreate(APIView):
 class StoreDetailView(APIView):
     def get(self, request, pk):
         store = Store.objects.filter(id = pk).first()
-        review = Review.objects.filter(store_id = pk).order_by('created')
+        review_list = Review.objects.filter(store_id = pk).order_by('created')
         return render(request, "store/detail.html", {
             "store": store,
-            "review": review
+            "review_list": review_list
         })
 
 
