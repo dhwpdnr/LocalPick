@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from .models import Category, Image, Store
-from review.models import Review
 from django.views.decorators.csrf import csrf_exempt
 import os
 from uuid import uuid4
@@ -37,13 +36,8 @@ class StoreImageCreate(APIView):
 
 
 class StoreDetailView(APIView):
-    def get(self, request, pk):
-        store = Store.objects.filter(id = pk).first()
-        review_list = Review.objects.filter(store_id = pk).order_by('created')
-        return render(request, "store/detail.html", {
-            "store": store,
-            "review_list": review_list
-        })
+    def get(self, request):
+        return render(request, "store/detail.html")
 
 
 class StoreListView(APIView):
