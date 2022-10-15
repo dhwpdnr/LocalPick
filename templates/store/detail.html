@@ -11,51 +11,132 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
     .navbar{
-    width:100%;
-    display: flex;
-    justify-content: space-evenly;
-    position: fixed;
-    background-color: white;
-    bottom: 0;
-    z-index: 90;
-    text-align: center;
+        width:100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-evenly;
+        position: fixed;
+        background-color: white;
+        bottom: 0;
+        z-index: 90;
+        text-align: center;
     }
     .n-box{
-    width: 20%;
+        width: 20%;
     }
     .fc-blue{
-    color: blue;
+        color: blue;
+    }
+    .top{
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+    #back{
+        border: none;
+        background-color: white;
+    }
+    #store_name{
+        text-align: center;
+    }
+    .store {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 85px 0px 85px 0px;
+        border: 3px solid gray;
+        border-radius: 5px;
+        margin: 0px;
+    }
+    .result{
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+    #write{
+        float: right;
+        border: none;
+        background-color: white;
+        color: dimgray;
+    }
+    .review{
+        display: flex;
+    }
+    #local{
+        width: 100%;
+        border: none;
+        padding: 20px 68px 20px 68px;
+        margin-top: 20px;
+        background-color: #33C7F7;
+        color: white;
+    }
+    #outsider{
+        width: 100%;
+        border: none;
+        padding: 20px 68px 20px 68px;
+        margin-top: 20px;
+        color: dimgray;
+    }
+    .review2{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 50px 0px 50px 0px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        margin-top: 20px;
     }
 </style>
-
 </head>
 <body>
-<p>{{ store.store_name }} detail page</p>
-<p>{{ store.store_adress }}</p>
-<p>{{ store.store_tel }}</p>
-<p>{{ store.store_time }}</p>
+<div class="top">
+     <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
+     <b id="store_name">{{ store.store_name }}</b>
+</div>
+
+<div class="store">
+
+</div>
+
+<div class="detail">
+    <p><b>{{ store.store_name }} detail page</b></p>
+    <ul>
+        <li><p>{{ store.store_adress }}</p></li>
+        <li><p>{{ store.store_tel }}</p></li>
+        <li><p>{{ store.store_time }}</p></li>
+    </ul>
+</div>
+
+<div class="result">
+    <b>전체 리뷰 결과</b>
+    <button id="write"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
+</div>
+
+<div class="review">
+    <button id="local"><b>현지인</b></button>
+    <button id="outsider"><b>외부인</b></button>
+</div>
+
+<div class="review2">
+
+</div>
 
 <div class="navbar">
     <div class="n-box fc-blue">
         <i class="fas fa-home fa-1x"></i>
-        <p class="navtit">홈</p>
+        <p class="nav_tit">홈</p>
 
     </div>
 
     <div class="n-box">
         <i class="fas fa-search"></i>
-        <p class="navtit">검색</p>
+        <p class="nav_tit">검색</p>
     </div>
 
     <div class="n-box">
         <i class="far fa-heart"></i>
-        <p class="navtit">좋아요</p>
+        <p class="nav_tit">좋아요</p>
     </div>
-
 
     <div class="n-box">
         <i class="fas fa-user"></i>
-        <p class="navtit">마이</p>
+        <p class="nav_tit">마이</p>
     </div>
 </div>
 </body>

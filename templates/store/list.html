@@ -26,43 +26,130 @@
     .fc-blue{
     color: blue;
     }
+    .top{
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+    #back{
+        border: none;
+        background-color: white;
+    }
+    #add{
+        border: none;
+        border-radius: 10px;
+        border: 2px solid #33C7F7;
+        color: #33C7F7;
+        background-color: white;
+        float: right;
+    }
+    .listbox{
+        display: flex;
+    }
+    #box1{
+        margin-top: 10px;
+        margin-left: 20px;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-shadow: 10px 5px 10px 5px #F5F5F5;
+    }
+     #box2{
+        margin-top: 10px;
+        margin-left: 15px;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-shadow: 10px 5px 10px 5px #F5F5F5;
+
+    }
+    #box3{
+        margin-top: 10px;
+        margin-left: 10px;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-shadow: 10px 5px 10px 5px #F5F5F5;
+    }
+    #photo1{
+        box-sizing: border-box;
+        border: 1px solid darkgrey;
+        border-radius: 5px;
+        width: 125px;
+        height: 97px;
+        margin-left: -12px;
+        margin-top: -12px;
+    }
+    i{
+        margin: 10px;
+        float: right;
+    }
 </style>
 
 </head>
 <body>
-<p>store list</p>
+<div class="top">
+    <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
+    <img src="#" alt="로컬픽" width="100%">
+</div>
 
-{% for store in store_list %}
+<div class="head">
+    <h2>[선택한 장소]의<br>주변 맛집을 추천해드릴게요.</h2>
+</div>
 
-    <div class="listbox">
-        <a href="{% url 'store:detail' pk=store.id %}">
-            {{store.store_name}}
-        </a>
+<div class="first_box">
+    <div class="list_name">
+        <b>store list</b>
+        <button id="add" type="button"><b>더보기</b></button>
     </div>
 
-    {% endfor %}
+    <!--{% for store in store_list %}-->
+    <div class="listbox">
+        <div id="box1">
+            <div id="photo1">
+                <i class="far fa-heart"></i>
+            </div>
+        <a href="{% url 'store:detail' pk=store.id %}">{{store.store_name}}</a>
+        </div>
+
+        <div class="listbox">
+            <div id="box2">
+                <div id="photo1">
+                    <i class="far fa-heart"></i>
+                </div>
+            <a href="{% url 'store:detail' pk=store.id %}">{{store.store_name}}</a>
+            </div>
+        </div>
+    </div>
+    <!--{% endfor %}-->
+</div>
+
 
 <div class="navbar">
     <div class="n-box fc-blue">
         <i class="fas fa-home fa-1x"></i>
-        <p class="navtit">홈</p>
+        <p class="nav_tit">홈</p>
 
     </div>
 
     <div class="n-box">
         <i class="fas fa-search"></i>
-        <p class="navtit">검색</p>
+        <p class="nav_tit">검색</p>
     </div>
 
     <div class="n-box">
         <i class="far fa-heart"></i>
-        <p class="navtit">좋아요</p>
+        <p class="nav_tit">좋아요</p>
     </div>
-
 
     <div class="n-box">
         <i class="fas fa-user"></i>
-        <p class="navtit">마이</p>
+        <p class="nav_tit">마이</p>
     </div>
 </div>
 </body>

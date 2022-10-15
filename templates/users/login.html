@@ -16,12 +16,13 @@
             font-size: 10px;
         }
 
-        .loginbox > input {
+        .login_box > input {
             background: transparent;
             border-radius: 5px;
             padding: 20px 0px 15px 0px;
             font-size: 10pt;
             width: 100%;
+            box-sizing: border-box;
         }
 
         #btn_login {
@@ -33,17 +34,16 @@
             height: 50px;
             font-size: 12pt;
             margin-top: 50px;
+            box-sizing: border-box;
         }
     </style>
 </head>
 <body>
 <img src="#" alt="로컬픽" width="100%">
-<div class="loginbox">
-    <i class="fa-solid fa-phone"></i>
+<div class="login_box">
     <input id="phone_number" type="text" placeholder="본인 명의의 휴대폰 번호를 입력하세요." required>
 </div>
-<div class="loginbox">
-    <i class="fa-solid fa-lock-keyhole"></i>
+<div class="login_box">
     <input id="password" type="password" placeholder="비밀번호를 입력하세요.">
 </div>
 <div class="login">
