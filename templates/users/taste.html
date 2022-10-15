@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬픽</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        .title {
+            width: 100%;
+            margin-top: 110px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="title">
+    <h2><b>알맞은 식성향으로</b><br>로컬 픽이 추천해드립니다!</h2>
+</div>
+
+<div class="taste">
+    <label><b>매운맛</b></label><input type="range" min="0" max="5">
+</div>
+<div class="taste">
+    <label><b>짠맛</b></label><input type="range" min="0" max="5">
+</div>
+<div class="taste">
+    <label><b>단맛</b></label><input type="range" min="0" max="5">
+</div>
+<div class="taste">
+    <label><b>식사량</b></label><input type="range" min="0" max="5">
+</div>
+
+<div class="okay">
+    <button id="okay" type="submit" disabled onclick="">완료</button>
+</div>
+</body>
+</html>

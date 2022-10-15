@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬픽</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+    .top{
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+    #back{
+        border: none;
+        background-color: white;
+    }
+</style>
+</head>
+
+<body>
+    <div class="top">
+        <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
+        <b>리뷰 작성하기</b>
+    </div>
+
+    <div class="review_bar">
+        <label><b>양</b></label><input type="range" min="0" max="5">
+    </div>
+    <div class="review_bar">
+        <label><b>친절도</b></label><input type="range" min="0" max="5">
+    </div>
+    <div class="review_bar">
+        <label><b>위생</b></label><input type="range" min="0" max="5">
+    </div>
+    <div class="review_bar">
+        <label><b>가격</b></label><input type="range" min="0" max="5">
+    </div>
+    <div class="memo">
+        <i class="fas fa-pen"></i>
+        <b>리뷰 내용 작성하기</b>
+    </div>
+</body>
+</html>
