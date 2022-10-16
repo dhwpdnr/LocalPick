@@ -9,94 +9,101 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <style>
-        .navbar {
-            width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: space-evenly;
-            position: fixed;
-            background-color: white;
-            bottom: 0;
-            z-index: 90;
-            text-align: center;
-        }
-
-        .n-box {
-            width: 20%;
-        }
-
-        .fc-blue {
-            color: blue;
-        }
-
-        .top {
-            margin-top: 60px;
-            margin-bottom: 20px;
-        }
-
-        #back {
-            border: none;
-            background-color: white;
-        }
-
-        #store_name {
-            text-align: center;
-        }
-
-        .store {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 85px 0px 85px 0px;
-            border: 3px solid gray;
-            border-radius: 5px;
-            margin: 0px;
-        }
-
-        .result {
-            margin-top: 20px;
-            margin-left: 10px;
-        }
-
-        #write {
-            float: right;
-            border: none;
-            background-color: white;
-            color: dimgray;
-        }
-
-        .review {
-            display: flex;
-        }
-
-        #local {
-            width: 100%;
-            border: none;
-            padding: 20px 68px 20px 68px;
-            margin-top: 20px;
-            background-color: #33C7F7;
-            color: white;
-        }
-
-        #outsider {
-            width: 100%;
-            border: none;
-            padding: 20px 68px 20px 68px;
-            margin-top: 20px;
-            color: dimgray;
-        }
-
-        .review2 {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 50px 0px 50px 0px;
-            border: 1px solid gray;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-    </style>
+<<<<<<< HEAD
+<style>
+    .navbar{
+        width:100%;
+        border-top: 1px solid lightgrey;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background-color: white;
+        z-index: 90;
+        justify-content: space-between;
+    }
+    .n-box{
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+        margin-right: 40px;
+        margin-left: 20px;
+    }
+    .fc-blue{
+        color: #33C7F7;
+    }
+    .top_box {
+        width: 100%;
+        position: fixed;
+        background-color: white;
+        padding-top: 85px;
+        top: 0;
+    }
+    .top{
+        position: fixed;
+        background-color: white;
+        width: 100%;
+    }
+    #back{
+        border: none;
+        background-color: white;
+    }
+    #store_name{
+        text-align: center;
+    }
+    .store {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 85px 0px 85px 0px;
+        border: 3px solid gray;
+        border-radius: 5px;
+        margin-top: 50px;
+    }
+    .result{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+    #write{
+        float: right;
+        border: none;
+        background-color: white;
+        color: dimgray;
+    }
+    .review{
+        display: flex;
+    }
+    #local{
+        width: 100%;
+        border: none;
+        padding: 20px 68px 20px 68px;
+        margin-top: 20px;
+        background-color: #33C7F7;
+        color: white;
+    }
+    #outsider{
+        width: 100%;
+        border: none;
+        padding: 20px 68px 20px 68px;
+        margin-top: 20px;
+        color: dimgray;
+    }
+    .review_detail{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 50px 0px 50px 0px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        margin-top: 20px;
+        overflow: auto;
+    }
+</style>
 </head>
 <body>
+>>>>>>> 0b787eb5d3a2889d709aa1dae4ae9fb069922b39
+<div class="top_box">
+
+</div>
+
 <div class="top">
     <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
     <b id="store_name"></b>
@@ -111,38 +118,33 @@
 </div>
 
 <div class="result">
-    <b>전체 리뷰 결과</b>
+    <b id="">전체 리뷰 결과</b>
     <button id="write"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
 </div>
+<div class="scroll">
 
+</div>
 <div class="review">
     <button id="local"><b>현지인</b></button>
     <button id="outsider"><b>외부인</b></button>
 </div>
 
-<div class="review2">
+<div class="review_detail">
+>>>>>>> 0b787eb5d3a2889d709aa1dae4ae9fb069922b39
 </div>
 
 <div class="navbar">
-    <div class="n-box fc-blue">
-        <i class="fas fa-home fa-1x"></i>
-        <p class="nav_tit">홈</p>
-
-    </div>
-
     <div class="n-box">
-        <i class="fas fa-search"></i>
-        <p class="nav_tit">검색</p>
+        <i class="fas fa-th fa-2x fc-blue"></i>
     </div>
-
     <div class="n-box">
-        <i class="far fa-heart"></i>
-        <p class="nav_tit">좋아요</p>
+        <i class="fas fa-search fa-2x"></i>
     </div>
-
     <div class="n-box">
-        <i class="fas fa-user"></i>
-        <p class="nav_tit">마이</p>
+        <i class="fas fa-heart fa-2x"></i>
+    </div>
+    <div class="n-box">
+        <i class="fas fa-user-circle fa-2x"></i>
     </div>
 </div>
 <script>
