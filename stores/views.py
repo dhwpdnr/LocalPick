@@ -38,6 +38,7 @@ class StoreImageCreate(APIView):
 
 class StoreDetailView(APIView):
     def get(self, request, pk):
+        print(request.session.get('phone_number', None))
         return render(request, "store/detail.html", {"pk" : pk})
 
 
