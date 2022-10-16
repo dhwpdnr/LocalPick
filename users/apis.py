@@ -25,6 +25,7 @@ class LoginAPI(generics.GenericAPIView):
         # 세션에 저장(임시)
         request.session["phone_number"] = user.phone_number
         request.session["nickname"] = user.nickname
+        request.session["_auth_user_id"] = user.id
 
         return Response({"phone": request.session["phone_number"]}, status=status.HTTP_200_OK)
 

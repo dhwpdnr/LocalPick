@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from .models import Category, Image, Store
+from users.models import User
 from django.views.decorators.csrf import csrf_exempt
 import os
 from uuid import uuid4
@@ -38,11 +39,20 @@ class StoreImageCreate(APIView):
 
 class StoreDetailView(APIView):
     def get(self, request, pk):
-        print(request.session.get('phone_number', None))
+        session_user_id = request.session.get('_auth_user_id')
+        user_id = User.objects.filter(id = session_user_id).first()
+        if user_id is None :
+            return render(request, "users/login.html")
+
         return render(request, "store/detail.html", {"pk" : pk})
 
 
 class StoreListView(APIView):
     def get(self, request):
+        session_user_id = request.session.get('_auth_user_id')
+        user_id = User.objects.filter(id=session_user_id).first()
+        if user_id is None:
+            return render(request, "users/login.html")
+
         store_list = Store.objects.all()
         return render(request, "store/list.html", {"store_list": store_list})
