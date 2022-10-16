@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<<<<<<< HEAD
 <style>
     .navbar{
         width:100%;
@@ -99,7 +98,6 @@
 </style>
 </head>
 <body>
->>>>>>> 0b787eb5d3a2889d709aa1dae4ae9fb069922b39
 <div class="top_box">
 
 </div>
@@ -129,8 +127,7 @@
     <button id="outsider"><b>외부인</b></button>
 </div>
 
-<div class="review_detail">
->>>>>>> 0b787eb5d3a2889d709aa1dae4ae9fb069922b39
+<div id="review_list" class="review_detail">
 </div>
 
 <div class="navbar">
@@ -151,6 +148,7 @@
     $(document).ready(function () {
         $.ajax({
             url: "{% url 'store:detail_api' pk=pk %}",
+            method: "GET",
             datatype: 'json',
             success: function (data) {
                 console.log(data.store_name);
@@ -164,6 +162,34 @@
                 info_html += "</ul>"
                 document.getElementById("store_info").innerHTML = info_html
                 $('#store_name').text(data.store_name);
+
+            },
+            error: function (request, status, error) {
+                alert("error");
+                console.log('error');
+                console.log(error);
+            },
+            complete: function (data) {
+                console.log('끝');
+            }
+        });
+        $.ajax({
+           url: "{% url 'review:list_api' pk=pk %}",
+            method: "GET",
+            datatype: 'json',
+            success: function (review){
+                console.log(review[0]);
+                var review_desc = ""
+                for(var i = 0 ; i < review.length ; i++){
+                    review_desc += "<div style='border: black solid 1px'>"
+                    review_desc += "<ul>"
+                    review_desc += "<li><p> user id : " + review[i].user_id + "</li></p>"
+                    review_desc += "<li><p> start rating : " + review[i].star_rating + "</li></p>"
+                    review_desc += "<li><p> description : " + review[i].description + "</li></p>"
+                    review_desc += "</ul>"
+                    review_desc += "</div>"
+                }
+                document.getElementById("review_list").innerHTML = review_desc
 
             },
             error: function (request, status, error) {
