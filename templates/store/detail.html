@@ -31,15 +31,16 @@
     }
     .top_box {
         width: 100%;
+        padding: 50px;
+        display: flex;
         position: fixed;
+        margin: -110px -8px -8px -8px;
         background-color: white;
-        padding-top: 85px;
-        top: 0;
     }
     .top{
-        position: fixed;
-        background-color: white;
         width: 100%;
+        background-color: white;
+        margin: 15px 0px -50px -50px;
     }
     #back{
         border: none;
@@ -54,7 +55,7 @@
         padding: 85px 0px 85px 0px;
         border: 3px solid gray;
         border-radius: 5px;
-        margin-top: 50px;
+        margin-top: 110px;
     }
     .detail{
         margin-top: 20px;
@@ -104,13 +105,12 @@
 </head>
 <body>
 <div class="top_box">
-
+    <div class="top">
+        <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
+        <b id="store_name">store_name</b>
+    </div>
 </div>
 
-<div class="top">
-    <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-    <b id="store_name">store_name</b>
-</div>
 
 <div class="store">
 
@@ -130,10 +130,6 @@
     <button id="write"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
 </div>
 
-<div class="scroll">
-
-</div>
-
 <div class="review">
     <button id="local"><b>현지인</b></button>
     <button id="outsider"><b>외부인</b></button>
@@ -141,6 +137,13 @@
 
 <div id="review_list" class="review_detail">
 </div>
+<div id="review_list" class="review_detail">
+</div>
+<div id="review_list" class="review_detail">
+</div>
+<div id="review_list" class="review_detail">
+</div>
+
 
 <div class="navbar">
     <div class="n-box">
