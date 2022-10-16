@@ -1,6 +1,6 @@
 from rest_framework import generics
 from .models import User
-from .serializers import SignupSerializer, LoginSerializer
+from .serializers import SignupSerializer, LoginSerializer, UserSerializer
 from django.contrib.auth import login
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
@@ -26,3 +26,13 @@ class LoginAPI(generics.GenericAPIView):
         request.session["phone_number"] = user.phone_number
 
         return Response({"phone": request.session["phone_number"]}, status=status.HTTP_200_OK)
+
+
+class UserInfoAPI(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    def get(self, request, pk):
+        store = User.objects.get(id=pk)
+        serializer = self.get_serializer(store)
+        return Response(serializer.data)
