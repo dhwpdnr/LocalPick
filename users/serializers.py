@@ -72,3 +72,11 @@ class LoginSerializer(serializers.Serializer):
         raise serializers.ValidationError(
             {"error": "Unable to log in with provided credentials."}
         )
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("nickname", "phone_number", "gender", "username")
+        # fields = ("title",) 튜플 하나만 사용
+        # fields = ["title"] 리스트
