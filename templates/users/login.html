@@ -53,13 +53,13 @@
 <p>비밀번호를 잊으셨나요?</p>
 <p><a href="{% url 'users:find_password' %}">비밀번호 찾기></a></p>
 
-<button id="signupClick" type="button" onClick="passwordFind()"><b>로컬픽의 회원이 되어보아요!<span style="color: #33C7F7"><ins>회원가입하기</ins></span></b>
+<button id="signupClick" type="button" onClick="signup()"><b>로컬픽의 회원이 되어보아요!<span style="color: #33C7F7"><ins>회원가입하기</ins></span></b>
 </button>
 </body>
 <script>
 
-    function passwordFind() {
-        location.href = "{% url 'users:change_password' %}";
+    function signup() {
+        location.href = "{% url 'users:signup' %}";
     }
 
 
