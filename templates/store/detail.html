@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="ko">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,6 +57,12 @@
         border-radius: 5px;
         margin-top: 50px;
     }
+    .detail{
+        margin-top: 20px;
+    }
+    li{
+        margin-top: 10px;
+    }
     .result{
         margin-top: 20px;
         display: flex;
@@ -106,7 +111,7 @@
 
 <div class="top">
     <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-    <b id="store_name"></b>
+    <b id="store_name">store_name</b>
 </div>
 
 <div class="store">
@@ -114,16 +119,23 @@
 </div>
 
 <div id="store_info" class="detail">
-
+    <b>store_name</b>
+    <ul>
+        <li>store_time</li>
+        <li>store_adress</li>
+        <li>store_time</li>
+    </ul>
 </div>
 
 <div class="result">
     <b id="">전체 리뷰 결과</b>
     <button id="write"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
 </div>
+
 <div class="scroll">
 
 </div>
+
 <div class="review">
     <button id="local"><b>현지인</b></button>
     <button id="outsider"><b>외부인</b></button>
