@@ -99,20 +99,15 @@
 <body>
 <div class="top">
     <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-    <b id="store_name">{{ store.store_name }}</b>
+    <b id="store_name"></b>
 </div>
 
 <div class="store">
 
 </div>
 
-<div class="detail">
-    <p id="req_store_name"><b></b></p>
-    <ul>
-        <li><p id="req_store_adress"></p></li>
-        <li><p id="req_store_tel"></p></li>
-        <li><p id="req_store_time"></p></li>
-    </ul>
+<div id="store_info" class="detail">
+
 </div>
 
 <div class="result">
@@ -157,11 +152,17 @@
             datatype: 'json',
             success: function (data) {
                 console.log(data.store_name);
-                $('#req_store_name').text(data.store_name);
+
+                var info_html = ""
+                info_html += "<p><b>" + data.store_name + "</p></b>"
+                info_html += "<ul>"
+                info_html += "<li><p>" + data.store_adress + "</p></li>"
+                info_html += "<li><p>" + data.store_tel + "</p></li>"
+                info_html += "<li><p>" + data.store_time + "</p></li>"
+                info_html += "</ul>"
+                document.getElementById("store_info").innerHTML = info_html
                 $('#store_name').text(data.store_name);
-                $('#req_store_adress').text(data.store_adress);
-                $('#req_store_tel').text(data.store_tel);
-                $('#req_store_time').text(data.store_time);
+
             },
             error: function (request, status, error) {
                 alert("error");
