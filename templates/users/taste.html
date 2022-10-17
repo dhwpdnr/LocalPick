@@ -15,50 +15,111 @@
             margin-top: 100px;
             margin-bottom: 20px;
         }
-        .taste{
+        input[type=range] {
+            height: 28px;
+            -webkit-appearance: none;
+            margin: 10px 0;
             width: 100%;
-            margin-top: 30px;
-            margin-bottom: 50px;
         }
-        label{
-            margin: 10px;
+        input[type=range]:focus {
+            outline: none;
         }
-        input{
-            margin: 10px;
-        }
-        #okay{
+        input[type=range]::-webkit-slider-runnable-track {
             width: 100%;
-            height: 50px;
-            position: absolute;
-            bottom: 100px;
-            border-radius: 5px;
-            border: 1px solid black;
-            color: black;
-            background-color: white;
-            box-shadow: 1px 3px 3px 3px lightgray;
+            height: 4px;
+            cursor: pointer;
+            background: #33C7F7;
+            border-radius: 10px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            height: 15px;
+            width: 15px;
+            border-radius: 22px;
+            background: #33C7F7;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -6px;
+        }
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #33C7F7;
+        }
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            background: #33C7F7;
+            border-radius: 10px;
+
+        }
+        input[type=range]::-moz-range-thumb {
+            height: 15px;
+            width: 15px;
+            border-radius: 15px;
+            background: #33C7F7;
+            cursor: pointer;
+        }
+        input[type=range]::-ms-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+        input[type=range]::-ms-fill-lower {
+            background: #33C7F7;
+            border-radius: 20px;
+
+        }
+        input[type=range]::-ms-fill-upper {
+            background: #33C7F7;
+            border-radius: 20px;
+        }
+        input[type=range]::-ms-thumb {
+            margin-top: 1px;
+            height: 15px;
+            width: 15px;
+            border-radius: 15px;
+            background: #33C7F7;
+            cursor: pointer;
+        }
+        input[type=range]:focus::-ms-fill-lower {
+            background: #33C7F7;
+        }
+        input[type=range]:focus::-ms-fill-upper {
+            background: #33C7F7;
         }
     </style>
 </head>
 <body>
 <div class="title">
-    <h2><b>알맞은 식성향으로</b><br>로컬 픽이 추천해드립니다!</h2>
+    <h2>알맞은 식성향으로<br>로컬 픽이 추천해드립니다!</h2>
 </div>
 
 <div class="taste">
-    <label><b>매운맛</b></label><input type="range" min="0" max="5">
+    <div id="taste_out"></div>
+    <label><b>매운맛</b></label><input id="taste_in" type="range" min="0" max="5">
 </div>
 <div class="taste">
-    <label><b>짠맛</b></label><input type="range" min="0" max="5">
+    <div id="taste_out"></div>
+    <label><b>짠맛</b></label><input id="taste_in" type="range" min="0" max="5">
 </div>
 <div class="taste">
-    <label><b>단맛</b></label><input type="range" min="0" max="5">
+    <div id="taste_out"></div>
+    <label><b>단맛</b></label><input id="taste_in" type="range" min="0" max="5">
 </div>
 <div class="taste">
-    <label><b>식사량</b></label><input type="range" min="0" max="5">
+    <div id="taste_out"></div>
+    <label><b>식사량</b></label><input id="taste_in" type="range" min="0" max="5">
 </div>
 
 <div class="okay">
     <button id="okay" type="submit" disabled onclick="">완료</button>
 </div>
 </body>
+<script>
+        document.querySelector('#taste_in').addEventListener('input',e=>{
+        document.querySelector('#taste_out').innerHTML= e.target.value;
+        });
+</script>
 </html>

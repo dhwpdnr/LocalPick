@@ -17,6 +17,11 @@
         border: none;
         background-color: white;
     }
+    #text_write{
+        border: 1px solid lightgray;
+        padding: 50px;
+        box-shadow: darkgray 3px 3px 3px 3px ;
+    }
 </style>
 </head>
 
@@ -38,9 +43,13 @@
     <div class="review_bar">
         <label><b>가격</b></label><input type="range" min="0" max="5">
     </div>
+
     <div class="memo">
         <i class="fas fa-pen"></i>
         <b>리뷰 내용 작성하기</b>
     </div>
+
+    <input id="text_write" type="text" min="0" max="500">
+
 </body>
 </html>

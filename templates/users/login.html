@@ -7,54 +7,118 @@
     <title>로컬픽</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
-        input {
+        img {
             width: 100%;
-            border: 1px solid black;
-            border-radius: 5px;
-            padding: 10px 12px;
-            font-size: 10px;
-        }
-
-        .login_box > input {
-            background: transparent;
-            border-radius: 5px;
-            padding: 20px 0px 15px 0px;
-            font-size: 10pt;
-            width: 100%;
+            display : block;
+            margin : auto;
+            padding: 80px 50px 70px 50px;
             box-sizing: border-box;
         }
-
+        .login_box{
+            width: 100%;
+            height: 60px;
+            border-radius: 5px;
+            border: 1px solid dimgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            padding: 15px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            margin-top: 10px;
+            color: dimgray;
+        }
+        i{
+            margin-left: 10px;
+            color: black;
+        }
+        #phone_number{
+            background: transparent;
+            border: none;
+            -webkit-appearance: none;
+            text-align: center;
+            margin-left: 10px;
+            overflow: auto;
+            width: 100%;
+        }
+        #password{
+            background: transparent;
+            border: none;
+            -webkit-appearance: none;
+            text-align: center;
+            margin-left: 10px;
+            overflow: auto;
+            width: 100%;
+        }
         #btn_login {
             background-color: #33C7F7;
             border: none;
             color: white;
             border-radius: 5px;
             width: 100%;
-            height: 50px;
+            height: 60px;
             font-size: 12pt;
             margin-top: 50px;
             box-sizing: border-box;
         }
+        .password{
+            border-top: 2px solid lightgrey;
+            margin-top: 70px;
+            text-align: center;
+            color: dimgray;
+            font-size: 15px;
+        }
+        #forget{
+            margin-top: 50px;
+            margin-bottom: 15px;
+        }
+        #passwordFind{
+            color: inherit;
+            text-decoration: none;
+        }
+        .signup{
+            border-top: 1px solid lightgrey;
+            margin-top: 40px;
+        }
+        #signupClick{
+            border: none;
+            background-color: white;
+            margin:auto;
+            display: block;
+            padding: 25px 28px 30px 28px;
+            font-size: 15px;
+        }
     </style>
 </head>
 <body>
-<img src="#" alt="로컬픽" width="100%">
+<img src="images/IMG_4613.PNG" alt="로컬픽">
+
 <div class="login_box">
+    <i class="fas fa-phone-alt"></i>
     <input id="phone_number" type="text" placeholder="본인 명의의 휴대폰 번호를 입력하세요." required>
 </div>
 <div class="login_box">
+    <i class="fas fa-lock"></i>
     <input id="password" type="password" placeholder="비밀번호를 입력하세요.">
 </div>
+
 <div class="login">
-    <button id="btn_login" type="submit">로그인</button>
+    <button id="btn_login" type="submit"><b>로 그 인</b></button>
 </div>
 
-<p>비밀번호를 잊으셨나요?</p>
-<p><a href="{% url 'users:find_password' %}">비밀번호 찾기></a></p>
+<div class="password">
+    <div id="forget">비밀번호를 잊으셨나요?</div>
+    <a id="passwordFind" href="{% url 'users:find_password' %}"><b>비밀번호 찾기</b></a>
+</div>
 
-<button id="signupClick" type="button" onClick="signup()"><b>로컬픽의 회원이 되어보아요!<span style="color: #33C7F7"><ins>회원가입하기</ins></span></b>
-</button>
+<div class="signup">
+    <button id="signupClick" type="button" onClick="signup()"><b>로컬픽의 회원이 되어보아요!&nbsp;&nbsp;&nbsp;<span style="color: #33C7F7"><ins>회원가입하기</ins></span></b>
+    </button>
+</div>
+
 </body>
 <script>
 
