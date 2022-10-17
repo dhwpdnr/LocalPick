@@ -1,13 +1,11 @@
 <!doctype html>
 <html lang="ko">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로컬픽</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
     .navbar{
@@ -19,7 +17,6 @@
         background-color: white;
         z-index: 90;
         justify-content: space-between;
-
     }
     .n-box{
         padding-top: 25px;
@@ -89,7 +86,6 @@
         border: 1px solid white;
         border-radius: 5px;
         box-shadow: 10px 5px 10px 5px #F5F5F5;
-
     }
     #box3{
         margin-top: 10px;
@@ -115,20 +111,18 @@
         float: right;
     }
 </style>
-
 </head>
 <body>
 <div class="top_box">
-
 </div>
 
 <div class="top">
     <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-    <img src="../users/images/IMG_4613.PNG" alt="로컬픽">
+    <img src="/static/images/IMG_4613.PNG" alt="로컬픽">
 </div>
 
 <div class="head">
-    <h2>[선택한 장소]의<br>주변 맛집을 추천해드릴게요.</h2>
+    <h2>{{ nickname }} 님의<br>님의 추천 맛집입니다.</h2>
 </div>
 
 <div class="first_box">
@@ -136,7 +130,6 @@
         <b>store list</b>
         <button id="add" type="button"><b>더보기</b></button>
     </div>
-
     <!--{% for store in store_list %}-->
     <div class="listbox">
         <div id="box1">
@@ -145,7 +138,6 @@
             </div>
         <a href="{% url 'store:detail' pk=store.id %}">{{store.store_name}}</a>
         </div>
-
         <div class="listbox">
             <div id="box2">
                 <div id="photo1">

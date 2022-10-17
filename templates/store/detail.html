@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
     .navbar{
+        left:0;
         width:100%;
         border-top: 1px solid lightgrey;
         display: flex;
@@ -23,41 +24,43 @@
         padding-top: 25px;
         padding-bottom: 25px;
         text-align: center;
-        margin-right: 40px;
-        margin-left: 20px;
+        margin-right: 30px;
+        margin-left: 30px;
     }
     .fc-blue{
         color: #33C7F7;
     }
     .top_box {
-        width: 100%;
-        padding: 50px;
-        display: flex;
         position: fixed;
-        margin: -110px -8px -8px -8px;
+        top:0;
+        left:0;
+        height: 100px;
+        width: 100%;
         background-color: white;
+        z-index: 10;
     }
     .top{
-        width: 100%;
-        background-color: white;
-        margin: 15px 0px -50px -50px;
+        text-align: center;
+        margin-top: 50px;
     }
     #back{
+        float: left;
         border: none;
         background-color: white;
     }
     #store_name{
-        text-align: center;
+
     }
     .store {
         width: 100%;
         box-sizing: border-box;
-        padding: 85px 0px 85px 0px;
+        padding: 85px 0 85px 0;
         border: 3px solid gray;
         border-radius: 5px;
         margin-top: 110px;
+        z-index: 20;
     }
-    .detail{
+    #store_info{
         margin-top: 20px;
     }
     li{
@@ -92,10 +95,10 @@
         margin-top: 20px;
         color: dimgray;
     }
-    .review_detail{
+    #review_list{
         width: 100%;
         box-sizing: border-box;
-        padding: 50px 0px 50px 0px;
+        padding: 50px 0 50px 0;
         border: 1px solid gray;
         border-radius: 5px;
         margin-top: 20px;
@@ -116,7 +119,7 @@
 
 </div>
 
-<div id="store_info" class="detail">
+<div id="store_info">
     <b>store_name</b>
     <ul>
         <li>store_time</li>
@@ -135,13 +138,8 @@
     <button id="outsider"><b>외부인</b></button>
 </div>
 
-<div id="review_list" class="review_detail">
-</div>
-<div id="review_list" class="review_detail">
-</div>
-<div id="review_list" class="review_detail">
-</div>
-<div id="review_list" class="review_detail">
+<div id="review_list">
+
 </div>
 
 
@@ -196,7 +194,7 @@
                 console.log(review[0]);
                 var review_desc = ""
                 for(var i = 0 ; i < review.length ; i++){
-                    review_desc += "<div style='border: black solid 1px'>"
+                    review_desc += "<div style='border: 1px solid gray'>"
                     review_desc += "<ul>"
                     review_desc += "<li><p> user id : " + review[i].user_id + "</li></p>"
                     review_desc += "<li><p> start rating : " + review[i].star_rating + "</li></p>"
