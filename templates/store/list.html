@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
     .navbar{
+        left:0;
         width:100%;
         border-top: 1px solid lightgrey;
         display: flex;
@@ -19,27 +20,29 @@
         justify-content: space-between;
     }
     .n-box{
-        padding-top: 25px;
-        padding-bottom: 25px;
         text-align: center;
-        margin-right: 40px;
-        margin-left: 20px;
+        margin-right: 25px;
+        margin-left: 18px;
+        padding: 15px 0 15px 0;
     }
     .fc-blue{
         color: #33C7F7;
     }
     .top_box {
-        width: 100%;
         position: fixed;
+        top:0;
+        left:0;
+        height: 110px;
+        width: 100%;
         background-color: white;
-        padding-top: 85px;
-        top: 0;
     }
     .top{
+        top:0;
+        left:0;
         position: fixed;
         background-color: white;
         width: 100%;
-        margin-top: 14px;
+        margin-top: 50px;
         display: flex;
     }
     img{
@@ -52,6 +55,9 @@
     #back{
         border: none;
         background-color: white;
+    }
+    .head{
+        margin-top: 135px;
     }
     .list_name{
         display: flex;
@@ -149,9 +155,10 @@
     </div>
     <!--{% endfor %}-->
 </div>
+
 <div class="navbar">
-    <div class="n-box fc-blue">
-        <i class="fas fa-th fa-2x"></i>
+    <div class="n-box">
+        <i class="fas fa-th fa-2x fc-blue"></i>
     </div>
     <div class="n-box">
         <i class="fas fa-search fa-2x"></i>
@@ -163,5 +170,7 @@
         <i class="fas fa-user-circle fa-2x"></i>
     </div>
 </div>
+
+
 </body>
 </html>
