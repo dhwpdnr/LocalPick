@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    {% load static %}
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,7 +96,7 @@
     </style>
 </head>
 <body>
-<img src="images/IMG_4613.PNG" alt="로컬픽">
+<img src="/static/images/IMG_4613.PNG" alt="로컬픽">
 
 <div class="login_box">
     <i class="fas fa-phone-alt"></i>
@@ -128,10 +130,10 @@
 
 
     $('#btn_login').click(function () {
-        let phone_number = $('#phone').val();
+        let phone_number = $('#phone_number').val();
         let password = $('#password').val();
         $.ajax({
-            url: "{% url 'users:login_api' %}}",
+            url: "{% url 'users:login_api' %}",
             dataType: "json",
             data: {
                 'csrfmiddlewaretoken': "{{ csrf_token }}",
@@ -146,6 +148,7 @@
 
             error: function (request, status, error) {
                 alert("로그인 실패");
+                console.log(request)
                 console.log(error);
             },
             complete: function () {
