@@ -112,7 +112,7 @@
 <div class="top_box">
     <div class="top">
         <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-        <b id="store_name">store_name</b>
+        <b id="store_name"></b>
     </div>
 </div>
 
@@ -121,13 +121,9 @@
 
 </div>
 
-<div id="store_info">
-    <b>store_name</b>
-    <ul>
-        <li>store_time</li>
-        <li>store_adress</li>
-        <li>store_time</li>
-    </ul>
+<div id="store_info" class="detail">
+
+
 </div>
 
 <div class="result">
@@ -140,8 +136,7 @@
     <button id="outsider"><b>외부인</b></button>
 </div>
 
-<div id="review_list">
-
+<div id="review_list" class="review_detail">
 </div>
 <div id="review_list">
 
@@ -152,7 +147,6 @@
 <div id="review_list">
 
 </div>
-
 
 <div class="navbar">
     <div class="n-box">
@@ -202,7 +196,7 @@
             method: "GET",
             datatype: 'json',
             success: function (review){
-                console.log(review[0]);
+                console.log(review);
                 var review_desc = ""
                 for(var i = 0 ; i < review.length ; i++){
                     review_desc += "<div style='border: 1px solid gray'>"
