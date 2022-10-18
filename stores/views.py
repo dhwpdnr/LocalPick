@@ -51,10 +51,7 @@ class StoreListView(APIView):
     def get(self, request):
         session_user_id = request.session.get('_auth_user_id')
         user_id = User.objects.filter(id=session_user_id).first()
-        nickname = request.session.get('nickname')
-        print(nickname)
         if user_id is None:
             return render(request, "users/login.html")
-
-        store_list = Store.objects.all()
-        return render(request, "store/list.html", {"store_list": store_list, "nickname":nickname})
+        nickname = request.session.get('nickname')
+        return render(request, "store/list.html", {"nickname": nickname})
