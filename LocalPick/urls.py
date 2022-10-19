@@ -23,6 +23,7 @@ urlpatterns = [
     path('store/', include("stores.urls")),
     path('search/', include("search.urls")),
     path('review/', include("review.urls")),
-    path('appetite/', include("appetite.urls"))
+    path('appetite/', include("appetite.urls")),
+    path('like/', include("like.urls"))
 ]
 
