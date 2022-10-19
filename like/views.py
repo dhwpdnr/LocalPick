@@ -10,4 +10,4 @@ class LikeListView(APIView):
         if user_id is None:
             return render(request, "users/login.html")
         nickname = request.session.get('nickname')
-        return render(request, "store/list.html", {"nickname": nickname})
+        return render(request, "like/list.html", {"nickname": nickname})
