@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로컬픽</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<style>
+
+    <style>
     .navbar{
         left:0;
         width:100%;
@@ -20,11 +23,14 @@
         justify-content: space-between;
     }
     .n-box{
+
+        padding-top: 25px;
+        padding-bottom: 25px;
         text-align: center;
-        margin-right: 25px;
-        margin-left: 18px;
-        padding: 15px 0 15px 0;
+        margin-right: 30px;
+        margin-left: 30px;
     }
+
     .fc-blue{
         color: #33C7F7;
     }
@@ -56,12 +62,24 @@
         border: none;
         background-color: white;
     }
+
+    #back > i{
+        margin: 10px;
+        float: right;
+    }
     .head{
         margin-top: 135px;
+    }
+    .head > h2{
+        margin-left: 15px;
     }
     .list_name{
         display: flex;
         justify-content: space-between;
+        margin-top: 30px;
+    }
+    .list_name > b {
+        margin-left: 10px;
     }
     #add{
         border-radius: 10px;
@@ -73,104 +91,71 @@
     .listbox{
         display: flex;
     }
-    #box1{
-        margin-top: 10px;
-        margin-left: 20px;
-        width: 100px;
-        height: 100px;
-        padding: 20px;
-        border: 1px solid white;
+
+    #box{
+        border: 1px solid black;
         border-radius: 5px;
-        box-shadow: 10px 5px 10px 5px #F5F5F5;
-    }
-     #box2{
-        margin-top: 10px;
-        margin-left: 15px;
-        width: 100px;
-        height: 100px;
+        margin: 5px;
+        width: 135px;
+        height: 145px;
         padding: 20px;
-        border: 1px solid white;
-        border-radius: 5px;
-        box-shadow: 10px 5px 10px 5px #F5F5F5;
     }
-    #box3{
-        margin-top: 10px;
-        margin-left: 10px;
-        width: 100px;
-        height: 100px;
-        padding: 20px;
-        border: 1px solid white;
-        border-radius: 5px;
-        box-shadow: 10px 5px 10px 5px #F5F5F5;
-    }
-    #photo1{
-        box-sizing: border-box;
+    #photo{
         border: 1px solid darkgrey;
         border-radius: 5px;
-        width: 125px;
-        height: 97px;
-        margin-left: -12px;
-        margin-top: -12px;
+        margin: -5px -11px 0 -11px;
+        padding: 50px;
     }
-    i{
-        margin: 10px;
-        float: right;
-    }
-</style>
+
+    </style>
 </head>
 <body>
-<div class="top_box">
-</div>
+    <div class="top_box">
 
-<div class="top">
-    <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-    <img src="/static/images/IMG_4613.PNG" alt="로컬픽">
-</div>
-
-<div class="head">
-    <h2>{{ nickname }}<br>님의 좋아요 맛집입니다.</h2>
-</div>
-
-<div class="first_box">
-    <div class="list_name">
-        <b>store list</b>
-        <button id="add" type="button"><b>더보기</b></button>
     </div>
-    <!--{% for store in store_list %}-->
+
+    <div class="top">
+        <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
+        <img src="/static/images/IMG_4613.PNG" alt="로컬픽">
+    </div>
+
+    <div class="head">
+        <h2>{{ nickname }} 님의<br>좋아요 맛집 리스트입니다.</h2>
+    </div>
+
     <div class="listbox">
-        <div id="box1">
-            <div id="photo1">
+        <div id="box">
+            <div id="photo">
                 <i class="far fa-heart"></i>
             </div>
-        <a href="{% url 'store:detail' pk=store.id %}">{{store.store_name}}</a>
+            <a href="{% url 'store:detail' pk=store.id %}"></a>
         </div>
-        <div class="listbox">
-            <div id="box2">
-                <div id="photo1">
-                    <i class="far fa-heart"></i>
-                </div>
-            <a href="{% url 'store:detail' pk=store.id %}">{{store.store_name}}</a>
+        <div id="box">
+            <div id="photo">
+                <i class="far fa-heart"></i>
             </div>
+            <a href="{% url 'store:detail' pk=store.id %}"></a>
         </div>
     </div>
-    <!--{% endfor %}-->
-</div>
 
-<div class="navbar">
-    <div class="n-box">
-        <i class="fas fa-th fa-2x fc-blue"></i>
-    </div>
-    <div class="n-box">
-        <i class="fas fa-search fa-2x"></i>
-    </div>
-    <div class="n-box">
-        <i class="fas fa-heart fa-2x"></i>
-    </div>
-    <div class="n-box">
-        <i class="fas fa-user-circle fa-2x"></i>
-    </div>
-</div>
+     <div class="list_name">
+        <b>{{ nickname }}님 좋아요 맛집</b>
+        <button id="add" type="button"><b>더보기</b></button>
+     </div>
 
-
+    <div class="navbar">
+        <div class="n-box">
+            <i class="fas fa-th fa-2x "></i>
+        </div>
+        <div class="n-box">
+            <i class="fas fa-search fa-2x"></i>
+        </div>
+        <div class="n-box">
+            <i class="fas fa-heart fa-2x fc-blue"></i>
+        </div>
+        <div class="n-box">
+            <i class="fas fa-user-circle fa-2x"></i>
+        </div>
+    </div>
 </body>
 </html>
