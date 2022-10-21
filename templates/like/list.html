@@ -81,22 +81,8 @@
             margin-left: 15px;
         }
 
-        .list_name {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-
         .list_name > b {
             margin-left: 10px;
-        }
-
-        #add {
-            border-radius: 10px;
-            border: 2px solid #33C7F7;
-            color: #33C7F7;
-            background-color: white;
-            float: right;
         }
 
         .listbox {
@@ -112,7 +98,7 @@
             width: 135px;
             height: 135px;
             padding: 20px;
-            box-shadow: 10px 5px 10px 5px #F5F5F5;
+            box-shadow: 0 1px 8px 1px rgba(0, 0, 0, 0.1);
         }
         #photo {
             border: 1px solid darkgrey;
@@ -141,11 +127,6 @@
     <h2>{{ nickname }} 님의<br>좋아요 맛집 리스트입니다.</h2>
 </div>
 
-<div class="list_name">
-    <b>{{ nickname }}님 좋아요 맛집</b>
-    <button id="add" type="button"><b>더보기</b></button>
-</div>
-
 <div class="listbox">
     <div id="box">
         <div id="photo">
@@ -158,7 +139,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="navbar">
     <div class="n-box">
