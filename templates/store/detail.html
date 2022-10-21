@@ -1,225 +1,100 @@
-<!doctype html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로컬픽</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+{% extends 'base.html' %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<style>
-    .navbar{
-        left:0;
-        width:100%;
-        border-top: 1px solid lightgrey;
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        background-color: white;
-        z-index: 90;
-        justify-content: space-between;
-    }
-    .n-box{
-        padding-top: 25px;
-        padding-bottom: 25px;
-        text-align: center;
-        margin-right: 30px;
-        margin-left: 30px;
-    }
-    .fc-blue{
-        color: #33C7F7;
-    }
-    .top_box {
-        position: fixed;
-        top:0;
-        left:0;
-        height: 100px;
-        width: 100%;
-        background-color: white;
-    }
-    .top{
-        text-align: center;
-        margin-top: 50px;
-    }
-    #back{
-        float: left;
-        border: none;
-        background-color: white;
-    }
-    #back > i {
-        margin-left: 13px;
-    }
-    #store_name{
-        margin-right: 30px;
-    }
-    .store {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 85px 0 85px 0;
-        border: 3px solid gray;
-        border-radius: 5px;
-        margin-top: 110px;
-    }
-    #store_info{
-        margin-top: 20px;
-    }
-    li{
-        margin-top: 10px;
-    }
-    .result{
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-    }
-    #write{
-        float: right;
-        border: none;
-        background-color: white;
-        color: dimgray;
-    }
-    .review{
-        display: flex;
-    }
-    #local{
-        width: 100%;
-        border: none;
-        padding: 20px 68px 20px 68px;
-        margin-top: 20px;
-        background-color: #33C7F7;
-        color: white;
-    }
-    #outsider{
-        width: 100%;
-        border: none;
-        padding: 20px 68px 20px 68px;
-        margin-top: 20px;
-        color: dimgray;
-    }
-    #review_list{
-        width: 100%;
-        box-sizing: border-box;
-        padding: 50px 0 50px 0;
-        border: 1px solid gray;
-        border-radius: 5px;
-        margin-top: 20px;
-        overflow: auto;
-        z-index: 100;
-    }
-</style>
-</head>
-<body>
-<div class="top_box">
-    <div class="top">
-        <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-        <b id="store_name"></b>
+{% block content %}
+
+
+
+
+
+    <div class="store">
+
     </div>
-</div>
+
+    <div id="store_info" class="detail">
 
 
-<div class="store">
-
-</div>
-
-<div id="store_info" class="detail">
-
-
-</div>
-
-<div class="result">
-    <b id="">전체 리뷰 결과</b>
-    <button id="write"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
-</div>
-
-<div class="review">
-    <button id="local"><b>현지인</b></button>
-    <button id="outsider"><b>외부인</b></button>
-</div>
-
-<div id="review_list" class="review_detail">
-</div>
-<div id="review_list">
-
-</div>
-<div id="review_list">
-
-</div>
-<div id="review_list">
-
-</div>
-
-<div class="navbar">
-    <div class="n-box">
-        <i class="fas fa-th fa-2x fc-blue"></i>
     </div>
-    <div class="n-box">
-        <i class="fas fa-search fa-2x"></i>
-    </div>
-    <div class="n-box">
-        <i class="fas fa-heart fa-2x"></i>
-    </div>
-    <div class="n-box">
-        <i class="fas fa-user-circle fa-2x"></i>
-    </div>
-</div>
-<script>
-    $(document).ready(function () {
-        $.ajax({
-            url: "{% url 'store:detail_api' pk=pk %}",
-            method: "GET",
-            datatype: 'json',
-            success: function (data) {
-                console.log(data.store_name);
 
-                var info_html = ""
-                info_html += "<p><b>" + data.store_name + "</p></b>"
-                info_html += "<ul>"
-                info_html += "<li><p>" + data.store_adress + "</p></li>"
-                info_html += "<li><p>" + data.store_tel + "</p></li>"
-                info_html += "<li><p>" + data.store_time + "</p></li>"
-                info_html += "</ul>"
-                document.getElementById("store_info").innerHTML = info_html
-                $('#store_name').text(data.store_name);
+    <div class="result">
+        <b id="">전체 리뷰 결과</b>
+        <button id="write"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
+    </div>
 
-            },
-            error: function (request, status, error) {
-                alert("error");
-                console.log('error');
-                console.log(error);
-            },
-            complete: function (data) {
-                console.log('끝');
-            }
-        });
-        $.ajax({
-           url: "{% url 'review:list_api' pk=pk %}",
-            method: "GET",
-            datatype: 'json',
-            success: function (review){
-                console.log(review);
-                var review_desc = ""
-                for(var i = 0 ; i < review.length ; i++){
-                    review_desc += "<div style='border: 1px solid gray'>"
-                    review_desc += "<ul>"
-                    review_desc += "<li><p> user id : " + review[i].user_id + "</li></p>"
-                    review_desc += "<li><p> start rating : " + review[i].star_rating + "</li></p>"
-                    review_desc += "<li><p> description : " + review[i].description + "</li></p>"
-                    review_desc += "</ul>"
-                    review_desc += "</div>"
+    <div class="review">
+        <button id="local"><b>현지인</b></button>
+        <button id="outsider"><b>외부인</b></button>
+    </div>
+
+    <div id="review_list" class="review_detail">
+    </div>
+    <div id="review_list">
+
+    </div>
+    <div id="review_list">
+
+    </div>
+    <div id="review_list">
+
+    </div>
+
+    {% include 'navbar.html' %}
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "{% url 'store:detail_api' pk=pk %}",
+                method: "GET",
+                datatype: 'json',
+                success: function (data) {
+                    console.log(data.store_name);
+
+                    var info_html = ""
+                    info_html += "<p><b>" + data.store_name + "</p></b>"
+                    info_html += "<ul>"
+                    info_html += "<li><p>" + data.store_adress + "</p></li>"
+                    info_html += "<li><p>" + data.store_tel + "</p></li>"
+                    info_html += "<li><p>" + data.store_time + "</p></li>"
+                    info_html += "</ul>"
+                    document.getElementById("store_info").innerHTML = info_html
+                    $('#store_name').text(data.store_name);
+
+                },
+                error: function (request, status, error) {
+                    alert("error");
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
                 }
-                document.getElementById("review_list").innerHTML = review_desc
+            });
+            $.ajax({
+                url: "{% url 'review:list_api' pk=pk %}",
+                method: "GET",
+                datatype: 'json',
+                success: function (review) {
+                    console.log(review);
+                    var review_desc = ""
+                    for (var i = 0; i < review.length; i++) {
+                        review_desc += "<div style='border: 1px solid gray'>"
+                        review_desc += "<ul>"
+                        review_desc += "<li><p> user id : " + review[i].user_id + "</li></p>"
+                        review_desc += "<li><p> start rating : " + review[i].star_rating + "</li></p>"
+                        review_desc += "<li><p> description : " + review[i].description + "</li></p>"
+                        review_desc += "</ul>"
+                        review_desc += "</div>"
+                    }
+                    document.getElementById("review_list").innerHTML = review_desc
 
-            },
-            error: function (request, status, error) {
-                alert("error");
-                console.log('error');
-                console.log(error);
-            },
-            complete: function (data) {
-                console.log('끝');
-            }
+                },
+                error: function (request, status, error) {
+                    alert("error");
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
+                }
+            });
         });
-    });
-</script>
-</body>
-</html>
+    </script>
+{% endblock %}
