@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% include "header.html" %}
+
+    <div class="head">
+        <h2>{{ nickname }} 님의<br>좋아요 맛집 리스트입니다.</h2>
+    </div>
+
+    <div class="list_name">
+        <b>{{ nickname }}님 좋아요 맛집</b>
+        <button id="add" type="button"><b>더보기</b></button>
+    </div>
+
+    <div class="listbox">
+        <div id="box">
+            <div id="photo">
+                <i class="far fa-heart"></i>
+            </div>
+        </div>
+        <div id="box">
+            <div id="photo">
+                <i class="far fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    {% include "navbar.html" %}
+    <script>
+
+    </script>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+
+    <div class="store">
+
+    </div>
+
+    <div id="store_info" class="detail">
+
+
+    </div>
+
+    <div class="result">
+        <b id="">전체 리뷰 결과</b>
+        <button id="write"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
+    </div>
+
+    <div class="review">
+        <button id="local"><b>현지인</b></button>
+        <button id="outsider"><b>외부인</b></button>
+    </div>
+
+    <div id="review_list" class="review_detail">
+    </div>
+    <div id="review_list">
+
+    </div>
+    <div id="review_list">
+
+    </div>
+    <div id="review_list">
+
+    </div>
+
+    {% include 'navbar.html' %}
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "{% url 'store:detail_api' pk=pk %}",
+                method: "GET",
+                datatype: 'json',
+                success: function (data) {
+                    console.log(data.store_name);
+
+                    var info_html = ""
+                    info_html += "<p><b>" + data.store_name + "</p></b>"
+                    info_html += "<ul>"
+                    info_html += "<li><p>" + data.store_adress + "</p></li>"
+                    info_html += "<li><p>" + data.store_tel + "</p></li>"
+                    info_html += "<li><p>" + data.store_time + "</p></li>"
+                    info_html += "</ul>"
+                    document.getElementById("store_info").innerHTML = info_html
+                    $('#store_name').text(data.store_name);
+
+                },
+                error: function (request, status, error) {
+                    alert("error");
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
+                }
+            });
+            $.ajax({
+                url: "{% url 'review:list_api' pk=pk %}",
+                method: "GET",
+                datatype: 'json',
+                success: function (review) {
+                    console.log(review);
+                    var review_desc = ""
+                    for (var i = 0; i < review.length; i++) {
+                        review_desc += "<div style='border: 1px solid gray'>"
+                        review_desc += "<ul>"
+                        review_desc += "<li><p> user id : " + review[i].user_id + "</li></p>"
+                        review_desc += "<li><p> start rating : " + review[i].star_rating + "</li></p>"
+                        review_desc += "<li><p> description : " + review[i].description + "</li></p>"
+                        review_desc += "</ul>"
+                        review_desc += "</div>"
+                    }
+                    document.getElementById("review_list").innerHTML = review_desc
+
+                },
+                error: function (request, status, error) {
+                    alert("error");
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
+                }
+            });
+        });
+    </script>
+{% endblock %}
