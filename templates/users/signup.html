@@ -12,6 +12,14 @@
 
 
     <style>
+        #back{
+            float: left;
+            border: none;
+            background-color: white;
+        }
+        #back > i {
+            margin-left: 13px;
+        }
         .title {
             width: 100%;
             margin-top: 100px;
@@ -61,6 +69,7 @@
     </style>
 </head>
 <body>
+<button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
 <div class="wrapper">
     <div class="title">
         <h2><b>로컬 픽에서</b><br><b>이용하실 정보를 입력해주세요.</b></h2>

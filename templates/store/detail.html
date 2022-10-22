@@ -2,18 +2,18 @@
 
 {% block content %}
 
-
-
-
-
-    <div class="store">
-
+<div class="detail_top_box">
+    <div class="detail_top">
+        <button id="back" onclick="history.back()">
+            <i class="fas fa-chevron-left fa-2x"></i>
+        </button>
+        <b id="store_name"> </b>
     </div>
+</div>
 
-    <div id="store_info" class="detail">
+    <div class="store"> </div>
 
-
-    </div>
+    <div id="store_info" class="detail"> </div>
 
     <div class="result">
         <b id="">전체 리뷰 결과</b>
@@ -25,19 +25,13 @@
         <button id="outsider"><b>외부인</b></button>
     </div>
 
-    <div id="review_list" class="review_detail">
-    </div>
-    <div id="review_list">
+    <div id="review_list" class="review_detail"> </div>
 
-    </div>
-    <div id="review_list">
+    <div id="review_list"> </div>
+    <div id="review_list"> </div>
+    <div id="review_list"> </div>
 
-    </div>
-    <div id="review_list">
-
-    </div>
-
-    {% include 'navbar.html' %}
+{% include 'navbar.html' %}
     <script>
         $(document).ready(function () {
             $.ajax({

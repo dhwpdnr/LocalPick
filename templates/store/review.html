@@ -11,25 +11,37 @@
 <style>
     .top{
         margin-top: 60px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+    }
+    .top{
+        text-align: center;
+        margin-top: 50px;
     }
     #back{
+        float: left;
         border: none;
         background-color: white;
     }
+    #back > i {
+        margin-left: 13px;
+    }
+    .review_bar{
+
+    }
+    .memo{
+        width: 100%;
+    }
     #text_write{
         box-sizing: border-box;
+        width: 100%;
         height: 184px;
         left: 27.5px;
-        right: 27.5px;
         top: 577.68px;
+        background: #FFFFFF;
         border: 0.75px solid #000000;
         border-radius: 6px;
-        margin-top: -80px;
-        position: absolute;
     }
-    button{
-        position: absolute;
+    .okay > button{
         width: 100%;
         height: 55px;
         left: 27.5px;
@@ -41,34 +53,42 @@
 </head>
 
 <body>
+<div class="top_box">
     <div class="top">
         <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-        <b>리뷰 작성하기</b>
+        <b id="title">리뷰 작성하기</b>
     </div>
+</div>
 
-    <div class="review_bar">
-        <label><b>양</b></label><input type="range" min="0" max="5">
-    </div>
-    <div class="review_bar">
-        <label><b>친절도</b></label><input type="range" min="0" max="5">
-    </div>
-    <div class="review_bar">
-        <label><b>위생</b></label><input type="range" min="0" max="5">
-    </div>
-    <div class="review_bar">
-        <label><b>가격</b></label><input type="range" min="0" max="5">
-    </div>
+<div class="review_bar">
 
-    <div class="memo">
-        <i class="fas fa-pen"></i>
-        <b>리뷰 내용 작성하기</b>
-    </div>
+    <label><b>양</b></label><input type="range" min="0" max="5">
+</div>
+<div class="review_bar">
+    <label><b>친절도</b></label><input type="range" min="0" max="5">
+</div>
+<div class="review_bar">
+    <label><b>위생</b></label><input type="range" min="0" max="5">
+</div>
+<div class="review_bar">
 
-    <input id="text_write" type="text" min="0" max="500">
+    <label><b>가격</b></label><input type="range" min="0" max="5">
+</div>
 
-    <div class="okay">
-        <button id="okay" type="button">완료</button>
-    </div>
+<div class="star">
+    <p><b>별점</b></p>
+</div>
+
+<div class="memo">
+    <i class="fas fa-pen"></i>
+    <b>리뷰 내용 작성하기</b>
+</div>
+
+<input id="text_write" type="text" min="0" max="500">
+
+<div class="okay">
+    <button id="okay" type="button">완 료</button>
+</div>
 
 </body>
 </html>
