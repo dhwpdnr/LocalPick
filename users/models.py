@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils import timezone
+from rest_framework.authtoken.models import Token
 
 
 class UserManager(BaseUserManager):
@@ -21,17 +22,20 @@ class UserManager(BaseUserManager):
             user.set_password(password)
 
         user.save(using=self._db)
+        token = Token.objects.create(user=user)
         return user
 
     def create_user(self, phone_number, password=None, **extra_fields):
         user = self._create_user(phone_number, password, False, False, **extra_fields)
         user.save(using=self._db)
+        token = Token.objects.create(user=user)
         return user
 
     def create_superuser(self, phone_number, password=None, **extra_fields):
         user = self._create_user(phone_number, password, True, True, **extra_fields)
         user.username = f"admin-{user.id}"
         user.save(using=self._db)
+        token = Token.objects.create(user=user)
         return user
 
     def get_by_natural_key(self, phone_number):
