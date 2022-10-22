@@ -1,10 +1,9 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from datetime import datetime
+from django.utils import timezone
 
 
 # Create your models here.
-
 class Review(models.Model):
     amount = models.PositiveIntegerField(default=0,
                                          validators=[
@@ -32,7 +31,7 @@ class Review(models.Model):
                                     )
 
     description = models.TextField(null=True)
-    created = models.DateTimeField(default=datetime.now(), blank=True, null=True)
+    created = models.DateTimeField(auto_now=True, blank=True, null=True)
     store_id = models.ForeignKey("stores.Store", on_delete=models.CASCADE, null=True, db_column="store_id")
     user_id = models.ForeignKey("users.User", on_delete=models.CASCADE, null=True, db_column="user_id")
     local = models.CharField(default='N', max_length=1)
