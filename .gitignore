@@ -182,5 +182,5 @@ cython_debug/
 
 todo.txt
 # migraions 에 migration 파일 무시
-0 * .py
+0*.py
 *.xml
