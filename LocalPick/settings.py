@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'django_filters',
     'users',
     'stores',
-    'like',
     'search',
     'review',
     'appetite'
