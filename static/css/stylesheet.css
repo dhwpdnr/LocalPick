@@ -1,7 +1,91 @@
-/*store detail css*/
-.navbar{
-        left:0;
-        width:100%;
+/*login css*/
+        #login_logo{
+            width: 100%;
+            display : block;
+            margin : auto;
+            padding: 80px 50px 70px 50px;
+            box-sizing: border-box;
+        }
+        .login_box{
+            width: 100%;
+            height: 60px;
+            border-radius: 5px;
+            border: 1px solid dimgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            padding: 15px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            margin-top: 10px;
+            color: dimgray;
+        }
+        i{
+            margin-left: 10px;
+            color: black;
+        }
+        #phone_number{
+            background: transparent;
+            border: none;
+            -webkit-appearance: none;
+            text-align: center;
+            margin-left: 10px;
+            overflow: auto;
+            width: 100%;
+        }
+        #password{
+            background: transparent;
+            border: none;
+            -webkit-appearance: none;
+            text-align: center;
+            margin-left: 10px;
+            overflow: auto;
+            width: 100%;
+        }
+        #btn_login {
+            background-color: #33C7F7;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            width: 100%;
+            height: 60px;
+            font-size: 12pt;
+            margin-top: 50px;
+            box-sizing: border-box;
+        }
+        .password{
+            border-top: 2px solid lightgrey;
+            margin-top: 70px;
+            text-align: center;
+            color: dimgray;
+            font-size: 15px;
+        }
+        #forget{
+            margin-top: 50px;
+            margin-bottom: 15px;
+        }
+        #passwordFind{
+            color: inherit;
+            text-decoration: none;
+        }
+        .signup{
+            border-top: 1px solid lightgrey;
+            margin-top: 40px;
+        }
+        #signupClick{
+            border: none;
+            background-color: white;
+            margin:auto;
+            display: block;
+            padding: 25px 28px 30px 28px;
+            font-size: 15px;
+        }
+
+/*navbar css*/
+    .navbar {
+        left: 0;
+        width: 100%;
         border-top: 1px solid lightgrey;
         display: flex;
         position: fixed;
@@ -20,7 +104,9 @@
     .fc-blue{
         color: #33C7F7;
     }
-    .top_box {
+
+/*store detail css*/
+    .detail_top_box {
         position: fixed;
         top:0;
         left:0;
@@ -28,10 +114,11 @@
         width: 100%;
         background-color: white;
     }
-    .top{
+    .detail_top{
         text-align: center;
         margin-top: 50px;
     }
+
     #back{
         float: left;
         border: none;
@@ -40,6 +127,7 @@
     #back > i {
         margin-left: 13px;
     }
+
     #store_name{
         margin-right: 30px;
     }
@@ -97,33 +185,7 @@
         z-index: 100;
     }
 
-    /*like list css*/
-
-.navbar {
-            left: 0;
-            width: 100%;
-            border-top: 1px solid lightgrey;
-            display: flex;
-            position: fixed;
-            bottom: 0;
-            background-color: white;
-            z-index: 90;
-            justify-content: space-between;
-        }
-
-        .n-box {
-
-            padding-top: 25px;
-            padding-bottom: 25px;
-            text-align: center;
-            margin-right: 30px;
-            margin-left: 30px;
-        }
-
-        .fc-blue {
-            color: #33C7F7;
-        }
-
+/*like list css*/
         .top_box {
             position: fixed;
             top: 0;
@@ -132,7 +194,6 @@
             width: 100%;
             background-color: white;
         }
-
         .top {
             top: 0;
             left: 0;
@@ -142,57 +203,24 @@
             margin-top: 50px;
             display: flex;
         }
-
-        img {
+        #logo {
             width: 190px;
             height: 50px;
             display: block;
-            margin-left: 50px;
+            margin-left: 90px;
             margin-top: 10px;
         }
-
-        #back {
-            border: none;
-            background-color: white;
-        }
-
-        #back > i {
-            margin: 10px;
-            float: right;
-        }
-
         .head {
             margin-top: 135px;
         }
-
         .head > h2 {
             margin-left: 15px;
         }
-
-        .list_name {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-
-        .list_name > b {
-            margin-left: 10px;
-        }
-
-        #add {
-            border-radius: 10px;
-            border: 2px solid #33C7F7;
-            color: #33C7F7;
-            background-color: white;
-            float: right;
-        }
-
         .listbox {
             display: flex;
             margin-top: 20px;
             margin-bottom: 20px;
         }
-
         #box {
             border: 1px solid white;
             border-radius: 5px;
@@ -214,104 +242,24 @@
             margin: -40px;
         }
 
-
-        /*store detail css*/
-
-.navbar{
-        left:0;
-        width:100%;
-        border-top: 1px solid lightgrey;
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        background-color: white;
-        z-index: 90;
-        justify-content: space-between;
-    }
-    .n-box{
-        padding-top: 25px;
-        padding-bottom: 25px;
-        text-align: center;
-        margin-right: 30px;
-        margin-left: 30px;
-    }
-    .fc-blue{
-        color: #33C7F7;
-    }
-    .top_box {
-        position: fixed;
-        top:0;
-        left:0;
-        height: 100px;
-        width: 100%;
-        background-color: white;
-    }
-    .top{
-        text-align: center;
-        margin-top: 50px;
-    }
-    #back{
-        float: left;
-        border: none;
-        background-color: white;
-    }
-    #back > i {
-        margin-left: 13px;
-    }
-    #store_name{
-        margin-right: 30px;
-    }
-    .store {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 85px 0 85px 0;
-        border: 3px solid gray;
-        border-radius: 5px;
-        margin-top: 110px;
-    }
-    #store_info{
-        margin-top: 20px;
-    }
-    li{
-        margin-top: 10px;
-    }
-    .result{
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-    }
-    #write{
-        float: right;
-        border: none;
-        background-color: white;
-        color: dimgray;
-    }
-    .review{
-        display: flex;
-    }
-    #local{
-        width: 100%;
-        border: none;
-        padding: 20px 68px 20px 68px;
-        margin-top: 20px;
-        background-color: #33C7F7;
-        color: white;
-    }
-    #outsider{
-        width: 100%;
-        border: none;
-        padding: 20px 68px 20px 68px;
-        margin-top: 20px;
-        color: dimgray;
-    }
-    #review_list{
-        width: 100%;
-        box-sizing: border-box;
-        padding: 50px 0 50px 0;
-        border: 1px solid gray;
-        border-radius: 5px;
-        margin-top: 20px;
-        overflow: auto;
-        z-index: 100;
-    }
-
+/*store list css*/
+        .list_name {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .list_name > b {
+            margin-left: 10px;
+        }
+        #add {
+            border-radius: 10px;
+            border: 2px solid #33C7F7;
+            color: #33C7F7;
+            background-color: white;
+            float: right;
+        }
+        .listbox {
+            display: flex;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }

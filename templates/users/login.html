@@ -1,102 +1,8 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    {% load static %}
+{% extends 'base.html' %}
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로컬픽</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+{% block content %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <style>
-        img {
-            width: 100%;
-            display : block;
-            margin : auto;
-            padding: 80px 50px 70px 50px;
-            box-sizing: border-box;
-        }
-        .login_box{
-            width: 100%;
-            height: 60px;
-            border-radius: 5px;
-            border: 1px solid dimgray;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            padding: 15px;
-            box-sizing: border-box;
-            margin-bottom: 15px;
-            margin-top: 10px;
-            color: dimgray;
-        }
-        i{
-            margin-left: 10px;
-            color: black;
-        }
-        #phone_number{
-            background: transparent;
-            border: none;
-            -webkit-appearance: none;
-            text-align: center;
-            margin-left: 10px;
-            overflow: auto;
-            width: 100%;
-        }
-        #password{
-            background: transparent;
-            border: none;
-            -webkit-appearance: none;
-            text-align: center;
-            margin-left: 10px;
-            overflow: auto;
-            width: 100%;
-        }
-        #btn_login {
-            background-color: #33C7F7;
-            border: none;
-            color: white;
-            border-radius: 5px;
-            width: 100%;
-            height: 60px;
-            font-size: 12pt;
-            margin-top: 50px;
-            box-sizing: border-box;
-        }
-        .password{
-            border-top: 2px solid lightgrey;
-            margin-top: 70px;
-            text-align: center;
-            color: dimgray;
-            font-size: 15px;
-        }
-        #forget{
-            margin-top: 50px;
-            margin-bottom: 15px;
-        }
-        #passwordFind{
-            color: inherit;
-            text-decoration: none;
-        }
-        .signup{
-            border-top: 1px solid lightgrey;
-            margin-top: 40px;
-        }
-        #signupClick{
-            border: none;
-            background-color: white;
-            margin:auto;
-            display: block;
-            padding: 25px 28px 30px 28px;
-            font-size: 15px;
-        }
-    </style>
-</head>
-<body>
-<img src="/static/images/IMG_4613.PNG" alt="로컬픽">
+<img id="login_logo" src="/static/images/IMG_4613.PNG" alt="로컬픽">
 
 <div class="login_box">
     <i class="fas fa-phone-alt"></i>
@@ -121,7 +27,6 @@
     </button>
 </div>
 
-</body>
 <script>
 
     function signup() {
@@ -157,7 +62,6 @@
             }
         })
     });
-
-
 </script>
-</html>
+
+{% endblock %}
