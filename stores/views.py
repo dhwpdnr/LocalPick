@@ -57,3 +57,12 @@ class StoreListView(APIView):
             return redirect("users:login")
         # {{ user.정보 }}로 사용 ex) {{ user.nickname }}
         return render(request, "store/list.html", info)
+
+
+class StoreLikeListView(APIView):
+    def get(self, request):
+        info = user_session_authticate(request)
+        if info is None:
+            return redirect("users:login")
+        # {{ user.정보 }}로 사용 ex) {{ user.nickname }}
+        return render(request, "store/likelist.html", info)

@@ -1,6 +1,6 @@
 from django.urls import path
 from .apis import StoreDetailAPI, StoreListAPI, StoreCreateAPI
-from .views import StoreCreateView, StoreImageCreate, StoreDetailView, StoreListView
+from .views import StoreCreateView, StoreImageCreate, StoreDetailView, StoreListView, StoreLikeListView
 
 
 app_name = 'store'
@@ -20,6 +20,10 @@ urlpatterns = [
     path("api/create/", StoreCreateAPI.as_view(), name="create_api"),
     # {% url 'store:create_image' %}
     path("image/create/",StoreImageCreate.as_view(), name="create_image"),
+
+    # {% url 'store:like_list' %}
+    path("like/list/", StoreLikeListView.as_view(), name="like_list"),
+
 
     path("duffufkckaRo/", StoreCreateView.as_view())
 ]
