@@ -66,7 +66,7 @@ class StoreListAPI(generics.ListAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
-    # 이부분(quertset) 수정해서 보내는 쿼리 변경 / 값 안받아도 될 때는 이렇게
+    # 이부분(queryset) 수정 해서 보내는 쿼리 변경 / 값 안 받아도 될 때는 이렇게
     # queryset = Store.objects.all()
 
     serializer_class = StoreSerializer
@@ -80,7 +80,7 @@ class StoreListAPI(generics.ListAPIView):
 
     def get_queryset(self, category_id):
         # instance 는 우리가 사용할 쿼리 / url 에서 값 받아서 조회도 가능
-        instance = Store.objects.all(category = category_id)
+        instance = Store.objects.all(category=category_id)
         return instance
 
     def get(self, request, pk,  *args, **kwargs):

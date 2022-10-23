@@ -2,18 +2,18 @@
 
 {% block content %}
 
-<div class="detail_top_box">
-    <div class="detail_top">
-        <button id="back" onclick="history.back()">
-            <i class="fas fa-chevron-left fa-2x"></i>
-        </button>
-        <b id="store_name"> </b>
+    <div class="detail_top_box">
+        <div class="detail_top">
+            <button id="back" onclick="history.back()">
+                <i class="fas fa-chevron-left fa-2x"></i>
+            </button>
+            <b id="store_name"> </b>
+        </div>
     </div>
-</div>
 
-    <div class="store"> </div>
+    <div class="store"></div>
 
-    <div id="store_info" class="detail"> </div>
+    <div id="store_info" class="detail"></div>
 
     <div class="result">
         <b id="">전체 리뷰 결과</b>
@@ -25,22 +25,23 @@
         <button id="outsider"><b>외부인</b></button>
     </div>
 
-    <div id="review_list" class="review_detail"> </div>
+    <div id="review_list" class="review_detail"></div>
 
-    <div id="review_list"> </div>
-    <div id="review_list"> </div>
-    <div id="review_list"> </div>
+    <div id="review_list"></div>
+    <div id="review_list"></div>
+    <div id="review_list"></div>
 
-{% include 'navbar.html' %}
+    {% include 'navbar.html' %}
     <script>
         $(document).ready(function () {
             $.ajax({
                 url: "{% url 'store:detail_api' pk=pk %}",
+                headers: {
+                    "Authorization": "Token {{ token }}",
+                },
                 method: "GET",
                 datatype: 'json',
                 success: function (data) {
-                    console.log(data.store_name);
-
                     var info_html = ""
                     info_html += "<p><b>" + data.store_name + "</p></b>"
                     info_html += "<ul>"
@@ -63,10 +64,12 @@
             });
             $.ajax({
                 url: "{% url 'review:list_api' pk=pk %}",
+                headers: {
+                    "Authorization": "Token {{ token }}",
+                },
                 method: "GET",
                 datatype: 'json',
                 success: function (review) {
-                    console.log(review);
                     var review_desc = ""
                     for (var i = 0; i < review.length; i++) {
                         review_desc += "<div style='border: 1px solid gray'>"

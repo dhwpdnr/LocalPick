@@ -1,5 +1,4 @@
 from rest_framework import generics
-from .models import Review
 from .serializers import ReviewSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -8,13 +7,9 @@ from rest_framework.permissions import IsAuthenticated
 class ReviewCreateAPI(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-    queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+# TODO review create 에서 store_id {{ pk }} / user_id {{ user.id }}로 ajax
 
-    # def get(self, request, pk):
-    #     review = Review.objects.get(id=pk)
-    #     serializer = self.get_serializer(review)
-    #     return Response(serializer.data)
 
 
 class ReviewListAPI(generics.ListAPIView):

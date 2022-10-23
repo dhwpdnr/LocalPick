@@ -46,7 +46,6 @@ class StoreDetailView(APIView):
             return redirect("users:login")
         # info에 url 에서 받아온 pk 담아서 넘김
         info['pk'] = pk
-        print(info)
 
         return render(request, "store/detail.html", info)
 
