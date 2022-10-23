@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework.views import APIView
 from .models import Category, Image, Store
 from users.models import User
@@ -7,13 +7,15 @@ import os
 from uuid import uuid4
 from LocalPick.settings import STORE_IMAGE
 from rest_framework.response import Response
+from .utils import user_session_authticate
+
 
 # Create your views here.
 
 class StoreCreateView(APIView):
     def get(self, request):
         category_list = Category.objects.all()
-        return render(request, "store/create.html", {"category_list" : category_list})
+        return render(request, "store/create.html", {"category_list": category_list})
 
 
 class StoreImageCreate(APIView):
@@ -23,7 +25,7 @@ class StoreImageCreate(APIView):
         store_id = request.data.get('store_id')
         image_list = request.FILES.getlist('files')
 
-        for i in image_list :
+        for i in image_list:
 
             uuid_name = uuid4().hex
             save_path = os.path.join(STORE_IMAGE, uuid_name)
@@ -39,19 +41,20 @@ class StoreImageCreate(APIView):
 
 class StoreDetailView(APIView):
     def get(self, request, pk):
-        session_user_id = request.session.get('_auth_user_id')
-        user_id = User.objects.filter(id = session_user_id).first()
-        if user_id is None :
-            return render(request, "users/login.html")
+        info = user_session_authticate(request)
+        if info is None:
+            return redirect("users:login")
+        # info에 url 에서 받아온 pk 담아서 넘김
+        info['pk'] = pk
+        print(info)
 
-        return render(request, "store/detail.html", {"pk" : pk})
+        return render(request, "store/detail.html", info)
 
 
 class StoreListView(APIView):
     def get(self, request):
-        session_user_id = request.session.get('_auth_user_id')
-        user_id = User.objects.filter(id=session_user_id).first()
-        if user_id is None:
-            return render(request, "users/login.html")
-        nickname = request.session.get('nickname')
-        return render(request, "store/list.html", {"nickname": nickname})
+        info = user_session_authticate(request)
+        if info is None:
+            return redirect("users:login")
+        # {{ user.정보 }}로 사용 ex) {{ user.nickname }}
+        return render(request, "store/list.html", info)

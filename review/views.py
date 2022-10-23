@@ -1,16 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework.views import APIView
-from users.models import User
+from .utils import user_session_authticate
 
 # Create your views here.
 
 
 class ReviewCreateView(APIView):
     def get(self, request):
+        info = user_session_authticate(request)
+        if info is None:
+            return redirect("users:login")
 
-        session_user_id = request.session.get('_auth_user_id')
-        user_id = User.objects.filter(id=session_user_id).first()
-        if user_id is None:
-            return render(request, "users/login.html")
-
-        return render(request, "")
+        return render(request, "store/review.html")

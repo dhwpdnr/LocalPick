@@ -5,6 +5,8 @@ from django.contrib.auth import login
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 # Signup API
 class SignupAPI(generics.CreateAPIView):
@@ -31,6 +33,8 @@ class LoginAPI(generics.GenericAPIView):
 
 
 class UserInfoAPI(generics.ListAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

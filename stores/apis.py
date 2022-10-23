@@ -4,10 +4,15 @@ from .models import Store
 from .serializers import StoreSerializer
 from rest_framework.pagination import PageNumberPagination
 from collections import OrderedDict
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 
+
 class StoreCreateAPI(generics.CreateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
 
@@ -18,6 +23,8 @@ class StoreCreateAPI(generics.CreateAPIView):
 
 
 class StoreDetailAPI(generics.ListAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
     
@@ -56,10 +63,18 @@ class StoreListPagination(PageNumberPagination):
 
 
 class StoreListAPI(generics.ListAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
     # 이부분(quertset) 수정해서 보내는 쿼리 변경 / 값 안받아도 될 때는 이렇게
     # queryset = Store.objects.all()
+
     serializer_class = StoreSerializer
+
+    # pagination 설정 클래스 지정
     pagination_class = StoreListPagination
+
+    # TODO django filter /?search 확인 해보기
     # filter_backends = (DjangoFilterBackend, SearchFilter)
     # search_fields = ("category")
 
@@ -79,3 +94,8 @@ class StoreListAPI(generics.ListAPIView):
 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+
+
+
+
+# TODO 좋아요 manytomany 확인 해보기
