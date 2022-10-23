@@ -12,7 +12,7 @@ urlpatterns = [
     path("api/detail/<int:pk>", StoreDetailAPI.as_view(), name="detail_api"),
 
     # {% url 'store:list_api'%}
-    path("api/list/", StoreListAPI.as_view(), name="list_api"),
+    path("api/list/<int:pk>", StoreListAPI.as_view(), name="list_api"),
     # {% url 'store:list' %}
     path("list/", StoreListView.as_view(), name="list"),
 

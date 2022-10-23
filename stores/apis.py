@@ -78,12 +78,12 @@ class StoreListAPI(generics.ListAPIView):
     # filter_backends = (DjangoFilterBackend, SearchFilter)
     # search_fields = ("category")
 
-    def get_queryset(self, category_id):
+    def get_queryset(self, pk):
         # instance 는 우리가 사용할 쿼리 / url 에서 값 받아서 조회도 가능
-        instance = Store.objects.all(category=category_id)
+        instance = Store.objects.filter(category_id=pk)
         return instance
 
-    def get(self, request, pk,  *args, **kwargs):
+    def get(self, request, pk, *args, **kwargs):
         # self.get_queryset() 부분은 사전에 정의 해둔 queryset 가져온
         queryset = self.filter_queryset(self.get_queryset(pk))
 

@@ -14,5 +14,5 @@ class ReviewCreateView(APIView):
         user_review = Review.objects.filter(user_id=info['user'].id, store_id=pk).first()
         if user_review is None:
             return render(request, "store/review.html")
-        return redirect("/store/detail/%d" %pk )
+        return redirect("/store/detail/%d" %pk)
 
