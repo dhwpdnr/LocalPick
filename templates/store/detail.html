@@ -17,7 +17,7 @@
 
     <div class="result">
         <b id="">전체 리뷰 결과</b>
-        <button id="write"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
+        <button id="write" type="button" onclick="write()"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
     </div>
 
     <div class="review">
@@ -28,11 +28,19 @@
     <div id="review_list" class="review_detail"></div>
 
     <div id="review_list"></div>
-    <div id="review_list"></div>
-    <div id="review_list"></div>
 
     {% include 'navbar.html' %}
     <script>
+        $(function (){
+            $('#heart').click(function (){
+                location.href = "{% url 'store:like_list' %}"
+            });
+        });
+
+        function write() {
+            location.href = "{% url 'review:create'%}";
+        }
+
         $(document).ready(function () {
             $.ajax({
                 url: "{% url 'store:detail_api' pk=pk %}",
@@ -72,7 +80,6 @@
                 success: function (review) {
                     var review_desc = ""
                     for (var i = 0; i < review.length; i++) {
-                        review_desc += "<div style='border: 1px solid gray'>"
                         review_desc += "<ul>"
                         review_desc += "<li><p> user id : " + review[i].user_id + "</li></p>"
                         review_desc += "<li><p> start rating : " + review[i].star_rating + "</li></p>"

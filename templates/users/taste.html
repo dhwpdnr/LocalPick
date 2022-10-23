@@ -15,20 +15,21 @@
             margin-top: 100px;
             margin-bottom: 20px;
         }
+        label{
+            font-size: 13px;
+        }
+
         input[type=range] {
-            height: 28px;
             -webkit-appearance: none;
-            margin: 10px 0;
-            width: 100%;
+            margin: 10px 0 10px 10px;
+            width: 230px;
         }
-        input[type=range]:focus {
-            outline: none;
-        }
+
         input[type=range]::-webkit-slider-runnable-track {
             width: 100%;
             height: 4px;
             cursor: pointer;
-            background: #33C7F7;
+            background: #BDBDBD;
             border-radius: 10px;
         }
         input[type=range]::-webkit-slider-thumb {
@@ -89,6 +90,20 @@
         input[type=range]:focus::-ms-fill-upper {
             background: #33C7F7;
         }
+        .taste{
+            margin-top: 45px;
+        }
+        #taste_btn_okay {
+            background-color: white;
+            color: black;
+            border-radius: 6px;
+            width: 100%;
+            height: 60px;
+            font-size: 12pt;
+            box-sizing: border-box;
+            border: 2px solid black;
+            margin-top: 240px;
+        }
     </style>
 </head>
 <body>
@@ -97,29 +112,55 @@
 </div>
 
 <div class="taste">
-    <div id="taste_out"></div>
-    <label><b>매운맛</b></label><input id="taste_in" type="range" min="0" max="5">
+    <label><b>매운맛</b></label><input id="spicy" type="range" min="1" max="6" step="0" value="0">
 </div>
 <div class="taste">
-    <div id="taste_out"></div>
-    <label><b>짠맛</b></label><input id="taste_in" type="range" min="0" max="5">
+    <label><b>짠맛</b></label><input id="salt" type="range" min="1" max="6" step="0" value="0">
 </div>
 <div class="taste">
-    <div id="taste_out"></div>
-    <label><b>단맛</b></label><input id="taste_in" type="range" min="0" max="5">
+    <label><b>단맛</b></label><input id="sweet" type="range" min="1" max="6" step="0" value="0">
 </div>
 <div class="taste">
-    <div id="taste_out"></div>
-    <label><b>식사량</b></label><input id="taste_in" type="range" min="0" max="5">
+    <label><b>식사량</b></label><input id="amount" type="range" min="1" max="6" step="0" value="0">
 </div>
 
 <div class="okay">
-    <button id="okay" type="submit" disabled onclick="">완료</button>
+    <button id="taste_btn_okay" type="button" onclick="okay()"><b>완 료</b></button>
 </div>
+
 </body>
 <script>
-        document.querySelector('#taste_in').addEventListener('input',e=>{
-        document.querySelector('#taste_out').innerHTML= e.target.value;
-        });
+    $('#taste_btn_okay').click(function () {
+
+        let spicy = $('#spicy').val();
+        let salt = $('#phone').val();
+        let sweet = $('#sweet').val();
+        let amount = $('#amount').val();
+
+        $.ajax({
+            url: "#",
+            dataType: "json",
+            data: {
+                'csrfmiddlewaretoken': "{{ csrf_token }}",
+                spicy: spicy,
+                salt: salt,
+                sweet: sweet,
+                amount: amount,
+            },
+            method: "POST",
+            success: function (data) {
+                console.log("성공");
+                location.replace("{% url 'users:login' %}");
+            },
+
+            error: function (request, status, error) {
+                console.log("에러");
+            },
+            complete: function () {
+                console.log("성공");
+
+            }
+        })
+    });
 </script>
 </html>

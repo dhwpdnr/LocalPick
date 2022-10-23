@@ -82,6 +82,180 @@
             font-size: 15px;
         }
 
+/*password css*/
+    .title {
+        text-align: center;
+        margin-top: 170px;
+        margin-bottom: 60px;
+        margin-right: 35px;
+    }
+    .passwordBox{
+        width: 100%;
+        height: 60px;
+        border-radius: 5px;
+        border: 1px solid dimgray;
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        margin-top: 10px;
+        color: dimgray;
+    }
+    #userName{
+        background: transparent;
+        border: none;
+        -webkit-appearance: none;
+        text-align: center;
+        margin-left: 0;
+        overflow: auto;
+        width: 100%;
+        }
+    #userPhone{
+        background: transparent;
+        border: none;
+        -webkit-appearance: none;
+        text-align: center;
+        margin-left: 0;
+        overflow: auto;
+        width: 100%;
+    }
+    #btn_okay {
+        background-color: #BDBDBD;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        width: 100%;
+        height: 60px;
+        font-size: 12pt;
+        margin-top: 50px;
+        box-sizing: border-box;
+    }
+    #btn_okay.on{
+        background-color: #33C7F7;
+    }
+
+/*signup css8*/
+        .title_sign {
+            margin-bottom: 25px;
+            margin-top: 65px;
+            z-index: 20;
+        }
+        #back_sign {
+            float: left;
+            border: none;
+            background-color: white;
+            z-index: 10;
+        }
+        .birth_box {
+            float: left;
+            width: 60%;
+            height: 60px;
+            border-radius: 5px;
+            border: 1px solid dimgray;
+            display: flex;
+            justify-content: center;
+            z-index: 1;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            margin-top: 10px;
+            color: dimgray;
+        }
+        .birth_box input {
+            background: transparent;
+            border: none;
+            -webkit-appearance: none;
+            text-align: center;
+            margin-left: 0;
+            overflow: auto;
+            width: 100%;
+            padding-top: 15px;
+        }
+        .birth_box span {
+            position: absolute;
+            padding: 5px 10px 10px 10px;
+            display: inline-block;
+            color: #33C7F7;
+            transition: 0.5s;
+            pointer-events: none;
+            font-size: 12px;
+        }
+        .input-box {
+            width: 100%;
+            height: 60px;
+            border-radius: 5px;
+            border: 1px solid dimgray;
+            display: flex;
+            justify-content: center;
+            z-index: 1;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            margin-top: 10px;
+            color: dimgray;
+        }
+        .input-box input {
+            background: transparent;
+            border: none;
+            -webkit-appearance: none;
+            text-align: center;
+            margin-left: 0;
+            overflow: auto;
+            width: 100%;
+            padding-top: 15px;
+        }
+        .input-box span {
+            position: absolute;
+            padding: 5px 10px 10px 10px;
+            display: inline-block;
+            color: #33C7F7;
+            transition: 0.5s;
+            pointer-events: none;
+            font-size: 12px;
+        }
+        .gender_box {
+            float: left;
+			width: 60px;
+			height : 60px;
+    		border: 1px solid dimgray;
+    		border-radius: 6px;
+            color: dimgray;
+            margin-top: 10px;
+            margin-left: 9px;
+		}
+		.gender_box input[type=radio] {
+			display: none;
+		}
+		.gender_box label {
+			display: block;
+    		border-radius: 6px;
+   			margin: 0 auto;
+    		text-align: center;
+    		height: -webkit-fill-available;
+    		line-height: 55px;
+		}
+		.gender_box input[type=radio]:checked + label {
+			background: #33C7F7;
+			color: #fff;
+		}
+		.gender_box label:hover {
+			color: #666;
+		}
+		.gender_box input[type=radio] + label {
+			background: white;
+			color: dimgray;
+		}
+        #next {
+            background-color: white;
+            color: black;
+            border-radius: 6px;
+            width: 100%;
+            height: 60px;
+            font-size: 12pt;
+            box-sizing: border-box;
+            border: 2px solid black;
+            margin-top: 45px;
+        }
+
 /*navbar css*/
     .navbar {
         left: 0;
@@ -98,8 +272,8 @@
         padding-top: 25px;
         padding-bottom: 25px;
         text-align: center;
-        margin-right: 30px;
-        margin-left: 30px;
+        margin-right: 22px;
+        margin-left: 15px;
     }
     .fc-blue{
         color: #33C7F7;
@@ -118,7 +292,6 @@
         text-align: center;
         margin-top: 50px;
     }
-
     #back{
         float: left;
         border: none;
@@ -127,7 +300,6 @@
     #back > i {
         margin-left: 13px;
     }
-
     #store_name{
         margin-right: 30px;
     }
@@ -257,9 +429,4 @@
             color: #33C7F7;
             background-color: white;
             float: right;
-        }
-        .listbox {
-            display: flex;
-            margin-top: 20px;
-            margin-bottom: 20px;
         }
