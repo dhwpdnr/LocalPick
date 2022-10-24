@@ -9,11 +9,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
-    .top{
+    .review_top_box{
         margin-top: 60px;
         margin-bottom: 30px;
     }
-    .top{
+    .review_top{
         text-align: center;
         margin-top: 50px;
     }
@@ -30,49 +30,58 @@
     }
     .memo{
         width: 100%;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .memo > i{
+        margin-left: 10px;
+        margin-right: 10px;
     }
     #text_write{
         box-sizing: border-box;
         width: 100%;
         height: 184px;
-        left: 27.5px;
-        top: 577.68px;
         background: #FFFFFF;
-        border: 0.75px solid #000000;
+        border: 1px solid #000000;
         border-radius: 6px;
     }
-    .okay > button{
+    #btn_okay {
+        background-color: #BDBDBD;
+        border: none;
+        color: white;
+        border-radius: 5px;
         width: 100%;
-        height: 55px;
-        left: 27.5px;
-        top: 796.93px;
-        background: #DDDDDD;
-        border-radius: 6px;
+        height: 60px;
+        font-size: 12pt;
+        margin-top: 50px;
+        box-sizing: border-box;
+    }
+    #btn_okay.on{
+        background-color: #33C7F7;
     }
 </style>
 </head>
 
 <body>
-<div class="top_box">
-    <div class="top">
+<div class="review_top_box">
+    <div class="review_top">
         <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
         <b id="title">리뷰 작성하기</b>
     </div>
 </div>
 
 <div class="review_bar">
+    <label><b>양</b></label><input type="range" min="1" max="5" step="1" value="1">
+</div>
+<div class="review_bar">
+    <label><b>친절도</b></label><input type="range" min="1" max="5" step="1" value="1">
+</div>
+<div class="review_bar">
+    <label><b>위생</b></label><input type="range" min="1" max="5" step="1" value="1">
+</div>
+<div class="review_bar">
 
-    <label><b>양</b></label><input type="range" min="0" max="5">
-</div>
-<div class="review_bar">
-    <label><b>친절도</b></label><input type="range" min="0" max="5">
-</div>
-<div class="review_bar">
-    <label><b>위생</b></label><input type="range" min="0" max="5">
-</div>
-<div class="review_bar">
-
-    <label><b>가격</b></label><input type="range" min="0" max="5">
+    <label><b>가격</b></label><input type="range" min="1" max="5" step="1" value="1">
 </div>
 
 <div class="star">
@@ -87,8 +96,9 @@
 <input id="text_write" type="text" min="0" max="500">
 
 <div class="okay">
-    <button id="okay" type="button">완 료</button>
+    <button id="btn_okay" type="button" onclick="okay()" disabled><b>완 료</b></button>
 </div>
+
 
 </body>
 </html>

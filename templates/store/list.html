@@ -19,7 +19,15 @@
         </div>
     </div>
 
+{% include 'navbar.html' %}
+
     <script>
+    $(function (){
+        $('#heart').click(function (){
+            location.href = "{% url 'store:like_list' %}"
+        });
+    });
+
     $(document).ready(function (){
         $.ajax({
                 url: "{% url 'store:list_api' 3 %}",

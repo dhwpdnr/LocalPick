@@ -1,146 +1,90 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로컬픽</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+{% extends 'base.html' %}
 
+{% block content %}
+<button id="back_sign" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-
-    <style>
-        #back{
-            float: left;
-            border: none;
-            background-color: white;
-        }
-        #back > i {
-            margin-left: 13px;
-        }
-        .title {
-            width: 100%;
-            margin-top: 100px;
-            margin-bottom: 20px;
-        }
-        .input-box {
-            position: relative;
-            margin: 10px 0;
-            box-sizing: border-box;
-        }
-        .input-box > input {
-            background: transparent;
-            border-radius: 5px;
-            padding: 20px 0 15px 0;
-            font-size: 10pt;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        #birth {
-            padding: 20px 0 15px 0;
-            box-sizing: border-box;
-        }
-
-        input:placeholder-shown + label {
-            color: #aaa;
-            font-size: 10pt;
-            top: 15px;
-            box-sizing: border-box;
-        }
-
-        /*input:focus, input:not(:placeholder-shown){
-            border: solid 1px #33C7F7;
-            outline:none;
-        }*/
-
-        button[type=button] {
-            background-color: white;
-            color: black;
-            border-radius: 5px;
-            width: 100%;
-            height: 50px;
-            font-size: 12pt;
-            margin-top: 50px;
-            box-sizing: border-box;
-            box-shadow: 1px 3px 3px 3px lightgray;
-        }
-    </style>
-</head>
-<body>
-<button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-<div class="wrapper">
-    <div class="title">
-        <h2><b>로컬 픽에서</b><br><b>이용하실 정보를 입력해주세요.</b></h2>
-    </div>
-    <div class="input-box">
-        <input id="name" type="text" name="name" placeholder="이름을 입력하세요.">
-    </div>
-    <div class="input-box">
-        <input id="phone" type="text" placeholder="본인 명의의 휴대폰 번호를 입력하세요.">
-    </div>
-    <div class="input-box">
-        <input id="password" type="password" placeholder="사용하실 비밀번호를 입력하세요.">
-    </div>
-    <div class="input-box">
-        <input id="password2" type="password" placeholder="사용하실 비밀번호를 다시 입력하세요.">
-    </div>
-    <div class="input-box">
-        <input id="nickname" type="text" placeholder="사용하실 닉네임을 입력해주세요.">
-    </div>
-    <div class="input-box">
-        <input id="birth" type="date" value="1999-09-01">
-    </div>
-
-    <label><input type="radio" name="gender" value="M">남</label>
-    <label><input type="radio" name="gender" value="F">여</label>
-
-    <div class="next">
-        <button id="next" type="button">다음</button>
-    </div>
+<div class="title_sign">
+    <h3><br><br>로컬 픽에서<br>이용하실 정보를 입력해주세요.</h3>
 </div>
-</body>
+
+<div class="input-box">
+    <span>이름</span>
+    <input id="name" type="text" placeholder="이름을 입력하세요.">
+</div>
+<div class="input-box">
+    <span>전화번호</span>
+    <input id="phone" type="text" placeholder="본인 명의의 휴대폰 번호를 입력하세요.">
+</div>
+<div class="input-box">
+    <span>비밀번호</span>
+    <input id="password" type="password" placeholder="사용하실 비밀번호를 입력하세요.">
+</div>
+<div class="input-box">
+    <span>비밀번호 확인</span>
+    <input id="password2" type="password" placeholder="사용하실 비밀번호를 다시 입력하세요.">
+</div>
+<div class="input-box">
+    <span>닉네임</span>
+    <input id="nickname" type="text" placeholder="사용하실 닉네임을 입력해주세요.">
+</div>
+<div class="birth_box">
+    <span>생년월일</span>
+    <input id="birth" type="date" value="2000-01-01">
+</div>
+<div class="gender_box">
+    <input id="radio-1" type="radio" name="gender" value="M">
+    <label for="radio-1">남</label>
+</div>
+<div class="gender_box">
+    <input id="radio-2" type="radio" name="gender" value="F">
+    <label for="radio-2">여</label>
+</div>
+
+
+<div class="next">
+    <button id="next" type="button" onclick="next()">다 음</button>
+</div>
+
 <script>
 
-        $('#next').click(function () {
 
-            let username = $('#name').val();
-            let phone_number = $('#phone').val();
-            let password = $('#password').val();
-            let password2 = $('#password2').val();
-            let nickname = $('#nickname').val();
-            let birth = $('#birth').val();
-            let gender = $('input[name=gender]:checked').val();
-            console.log(gender);
-            $.ajax({
-                url: "{% url 'users:signup_api' %}",
-                dataType : "json",
-                data: {
-                    'csrfmiddlewaretoken': "{{ csrf_token }}",
-                    username: username,
-                    phone_number: phone_number,
-                    password: password,
-                    nickname: nickname,
-                    birth: birth,
-                    gender: gender,
-                    password2:password2
-                },
-                method: "POST",
-                success: function (data) {
-                    console.log("성공");
-                    location.replace("{% url 'users:login' %}");
-                },
+    $('#next').click(function () {
 
-                error: function (request, status, error) {
-                    console.log("에러");
-                },
-                complete: function () {
-                    console.log("성공");
+        let username = $('#name').val();
+        let phone_number = $('#phone').val();
+        let password = $('#password').val();
+        let password2 = $('#password2').val();
+        let nickname = $('#nickname').val();
+        let birth = $('#birth').val();
+        let gender = $('input[name=gender]:checked').val();
+        console.log(gender);
+        $.ajax({
+            url: "{% url 'users:signup_api' %}",
+            dataType: "json",
+            data: {
+                'csrfmiddlewaretoken': "{{ csrf_token }}",
+                username: username,
+                phone_number: phone_number,
+                password: password,
+                nickname: nickname,
+                birth: birth,
+                gender: gender,
+                password2: password2
+            },
+            method: "POST",
+            success: function (data) {
+                console.log("성공");
+                location.replace("{% url 'users:login' %}");
+            },
 
-                }
-            })
-        });
+            error: function (request, status, error) {
+                console.log("에러");
+            },
+            complete: function () {
+                console.log("성공");
 
+            }
+        })
+    });
 </script>
-</html>
+{% endblock %}
