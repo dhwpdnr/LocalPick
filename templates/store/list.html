@@ -15,19 +15,14 @@
         </div>
 
         <div class="listbox" id="listbox">
-            <div id="box">
-                <div id="photo">
-                    <i class="far fa-heart"></i>
-                    <a href="#"></a>
-                </div>
-            </div>
+
         </div>
     </div>
 
     <script>
     $(document).ready(function (){
         $.ajax({
-                url: "#",
+                url: "{% url 'store:list_api' 3 %}",
                 headers: {
                     "Authorization": "Token {{ token }}",
                 },
@@ -36,7 +31,7 @@
                 success: function (data) {
                     var list = data.storeList
                     var list_html = ""
-                    for (var i = 0; i < list.length; i++){
+                    for (var i = 0 ; i < list.length ; i++){
                         var store_id = list[i].id
                         list_html += "<div id='box'>"
                         list_html += "<div id='photo'>"
