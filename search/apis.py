@@ -8,7 +8,6 @@ from django.db.models import Q
 class SearchAPI(generics.ListAPIView):
     # authentication_classes = (TokenAuthentication,)
     # permission_classes = (IsAuthenticated,)
-
     serializer_class = StoreSerializer
 
     def get_queryset(self, search):
@@ -18,8 +17,20 @@ class SearchAPI(generics.ListAPIView):
                 Q(store_adress__icontains=search))
         return instance
 
-    def get(self, request, *args, search_word, **kwargs):
+    # query string으로 처리
+    def get(self, request, *args, **kwargs):
+        search_word = request.GET.get("s", "")
         # self.get_queryset() 부분은 사전에 정의 해둔 queryset 가져온
+        print(search_word)
         queryset = self.filter_queryset(self.get_queryset(search_word))
         serializer = self.get_serializer(queryset, many=True)
+        print(serializer.data)
         return Response(serializer.data)
+
+    # url에 검색어 직접 넣어서 넘겨줌
+    # def get(self, request, *args, search_word, **kwargs):
+    #     # self.get_queryset() 부분은 사전에 정의 해둔 queryset 가져온
+    #     queryset = self.filter_queryset(self.get_queryset(search_word))
+    #     serializer = self.get_serializer(queryset, many=True)
+    #     return Response(serializer.data)
+    # TODO 검색 기능 django-filter 사용해서 '/?search=' 형태로 사용

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action = "{% url 'search:result_api' %}" method = "GET">
+        <input type="text" name = "s" placeholder="search">
+    </form>
+
+    {% include 'navbar.html' %}
+{% endblock %}
