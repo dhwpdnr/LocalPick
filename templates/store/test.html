@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="listbox" id="listbox">
+
+    </div>
+    <script>
+        $('.like').click(function () {
+            $.ajax({
+                url: "{% url 'store:test' %}",
+                headers: {
+                    "Authorization": "Token {{ token }}",
+                },
+                method: "POST",
+                datatype: 'json',
+                data:{
+
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $.ajax({
+                url: "{% url 'store:list_api' 3 %}",
+                headers: {
+                    "Authorization": "Token {{ token }}",
+                },
+                method: "GET",
+                datatype: 'json',
+                success: function (data) {
+                    var list = data.storeList
+                    var list_html = ""
+                    for (var i = 0; i < list.length; i++) {
+                        var store_id = list[i].id
+                        console.log(list[i]);
+                        list_html += "<div id='box'>"
+                        list_html += "<div id='photo'>"
+                        list_html += "<i class='far fa-heart'></i>"
+                        list_html += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
+                        list_html += "<input type='button' class='like' value='Like' name='" + list[i].id + "'>"
+                        list_html += "</div></div>"
+                    }
+                    document.getElementById("listbox").innerHTML = list_html;
+                },
+                error: function (request, status, error) {
+                    alert("error");
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
+                }
+            });
+        });
+
+
+    </script>
+
+{% endblock %}

@@ -38,7 +38,7 @@
         });
 
         function write() {
-            location.href = "{% url 'review:create'%}";
+            location.href = "{% url 'review:create' pk=pk %}";
         }
 
         $(document).ready(function () {
