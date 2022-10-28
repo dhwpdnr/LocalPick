@@ -135,7 +135,7 @@
         background-color: #33C7F7;
     }
 
-/*signup css8*/
+/*signup css*/
         .title_sign {
             margin-bottom: 25px;
             margin-top: 65px;
@@ -413,6 +413,12 @@
             float: right;
             margin: -40px;
         }
+         #photo > i:active{
+             color: #33C7F7;
+        }
+         .click{
+             color: #33C7F7;
+         }
 
 /*store list css*/
         .list_name {

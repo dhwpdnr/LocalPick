@@ -23,22 +23,7 @@
         </div>
     </div>
 
-    <div class="navbar">
-        <div class="n-box">
-            <i class="fas fa-th fa-2x"></i>
-        </div>
-        <div class="n-box">
-            <i class="fas fa-search fa-2x"></i>
-        </div>
-        <div class="n-box">
-            <i class="fas fa-heart fa-2x fc-blue"></i>
-        </div>
-        <div class="n-box">
-            <i class="fas fa-user-circle fa-2x"></i>
-        </div>
-    </div>
-
-    <div class="navbar">
+<div class="navbar">
     <div class="n-box" id="list">
         <i class="fas fa-th fa-2x"></i>
     </div>
@@ -54,6 +39,7 @@
 </div>
 
     <script>
+
         $(function (){
             $('#list').click(function (){
                 location.href = "{% url 'store:list' %}"
