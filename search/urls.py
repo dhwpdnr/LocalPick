@@ -12,6 +12,4 @@ urlpatterns = [
 
     # {% url 'search:result_api' %}
     path("api/result/", SearchAPI.as_view(), name="result_api")
-    # path("api/result/<str:search>", SearchAPI.as_view(), name="result_api")
-
 ]

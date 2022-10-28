@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from rest_framework.views import APIView
-from .models import Category, Image, Store
-from users.models import User
+from .models import Category, Image
+from appetite.models import Appetite
 from django.views.decorators.csrf import csrf_exempt
 import os
 from uuid import uuid4
@@ -55,6 +55,10 @@ class StoreListView(APIView):
         info = user_session_authticate(request)
         if info is None:
             return redirect("users:login")
+        user_id = request.session.get("_auth_user_id", None)
+        taste = Appetite.objects.filter(user_id=user_id).first()
+        if taste is None:
+            return render(request, "users/taste.html")
         # {{ user.정보 }}로 사용 ex) {{ user.nickname }}
         return render(request, "store/list.html", info)
 
