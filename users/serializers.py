@@ -22,6 +22,7 @@ class SignupSerializer(serializers.ModelSerializer):
     gender = serializers.CharField()
     nickname = serializers.CharField(validators = [UniqueValidator(queryset=User.objects.all())])
     username = serializers.CharField()
+
     class Meta:
         model = User
         fields = ("username", "phone_number", "password", "password2", "birth", "gender", "nickname")

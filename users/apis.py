@@ -9,6 +9,8 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 # Signup API
+
+
 class SignupAPI(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = SignupSerializer

@@ -17,7 +17,7 @@
 
     <div class="result">
         <b id="">전체 리뷰 결과</b>
-        <button id="write" type="button" onclick="write()"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
+        <button id="write" type="button"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
     </div>
 
     <div class="review">
@@ -36,9 +36,9 @@
             });
         });
 
-        function write() {
+        $('#write').click(function (){
             location.href = "{% url 'review:create' pk=pk %}";
-        }
+        });
 
         $(document).ready(function () {
             $.ajax({
