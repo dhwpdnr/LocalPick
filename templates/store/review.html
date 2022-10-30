@@ -124,7 +124,7 @@
         margin-top: 50px;
         box-sizing: border-box;
     }
-    #btn_okay.on{
+    #btn_okay.oxn{
         background-color: #33C7F7;
     }
 </style>
@@ -167,6 +167,40 @@
     <button id="btn_okay" type="button" onclick="okay()" disabled><b>완 료</b></button>
 </div>
 
+<script>
+    $('#btn_okay').click(function () {
+        let amount = $('#amount').val();
+        let kindness = $('#kindness').val();
+        let hygiene = $('#hygiene').val();
+        let price = $('#price').val();
+        let text = $('#text_write').val();
+        $.ajax({
+            url: "{% url 'review:create_api' %}",
+            dataType: "json",
+            data: {
+                'csrfmiddlewaretoken': "{{ csrf_token }}",
+                amount: amount,
+                kindness: kindness,
+                hygiene: hygiene,
+                price: price,
+                text: text,
+                store_id: {{ pk }},
+                user_id: {{ user.id }}
+            },
+            method: "POST",
+            success: function (response, data) {
+                location.replace("{% url 'store:detail' pk=pk %}");
+            },
+            error: function (request, status, error) {
+                alert("실패");
+                console.log(error);
+            },
+            complete: function () {
+                console.log("성공");
+            }
+        })
+    });
+</script>
 
 </body>
 </html>

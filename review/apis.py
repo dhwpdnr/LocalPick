@@ -8,7 +8,6 @@ class ReviewCreateAPI(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     serializer_class = ReviewSerializer
-# TODO review create 에서 store_id {{ pk }} / user_id {{ user.id }}로 ajax
 
 
 

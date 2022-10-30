@@ -2,6 +2,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import authenticate, login
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
+from rest_framework.response import Response
 
 from rest_framework.authtoken.models import Token
 from .models import User
@@ -22,6 +23,7 @@ class SignupSerializer(serializers.ModelSerializer):
     gender = serializers.CharField()
     nickname = serializers.CharField(validators = [UniqueValidator(queryset=User.objects.all())])
     username = serializers.CharField()
+
     class Meta:
         model = User
         fields = ("username", "phone_number", "password", "password2", "birth", "gender", "nickname")
@@ -53,8 +55,10 @@ class SignupSerializer(serializers.ModelSerializer):
         
         user.save()
 
-        # token = Token.objects.create(user=user)
-
+        token = Token.objects.create(user=user)
+        # token_return = Token.Token.objects.filter(user=user).first()
+        #
+        # return Response({"token": token_return.key}, status=200)
         return user
 
 

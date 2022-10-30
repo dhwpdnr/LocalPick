@@ -6,8 +6,8 @@ from .views import ReviewCreateView
 app_name = 'review'
 
 urlpatterns = [
-    # {% url 'review:create_api' pk=pk %}
-    path("api/create/<int:pk>", ReviewCreateAPI.as_view(), name="create_api"),
+    # {% url 'review:create_api' %}
+    path("api/create/", ReviewCreateAPI.as_view(), name="create_api"),
     # {% url 'review:list_api' pk=pk %}
     path("api/list/<int:pk>/", ReviewListAPI.as_view(), name="list_api"),
 

@@ -9,9 +9,13 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 # Signup API
+
+
 class SignupAPI(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = SignupSerializer
+
+# TODO signup 이후 token 물고 appetite.html로 이동
 
 
 class LoginAPI(generics.GenericAPIView):
