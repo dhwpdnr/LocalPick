@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'stores',
     'search',
     'review',
-    'appetite'
+    'appetite',
+    'like'
 ]
 
 REST_FRAMEWORK = {
