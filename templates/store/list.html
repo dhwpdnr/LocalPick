@@ -27,6 +27,12 @@
         });
     });
 
+    $(function (){
+        $('#search').click(function (){
+            location.href = "#"
+        });
+    });
+
     $(document).ready(function (){
         $.ajax({
                 url: "{% url 'store:list_api' 3 %}",
