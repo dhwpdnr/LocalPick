@@ -1,60 +1,106 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="ko">
 
-{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬픽</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
-    <div class="listbox" id="listbox">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
+    <link rel="stylesheet" href="/static/css/stylesheet.css">
+
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+</head>
+
+<body>
+ <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
     <script>
-        $('.like').click(function () {
-            $.ajax({
-                url: "{% url 'store:test' %}",
-                headers: {
-                    "Authorization": "Token {{ token }}",
-                },
-                method: "POST",
-                datatype: 'json',
-                data:{
-
-                }
-            });
-        });
-
-        $(document).ready(function () {
-            $.ajax({
-                url: "{% url 'store:list_api' 3 %}",
-                headers: {
-                    "Authorization": "Token {{ token }}",
-                },
-                method: "GET",
-                datatype: 'json',
-                success: function (data) {
-                    var list = data.storeList
-                    var list_html = ""
-                    for (var i = 0; i < list.length; i++) {
-                        var store_id = list[i].id
-                        console.log(list[i]);
-                        list_html += "<div id='box'>"
-                        list_html += "<div id='photo'>"
-                        list_html += "<i class='far fa-heart'></i>"
-                        list_html += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
-                        list_html += "<input type='button' class='like' value='Like' name='" + list[i].id + "'>"
-                        list_html += "</div></div>"
-                    }
-                    document.getElementById("listbox").innerHTML = list_html;
-                },
-                error: function (request, status, error) {
-                    alert("error");
-                    console.log('error');
-                    console.log(error);
-                },
-                complete: function (data) {
-                    console.log('끝');
-                }
-            });
-        });
-
-
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        centeredSlides: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
     </script>
 
-{% endblock %}
+</body>
+
+</html>
