@@ -135,6 +135,50 @@
         background-color: #33C7F7;
     }
 
+/*passwordch html*/
+        .passwordChange{
+            width: 100%;
+            height: 60px;
+            border-radius: 5px;
+            border: 1px solid dimgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            padding: 15px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            margin-top: 10px;
+            color: dimgray;
+        }
+        #phone_number{
+            background: transparent;
+            border: none;
+            -webkit-appearance: none;
+            text-align: center;
+            margin-left: 10px;
+            overflow: auto;
+            width: 100%;
+        }
+        #password{
+            background: transparent;
+            border: none;
+            -webkit-appearance: none;
+            text-align: center;
+            margin-left: 10px;
+            overflow: auto;
+            width: 100%;
+        }
+        #password2{
+            background: transparent;
+            border: none;
+            -webkit-appearance: none;
+            text-align: center;
+            margin-left: 10px;
+            overflow: auto;
+            width: 100%;
+        }
+
 /*signup css*/
         .title_sign {
             margin-bottom: 25px;
