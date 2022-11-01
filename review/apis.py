@@ -10,7 +10,6 @@ class ReviewCreateAPI(generics.CreateAPIView):
     serializer_class = ReviewSerializer
 
 
-
 class ReviewListAPI(generics.ListAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
