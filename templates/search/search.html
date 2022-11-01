@@ -1,98 +1,22 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로컬픽</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+{% extends 'base.html' %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% block content %}
 
-    <style>
-        .navbar {
-        left: 0;
-        width: 100%;
-        border-top: 1px solid lightgrey;
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        background-color: white;
-        z-index: 90;
-        justify-content: space-between;
-    }
-    .n-box{
-        padding-top: 25px;
-        padding-bottom: 25px;
-        text-align: center;
-        margin-right: 22px;
-        margin-left: 15px;
-    }
-    .fc-blue{
-        color: #33C7F7;
-    }
-    .search_box{
-        width: 100%;
-        height: 60px;
-        border-radius: 5px;
-        border: 1px solid dimgray;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-        padding: 15px;
-        box-sizing: border-box;
-        margin-bottom: 60px;
-        margin-top: 80px;
-        color: dimgray;
-    }
-    i{
-        color: black;
-    }
-    #content{
-        background: transparent;
-        border: none;
-        -webkit-appearance: none;
-        overflow: auto;
-        width: 100%;
-        font-size: 16px;
-    }
-    .search_box2{
-        border-bottom: 1px solid #BDBDBD;
-    }
-    b{
-        font-size: 18px;
-    }
-    #delete_btn{
-        border: 2px solid #33C7F7;
-        border-radius: 6px;
-        background-color: white;
-        color: #33C7F7;
-        float: right;
-    }
-    .search_box3{
-        display: flex;
-        margin: 20px 0 20px 0;
-    }
-    #search_con{
-        color: #313131;
-    }
-    #delete_btn2{
-        border-radius: 15px;
-        border: none;
+{% include 'header.html' %}
 
-    }
-    </style>
+<div class="top_box">
+    <div class="top">
+        <img id="logo" src="/static/images/IMG_4613.PNG" alt="로컬픽">
+    </div>
+</div>
 
-
-</head>
-
-<body>
 <div class="search_box">
     <form action = "{% url 'search:result_api' %}" method = "GET">
         <input type="text" id="content" name = "s" placeholder="장소를 입력해 주세요.">
     </form>
-    <i class="fas fa-search"></i>
+    <button class="search_btn" onclick="search()">
+        <i class="fas fa-search"></i>
+    </button>
 </div>
 
 <div class="search_box2">
@@ -100,10 +24,6 @@
     <button id="delete_btn" type="button">전체 삭제</button>
 </div>
 
-<div class="search_box3">
-    <div id="search_con">최근 검색어가 출력 됩니다</div>
-    <button id="delete_btn2" type="button"><i class="fal fa-times"></i></button>
-</div>
 
 <div class="navbar">
     <div class="n-box" id="list">
@@ -120,6 +40,10 @@
     </div>
 </div>
 
-</body>
-</html>
+<script>
+    function search() {
+        location.href = "{% url 'search:result_api' %}";
+    }
+</script>
+{% endblock %}
 

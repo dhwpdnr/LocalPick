@@ -356,7 +356,96 @@
         overflow: auto;
         z-index: 100;
     }
-
+/*search css*/
+  .top_box {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 120px;
+        width: 100%;
+        background-color: white;
+    }
+    .top {
+        top: 0;
+        left: 0;
+        position: fixed;
+        background-color: white;
+        width: 100%;
+        margin-top: 50px;
+        display: flex;
+    }
+    #logo {
+        width: 190px;
+        height: 50px;
+        display: block;
+        margin-left: 90px;
+        margin-top: 10px;
+    }
+    .navbar {
+        left: 0;
+        width: 100%;
+        border-top: 1px solid lightgrey;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background-color: white;
+        z-index: 90;
+        justify-content: space-between;
+    }
+    .n-box{
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+        margin-right: 22px;
+        margin-left: 15px;
+    }
+    .fc-blue{
+        color: #33C7F7;
+    }
+    .search_box{
+        width: 100%;
+        height: 60px;
+        border-radius: 5px;
+        border: 1px solid dimgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        padding: 15px;
+        box-sizing: border-box;
+        margin-bottom: 60px;
+        margin-top: 140px;
+        color: dimgray;
+    }
+    i{
+        color: black;
+    }
+    #content{
+        background: transparent;
+        border: none;
+        -webkit-appearance: none;
+        overflow: auto;
+        width: 100%;
+        font-size: 16px;
+    }
+    .search_btn{
+        background-color: white;
+        border: none;
+    }
+    .search_box2{
+        border-bottom: 1px solid #BDBDBD;
+        padding-bottom: 30px;
+    }
+    b{
+        font-size: 18px;
+    }
+    #delete_btn{
+        border: 2px solid #33C7F7;
+        border-radius: 6px;
+        background-color: white;
+        color: #33C7F7;
+        float: right;
+    }
 /*like list css*/
         .top_box {
             position: fixed;
