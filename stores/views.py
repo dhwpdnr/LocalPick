@@ -63,53 +63,5 @@ class StoreListView(APIView):
         return render(request, "store/list.html", info)
 
 
-class StoreLikeListView(APIView):
-    def get(self, request):
-        info = user_session_authticate(request)
-        if info is None:
-            return redirect("users:login")
-        # {{ user.정보 }}로 사용 ex) {{ user.nickname }}
-        return render(request, "store/likelist.html", info)
 
 
-class Test(APIView):
-    def get(self, request):
-        info = user_session_authticate(request)
-        if info is None:
-            return redirect("users:login")
-        # {{ user.정보 }}로 사용 ex) {{ user.nickname }}
-        return render(request, "store/test.html", info)
-
-
-class StoreLike(APIView):
-    def post(self, request):
-        print(request.POST)
-        # pk = request.get('pk', None)
-        # user_id = request.session.get("_auth_user_id", None)
-
-        # if Store.like_users.filter(id=user_id).exists():
-        #     Store.like_users.remove()
-        #     message = "좋아요 취소"
-        # else:
-        #     Store.like_users.add()
-        #     message = "좋아요"
-
-        # context = {'likes_count' : Store.count_like_users()}
-        return Response(status=200)
-
-
-    # def video_like(request):
-    #     pk = request.POST.get('pk', None)
-    #     video = get_object_or_404(Video, pk=pk)
-    #     user = request.user
-    #
-    #     if video.likes_user.filter(id=user.id).exists():
-    #         video.likes_user.remove(user)
-    #         message = '좋아요 취소'
-    #     else:
-    #         video.likes_user.add(user)
-    #         message = '좋아요'
-    #
-    #     context = {'likes_count': video.count_likes_user(), 'message': message}
-    #     return HttpResponse(json.dumps(context), content_type="application/json")
-    #TODO MANYTOMANY 확인
