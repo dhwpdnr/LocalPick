@@ -14,7 +14,8 @@ class AppetiteCreateAPI(generics.CreateAPIView):
         print(check_like)
         if check_like is None:
             return self.create(request, *args, **kwargs)
+        delete = Like.objects.get(user_id=request.data['user_id'], store_id=request.data['store_id'])
+        delete.delete()
+        return Response(status=200)
 
-        return Response(status=status.HTTP_201_CREATED)
-
-    # TODO 좋아요 여부 확인후 칼럼 삭제 구현
+    # TODO 좋아요 여부 확인후 칼럼 삭제 구현s
