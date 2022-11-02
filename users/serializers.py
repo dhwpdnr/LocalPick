@@ -1,6 +1,6 @@
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import authenticate, login
-from rest_framework import serializers
+from rest_framework import serializers, status
 from rest_framework.validators import UniqueValidator
 from rest_framework.response import Response
 
@@ -54,13 +54,13 @@ class SignupSerializer(serializers.ModelSerializer):
         user.set_password(validated_data["password"])
         
         user.save()
-
+        user_id = user.id
         token = Token.objects.create(user=user)
         # token_return = Token.Token.objects.filter(user=user).first()
         #
         # return Response({"token": token_return.key}, status=200)
+        # return Response({"user_id":user_id}, status=200)
         return user
-
 
 class LoginSerializer(serializers.Serializer):
     phone_number = serializers.CharField(required=True)
