@@ -5,7 +5,7 @@ from .models import Like
 from .serializers import LikeSerializer
 
 
-class AppetiteCreateAPI(generics.CreateAPIView):
+class LikeAPI(generics.CreateAPIView):
     serializer_class = LikeSerializer
 
     def post(self, request, *args, **kwargs):
@@ -18,4 +18,3 @@ class AppetiteCreateAPI(generics.CreateAPIView):
         delete.delete()
         return Response(status=200)
 
-    # TODO 좋아요 여부 확인후 칼럼 삭제 구현s
