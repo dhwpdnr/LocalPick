@@ -30,14 +30,16 @@
     <div id="review_list"></div>
 
     <script>
-        $(function (){
-            $('#heart').click(function (){
-                location.href = "{% url 'store:like_list' %}"
-            });
-        });
-
         $('#write').click(function (){
             location.href = "{% url 'review:create' pk=pk %}";
+        });
+
+        $('#local').click(function (){
+            location.href = "#";
+        });
+
+        $('#outsider').click(function (){
+            location.href = "#";
         });
 
         $(document).ready(function () {
