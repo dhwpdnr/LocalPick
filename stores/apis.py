@@ -2,6 +2,7 @@ from rest_framework import generics
 from rest_framework.response import Response
 from .models import Store
 from .serializers import StoreSerializer
+from like.models import Like
 from rest_framework.pagination import PageNumberPagination
 from collections import OrderedDict
 from rest_framework.authentication import TokenAuthentication
@@ -31,8 +32,12 @@ class StoreDetailAPI(generics.ListAPIView):
     def get(self, request, pk):
         store = Store.objects.get(id=pk)
         serializer = self.get_serializer(store)
+        store_like = Like.objects.filter(store_id=pk)
+        store_data = serializer.data
+        like_count = store_like.count()
+        store_data['like_count'] = like_count
 
-        return Response(serializer.data)
+        return Response(store_data)
 
     
 class StoreListPagination(PageNumberPagination):
