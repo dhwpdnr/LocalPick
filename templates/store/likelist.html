@@ -5,7 +5,7 @@
     {% include 'header.html' %}
 
     <div class="head">
-        <h2>{{ nickname }} 님의<br>좋아요 맛집 리스트입니다.</h2>
+        <h2>{{ user.nickname }} 님의<br>좋아요 맛집 리스트입니다.</h2>
     </div>
 
     <div class="listbox">
@@ -48,7 +48,11 @@
 
         $(function (){
             $('#search').click(function (){
+<<<<<<< HEAD
                 location.href = "#"
+=======
+                location.href = "{% url 'search:search' %}"
+>>>>>>> 6a2151cc0143f52acb1f7893968bee235189a760
             });
         });
 

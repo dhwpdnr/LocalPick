@@ -18,6 +18,10 @@ class FindPasswordView(APIView):
         return render(request, "users/password.html")
 
 
+class TestView(APIView):
+    def get(self, request):
+        return render(request, "users/test.html")
+
 class ChangePasswordView(APIView):
     def get(self, request):
         return render(request, "users/passwordch.html")

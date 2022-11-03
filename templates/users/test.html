@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="user_info" id="user_info_box">
+        <button id="back_sign" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
+
+        <div class="title_sign">
+            <h3><br><br>로컬 픽에서<br>이용하실 정보를 입력해주세요.</h3>
+        </div>
+
+        <div class="input-box">
+            <span>이름</span>
+            <input id="name" type="text" placeholder="이름을 입력하세요.">
+        </div>
+        <div class="input-box">
+            <span>전화번호</span>
+            <input id="phone" type="text" placeholder="본인 명의의 휴대폰 번호를 입력하세요.">
+        </div>
+        <div class="input-box">
+            <span>비밀번호</span>
+            <input id="password" type="password" placeholder="사용하실 비밀번호를 입력하세요.">
+        </div>
+        <div class="input-box">
+            <span>비밀번호 확인</span>
+            <input id="password2" type="password" placeholder="사용하실 비밀번호를 다시 입력하세요.">
+        </div>
+        <div class="input-box">
+            <span>닉네임</span>
+            <input id="nickname" type="text" placeholder="사용하실 닉네임을 입력해주세요.">
+        </div>
+        <div class="birth_box">
+            <span>생년월일</span>
+            <input id="birth" type="date" value="2000-01-01">
+        </div>
+        <div class="gender_box">
+            <input id="radio-1" type="radio" name="gender" value="M">
+            <label for="radio-1">남</label>
+        </div>
+        <div class="gender_box">
+            <input id="radio-2" type="radio" name="gender" value="F">
+            <label for="radio-2">여</label>
+        </div>
+
+
+        <div class="next">
+            <button id="next" type="button">다 음</button>
+        </div>
+    </div>
+
+
+    <div class="appetite" id="appetite_box" style="width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+           ">
+        <div class="title">
+            <h2>알맞은 식성향으로<br>로컬 픽이 추천해드립니다!</h2>
+        </div>
+
+        <div class="taste">
+            <i class="fal fa-pepper-hot"></i>
+            <label><b>매운맛</b></label><input id="spicy" type="range" min="1" max="6" step="0" value="0">
+        </div>
+        <div class="taste">
+            <label><b>짠맛</b></label><input id="salt" type="range" min="1" max="6" step="0" value="0">
+        </div>
+        <div class="taste">
+            <i class="fal fa-candy-cane"></i>
+            <label><b>단맛</b></label><input id="sweet" type="range" min="1" max="6" step="0" value="0">
+        </div>
+        <div class="taste">
+            <i class="fal fa-mortar-pestle"></i>
+            <label><b>식사량</b></label><input id="amount" type="range" min="1" max="6" step="0" value="0">
+        </div>
+
+        <div class="okay">
+            <button id="submit" type="button"><b>완 료</b></button>
+        </div>
+    </div>
+
+    <script>
+
+        $('#next').click(function () {
+            $('#appetite_box').css({
+                display: 'flex'
+            });
+            $('#user_info_box').css({
+                display: 'none'
+            });
+        });
+
+
+        $('#submit').click(function () {
+
+            let username = $('#name').val();
+            let phone_number = $('#phone').val();
+            let password = $('#password').val();
+            let password2 = $('#password2').val();
+            let nickname = $('#nickname').val();
+            let birth = $('#birth').val();
+            let gender = $('input[name=gender]:checked').val();
+
+            $.ajax({
+                url: "{% url 'users:signup_api' %}",
+                dataType: "json",
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}",
+                    username: username,
+                    phone_number: phone_number,
+                    password: password,
+                    nickname: nickname,
+                    birth: birth,
+                    gender: gender,
+                    password2: password2
+                },
+                method: "POST",
+                success: function (data) {
+                    console.log("성공");
+                    alert("성공")
+                    let spicy = $('#spicy').val();
+                    let salt = $('#salt').val();
+                    let sweet = $('#sweet').val();
+                    let amount = $('#amount').val();
+                    let user_id = data.user_id
+
+                    $.ajax({
+                        url: "{% url 'appetite:create_api' %}",
+                        dataType: "json",
+                        data: {
+                            'csrfmiddlewaretoken': "{{ csrf_token }}",
+                            spicy: spicy,
+                            salt: salt,
+                            sweet: sweet,
+                            amount: amount,
+                            user_id: user_id
+                        },
+                        method: "POST",
+                        success: function (data) {
+                            console.log("성공");
+                            location.replace("{% url 'users:login' %}");
+                        },
+
+                        error: function (request, status, error) {
+                            console.log("에러");
+                            console.log(error)
+                        },
+                        complete: function () {
+                            console.log("성공");
+
+                        }
+                    });
+                },
+
+                error: function (request, status, error) {
+                    console.log("에러");
+                    console.log(error)
+                },
+                complete: function () {
+                    console.log("성공");
+
+                }
+            })
+        });
+    </script>
+{% endblock %}
