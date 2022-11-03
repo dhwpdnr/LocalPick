@@ -26,7 +26,7 @@ class LikeAPI(generics.CreateAPIView):
 
 
 class LikeListPagination(PageNumberPagination):
-    page_size = 4
+    page_size = 10
 
     def get_paginated_response(self, data):
         try:
@@ -52,7 +52,7 @@ class LikeListPagination(PageNumberPagination):
         )
 
 
-class StoreListAPI(generics.ListAPIView):
+class LikeListAPI(generics.ListAPIView):
     # 토큰 인증 부분
     # authentication_classes = (TokenAuthentication,)
     # permission_classes = (IsAuthenticated,)
@@ -64,7 +64,7 @@ class StoreListAPI(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         # 가져온 user_id
-        user_id = request.session.get
+        user_id = request.session.get("_auth_user_id")
         # 좋아요 목록 조회 orm
         queryset = Like.objects.filter(user_id=user_id)
         page = self.paginate_queryset(queryset)
@@ -74,3 +74,5 @@ class StoreListAPI(generics.ListAPIView):
 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+
+        # store 정보 사용 할때 "data.store_id.원하는 정보 " 이런식으로 사용

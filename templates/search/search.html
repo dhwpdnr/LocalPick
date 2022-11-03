@@ -8,7 +8,7 @@
     <form action = "{% url 'search:result_api' %}" method = "GET">
         <input type="text" id="content" name = "s" placeholder="장소를 입력해 주세요.">
     </form>
-    <button class="search_btn" type="submit">
+    <button class="search_btn" type="submit" onclick="search()">
         <i class="fas fa-search"></i>
     </button>
 </div>
@@ -51,6 +51,10 @@
 
 
 <script>
+    function search(){
+        location.href = "{% url 'search:result_api' %}"
+    }
+
     $(function (){
         $('#list').click(function (){
             location.href = "{% url 'store:list' %}"
@@ -59,7 +63,7 @@
 
     $(function (){
         $('#heart').click(function (){
-            location.href = "{% url 'store:like_list' %}"
+            location.href = "#"
         });
     });
 

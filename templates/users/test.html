@@ -99,6 +99,7 @@
             let nickname = $('#nickname').val();
             let birth = $('#birth').val();
             let gender = $('input[name=gender]:checked').val();
+
             $.ajax({
                 url: "{% url 'users:signup_api' %}",
                 dataType: "json",
