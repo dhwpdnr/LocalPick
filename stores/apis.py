@@ -86,11 +86,15 @@ class StoreListAPI(generics.ListAPIView):
     def get_queryset(self, pk):
         # instance 는 우리가 사용할 쿼리 / url 에서 값 받아서 조회도 가능
         instance = Store.objects.filter(category_id=pk)
+        print(instance)
         return instance
 
     def get(self, request, pk, *args, **kwargs):
         # self.get_queryset() 부분은 사전에 정의 해둔 queryset 가져온
         queryset = self.filter_queryset(self.get_queryset(pk))
+        user_id = request.session.get("_auth_user_id")
+        print(user_id)
+        # like = Like.
 
         page = self.paginate_queryset(queryset)
         if page is not None:

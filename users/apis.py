@@ -15,6 +15,17 @@ class SignupAPI(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = SignupSerializer
 
+    def perform_create(self, serializer):
+        instance = serializer.save()
+        return instance
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        instance = self.perform_create(serializer)
+
+        return Response(status=status.HTTP_201_CREATED, data={"user_id": instance.id})
+
 
 class LoginAPI(generics.GenericAPIView):
     serializer_class = LoginSerializer
