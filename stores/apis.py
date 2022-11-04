@@ -41,7 +41,7 @@ class StoreDetailAPI(generics.ListAPIView):
 
     
 class StoreListPagination(PageNumberPagination):
-    page_size = 4
+    page_size = 8
 
     def get_paginated_response(self, data):
         try:
@@ -79,33 +79,32 @@ class StoreListAPI(generics.ListAPIView):
     # pagination 설정 클래스 지정
     pagination_class = StoreListPagination
 
-    # TODO django filter /?search 확인 해보기
-    # filter_backends = (DjangoFilterBackend, SearchFilter)
-    # search_fields = ("category")
-
     def get_queryset(self, pk):
         # instance 는 우리가 사용할 쿼리 / url 에서 값 받아서 조회도 가능
         instance = Store.objects.filter(category_id=pk)
-        print(instance)
         return instance
 
     def get(self, request, pk, *args, **kwargs):
         # self.get_queryset() 부분은 사전에 정의 해둔 queryset 가져온
         queryset = self.filter_queryset(self.get_queryset(pk))
         user_id = request.session.get("_auth_user_id")
-        print(user_id)
-        # like = Like.
+        store_list = queryset.values()
+        for store in store_list :
+            store_id = store.get("id")
+            like = Like.objects.filter(
+                user_id=user_id, store_id=store_id).first()
+            if like is None:
+                store['is_liked'] = False
+                print(False)
+            else :
+                store['is_liked'] = True
+                print(True)
 
-        page = self.paginate_queryset(queryset)
+        page = self.paginate_queryset(store_list)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
+            return self.get_paginated_response(store_list)
 
-        serializer = self.get_serializer(queryset, many=True)
+        serializer = self.get_serializer(store_list, many=True)
+
         return Response(serializer.data)
-
-
-
-
-
-# TODO 좋아요 manytomany 확인 해보기

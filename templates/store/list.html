@@ -42,6 +42,7 @@
                 method: "GET",
                 datatype: 'json',
                 success: function (data) {
+                    console.log(data)
                     var list = data.storeList
                     var list_html = ""
                     for (var i = 0 ; i < list.length ; i++){
