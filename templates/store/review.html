@@ -229,6 +229,7 @@
 
 <input id="text_write" type="text" min="0" max="500">
 
+
 <div class="okay">
     <button id="btn_okay" type="button" onclick="okay()" disabled><b>완 료</b></button>
 </div>
@@ -238,39 +239,56 @@
     $('#kindness').on('input', checkInput);
     $('#hygiene').on('input', checkInput);
     $('#price').on('input', checkInput);
-    $('#star').on('input', checkInput);
+    $('[name="star-input"]').on('input', checkInput);
     $('#text_write').on('input', checkInput);
 
     function checkInput() {
-      var nameCheck = $('#userName').val();
-      var phoneCheck = $('#userPhone').val();
-      var btnLogin = $('#btn_okay');
+      var amountCheck = $('#amount').val();
+      var kindnessCheck = $('#kindness').val();
+      var hygieneCheck = $('#hygiene');
+      var priceCheck = $('#price').val();
+      var starCheck = $('[name="star-input"]').val();
+      var textCheck = $('#text_write').val();
+      var btn_review = $('#btn_okay').val();
 
-      if (nameCheck === '' || phoneCheck === '') {
-        btnLogin.removeClass('on');
+
+      if (amountCheck === '' || kindnessCheck === '' || hygieneCheck === '' || priceCheck === '' || starCheck === '' || textCheck === '') {
+        btn_review.removeClass('on');
       } else {
-        btnLogin.addClass('on');
+        btn_review.addClass('on');
       }
     }
 
-    const psBox = document.querySelector('.passwordBox');
-    const nameForm = document.querySelector('#userName');
-    const phoneForm = document.querySelector('#userPhone');
+    const bar = document.querySelector('.review_bar');
+    const star = document.querySelector('.star-input');
+    const text = document.querySelector('#memo');
+    const amountForm = document.querySelector('#amount');
+    const kindnessForm = document.querySelector('#kindness');
+    const hygieneForm = document.querySelector('#hygiene');
+    const priceForm = document.querySelector('#price');
+    const starForm = document.querySelector('[name="star-input"]');
+    const textForm = document.querySelector('#text_write');
     const okayButton = document.querySelector('#btn_okay');
 
-    nameForm.addEventListener('keyup', listener);
-    phoneForm.addEventListener('keyup', listener);
+    amountForm.addEventListener('keyup', listener);
+    kindnessForm.addEventListener('keyup', listener);
+    hygieneForm.addEventListener('keyup', listener);
+    priceForm.addEventListener('keyup', listener);
+    starForm.addEventListener('keyup', listener);
+    textForm.addEventListener('keyup', listener);
     okayButton.addEventListener('click', errorEvent);
 
     function listener(){
-        switch (!(nameForm.value && phoneForm.value)){
+        switch (!(amountForm.value && kindnessForm.value && hygieneForm.value && priceForm.value && starForm.value && textForm.value)){
             case true: okayButton.disabled = true; break;
             case false: okayButton.disabled = false; break;
         }
     }
 
     function errorEvent(){
-        psBox.classList.add('error');
+        bar.classList.add('error');
+        star.classList.add('error');
+        text.classList.add('error');
     }
 
     $('#btn_okay').click(function () {
@@ -278,6 +296,7 @@
         let kindness = $('#kindness').val();
         let hygiene = $('#hygiene').val();
         let price = $('#price').val();
+        let star = $('[name="star-input"]').val();
         let text = $('#text_write').val();
         $.ajax({
             url: "{% url 'review:create_api' %}",
@@ -289,6 +308,7 @@
                 hygiene: hygiene,
                 price: price,
                 text: text,
+                star: star,
                 store_id: {{ pk }},
                 user_id: {{ user.id }}
             },
