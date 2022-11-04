@@ -30,14 +30,25 @@
     <div id="review_list"></div>
 
     <script>
+<<<<<<< HEAD
+=======
         $(function (){
             $('#heart').click(function (){
                 location.href = "#"
             });
         });
 
+>>>>>>> 6a2151cc0143f52acb1f7893968bee235189a760
         $('#write').click(function (){
             location.href = "{% url 'review:create' pk=pk %}";
+        });
+
+        $('#local').click(function (){
+            location.href = "#";
+        });
+
+        $('#outsider').click(function (){
+            location.href = "#";
         });
 
         $(document).ready(function () {
