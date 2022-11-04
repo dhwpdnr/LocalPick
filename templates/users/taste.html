@@ -18,13 +18,24 @@
         label{
             font-size: 13px;
         }
-
+         .label-container {
+            display: -webkit-flex;
+            -webkit-flex-wrap: nowrap;
+            /*-webkit-justify-content: space-between;*/
+            margin-left: 50px;
+        }
+        .label {
+            color: grey;
+            font-size: 12px;
+            text-align: center;
+            max-width: 3rem;
+            margin-right: 20px;
+        }
         input[type=range] {
             -webkit-appearance: none;
             margin: 10px 0 10px 10px;
             width: 230px;
         }
-
         input[type=range]::-webkit-slider-runnable-track {
             width: 100%;
             height: 4px;
@@ -41,68 +52,21 @@
             -webkit-appearance: none;
             margin-top: -6px;
         }
-        input[type=range]:focus::-webkit-slider-runnable-track {
-            background: #33C7F7;
-        }
-        input[type=range]::-moz-range-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            background: #33C7F7;
-            border-radius: 10px;
 
-        }
-        input[type=range]::-moz-range-thumb {
-            height: 15px;
-            width: 15px;
-            border-radius: 15px;
-            background: #33C7F7;
-            cursor: pointer;
-        }
-        input[type=range]::-ms-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            background: transparent;
-            border-color: transparent;
-            color: transparent;
-        }
-        input[type=range]::-ms-fill-lower {
-            background: #33C7F7;
-            border-radius: 20px;
-
-        }
-        input[type=range]::-ms-fill-upper {
-            background: #33C7F7;
-            border-radius: 20px;
-        }
-        input[type=range]::-ms-thumb {
-            margin-top: 1px;
-            height: 15px;
-            width: 15px;
-            border-radius: 15px;
-            background: #33C7F7;
-            cursor: pointer;
-        }
-        input[type=range]:focus::-ms-fill-lower {
-            background: #33C7F7;
-        }
-        input[type=range]:focus::-ms-fill-upper {
-            background: #33C7F7;
-        }
         .taste{
-            margin-top: 45px;
+            margin-top: 60px;
+            margin-bottom: 70px;
         }
         #taste_btn_okay {
+            margin-top: 40px;
             background-color: white;
-            color: black;
+            color: #313131;
             border-radius: 6px;
             width: 100%;
             height: 60px;
             font-size: 12pt;
             box-sizing: border-box;
             border: 2px solid black;
-            margin-top: 240px;
         }
     </style>
 </head>
@@ -112,15 +76,43 @@
 </div>
 
 <div class="taste">
+     <div class="label-container">
+        <div class="label">1단계</div>
+        <div class="label">2단계</div>
+        <div class="label">3단계</div>
+        <div class="label">4단계</div>
+        <div class="label">5단계</div>
+    </div>
     <label><b>매운맛</b></label><input id="spicy" type="range" min="1" max="6" step="0" value="0">
 </div>
 <div class="taste">
-    <label><b>짠맛</b></label><input id="salt" type="range" min="1" max="6" step="0" value="0">
+     <div class="label-container">
+        <div class="label">1단계</div>
+        <div class="label">2단계</div>
+        <div class="label">3단계</div>
+        <div class="label">4단계</div>
+        <div class="label">5단계</div>
+    </div>
+    <label><b>&nbsp;&nbsp;짠맛&nbsp;</b></label><input id="salt" type="range" min="1" max="6" step="0" value="0">
 </div>
 <div class="taste">
-    <label><b>단맛</b></label><input id="sweet" type="range" min="1" max="6" step="0" value="0">
+     <div class="label-container">
+        <div class="label">1단계</div>
+        <div class="label">2단계</div>
+        <div class="label">3단계</div>
+        <div class="label">4단계</div>
+        <div class="label">5단계</div>
+    </div>
+    <label><b>&nbsp;&nbsp;단맛&nbsp;</b></label><input id="sweet" type="range" min="1" max="6" step="0" value="0">
 </div>
 <div class="taste">
+     <div class="label-container">
+        <div class="label">1단계</div>
+        <div class="label">2단계</div>
+        <div class="label">3단계</div>
+        <div class="label">4단계</div>
+        <div class="label">5단계</div>
+    </div>
     <label><b>식사량</b></label><input id="amount" type="range" min="1" max="6" step="0" value="0">
 </div>
 

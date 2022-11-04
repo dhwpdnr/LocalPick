@@ -12,6 +12,10 @@
     <script src="js/star.js"></script>
 
 <style>
+    .review_bar{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
     #title {
         font-size: 16px;
     }
@@ -31,77 +35,45 @@
     #back > i {
         margin-left: 13px;
     }
-    input[type=range] {
-            -webkit-appearance: none;
-            margin: 10px 0 10px 10px;
-            width: 230px;
-        }
+    label{
+        font-size: 13px;
+    }
+    .label-container {
+        display: -webkit-flex;
+        -webkit-flex-wrap: nowrap;
+        /*-webkit-justify-content: space-between;*/
+        margin-left: 50px;
+    }
+    .label {
+        color: grey;
+        font-size: 12px;
+        text-align: center;
+        max-width: 3rem;
+        margin-right: 20px;
+    }
 
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 4px;
-            cursor: pointer;
-            background: #BDBDBD;
-            border-radius: 10px;
-        }
-        input[type=range]::-webkit-slider-thumb {
-            height: 15px;
-            width: 15px;
-            border-radius: 22px;
-            background: #33C7F7;
-            cursor: pointer;
-            -webkit-appearance: none;
-            margin-top: -6px;
-        }
-        input[type=range]:focus::-webkit-slider-runnable-track {
-            background: #33C7F7;
-        }
-        input[type=range]::-moz-range-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            background: #33C7F7;
-            border-radius: 10px;
+     input[type=range] {
+        -webkit-appearance: none;
+        margin: 10px 0 10px 10px;
+        width: 230px;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        cursor: pointer;
+        background: #BDBDBD;
+        border-radius: 10px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+        height: 15px;
+        width: 15px;
+        border-radius: 22px;
+        background: #33C7F7;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -6px;
+    }
 
-        }
-        input[type=range]::-moz-range-thumb {
-            height: 15px;
-            width: 15px;
-            border-radius: 15px;
-            background: #33C7F7;
-            cursor: pointer;
-        }
-        input[type=range]::-ms-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            background: transparent;
-            border-color: transparent;
-            color: transparent;
-        }
-        input[type=range]::-ms-fill-lower {
-            background: #33C7F7;
-            border-radius: 20px;
-
-        }
-        input[type=range]::-ms-fill-upper {
-            background: #33C7F7;
-            border-radius: 20px;
-        }
-        input[type=range]::-ms-thumb {
-            margin-top: 1px;
-            height: 15px;
-            width: 15px;
-            border-radius: 15px;
-            background: #33C7F7;
-            cursor: pointer;
-        }
-        input[type=range]:focus::-ms-fill-lower {
-            background: #33C7F7;
-        }
-        input[type=range]:focus::-ms-fill-upper {
-            background: #33C7F7;
-        }
     .memo{
         width: 100%;
         font-size: 15px;
@@ -127,13 +99,26 @@
         width: 100%;
         height: 60px;
         font-size: 12pt;
-        margin-top: 50px;
+        margin-top: 35px;
         box-sizing: border-box;
     }
     #btn_okay.on{
         background-color: #33C7F7;
     }
-
+    .star{
+        display: flex;
+        margin-bottom: 20px;
+        width: 100%;
+        font-size: 15px;
+    }
+    .star > i{
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 19px;
+    }
+    .star > b{
+        margin-top: 19px;
+    }
     .star-input>.input{
         text-align: center;
         margin-top: 10px;
@@ -144,9 +129,8 @@
     .star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/static/star/grade_img.png')no-repeat;}
     .star-input {
         text-align: center;
+        margin-left: 120px;
     }
-
-    /* .star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;padding:25px;line-height:30px;} */
     .star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
     .star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
     star-input>.input.focus{outline:1px dotted #ddd;}
@@ -167,9 +151,6 @@
     .star-input>.input>label[for="p5"]{width:150px;z-index:1;}
     .star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
 
-    .star{
-        display: flex;
-    }
 </style>
 </head>
 
@@ -181,21 +162,51 @@
     </div>
 </div>
 
+<div class="box">
 <div class="review_bar">
-    <label><b>양</b></label><input id="amount" type="range" min="1" max="5" step="1" value="1">
+    <div class="label-container">
+        <div class="label">1단계</div>
+        <div class="label">2단계</div>
+        <div class="label">3단계</div>
+        <div class="label">4단계</div>
+        <div class="label">5단계</div>
+    </div>
+    <label><b>&nbsp;&nbsp;&nbsp;양&nbsp;&nbsp;&nbsp;</b></label><input class="slider" id="amount" type="range" min="1" max="5" step="1" value="1">
 </div>
 <div class="review_bar">
+    <div class="label-container">
+        <div class="label">1단계</div>
+        <div class="label">2단계</div>
+        <div class="label">3단계</div>
+        <div class="label">4단계</div>
+        <div class="label">5단계</div>
+    </div>
     <label><b>친절도</b></label><input id="kindness" type="range" min="1" max="5" step="1" value="1">
 </div>
 <div class="review_bar">
-    <label><b>위생</b></label><input id="hygiene" type="range" min="1" max="5" step="1" value="1">
+    <div class="label-container">
+        <div class="label">1단계</div>
+        <div class="label">2단계</div>
+        <div class="label">3단계</div>
+        <div class="label">4단계</div>
+        <div class="label">5단계</div>
+    </div>
+    <label><b>&nbsp;&nbsp;위생&nbsp;</b></label><input id="hygiene" type="range" min="1" max="5" step="1" value="1">
 </div>
 <div class="review_bar">
-    <label><b>가격</b></label><input id="price" type="range" min="1" max="5" step="1" value="1">
+    <div class="label-container">
+        <div class="label">1단계</div>
+        <div class="label">2단계</div>
+        <div class="label">3단계</div>
+        <div class="label">4단계</div>
+        <div class="label">5단계</div>
+    </div>
+    <label><b>&nbsp;&nbsp;가격&nbsp;</b></label><input id="price" type="range" min="1" max="5" step="1" value="1">
 </div>
 
 <div class="star">
-    <p><b>별점</b></p>
+    <i class="fas fa-star"></i>
+    <b>별점</b>
     <div class="star-input">
 	<span class="input">
 		<input type="radio" name="star-input" value="1" id="p1">
@@ -228,18 +239,19 @@
 </div>
 
 <input id="text_write" type="text" min="0" max="500">
-
+</div>
 
 <div class="okay">
     <button id="btn_okay" type="button" onclick="okay()" disabled><b>완 료</b></button>
 </div>
 
 <script>
+
     $('#amount').on('input', checkInput);
     $('#kindness').on('input', checkInput);
     $('#hygiene').on('input', checkInput);
     $('#price').on('input', checkInput);
-    $('[name="star-input"]').on('input', checkInput);
+    $('#star').on('input', checkInput);
     $('#text_write').on('input', checkInput);
 
     function checkInput() {
@@ -247,26 +259,26 @@
       var kindnessCheck = $('#kindness').val();
       var hygieneCheck = $('#hygiene');
       var priceCheck = $('#price').val();
-      var starCheck = $('[name="star-input"]').val();
+      var starCheck = $('#star').val();
       var textCheck = $('#text_write').val();
-      var btn_review = $('#btn_okay').val();
+      var btnreview = $('#btn_okay').val();
 
 
       if (amountCheck === '' || kindnessCheck === '' || hygieneCheck === '' || priceCheck === '' || starCheck === '' || textCheck === '') {
-        btn_review.removeClass('on');
+        btnreview.removeClass('on');
       } else {
-        btn_review.addClass('on');
+        btnreview.addClass('on');
       }
     }
 
     const bar = document.querySelector('.review_bar');
-    const star = document.querySelector('.star-input');
+    const star = document.querySelector('.star_input');
     const text = document.querySelector('#memo');
     const amountForm = document.querySelector('#amount');
     const kindnessForm = document.querySelector('#kindness');
     const hygieneForm = document.querySelector('#hygiene');
     const priceForm = document.querySelector('#price');
-    const starForm = document.querySelector('[name="star-input"]');
+    const starForm = document.querySelector('#star');
     const textForm = document.querySelector('#text_write');
     const okayButton = document.querySelector('#btn_okay');
 
@@ -296,7 +308,6 @@
         let kindness = $('#kindness').val();
         let hygiene = $('#hygiene').val();
         let price = $('#price').val();
-        let star = $('[name="star-input"]').val();
         let text = $('#text_write').val();
         $.ajax({
             url: "{% url 'review:create_api' %}",
@@ -308,7 +319,6 @@
                 hygiene: hygiene,
                 price: price,
                 text: text,
-                star: star,
                 store_id: {{ pk }},
                 user_id: {{ user.id }}
             },
@@ -325,6 +335,71 @@
             }
         })
     });
+
+    /*$(document).ready(function(){
+
+	var $slider = $('input[type=range]');
+    var max = parseInt($slider.attr('max'));
+    var lastChangeHandled;
+
+    function convertTouchXToFraction(touchX) {
+        var sliderOffset = $slider.offset();
+        var normalizedX = touchX - sliderOffset.left;
+        return normalizedX / $slider.width();
+    }
+    function changeHandler(event) {
+        var value = $slider.val();
+
+        if (value === "1") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(1)").css("color", "#8ED0FF");
+        } else if (value === "2") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(2)").css("color", "#8ED0FF");
+        } else if (value === "3") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(3)").css("color", "#8ED0FF");
+        } else if (value === "4") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(4)").css("color", "#8ED0FF");
+        } else if (value === "5") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(5)").css("color", "#8ED0FF");
+        }
+    }
+    var lastSnap;
+    function setLastSnap() {
+        lastSnap = (new Date()).getTime();
+    };
+    setLastSnap();
+    var touchRegexp = /^touch/;
+    function syncValToXCreator(snap) {
+        return function(event) {
+            var epoch = (new Date()).getTime();
+            var timeDiff = epoch - lastSnap;
+            var throttleMs = 400;
+            if (timeDiff > throttleMs &&
+                  (event.which === 1 || touchRegexp.test(event.type))) {
+                var touchX = event.originalEvent.clientX || event.originalEvent.changedTouches[0].clientX;
+                var frac = convertTouchXToFraction(touchX);
+                var inputValue;
+                inputValue = frac * max
+                if (snap) {
+                    inputValue = Math.round(inputValue);
+                    setLastSnap();
+                }
+                $slider.val(inputValue);
+                changeHandler(event);
+            }
+        }
+    }
+
+	$slider.on("touchend mouseup click", syncValToXCreator("snap"));
+    $(".label").on("touchend mouseup click", syncValToXCreator("snap"));
+
+	$slider.on("touchmove mousemove click", syncValToXCreator());
+    $(".label").on("touchend mouseup click", syncValToXCreator("snap"));
+});*/
 </script>
 
 </body>
