@@ -36,18 +36,18 @@
 
 <script>
     function search(){
-        location.href = "{% url 'search:result_api' %}"
+        location.href = "#"
     }
 
     $(function (){
         $('#list').click(function (){
-            location.href = "{% url 'store:list' %}"
+            location.href = "#"
         });
     });
 
     $(function (){
         $('#heart').click(function (){
-            location.href = "{% url 'like:list' %}"
+            location.href = "#"
         });
     });
 
