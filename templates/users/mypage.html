@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬픽</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        .box1{
+            display: flex;
+        }
+        .picture{
+            border: 2px solid #33C7F7;
+            width: 150px;
+            height: 150px;
+            border-radius: 400px;
+            margin-top: 220px;
+            background-color: #BDBDBD;
+        }
+        .profile{
+            margin-top: 250px;
+            margin-left: 15px;
+        }
+        .profile >.name{
+            font-size: 18px;
+        }
+        .profile >.phone{
+            font-size: 13px;
+        }
+
+        .top_box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 120px;
+            width: 100%;
+            background-color: white;
+        }
+        .top {
+            top: 0;
+            left: 0;
+            position: fixed;
+            background-color: white;
+            width: 100%;
+            margin-top: 50px;
+            display: flex;
+        }
+        #logo {
+            width: 190px;
+            height: 50px;
+            display: block;
+            margin-left: 90px;
+            margin-top: 10px;
+        }
+        .navbar {
+            left: 0;
+            width: 100%;
+            border-top: 1px solid lightgrey;
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            background-color: white;
+            z-index: 90;
+            justify-content: space-between;
+        }
+        .n-box{
+            padding-top: 25px;
+            padding-bottom: 25px;
+            text-align: center;
+            margin-right: 22px;
+            margin-left: 15px;
+        }
+        .fc-blue{
+            color: #33C7F7;
+        }
+    </style>
+</head>
+<body>
+<div class="top_box">
+    <div class="top">
+        <img id="logo" src="/static/images/IMG_4613.PNG" alt="로컬픽">
+    </div>
+</div>
+<div class="box1">
+<div class="picture">
+
+</div>
+    <div class="profile">
+        <div class="name">
+            <b>{{ user.nickname }} 님</b>
+        </div>
+        <div class="phone">
+            <b>{{ user.phone_number }}</b>
+        </div>
+    </div>
+</div>
+
+<div class="revise">
+    <button  id="btn_revise" type="button" onclick="revise()">회원 정보 수정</button>
+</div>
+<div class="logout">
+    <button id="btn_logout" type="button" onclick="okay()"><b>로그아웃</b></button>
+</div>
+<div class="out">
+    <button id="btn_out" type="button" onclick="out()"><b>서비스 탈퇴</b></button>
+    <label>회원 탈퇴시 안내 사항을 반드시 확인해 주십시오.</label>
+</div>
+
+<div class="navbar">
+    <div class="n-box" id="list">
+        <i class="fas fa-th fa-2x fc-blue"></i>
+    </div>
+    <div class="n-box" id="search">
+        <i class="fas fa-search fa-2x"></i>
+    </div>
+    <div class="n-box" id="heart">
+        <i class="fas fa-heart fa-2x"></i>
+    </div>
+    <div class="n-box" id="user">
+        <i class="fas fa-user-circle fa-2x fc-blue"></i>
+    </div>
+</div>
+<script>
+     function revise() {
+        location.href = "#";
+    }
+
+     function logout() {
+        location.href = "#";
+    }
+
+    function out() {
+        location.href = "#";
+    }
+
+     $(function (){
+        $('#heart').click(function (){
+            location.href = "{% url 'like:list' %}"
+        });
+    });
+
+    $(function (){
+        $('#search').click(function (){
+            location.href = "{% url 'search:search' %}"
+        });
+    });
+
+    $(function (){
+        $('#list').click(function (){
+            location.href = "{% url 'store:list' %}"
+        });
+    });
+</script>
+</body>
+</html>

@@ -34,22 +34,6 @@
     </div>
 </div>
 
-<div class="navbar">
-    <div class="n-box" id="list">
-        <i class="fas fa-th fa-2x"></i>
-    </div>
-    <div class="n-box" id="search">
-        <i class="fas fa-search fa-2x fc-blue"></i>
-    </div>
-    <div class="n-box" id="heart">
-        <i class="fas fa-heart fa-2x"></i>
-    </div>
-    <div class="n-box" id="user">
-        <i class="fas fa-user-circle fa-2x"></i>
-    </div>
-</div>
-
-
 <script>
     function search(){
         location.href = "{% url 'search:result_api' %}"
@@ -63,7 +47,13 @@
 
     $(function (){
         $('#heart').click(function (){
-            location.href = "#"
+            location.href = "{% url 'like:list' %}"
+        });
+    });
+
+    $(function (){
+        $('#user').click(function (){
+            location.href = "{% url 'users:info' %}"
         });
     });
 
