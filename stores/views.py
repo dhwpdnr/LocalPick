@@ -56,9 +56,9 @@ class StoreListView(APIView):
         if info is None:
             return redirect("users:login")
         user_id = request.session.get("_auth_user_id", None)
-        taste = Appetite.objects.filter(user_id=user_id).first()
-        if taste is None:
-            return render(request, "users/taste.html")
+        # taste = Appetite.objects.filter(user_id=user_id).first()
+        # if taste is None:
+        #     return render(request, "users/taste.html")
         # {{ user.정보 }}로 사용 ex) {{ user.nickname }}
         return render(request, "store/list.html", info)
 

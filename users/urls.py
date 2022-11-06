@@ -1,6 +1,6 @@
 from django.urls import path
 from .apis import SignupAPI, LoginAPI, UserInfoAPI
-from .views import SignupView, LoginView, FindPasswordView, ChangePasswordView, TestView
+from .views import SignupView, LoginView, FindPasswordView, ChangePasswordView, TestView, MypageView
 
 app_name = 'users'
 
@@ -22,6 +22,8 @@ urlpatterns=[
 
     # {% url 'users:info' %}
     path("user/info/<int:pk>", UserInfoAPI.as_view(), name="info"),
+
+    path("my/", MypageView.as_view(), name="mypage"),
 
 
     path("test/", TestView.as_view(), name="test")
