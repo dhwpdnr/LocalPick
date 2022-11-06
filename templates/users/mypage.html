@@ -10,10 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
-        .box1{
+        .box1 {
             display: flex;
         }
-        .picture{
+
+        .picture {
             border: 2px solid #33C7F7;
             width: 130px;
             height: 130px;
@@ -22,26 +23,32 @@
             margin-left: 10px;
             background-color: lightgray;
         }
-        .profile{
+
+        .profile {
             margin-top: 250px;
             margin-left: 15px;
         }
-        .profile >.name{
+
+        .profile > .name {
             font-size: 18px;
         }
-        .profile >.phone{
+
+        .profile > .phone {
             font-size: 13px;
         }
-        .revise{
+
+        .revise {
             float: left;
         }
-        #btn_revise{
+
+        #btn_revise {
             border-radius: 8px;
             border: 1px solid #33C7F7;
             background-color: white;
             color: #33C7F7;
             margin-left: 250px;
         }
+
         #btn_logout {
             border: 1px solid #000000;
             border-radius: 6px;
@@ -51,7 +58,8 @@
             font-size: 14px;
             margin-top: 120px;
         }
-        #btn_out{
+
+        #btn_out {
             border: 1px solid #F66C6C;
             border-radius: 6px;
             background-color: white;
@@ -61,7 +69,8 @@
             color: #F66C6C;
             margin-top: 20px;
         }
-        #text{
+
+        #text {
             font-size: 12px;
             color: #F66C6C;
         }
@@ -74,6 +83,7 @@
             width: 100%;
             background-color: white;
         }
+
         .top {
             top: 0;
             left: 0;
@@ -83,6 +93,7 @@
             margin-top: 50px;
             display: flex;
         }
+
         #logo {
             width: 190px;
             height: 50px;
@@ -90,6 +101,7 @@
             margin-left: 90px;
             margin-top: 10px;
         }
+
         .navbar {
             left: 0;
             width: 100%;
@@ -101,14 +113,16 @@
             z-index: 90;
             justify-content: space-between;
         }
-        .n-box{
+
+        .n-box {
             padding-top: 25px;
             padding-bottom: 25px;
             text-align: center;
             margin-right: 22px;
             margin-left: 15px;
         }
-        .fc-blue{
+
+        .fc-blue {
             color: #33C7F7;
         }
     </style>
@@ -135,7 +149,7 @@
 </div>
 
 <div class="revise">
-    <button  id="btn_revise" type="button" onclick="revise()">회원 정보 수정</button>
+    <button id="btn_revise" type="button" onclick="revise()">회원 정보 수정</button>
 </div>
 
 <div class="logout">
@@ -146,51 +160,9 @@
     <button id="btn_out" type="button" onclick="out()"><b>서비스 탈퇴</b></button>
     <label id="text">회원 탈퇴시 안내 사항을 반드시 확인해 주십시오.</label>
 </div>
-
-<div class="navbar">
-    <div class="n-box" id="list">
-        <i class="fas fa-th fa-2x"></i>
-    </div>
-    <div class="n-box" id="search">
-        <i class="fas fa-search fa-2x"></i>
-    </div>
-    <div class="n-box" id="heart">
-        <i class="fas fa-heart fa-2x"></i>
-    </div>
-    <div class="n-box" id="user">
-        <i class="fas fa-user-circle fa-2x fc-blue"></i>
-    </div>
-</div>
+{% include 'navbar.html' %}
 <script>
-     function revise() {
-        location.href = "#";
-    }
 
-     function logout() {
-        location.href = "#";
-    }
-
-    function out() {
-        location.href = "#";
-    }
-
-     $(function (){
-        $('#heart').click(function (){
-            location.href = "#"
-        });
-    });
-
-    $(function (){
-        $('#search').click(function (){
-            location.href = "#"
-        });
-    });
-
-    $(function (){
-        $('#list').click(function (){
-            location.href = "#"
-        });
-    });
 </script>
 </body>
 </html>
