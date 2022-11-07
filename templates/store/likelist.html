@@ -12,43 +12,23 @@
         <div id="box">
             <div id="photo">
                 <i class="far fa-heart"></i>
-                <a href="#"></a>
+                <a href="{% url 'like:api' %}"></a>
             </div>
         </div>
         <div id="box">
             <div id="photo">
                 <i class="far fa-heart"></i>
-                <a href="#"></a>
+                <a href="{% url 'like:api' %}"></a>
             </div>
         </div>
     </div>
 
     {% include 'navbar.html' %}
-
     <script>
-
-        $(function () {
-            $('#list').click(function () {
-                location.href = "#"
-            });
-        });
-
-        $(function () {
-            $('#search').click(function () {
-                location.href = "#"
-            });
-        });
-
-        $(function () {
-            $('#user').click(function () {
-                location.href = "#"
-            });
-        });
-
 
         $(document).ready(function () {
             $.ajax({
-                url: "#",
+                url: "{% url 'like:list_api' %}",
                 headers: {
                     "Authorization": "Token {{ token }}",
                 },

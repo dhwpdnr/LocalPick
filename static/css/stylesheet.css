@@ -525,3 +525,60 @@
             background-color: white;
             float: right;
         }
+        .title_taste {
+            width: 100%;
+            margin: 100px 0 20px 7px;
+        }
+        label{
+            font-size: 13px;
+        }
+         .label-container {
+            display: -webkit-flex;
+            -webkit-flex-wrap: nowrap;
+            /*-webkit-justify-content: space-between;*/
+            margin-left: 50px;
+        }
+        .label {
+            color: grey;
+            font-size: 12px;
+            text-align: center;
+            max-width: 3rem;
+            margin-right: 20px;
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            margin: 10px 0 10px 10px;
+            width: 230px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #BDBDBD;
+            border-radius: 10px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            height: 15px;
+            width: 15px;
+            border-radius: 22px;
+            background: #33C7F7;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -6px;
+        }
+
+        .taste{
+            margin-top: 60px;
+            margin-bottom: 70px;
+        }
+        #taste_btn_okay {
+            margin-top: 40px;
+            background-color: white;
+            color: #313131;
+            border-radius: 6px;
+            width: 100%;
+            height: 60px;
+            font-size: 12pt;
+            box-sizing: border-box;
+            border: 2px solid black;
+        }
