@@ -17,6 +17,6 @@ $(function (){
     });
     $(function (){
         $('#user').click(function (){
-            location.href = "#"
+            location.href = "/user/info/"
         });
     });

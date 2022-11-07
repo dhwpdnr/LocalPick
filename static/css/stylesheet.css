@@ -324,6 +324,7 @@
     }
 
 /*store detail css*/
+
     .detail_top_box {
         position: fixed;
         top:0;
@@ -430,6 +431,7 @@
     .search_btn{
         background-color: white;
         border: none;
+        margin-left: 5px;
     }
     .search_box2{
         border-bottom: 1px solid #BDBDBD;
@@ -445,8 +447,77 @@
         color: #33C7F7;
         float: right;
     }
+/*search css*/
+        .box1 {
+            display: flex;
+        }
+
+        .picture {
+            border: 2px solid #33C7F7;
+            width: 130px;
+            height: 130px;
+            border-radius: 400px;
+            margin-top: 220px;
+            margin-left: 10px;
+            background-color: lightgray;
+        }
+
+        .profile {
+            margin-top: 250px;
+            margin-left: 15px;
+        }
+
+        .profile > .name {
+            font-size: 18px;
+        }
+
+        .profile > .phone {
+            font-size: 13px;
+        }
+
+        .revise {
+            float: left;
+        }
+
+        #btn_revise {
+            border-radius: 8px;
+            border: 1px solid #33C7F7;
+            background-color: white;
+            color: #33C7F7;
+            margin-left: 250px;
+        }
+
+        #btn_logout {
+            border: 1px solid #000000;
+            border-radius: 6px;
+            background-color: white;
+            width: 100%;
+            height: 50px;
+            font-size: 14px;
+            margin-top: 120px;
+        }
+
+        #btn_out {
+            border: 1px solid #F66C6C;
+            border-radius: 6px;
+            background-color: white;
+            width: 100%;
+            height: 50px;
+            font-size: 14px;
+            color: #F66C6C;
+            margin-top: 20px;
+        }
+
+        #text {
+            font-size: 12px;
+            color: #F66C6C;
+        }
+
 
 /*like list css*/
+        a{
+
+        }
         .top_box {
             position: fixed;
             top: 0;
@@ -485,7 +556,7 @@
         #box {
             border: 1px solid white;
             border-radius: 5px;
-            margin: 5px;
+            margin: 5px 15px 5px 5px;
             width: 135px;
             height: 135px;
             padding: 20px;
