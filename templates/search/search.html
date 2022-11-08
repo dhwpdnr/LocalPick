@@ -2,71 +2,27 @@
 
 {% block content %}
 
-{% include 'header.html' %}
+    {% include 'header.html' %}
 
-<div class="search_box">
-    <form action = "{% url 'search:result_api' %}" method = "GET">
-        <input type="text" id="content" name = "s" placeholder="장소를 입력해 주세요.">
-    </form>
-    <button class="search_btn" type="submit" onclick="search()">
-        <i class="fas fa-search"></i>
-    </button>
-</div>
-
-<div class="search_box2">
-    <b>최근검색어</b>
-    <button id="delete_btn" type="button">전체 삭제</button>
-</div>
-
-
-<div class="navbar">
-    <div class="n-box" id="list">
-        <i class="fas fa-th fa-2x"></i>
+    <div class="search_box">
+        <form action="{% url 'search:result_api' %}" method="GET">
+            <input type="text" id="content" name="s" placeholder="장소를 입력해 주세요.">
+        </form>
+        <button class="search_btn" type="submit" onclick="search()">
+            <i class="fas fa-search"></i>
+        </button>
     </div>
-    <div class="n-box" id="search">
-        <i class="fas fa-search fa-2x fc-blue"></i>
-    </div>
-    <div class="n-box" id="heart">
-        <i class="fas fa-heart fa-2x"></i>
-    </div>
-    <div class="n-box" id="user">
-        <i class="fas fa-user-circle fa-2x"></i>
-    </div>
-</div>
 
-<div class="navbar">
-    <div class="n-box" id="list">
-        <i class="fas fa-th fa-2x"></i>
+    <div class="search_box2">
+        <b>최근검색어</b>
+        <button id="delete_btn" type="button">전체 삭제</button>
     </div>
-    <div class="n-box" id="search">
-        <i class="fas fa-search fa-2x fc-blue"></i>
-    </div>
-    <div class="n-box" id="heart">
-        <i class="fas fa-heart fa-2x"></i>
-    </div>
-    <div class="n-box" id="user">
-        <i class="fas fa-user-circle fa-2x"></i>
-    </div>
-</div>
+
+    {% include 'navbar.html' %}
+
+    <script>
 
 
-<script>
-    function search(){
-        location.href = "{% url 'search:result_api' %}"
-    }
-
-    $(function (){
-        $('#list').click(function (){
-            location.href = "{% url 'store:list' %}"
-        });
-    });
-
-    $(function (){
-        $('#heart').click(function (){
-            location.href = "#"
-        });
-    });
-
-</script>
+    </script>
 {% endblock %}
 

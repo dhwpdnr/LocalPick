@@ -1,6 +1,6 @@
 from django.urls import path
-from .apis import SignupAPI, LoginAPI, UserInfoAPI
-from .views import SignupView, LoginView, FindPasswordView, ChangePasswordView, TestView
+from .apis import SignupAPI, LoginAPI, UserInfoAPI, PhoneValidateAPI, NicknameValidateAPI
+from .views import SignupView, LoginView, FindPasswordView, ChangePasswordView, TestView, MypageView
 
 app_name = 'users'
 
@@ -18,13 +18,22 @@ urlpatterns=[
 
     # {% url 'users:find_password' %}
     path("findpasswd/", FindPasswordView.as_view(), name="find_password"),
+    # {% url 'users:change_password' %}
     path("chpasswd/", ChangePasswordView.as_view(), name="change_password"),
 
-    # {% url 'users:info' %}
-    path("user/info/<int:pk>", UserInfoAPI.as_view(), name="info"),
+    # {% url 'users:info_api' %}
+    path("user/info/<int:pk>", UserInfoAPI.as_view(), name="info_api"),
+
+    # {% url 'users:mypage' %}
+    path("my/", MypageView.as_view(), name="mypage"),
+
+    # {% url 'users:phone_check' %}
+    path("phone/check/", PhoneValidateAPI.as_view(), name="phone_check"),
+    # {% url 'users:nickname_check' %}
+    path("nickname/check/", NicknameValidateAPI.as_view(), name="nickname_check"),
 
 
-    path("test/", TestView.as_view(), name="test")
+    path("test/", TestView.as_view(), name="test"),
 ]
 
 

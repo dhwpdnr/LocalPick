@@ -55,3 +55,29 @@ class UserInfoAPI(generics.ListAPIView):
         store = User.objects.get(id=pk)
         serializer = self.get_serializer(store)
         return Response(serializer.data)
+
+
+class PhoneValidateAPI(generics.ListAPIView):
+    serializer_class = UserSerializer
+
+    def get(self, request, *args, **kwargs):
+        phone = request.GET.get("phone_number")
+        print(phone)
+        # phone = request.data["phone_number"]
+        valid_check = User.objects.filter(phone_number=phone).exists()
+        if valid_check:
+            data = False
+        else: data = True
+        return Response(status=status.HTTP_200_OK, data=data)
+
+
+class NicknameValidateAPI(generics.ListAPIView):
+    serializer_class = UserSerializer
+
+    def get(self, request, *args, **kwargs):
+        nickname = request.GET.get("nickname")
+        valid_check =User.objects.filter(nickname=nickname).exists()
+        if valid_check:
+            data = False
+        else: data = True
+        return Response(status=status.HTTP_200_OK, data=data)

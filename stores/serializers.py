@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Store
+from .models import Store, Image
+
 
 class StoreSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,3 +11,7 @@ class StoreSerializer(serializers.ModelSerializer):
         # fields = ["title"] 리스트
 
 
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Image
+        fields = "__all__"
