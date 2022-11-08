@@ -1,7 +1,7 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
-from .models import Store
-from .serializers import StoreSerializer
+from .models import Store, Image
+from .serializers import StoreSerializer, ImageSerializer
 from like.models import Like
 from rest_framework.pagination import PageNumberPagination
 from collections import OrderedDict
@@ -109,4 +109,18 @@ class StoreListAPI(generics.ListAPIView):
 
         serializer = self.get_serializer(store_list, many=True)
 
+        return Response(serializer.data)
+
+
+class StoreImageAPI(generics.ListAPIView):
+    serializer_class = ImageSerializer
+
+    def get_queryset(self, pk):
+        # instance 는 우리가 사용할 쿼리 / url 에서 값 받아서 조회도 가능
+        instance = Image.objects.filter(store_id=pk)
+        return instance
+
+    def list(self, request, pk, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset(pk))
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
