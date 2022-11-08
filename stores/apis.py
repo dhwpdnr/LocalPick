@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.response import Response
 from .models import Store
 from .serializers import StoreSerializer
@@ -12,15 +12,17 @@ from rest_framework.filters import SearchFilter
 
 
 class StoreCreateAPI(generics.CreateAPIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticated,)
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
 
-    def get(self, request, pk):
-        store = Store.objects.get(id=pk)
-        serializer = self.get_serializer(store)
-        return Response(serializer.data)
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        instance = self.perform_create(serializer)
+
+        return Response(status=status.HTTP_201_CREATED)
 
 
 class StoreDetailAPI(generics.ListAPIView):
