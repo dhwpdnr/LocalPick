@@ -1,75 +1,7 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로컬픽</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+{% extends 'base.html' %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% block content %}
 
-    <style>
-        .title_taste {
-            width: 100%;
-            margin: 100px 0 20px 7px;
-        }
-        label{
-            font-size: 13px;
-        }
-         .label-container {
-            display: -webkit-flex;
-            -webkit-flex-wrap: nowrap;
-            /*-webkit-justify-content: space-between;*/
-            margin-left: 50px;
-        }
-        .label {
-            color: grey;
-            font-size: 12px;
-            text-align: center;
-            max-width: 3rem;
-            margin-right: 20px;
-        }
-        input[type=range] {
-            -webkit-appearance: none;
-            margin: 10px 0 10px 10px;
-            width: 230px;
-        }
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 4px;
-            cursor: pointer;
-            background: #BDBDBD;
-            border-radius: 10px;
-        }
-        input[type=range]::-webkit-slider-thumb {
-            height: 15px;
-            width: 15px;
-            border-radius: 22px;
-            background: #33C7F7;
-            cursor: pointer;
-            -webkit-appearance: none;
-            margin-top: -6px;
-        }
-
-        .taste{
-            margin-top: 60px;
-            margin-bottom: 70px;
-        }
-        #taste_btn_okay {
-            margin-top: 40px;
-            background-color: white;
-            color: #313131;
-            border-radius: 6px;
-            width: 100%;
-            height: 60px;
-            font-size: 12pt;
-            box-sizing: border-box;
-            border: 2px solid black;
-        }
-    </style>
-</head>
-<body>
 <div class="title_taste">
     <h2>알맞은 식성향으로<br>로컬 픽이 추천해드립니다!</h2>
 </div>
@@ -155,4 +87,4 @@
         })
     });
 </script>
-</html>
+{% endblock %}

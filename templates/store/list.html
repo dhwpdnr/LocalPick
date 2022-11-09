@@ -8,12 +8,30 @@
     </div>
 
     <div class="first_box">
-        <div class="list_name">
-            <b>{{ user.nickname }}님 맛춤 맛집</b>
-        </div>
-
-        <div class="listbox" id="listbox">
-
+    <div class="list_name">
+        <b>{{ user.nickname }}님 맛춤 맛집</b>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div id='photo'>
+                    <i class='far fa-heart'></i>
+                    <a href='/store/detail/" + store_id + "'>"+ list[i].store_name +"</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div id='photo'>
+                    <i class='far fa-heart'></i>
+                    <a href='/store/detail/" + store_id + "'>"+ list[i].store_name +"</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div id='photo'>
+                    <i class='far fa-heart'></i>
+                    <a href='/store/detail/" + store_id + "'>"+ list[i].store_name +"</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -23,8 +41,8 @@
 
     <script>
 
-    $(document).ready(function (){
-        $.ajax({
+        $(document).ready(function () {
+            $.ajax({
                 url: "{% url 'store:list_api' 3 %}",
                 headers: {
                     "Authorization": "Token {{ token }}",
@@ -35,15 +53,17 @@
                     console.log(data)
                     var list = data.storeList
                     var list_html = ""
-                    for (var i = 0 ; i < list.length ; i++){
+                    for (var i = 0; i < list.length; i++) {
                         var store_id = list[i].id
-                        list_html += "<div id='box'>"
+                        list_html += "<div id='swiper mySwiper'>"
+                        list_html += "<div id='swiper-wrapper'>"
+                        list_html += "<div id='swiper-slide'>"
                         list_html += "<div id='photo'>"
                         list_html += "<i class='far fa-heart'></i>"
-                        list_html += "<a href='/store/detail/" + store_id + "'>"+ list[i].store_name +"</a>"
-                        list_html += "</div></div>"
+                        list_html += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
+                        list_html += "</div></div></div></div>"
                     }
-                    document.getElementById("listbox").innerHTML = list_html;
+                    document.getElementById("swiper mySwiper").innerHTML = list_html;
                 },
                 error: function (request, status, error) {
                     alert("error");
@@ -54,6 +74,21 @@
                     console.log('끝');
                 }
             });
-    });
+        });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            freeMode: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
     </script>
 {% endblock %}

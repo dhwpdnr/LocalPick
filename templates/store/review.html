@@ -1,161 +1,7 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로컬픽</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+{% extends 'base.html' %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/star.js"></script>
+{% block content %}
 
-<style>
-    .review_bar{
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    #title_review {
-        font-size: 16px;
-        margin-right: 25px;
-    }
-    .review_top_box{
-        margin-top: 60px;
-        margin-bottom: 30px;
-    }
-    .review_top{
-        text-align: center;
-        margin-top: 50px;
-    }
-    #back{
-        float: left;
-        border: none;
-        background-color: white;
-    }
-    #back > i {
-        margin-left: 13px;
-    }
-    label{
-        font-size: 13px;
-    }
-    .label-container {
-        display: -webkit-flex;
-        -webkit-flex-wrap: nowrap;
-        /*-webkit-justify-content: space-between;*/
-        margin-left: 50px;
-    }
-    .label {
-        color: grey;
-        font-size: 12px;
-        text-align: center;
-        max-width: 3rem;
-        margin-right: 20px;
-    }
-
-     input[type=range] {
-        -webkit-appearance: none;
-        margin: 10px 0 10px 10px;
-        width: 230px;
-    }
-    input[type=range]::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 4px;
-        cursor: pointer;
-        background: #BDBDBD;
-        border-radius: 10px;
-    }
-    input[type=range]::-webkit-slider-thumb {
-        height: 15px;
-        width: 15px;
-        border-radius: 22px;
-        background: #33C7F7;
-        cursor: pointer;
-        -webkit-appearance: none;
-        margin-top: -6px;
-    }
-
-    .memo{
-        width: 100%;
-        font-size: 15px;
-        margin-bottom: 20px;
-    }
-    .memo > i{
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    #text_write{
-        box-sizing: border-box;
-        width: 100%;
-        height: 184px;
-        background: #FFFFFF;
-        border: 1px solid #000000;
-        border-radius: 6px;
-    }
-    #btn_okay {
-        background-color: #33C7F7;
-        border: none;
-        color: white;
-        border-radius: 5px;
-        width: 100%;
-        height: 60px;
-        font-size: 12pt;
-        margin-top: 35px;
-        box-sizing: border-box;
-    }
-    #btn_okay.on{
-        background-color: #33C7F7;
-    }
-    .star{
-        display: flex;
-        margin-bottom: 20px;
-        width: 100%;
-        font-size: 15px;
-    }
-    .star > i{
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 19px;
-    }
-    .star > b{
-        margin-top: 19px;
-    }
-    .star-input>.input{
-        text-align: center;
-        margin-top: 10px;
-    }
-    .star-input>.input,
-    .star-input>.input>label:hover,
-    .star-input>.input>input:focus+label,
-    .star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/static/star/grade_img.png')no-repeat;}
-    .star-input {
-        text-align: center;
-        margin-left: 120px;
-    }
-    .star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
-    .star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
-    star-input>.input.focus{outline:1px dotted #ddd;}
-    .star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
-    .star-input>.input>label:hover,
-    .star-input>.input>input:focus+label,
-    .star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
-    .star-input>.input>label:hover~label{background-image: none;}
-    .star-input>.input>label[for="p1_2"]{width:15px;z-index:10;}
-    .star-input>.input>label[for="p1"]{width:30px;z-index:9;}
-    .star-input>.input>label[for="p2_2"]{width:45px;z-index:8;}
-    .star-input>.input>label[for="p2"]{width:60px;z-index:7;}
-    .star-input>.input>label[for="p3_2"]{width:75px;z-index:6;}
-    .star-input>.input>label[for="p3"]{width:90px;z-index:5;}
-    .star-input>.input>label[for="p4_2"]{width:105px;z-index:4;}
-    .star-input>.input>label[for="p4"]{width:120px;z-index:3;}
-    .star-input>.input>label[for="p5_2"]{width:135px;z-index:2;}
-    .star-input>.input>label[for="p5"]{width:150px;z-index:1;}
-    .star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
-
-</style>
-</head>
-
-<body>
 <div class="review_top_box">
     <div class="review_top">
         <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
@@ -243,12 +89,12 @@
 </div>
 
 <div class="okay">
-    <button id="btn_okay" type="button" onclick="okay()"><b>완 료</b></button>
+    <button id="btn_review_okay" type="button" onclick="okay()"><b>완 료</b></button>
 </div>
 
 <script>
 
-    $('#btn_okay').click(function () {
+    $('#btn_review_okay').click(function () {
         let amount = $('#amount').val();
         let kindness = $('#kindness').val();
         let hygiene = $('#hygiene').val();
@@ -283,6 +129,4 @@
 
 
 </script>
-
-</body>
-</html>
+{% endblock %}
