@@ -1,5 +1,5 @@
 from django.urls import path
-from .apis import StoreDetailAPI, StoreListAPI, StoreCreateAPI
+from .apis import StoreDetailAPI, StoreListAPI, StoreCreateAPI, StoreImageAPI
 from .views import StoreCreateView, StoreImageCreate, StoreDetailView, StoreListView
 
 
@@ -23,4 +23,5 @@ urlpatterns = [
 
 
     path("duffufkckaRo/", StoreCreateView.as_view()),
+    path("api/image/<int:pk>", StoreImageAPI.as_view())
 ]

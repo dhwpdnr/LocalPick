@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from rest_framework.views import APIView
 from .utils import user_session_authticate
+from rest_framework.response import Response
+from .models import User
 
 
 # Create your views here.
@@ -35,3 +37,18 @@ class MypageView(APIView):
         if info is None:
             return redirect("users:login")
         return render(request, "users/mypage.html", info)
+
+
+class Logout(APIView):
+    def get(self, request):
+        request.session.flush()
+        return Response('Logged out successfully')
+
+
+# class Withdrawal(APIView):
+#     def post(self, request):
+#         user_id = request.data["user_id"]
+#         user = User.objects.get(pk=user_id)
+#         user.delete()
+#         request.session.flush()
+#         return Response(status=200)

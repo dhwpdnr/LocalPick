@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
     {% include 'header.html' %}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+
 
 <div class="box1">
     <div class="picture">
@@ -23,15 +34,107 @@
 </div>
 
 <div class="logout">
-    <button id="btn_logout" type="button" onclick="okay()"><b>로그아웃</b></button>
+    <button id="btn_logout" type="button"><b>로그아웃</b></button>
 </div>
 
 <div class="out">
-    <button id="btn_out" type="button" onclick="out()"><b>서비스 탈퇴</b></button>
+    <button id="btn_out" type="button"><b>서비스 탈퇴</b></button>
     <label id="text">회원 탈퇴시 안내 사항을 반드시 확인해 주십시오.</label>
 </div>
+
+<div id="logoutModalBox" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">로그아웃 하시겠습니까?</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="logout_close_button" class="btn btn-secondary" data-bs-dismiss="modal">취소
+                </button>
+                <button type="button" id="logout_okay_button" class="btn btn-primary">로그아웃</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="withdrawalModalBox" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">탈퇴 하시겠습니까?</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="withdrawal_close_button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    취소
+                </button>
+                <button type="button" id="withdrawal_okay_button" class="btn btn-primary">탈퇴</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% include 'navbar.html' %}
 <script>
+    // 로그아웃 클릭 하면 모달창
+    $('#btn_logout').on('click', function () {
+        $('#logoutModalBox').modal('show');
+    });
+    // 로그아웃 모달 안에 취소 버튼
+    $('#logout_close_button').on('click', function () {
+        $('#modalBox').modal('hide');
+    });
+    // 로그아웃 모달 안에 확인 버튼 (로그아웃 ajax)
+    $('#logout_okay_button').on('click', function () {
+        $.ajax({
+            url: "{% url 'users:logout' %}",
+            headers: {
+                "Authorization": "Token {{ token }}",
+            },
+            method: "GET",
+            datatype: 'json',
+            success: function (data) {
+                alert(data)
+                location.href = "{% url 'users:login' %}";
+            },
+            error: function (request, status, error) {
+                console.log(error);
+            },
+            complete: function () {
+                console.log("완료");
+            }
+        });
+    });
+
+
+    // 회원탈퇴 클릭하면 모달 창
+    $('#btn_out').on('click', function () {
+        $('#withdrawalModalBox').modal('show');
+    });
+    // 회원탈퇴 모달 안에 취소 버튼
+    $('#withdrawal_close_button').on('click', function () {
+        $('#modalBox').modal('hide');
+    });
+    // 회원탈퇴 모달 안에 확인 버튼 (회원탈퇴 ajax)
+    $('#withdrawal_okay_button').on('click', function () {
+        $.ajax({
+            url: "/auth/withdrawal/{{ user.id }}",
+            data: {},
+            method: "DELETE",
+            success: function (data) {
+                console.log("User 삭제 성공!");
+                alert("회원 탈퇴 성공");
+            },
+            error: function (request, status, error) {
+                console.log("Todo 삭제 실패!");
+                console.log(error)
+            },
+            complete: function (data) {
+                location.replace("/auth/login");
+            },
+        });
+
+    });
 
 </script>
 

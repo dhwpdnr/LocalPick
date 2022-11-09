@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'search',
     'review',
     'appetite',
-    'like'
+    'like',
+    'upload'
 ]
 
 REST_FRAMEWORK = {

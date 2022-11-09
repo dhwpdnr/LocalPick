@@ -1,3 +1,97 @@
+/*mypage css*/
+
+        .box1 {
+            display: flex;
+        }
+
+        .picture {
+            border: 2px solid #33C7F7;
+            width: 130px;
+            height: 130px;
+            border-radius: 400px;
+            margin-top: 220px;
+            margin-left: 10px;
+            background-color: lightgray;
+        }
+
+        .profile {
+            margin-top: 250px;
+            margin-left: 15px;
+        }
+
+        .profile > .name {
+            font-size: 18px;
+        }
+
+        .profile > .phone {
+            font-size: 13px;
+        }
+
+        .revise {
+            float: left;
+        }
+
+        #btn_revise {
+            border-radius: 8px;
+            border: 1px solid #33C7F7;
+            background-color: white;
+            color: #33C7F7;
+            margin-left: 250px;
+        }
+
+        #btn_logout {
+            border: 1px solid #000000;
+            border-radius: 6px;
+            background-color: white;
+            width: 100%;
+            height: 50px;
+            font-size: 14px;
+            margin-top: 120px;
+        }
+
+        #btn_out {
+            border: 1px solid #F66C6C;
+            border-radius: 6px;
+            background-color: white;
+            width: 100%;
+            height: 50px;
+            font-size: 14px;
+            color: #F66C6C;
+            margin-top: 20px;
+        }
+
+        #text {
+            font-size: 12px;
+            color: #F66C6C;
+        }
+
+        .top_box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 120px;
+            width: 100%;
+            background-color: white;
+        }
+
+        .top {
+            top: 0;
+            left: 0;
+            position: fixed;
+            background-color: white;
+            width: 100%;
+            margin-top: 50px;
+            display: flex;
+        }
+
+        #logo {
+            width: 190px;
+            height: 50px;
+            display: block;
+            margin-left: 90px;
+            margin-top: 10px;
+        }
+
 /*login css*/
         #login_logo{
             width: 100%;
@@ -595,4 +689,61 @@
             color: #33C7F7;
             background-color: white;
             float: right;
+        }
+        .title_taste {
+            width: 100%;
+            margin: 100px 0 20px 7px;
+        }
+        label{
+            font-size: 13px;
+        }
+         .label-container {
+            display: -webkit-flex;
+            -webkit-flex-wrap: nowrap;
+            /*-webkit-justify-content: space-between;*/
+            margin-left: 50px;
+        }
+        .label {
+            color: grey;
+            font-size: 12px;
+            text-align: center;
+            max-width: 3rem;
+            margin-right: 20px;
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            margin: 10px 0 10px 10px;
+            width: 230px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #BDBDBD;
+            border-radius: 10px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            height: 15px;
+            width: 15px;
+            border-radius: 22px;
+            background: #33C7F7;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -6px;
+        }
+
+        .taste{
+            margin-top: 60px;
+            margin-bottom: 70px;
+        }
+        #taste_btn_okay {
+            margin-top: 40px;
+            background-color: white;
+            color: #313131;
+            border-radius: 6px;
+            width: 100%;
+            height: 60px;
+            font-size: 12pt;
+            box-sizing: border-box;
+            border: 2px solid black;
         }
