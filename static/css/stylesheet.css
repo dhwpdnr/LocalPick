@@ -6,7 +6,14 @@
 
 .taste {
     margin-top: 60px;
-    margin-bottom: 70px;
+    margin-bottom: 5px;
+}
+
+#taste_img_bar {
+    width: 18px;
+    height: 18px;
+    border-radius: 400px;
+    margin-left: 10px;
 }
 
 #taste_btn_okay {
@@ -22,6 +29,14 @@
 }
 
 /*review css*/
+#review_img_bar {
+    width: 18px;
+    height: 18px;
+    border-radius: 400px;
+    margin-left: 10px;
+}
+
+
 .review_bar {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -49,7 +64,7 @@ label {
     display: -webkit-flex;
     -webkit-flex-wrap: nowrap;
     /*-webkit-justify-content: space-between;*/
-    margin-left: 50px;
+    margin-left: 89px;
 }
 
 .label {
@@ -127,7 +142,7 @@ input[type=range]::-webkit-slider-thumb {
 .star > i {
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 19px;
+    margin-top: 22px;
 }
 
 .star > b {
@@ -150,7 +165,8 @@ input[type=range]::-webkit-slider-thumb {
 
 .star-input {
     text-align: center;
-    margin-left: 120px;
+    margin-left: 30px;
+    margin-top: 7px;
 }
 
 .star-input > .input {
