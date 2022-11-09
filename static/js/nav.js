@@ -17,10 +17,6 @@ $(function (){
     });
     $(function (){
         $('#user').click(function (){
-<<<<<<< HEAD
-            location.href = "/user/info/"
-=======
             location.href = "/auth/my/"
->>>>>>> c362bf07890333cb6e9233fc743aa92415d45265
-        });
+             });
     });

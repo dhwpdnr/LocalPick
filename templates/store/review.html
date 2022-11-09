@@ -93,7 +93,7 @@
         border-radius: 6px;
     }
     #btn_okay {
-        background-color: #BDBDBD;
+        background-color: #33C7F7;
         border: none;
         color: white;
         border-radius: 5px;
@@ -243,66 +243,10 @@
 </div>
 
 <div class="okay">
-    <button id="btn_okay" type="button" onclick="okay()" disabled><b>완 료</b></button>
+    <button id="btn_okay" type="button" onclick="okay()"><b>완 료</b></button>
 </div>
 
 <script>
-
-    $('#amount').on('input', checkInput);
-    $('#kindness').on('input', checkInput);
-    $('#hygiene').on('input', checkInput);
-    $('#price').on('input', checkInput);
-    $('#star').on('input', checkInput);
-    $('#text_write').on('input', checkInput);
-
-    function checkInput() {
-      var amountCheck = $('#amount').val();
-      var kindnessCheck = $('#kindness').val();
-      var hygieneCheck = $('#hygiene');
-      var priceCheck = $('#price').val();
-      var starCheck = $('#star').val();
-      var textCheck = $('#text_write').val();
-      var btnreview = $('#btn_okay').val();
-
-
-      if (amountCheck === '' || kindnessCheck === '' || hygieneCheck === '' || priceCheck === '' || starCheck === '' || textCheck === '') {
-        btnreview.removeClass('on');
-      } else {
-        btnreview.addClass('on');
-      }
-    }
-
-    const bar = document.querySelector('.review_bar');
-    const star = document.querySelector('.star_input');
-    const text = document.querySelector('#memo');
-    const amountForm = document.querySelector('#amount');
-    const kindnessForm = document.querySelector('#kindness');
-    const hygieneForm = document.querySelector('#hygiene');
-    const priceForm = document.querySelector('#price');
-    const starForm = document.querySelector('#star');
-    const textForm = document.querySelector('#text_write');
-    const okayButton = document.querySelector('#btn_okay');
-
-    amountForm.addEventListener('keyup', listener);
-    kindnessForm.addEventListener('keyup', listener);
-    hygieneForm.addEventListener('keyup', listener);
-    priceForm.addEventListener('keyup', listener);
-    starForm.addEventListener('keyup', listener);
-    textForm.addEventListener('keyup', listener);
-    okayButton.addEventListener('click', errorEvent);
-
-    function listener(){
-        switch (!(amountForm.value && kindnessForm.value && hygieneForm.value && priceForm.value && starForm.value && textForm.value)){
-            case true: okayButton.disabled = true; break;
-            case false: okayButton.disabled = false; break;
-        }
-    }
-
-    function errorEvent(){
-        bar.classList.add('error');
-        star.classList.add('error');
-        text.classList.add('error');
-    }
 
     $('#btn_okay').click(function () {
         let amount = $('#amount').val();
@@ -337,70 +281,7 @@
         })
     });
 
-    /*$(document).ready(function(){
 
-	var $slider = $('input[type=range]');
-    var max = parseInt($slider.attr('max'));
-    var lastChangeHandled;
-
-    function convertTouchXToFraction(touchX) {
-        var sliderOffset = $slider.offset();
-        var normalizedX = touchX - sliderOffset.left;
-        return normalizedX / $slider.width();
-    }
-    function changeHandler(event) {
-        var value = $slider.val();
-
-        if (value === "1") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(1)").css("color", "#8ED0FF");
-        } else if (value === "2") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(2)").css("color", "#8ED0FF");
-        } else if (value === "3") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(3)").css("color", "#8ED0FF");
-        } else if (value === "4") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(4)").css("color", "#8ED0FF");
-        } else if (value === "5") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(5)").css("color", "#8ED0FF");
-        }
-    }
-    var lastSnap;
-    function setLastSnap() {
-        lastSnap = (new Date()).getTime();
-    };
-    setLastSnap();
-    var touchRegexp = /^touch/;
-    function syncValToXCreator(snap) {
-        return function(event) {
-            var epoch = (new Date()).getTime();
-            var timeDiff = epoch - lastSnap;
-            var throttleMs = 400;
-            if (timeDiff > throttleMs &&
-                  (event.which === 1 || touchRegexp.test(event.type))) {
-                var touchX = event.originalEvent.clientX || event.originalEvent.changedTouches[0].clientX;
-                var frac = convertTouchXToFraction(touchX);
-                var inputValue;
-                inputValue = frac * max
-                if (snap) {
-                    inputValue = Math.round(inputValue);
-                    setLastSnap();
-                }
-                $slider.val(inputValue);
-                changeHandler(event);
-            }
-        }
-    }
-
-	$slider.on("touchend mouseup click", syncValToXCreator("snap"));
-    $(".label").on("touchend mouseup click", syncValToXCreator("snap"));
-
-	$slider.on("touchmove mousemove click", syncValToXCreator());
-    $(".label").on("touchend mouseup click", syncValToXCreator("snap"));
-});*/
 </script>
 
 </body>

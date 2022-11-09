@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
     <div class="detail_top_box">
         <div class="detail_top">
             <button id="back" onclick="history.back()">
@@ -21,31 +20,44 @@
     </div>
 
     <div class="review">
-        <button id="local"><b>현지인</b></button>
-        <button id="outsider"><b>외부인</b></button>
+        <button id="review_btn"><b>리 뷰</b></button>
     </div>
-
-    <div id="review_list" class="review_detail"></div>
-
-    <div id="review_list"></div>
-
+    <div id="review_list" class="review_detail">
+        <div class="box_r1">
+            <img id="profile_review" src="/static/images/profile.png" alt="프로필">
+            <div class="star_review">
+                <b>별점</b>
+            </div>
+            <div class="review_img">
+                <img id="review_img" src="/static/images/review_amount.png" alt="양">
+                <img id="review_img" src="/static/images/kindness.png" alt="친철도">
+                <img id="review_img" src="/static/images/hygiene.png" alt="위생">
+                <img id="review_img" src="/static/images/price.png" alt="가격">
+            </div>
+        </div>
+        <div class="box_r3">
+            <div class="box_r2">
+                <div class="nickname_review">
+                    <b>{{ user.nickname }}</b>
+                </div>
+                <div class="taste_img">
+                    <img id="taste_img1" src="/static/images/spicy.png" alt="매워">
+                    <img id="taste_img" src="/static/images/salt.png" alt="짜">
+                    <img id="taste_img" src="/static/images/sweet.png" alt="달아">
+                    <img id="taste_img2" src="/static/images/amount.png" alt="양">
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-        $(function (){
-            $('#heart').click(function (){
+        $(function () {
+            $('#heart').click(function () {
                 location.href = "{% url 'like:api' %}"
             });
         });
 
-        $('#write').click(function (){
+        $('#write').click(function () {
             location.href = "{% url 'review:create' pk=pk %}";
-        });
-
-        $('#local').click(function (){
-            location.href = "#";
-        });
-
-        $('#outsider').click(function (){
-            location.href = "#";
         });
 
         $(document).ready(function () {

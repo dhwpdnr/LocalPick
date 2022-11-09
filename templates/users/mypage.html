@@ -15,10 +15,9 @@
             crossorigin="anonymous"></script>
 
 
-<div class="box1">
-    <div class="picture">
 
-    </div>
+<div class="box1">
+    <img id="profile_ph" src="/static/images/profile.png" alt="프로필">
     <div class="profile">
         <div class="name">
             <b>{{ user.nickname }} 님</b>
@@ -74,7 +73,21 @@
 </div>
 
 
-{% include 'navbar.html' %}
+<div class="navbar">
+    <div class="n-box" id="list">
+        <i class="fas fa-th fa-2x"></i>
+    </div>
+    <div class="n-box" id="search">
+        <i class="fas fa-search fa-2x"></i>
+    </div>
+    <div class="n-box" id="heart">
+        <i class="fas fa-heart fa-2x"></i>
+    </div>
+    <div class="n-box" id="user">
+        <i class="fas fa-user-circle fa-2x fc-blue"></i>
+    </div>
+</div>
+
 <script>
     // 로그아웃 클릭 하면 모달창
     $('#btn_logout').on('click', function () {
