@@ -8,70 +8,86 @@
     </div>
 
     <div class="first_box">
-    <div class="list_name">
-        <b>{{ user.nickname }}님 맛춤 맛집</b>
-    </div>
-    <!-- Swiper -->
-    <div class="swiper mySwiper">
-        <div id="slider" class="swiper-wrapper">
-
+        <div class="list_name">
+            <b>{{ user.nickname }}님 맛춤 맛집</b>
         </div>
-    </div>
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div id="slider" class="swiper-wrapper">
+
+            </div>
+        </div>
 
 
+        {% include 'navbar.html' %}
 
-    {% include 'navbar.html' %}
+        <script>
 
-    <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: "{% url 'store:list_api' 3 %}",
+                    headers: {
+                        "Authorization": "Token {{ token }}",
+                    },
+                    method: "GET",
+                    datatype: 'json',
+                    success: function (data) {
+                        var list = data.storeList;
+                        var list_html = "";
+                        for (var i = 0; i < list.length; i++) {
+                            var store_id = list[i].id
 
-        $(document).ready(function () {
-            $.ajax({
-                url: "{% url 'store:list_api' 3 %}",
-                headers: {
-                    "Authorization": "Token {{ token }}",
-                },
-                method: "GET",
-                datatype: 'json',
-                success: function (data) {
-                    console.log(data);
-                    var list = data.storeList;
-                    console.log(list);
-                    var list_html = "";
-                    for (var i = 0; i < list.length; i++) {
-                        var store_id = list[i].id
-                        list_html += "<div class='swiper-slide'>"
-                        list_html += "<div id='photo'>"
-                        list_html += "<i class='far fa-heart'></i>"
-                        list_html += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
-                        list_html += "</div></div>"
-                        console.log(list_html)
+                            list_html += "<div class='swiper-slide'>"
+                            list_html += "<div id='photo'>"
+
+                            $.ajax({
+                                url: "/store/api/image/" + store_id,
+                                headers: {
+                                    "Authorization": "Token {{ token }}",
+                                },
+                                method: "GET",
+                                datatype: 'json',
+                                success: function (data) {
+                                    list_html += "<img class='list_image' src='" + data.image_tag + "'>"
+                                },
+                                error: function (request, status, error) {
+                                    console.log(error)
+                                },
+                                complete: function (data) {
+
+                                }
+
+                            });
+                            list_html += "<i class='far fa-heart'></i>"
+                            list_html += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
+                            list_html += "</div></div>"
+                        }
+                        document.getElementById("slider").innerHTML = list_html;
+                    },
+                    error: function (request, status, error) {
+                        alert("error");
+                        console.log('error');
+                        console.log(error);
+                    },
+                    complete: function (data) {
+                        console.log('끝');
                     }
-                    document.getElementById("slider").innerHTML = list_html;
-                },
-                error: function (request, status, error) {
-                    alert("error");
-                    console.log('error');
-                    console.log(error);
-                },
-                complete: function (data) {
-                    console.log('끝');
-                }
+                });
             });
-        });
-    </script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        </script>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 2,
-            spaceBetween: 30,
-            freeMode: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                freeMode: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        </script>
 {% endblock %}
