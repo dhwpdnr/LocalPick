@@ -8,6 +8,7 @@ from rest_framework import status
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
+
 # Signup API
 
 
@@ -67,7 +68,8 @@ class PhoneValidateAPI(generics.ListAPIView):
         valid_check = User.objects.filter(phone_number=phone).exists()
         if valid_check:
             data = False
-        else: data = True
+        else:
+            data = True
         return Response(status=status.HTTP_200_OK, data=data)
 
 
@@ -76,8 +78,24 @@ class NicknameValidateAPI(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         nickname = request.GET.get("nickname")
-        valid_check =User.objects.filter(nickname=nickname).exists()
+        valid_check = User.objects.filter(nickname=nickname).exists()
         if valid_check:
             data = False
-        else: data = True
+        else:
+            data = True
         return Response(status=status.HTTP_200_OK, data=data)
+
+
+class WithdrawalAPI(generics.DestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    def get_object(self, pk):
+        obj = User.objects.filter(id=pk).first()
+        return obj
+
+    def delete(self, request, pk, *args, **kwargs):
+        instance = self.get_object(pk)
+        self.perform_destroy(instance)
+        request.session.flush()
+        return Response(status=status.HTTP_204_NO_CONTENT)

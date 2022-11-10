@@ -18,5 +18,5 @@ $(function (){
     $(function (){
         $('#user').click(function (){
             location.href = "/auth/my/"
-        });
+             });
     });

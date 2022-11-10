@@ -10,20 +10,33 @@
 
     <div class="listbox">
         <div id="box">
-            <div id="photo">
+            <div id="like_photo">
                 <i class="far fa-heart"></i>
                 <a href="{% url 'like:api' %}"></a>
             </div>
         </div>
         <div id="box">
-            <div id="photo">
+            <div id="like_photo">
                 <i class="far fa-heart"></i>
                 <a href="{% url 'like:api' %}"></a>
             </div>
         </div>
     </div>
 
-    {% include 'navbar.html' %}
+<div class="navbar">
+    <div class="n-box" id="list">
+        <i class="fas fa-th fa-2x"></i>
+    </div>
+    <div class="n-box" id="search">
+        <i class="fas fa-search fa-2x"></i>
+    </div>
+    <div class="n-box" id="heart">
+        <i class="fas fa-heart fa-2x fc-blue"></i>
+    </div>
+    <div class="n-box" id="user">
+        <i class="fas fa-user-circle fa-2x"></i>
+    </div>
+</div>
     <script>
 
         $(document).ready(function () {
@@ -38,10 +51,13 @@
                     console.log(like);
                     var like_box = ""
                     for (var i = 0; i <= like.length; i++) {
-
+                        like_box += "<div id='listbox'>"
+                        like_box += "<div id='like_photo'>"
+                        like_box += "<i class='far fa-heart'></i>"
+                        like_box += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
+                        like_box += "</div></div>"
                     }
                     document.getElementById("listbox").innerHTML = like_box
-
                 },
                 error: function (request, status, error) {
                     alert("error");

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>로컬픽</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/static/css/stylesheet.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <script src="{% static 'js/nav.js' %}"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script type="module">
+        import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js'
+
+        const swiper = new Swiper(...)
+    </script>
+</head>
+
+<!-- Demo styles -->
+<style>
+    .swiper-slide {
+        text-align: center;
+        background: white;
+
+        border: 1px solid white;
+        border-radius: 5px;
+        margin: 5px 15px 5px 5px;
+        height: 135px;
+        padding: 20px;
+        box-shadow: 10px 5px 10px 5px #F5F5F5;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #photo {
+        border: 1px solid black;
+        border-radius: 6px;
+        height: 90px;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    #photo > i {
+        float: right;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    a {
+
+    }
+
+</style>
+</head>
+
+<body>
+<div class="top_box">
+    <div class="top">
+        <img id="logo" src="/static/images/IMG_4613.png" alt="로컬픽">
+    </div>
+</div>
+
+<div class="head">
+    <h2>{{ user.nickname }} 님의<br>추천 맛집입니다.</h2>
+</div>
+
+<div class="first_box">
+    <div class="list_name">
+        <b>{{ user.nickname }}님 맛춤 맛집</b>
+    </div>
+
+</div>
+<!-- Swiper -->
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div id='photo'>
+                <i class='far fa-heart'></i>
+                <a href='/store/detail/" + store_id + "'>"+ list[i].store_name +"</a>
+            </div>
+
+        </div>
+
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<div class="navbar">
+    <div class="n-box" id="list">
+        <i class="fas fa-th fa-2x fc-blue"></i>
+    </div>
+    <div class="n-box" id="search">
+        <i class="fas fa-search fa-2x"></i>
+    </div>
+    <div class="n-box" id="heart">
+        <i class="fas fa-heart fa-2x"></i>
+    </div>
+    <div class="n-box" id="user">
+        <i class="fas fa-user-circle fa-2x"></i>
+    </div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        freeMode: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
+</body>
+</html>

@@ -5,8 +5,8 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class ReviewCreateAPI(generics.CreateAPIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticated,)
     serializer_class = ReviewSerializer
 
 
