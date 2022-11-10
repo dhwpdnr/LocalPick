@@ -5,7 +5,7 @@
     {% include 'header.html' %}
 
     <div class="head">
-        <h2>{{ user.nickname }} 님의<br>좋아요 맛집 리스트입니다.</h2>
+        <h2>{{ user.nickname }} 님의<br><span style="color: #F66C6C">좋아요</span> 맛집 리스트입니다.</h2>
     </div>
 
     <div class="listbox1" id="listbox1">
@@ -13,7 +13,7 @@
             <div id="box">
                 <div class="like_photo_box">
                     <div id="like_photo">
-                        <i class="far fa-heart"></i>
+                        <i id=iconLove class="far fa-heart"></i>
                     </div>
                     <div class="like_name_box">
                         <a href="{% url 'like:api' %}"></a>
@@ -24,7 +24,7 @@
             <div id="box">
                 <div class="like_photo_box">
                     <div id="like_photo">
-                        <i class="far fa-heart"></i>
+                        <i id=iconLove class="far fa-heart"></i>
                     </div>
                     <div class="like_name_box">
                         <a href="{% url 'like:api' %}"></a>
@@ -50,22 +50,6 @@
     </div>
 
     <script>
-
-        $('#like_btn').click(function () {
-            var pk = $(this).attr('name')
-            $.ajax({
-                url: "{% url 'like:list_api' %}",
-                dataType: "json",
-                data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
-
-                success: function (response) {
-                    $('#like_count' + pk).html("count : " + response.like_count);
-                },
-                error: function (error) {
-                    alert(error)
-                }
-            });
-        })
 
         $(document).ready(function () {
             $.ajax({
@@ -100,7 +84,7 @@
 
                             }
                         });
-                        like_list += "<i class='far fa-heart'></i>"
+                        like_list += "<i id=like_btn class='far fa-heart'></i>"
                         like_list += "<div id='like_name_box'>"
                         like_list += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
                         like_list += "</div></div></div></div></div>"

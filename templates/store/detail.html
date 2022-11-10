@@ -6,11 +6,20 @@
             <button id="back" onclick="history.back()">
                 <i class="fas fa-chevron-left fa-2x"></i>
             </button>
-            <b id="store_name"> </b>
+            <b id="store_name"></b>
         </div>
     </div>
 
-    <div class="store"></div>
+    <div class="store">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div id="sw" class="swiper-slide"></div>
+                <div id="sw" class="swiper-slide"></div>
+                <div id="sw" class="swiper-slide"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
 
     <div id="store_info" class="detail"></div>
 
@@ -50,6 +59,12 @@
         </div>
     </div>
     <script>
+        var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+
         $(function () {
             $('#heart').click(function () {
                 location.href = "{% url 'like:api' %}"

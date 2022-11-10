@@ -5,12 +5,15 @@
     {% include 'header.html' %}
 
     <div class="search_box">
-        <form action="{% url 'search:result_api' %}" method="GET">
-            <input type="text" id="content" name="s" placeholder="장소를 입력해 주세요.">
+        <form action="{% url 'search:result_api' %}" method="GET" id="text_search_box">
+            <div class="text_search_box2">
+                <input type="text" id="content" name="s" placeholder="장소를 입력해 주세요.">
+                <button class="search_btn" type="submit" onclick="search()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         </form>
-        <button class="search_btn" type="submit" onclick="search()">
-            <i class="fas fa-search"></i>
-        </button>
+
     </div>
 
     <div class="search_box2">
@@ -19,9 +22,7 @@
     </div>
 
     <div class="search_list">
-        <div id="search_list_text">
-            storename
-        </div>
+
     </div>
 
     <div class="local_navbar">
@@ -40,7 +41,7 @@
     </div>
 
     <script>
-     $(document).ready(function () {
+        $(document).ready(function () {
             $.ajax({
                 url: "#",
                 headers: {
@@ -48,20 +49,15 @@
                 },
                 method: "GET",
                 datatype: 'json',
-                success: function (like) {
-                    var list = data.resList;
-                    var like_list = ""
-                    for (var i = 0; i <= like.length; i++) {
-                        like_list += "<div class='listbox'>"
-                        like_list += "<div id='box'>"
-                        like_list += "<div id='like_photo_box'>"
-                        like_list += "<div id='like_photo'>"
-                        like_list += "<i class='far fa-heart'></i>"
-                        like_list += "<div id='like_name_box'>"
-                        like_list += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
-                        like_list += "</div></div></div></div></div>"
+                success: function (search) {
+                    var list = data.searchList;
+                    var search_list = ""
+                    for (var i = 0; i <= search.length; i++) {
+                        search_list += "<div id='search_list_text'>"
+                        search_list += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
+                        search_list += "</div>"
                     }
-                    document.getElementById("listbox1").innerHTML = like_list
+                    document.getElementById("search_list").innerHTML = search_list
                 },
                 error: function (request, status, error) {
                     alert("error");
@@ -74,18 +70,19 @@
             });
         });
 
-        $('.search_btn').click(function () {
-            $.ajax({
-                url: "{% url 'search:result_api' %}",
+        /* $('.search_btn').click(function () {
+             $.ajax({
+                 url: "{% url 'search:result_api' %}",
                 dataType: "json",
                 data: {
                     'csrfmiddlewaretoken': "{{ csrf_token }}",
-                    s: '검색어'
+                    s: $('input[name=s]'.val())
                 },
                 method: "GET",
                 success: function (data) {
                     console.log("성공");
                     location.replace("{% url 'search:result_api' %}");
+
                 },
 
                 error: function (request, status, error) {
@@ -96,7 +93,8 @@
                     console.log("성공");
                 }
             })
-        });
+        }); */
+
     </script>
 {% endblock %}
 
