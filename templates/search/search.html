@@ -18,45 +18,85 @@
         <button id="delete_btn" type="button">전체 삭제</button>
     </div>
 
-    <div class="navbar">
-    <div class="n-box" id="list">
-        <i class="fas fa-th fa-2x"></i>
+    <div class="search_list">
+        <div id="search_list_text">
+            storename
+        </div>
     </div>
-    <div class="n-box" id="search">
-        <i class="fas fa-search fa-2x fc-blue"></i>
-    </div>
-    <div class="n-box" id="heart">
-        <i class="fas fa-heart fa-2x"></i>
-    </div>
-    <div class="n-box" id="user">
-        <i class="fas fa-user-circle fa-2x"></i>
-    </div>
+
+    <div class="local_navbar">
+        <div class="n-box" id="list">
+            <i class="fas fa-th fa-2x"></i>
+        </div>
+        <div class="n-box" id="search">
+            <i class="fas fa-search fa-2x fc-blue"></i>
+        </div>
+        <div class="n-box" id="heart">
+            <i class="fas fa-heart fa-2x"></i>
+        </div>
+        <div class="n-box" id="user">
+            <i class="fas fa-user-circle fa-2x"></i>
+        </div>
     </div>
 
     <script>
-    $('.search_btn').click(function () {
-        $.ajax({
-            url: "{% url 'search:result_api' %}",
-            dataType: "json",
-            data: {
-                'csrfmiddlewaretoken': "{{ csrf_token }}",
-                                            s:
-            },
-            method: "GET",
-            success: function (data) {
-                console.log("성공");
-                location.replace("{% url 'search:result_api' %}");
-            },
+     $(document).ready(function () {
+            $.ajax({
+                url: "#",
+                headers: {
+                    "Authorization": "Token {{ token }}",
+                },
+                method: "GET",
+                datatype: 'json',
+                success: function (like) {
+                    var list = data.resList;
+                    var like_list = ""
+                    for (var i = 0; i <= like.length; i++) {
+                        like_list += "<div class='listbox'>"
+                        like_list += "<div id='box'>"
+                        like_list += "<div id='like_photo_box'>"
+                        like_list += "<div id='like_photo'>"
+                        like_list += "<i class='far fa-heart'></i>"
+                        like_list += "<div id='like_name_box'>"
+                        like_list += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
+                        like_list += "</div></div></div></div></div>"
+                    }
+                    document.getElementById("listbox1").innerHTML = like_list
+                },
+                error: function (request, status, error) {
+                    alert("error");
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
+                }
+            });
+        });
 
-            error: function (request, status, error) {
-                console.log("에러");
-                console.log(error)
-            },
-            complete: function () {
-                console.log("성공");
-            }
-        })
-    });
+        $('.search_btn').click(function () {
+            $.ajax({
+                url: "{% url 'search:result_api' %}",
+                dataType: "json",
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}",
+                    s: '검색어'
+                },
+                method: "GET",
+                success: function (data) {
+                    console.log("성공");
+                    location.replace("{% url 'search:result_api' %}");
+                },
+
+                error: function (request, status, error) {
+                    console.log("에러");
+                    console.log(error)
+                },
+                complete: function () {
+                    console.log("성공");
+                }
+            })
+        });
     </script>
 {% endblock %}
 

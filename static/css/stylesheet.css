@@ -1,7 +1,7 @@
 /*taste css*/
 .title_taste {
     width: 100%;
-    margin: 38px 0 20px 7px;
+    margin: 45px 0 20px 7px;
 }
 
 .taste {
@@ -275,6 +275,9 @@ star-input > .input.focus {
 
 .box1 {
     display: flex;
+    border-bottom: 2px solid #878787;
+    border-top: 2px solid #878787;
+    margin-top: 155px;
 }
 
 #profile_ph {
@@ -282,13 +285,14 @@ star-input > .input.focus {
     width: 130px;
     height: 130px;
     border-radius: 400px;
-    margin-top: 200px;
+    margin-top: 35px;
     margin-left: 30px;
     background-color: lightgray;
+    margin-bottom: 40px;
 }
 
 .profile {
-    margin-top: 175px;
+    margin-top: 85px;
     margin-left: 30px;
 }
 
@@ -302,7 +306,9 @@ star-input > .input.focus {
 
 .revise {
     float: left;
+    margin-top: -50px;
 }
+
 
 #btn_revise {
     border-radius: 8px;
@@ -597,8 +603,8 @@ i {
     justify-content: center;
     z-index: 1;
     box-sizing: border-box;
-    margin-bottom: 15px;
-    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     color: dimgray;
 }
 
@@ -674,7 +680,16 @@ i {
 }
 
 /*navbar css*/
-.navbar {
+.local_navbar_box{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    z-index: 99;
+}
+.local_navbar {
     left: 0;
     width: 100%;
     border-top: 1px solid lightgrey;
@@ -851,8 +866,12 @@ li {
 }
 
 /*search css*/
+#search_list_text{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
 .search_box {
-    width: 100%;
     height: 60px;
     border-radius: 5px;
     border: 1px solid dimgray;
@@ -866,7 +885,9 @@ li {
     margin-top: 140px;
     color: dimgray;
 }
-
+.search_box2 > b{
+    margin-left: 10px;
+}
 i {
     color: black;
 }
@@ -903,77 +924,7 @@ b {
     float: right;
 }
 
-/*search css*/
-.box1 {
-    display: flex;
-}
-
-.picture {
-    border: 2px solid #33C7F7;
-    width: 130px;
-    height: 130px;
-    border-radius: 400px;
-    margin-top: 220px;
-    margin-left: 10px;
-    background-color: lightgray;
-}
-
-.profile {
-    margin-top: 250px;
-    margin-left: 15px;
-}
-
-.profile > .name {
-    font-size: 18px;
-}
-
-.profile > .phone {
-    font-size: 13px;
-}
-
-.revise {
-    float: left;
-}
-
-#btn_revise {
-    border-radius: 8px;
-    border: 1px solid #33C7F7;
-    background-color: white;
-    color: #33C7F7;
-    margin-left: 250px;
-}
-
-#btn_logout {
-    border: 1px solid #000000;
-    border-radius: 6px;
-    background-color: white;
-    width: 100%;
-    height: 50px;
-    font-size: 14px;
-    margin-top: 120px;
-}
-
-#btn_out {
-    border: 1px solid #F66C6C;
-    border-radius: 6px;
-    background-color: white;
-    width: 100%;
-    height: 50px;
-    font-size: 14px;
-    color: #F66C6C;
-    margin-top: 20px;
-}
-
-#text {
-    font-size: 12px;
-    color: #F66C6C;
-}
-
-
-/*like list css*/
-a {
-
-}
+/*header css*/
 
 .top_box {
     position: fixed;
@@ -1004,6 +955,9 @@ a {
     margin-top: 10px;
 }
 
+
+/*like list css*/
+
 .head {
     margin-top: 135px;
 }
@@ -1013,16 +967,23 @@ a {
     margin-top: -20px;
 }
 
+.like_name_box
+{
+    margin-top: 105px;
+    z-index: 30;
+    text-align: center;
+}
+.listbox1{
+    margin-bottom: 100px;
+}
 .listbox {
     display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 #box {
     border: 1px solid white;
     border-radius: 5px;
-    margin: 5px 15px 5px 5px;
+    margin: 20px 15px 20px 15px;
     width: 170px;
     height: 155px;
     padding: 20px;
@@ -1035,11 +996,13 @@ a {
     margin: -5px -11px 0 -11px;
     padding: 50px;
     height: 10px;
+    z-index: 40;
 }
 
 #like_photo > i {
     float: right;
     margin: -40px;
+    z-index: 50;
 }
 
 #like_photo > i:active {
@@ -1051,16 +1014,25 @@ a {
 }
 
 /*store list css*/
+.first_box{
+    margin-bottom: 150px;
+}
 .list_name {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 .list_name > b {
     margin-left: 10px;
 }
 
+.name_box{
+    margin-top: 105px;
+    z-index: 30;
+    text-align: center;
+}
 .swiper-slide {
     background: white;
     border: 1px solid white;
@@ -1084,12 +1056,14 @@ a {
     height: 100px;
     width: 100%;
     margin-bottom: 15px;
+    z-index: 40;
 }
 
 #photo > i {
     float: right;
     margin-top: 10px;
     margin-right: 10px;
+    z-index: 50;
 }
 
 #photo > i:active {
