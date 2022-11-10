@@ -79,7 +79,7 @@
             margin:auto;
             display: block;
             padding: 25px 28px 30px 28px;
-            font-size: 15px;
+            font-size: 12px;
         }
 
 /*password css*/
@@ -182,7 +182,7 @@
 /*signup css*/
         .title_sign {
             margin-bottom: 25px;
-            margin-top: 65px;
+            margin-top: 40px;
             z-index: 20;
         }
         #back_sign {
@@ -451,7 +451,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            height: 120px;
+            height: 100px;
             width: 100%;
             background-color: white;
         }
@@ -461,7 +461,7 @@
             position: fixed;
             background-color: white;
             width: 100%;
-            margin-top: 50px;
+            margin-top: 25px;
             display: flex;
         }
         #logo {
