@@ -97,10 +97,8 @@ class StoreListAPI(generics.ListAPIView):
                 user_id=user_id, store_id=store_id).first()
             if like is None:
                 store['is_liked'] = False
-                print(False)
             else :
                 store['is_liked'] = True
-                print(True)
 
         page = self.paginate_queryset(store_list)
         if page is not None:

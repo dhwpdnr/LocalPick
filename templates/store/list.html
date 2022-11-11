@@ -53,11 +53,15 @@
                 },
                 method: "GET",
                 datatype: 'json',
+                async: false,
                 success: function (data) {
                     var list = data.storeList;
                     var list_html = "";
+
                     for (var i = 0; i < list.length; i++) {
-                        var store_id = list[i].id
+                        var store_id = list[i].id;
+                        var store_name = list[i].store_name;
+                        var image_list;
                         $.ajax({
                             url: "/store/api/image/" + store_id,
                             headers: {
@@ -65,15 +69,18 @@
                             },
                             method: "GET",
                             datatype: 'json',
+                            async: false,
                             success: function (data) {
-                                list_html += "<div class='swiper-slide'>"
-                                list_html += "<div class='photo_box'>"
-                                list_html += "<div id='photo'>"
-                                list_html += "<img class='list_image' src='" + data.image_tag + "'>"
-                                list_html += "<i id= like_btn class='far fa-heart'></i>"
-                                list_html += "<div class='name_box'>"
-                                list_html += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
-                                list_html += "</div></div></div></div>"
+                                console.log(data);
+                                list_html += "<div class='swiper-slide'>";
+                                list_html += "<div class='photo_box'>";
+                                list_html += "<div id='photo'>";
+                                list_html += "<img class='list_image' src='" + data[0].image_tag + "'>";
+                                list_html += "<i id= like_btn class='far fa-heart'></i>";
+                                list_html += "<div class='name_box'>";
+                                list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
+                                list_html += "</div></div></div></div>";
+
                             },
                             error: function (request, status, error) {
                                 console.log(error)
@@ -83,7 +90,6 @@
                             }
                         });
                     }
-                    console.log(list_html);
                     document.getElementById("slider").innerHTML = list_html;
                 },
                 error: function (request, status, error) {
