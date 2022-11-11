@@ -6,88 +6,109 @@
     <div class="head">
         <h2>{{ user.nickname }} 님의<br>추천 맛집입니다.</h2>
     </div>
-
     <div class="first_box">
-        <div class="list_name">
-            <b>{{ user.nickname }}님 맛춤 맛집</b>
-        </div>
-        <!-- Swiper -->
-        <div class="swiper mySwiper">
-            <div id="slider" class="swiper-wrapper">
+        <div class="store_list_box">
+            <div class="list_name">
+                <b>{{ user.nickname }}님 맛춤 맛집</b>
+            </div>
+            <div class="swiper mySwiper">
+                <div id="slider" class="swiper-wrapper">
 
+                </div>
             </div>
         </div>
 
+        <div class="store_list_box">
+            <div class="list_name">
+                <b>인기있는맛집</b>
+            </div>
+            <div class="swiper mySwiper">
+                <div id="slider" class="swiper-wrapper">
 
-        {% include 'navbar.html' %}
+                </div>
+            </div>
+        </div>
 
-        <script>
+        <div class="store_list_box">
+            <div class="list_name">
+                <b>비슷한 연령대 추천</b>
+            </div>
+            <div class="swiper mySwiper">
+                <div id="slider" class="swiper-wrapper">
 
-            $(document).ready(function () {
-                $.ajax({
-                    url: "{% url 'store:list_api' 3 %}",
-                    headers: {
-                        "Authorization": "Token {{ token }}",
-                    },
-                    method: "GET",
-                    datatype: 'json',
-                    success: function (data) {
-                        var list = data.storeList;
-                        var list_html = "";
-                        for (var i = 0; i < list.length; i++) {
-                            var store_id = list[i].id
+                </div>
+            </div>
+        </div>
+    </div>
 
-                            list_html += "<div class='swiper-slide'>"
-                            list_html += "<div id='photo'>"
+    {% include 'navbar.html' %}
 
-                            $.ajax({
-                                url: "/store/api/image/" + store_id,
-                                headers: {
-                                    "Authorization": "Token {{ token }}",
-                                },
-                                method: "GET",
-                                datatype: 'json',
-                                success: function (data) {
-                                    list_html += "<img class='list_image' src='" + data.image_tag + "'>"
-                                },
-                                error: function (request, status, error) {
-                                    console.log(error)
-                                },
-                                complete: function (data) {
+    <script>
 
-                                }
-
-                            });
-                            list_html += "<i class='far fa-heart'></i>"
-                            list_html += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
-                            list_html += "</div></div>"
-                        }
-                        document.getElementById("slider").innerHTML = list_html;
-                    },
-                    error: function (request, status, error) {
-                        alert("error");
-                        console.log('error');
-                        console.log(error);
-                    },
-                    complete: function (data) {
-                        console.log('끝');
-                    }
-                });
-            });
-        </script>
-        <!-- Swiper JS -->
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-        <!-- Initialize Swiper -->
-        <script>
-            var swiper = new Swiper(".mySwiper", {
-                slidesPerView: 2,
-                spaceBetween: 30,
-                freeMode: true,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
+        $(document).ready(function () {
+            $.ajax({
+                url: "{% url 'store:list_api' 3 %}",
+                headers: {
+                    "Authorization": "Token {{ token }}",
                 },
+                method: "GET",
+                datatype: 'json',
+                success: function (data) {
+                    var list = data.storeList;
+                    var list_html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        var store_id = list[i].id
+                        $.ajax({
+                            url: "/store/api/image/" + store_id,
+                            headers: {
+                                "Authorization": "Token {{ token }}",
+                            },
+                            method: "GET",
+                            datatype: 'json',
+                            success: function (data) {
+                                list_html += "<div class='swiper-slide'>"
+                                list_html += "<div class='photo_box'>"
+                                list_html += "<div id='photo'>"
+                                list_html += "<img class='list_image' src='" + data.image_tag + "'>"
+                                list_html += "<i id= like_btn class='far fa-heart'></i>"
+                                list_html += "<div class='name_box'>"
+                                list_html += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
+                                list_html += "</div></div></div></div>"
+                            },
+                            error: function (request, status, error) {
+                                console.log(error)
+                            },
+                            complete: function (data) {
+
+                            }
+                        });
+                    }
+                    console.log(list_html);
+                    document.getElementById("slider").innerHTML = list_html;
+                },
+                error: function (request, status, error) {
+                    alert("error");
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
+                }
             });
-        </script>
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            freeMode: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
 {% endblock %}
