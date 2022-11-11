@@ -65,6 +65,7 @@
                 <div class="label">4단계</div>
                 <div class="label">5단계</div>
             </div>
+            <img id="taste_img_bar" src="/static/images/spicy.png" alt="매워">
             <label><b>매운맛</b></label><input id="spicy" type="range" min="1" max="6" step="0" value="0">
         </div>
         <div class="taste">
@@ -75,6 +76,7 @@
                 <div class="label">4단계</div>
                 <div class="label">5단계</div>
             </div>
+            <img id="taste_img_bar" src="/static/images/salt.png" alt="짜">
             <label><b>&nbsp;&nbsp;짠맛&nbsp;</b></label><input id="salt" type="range" min="1" max="6" step="0" value="0">
         </div>
         <div class="taste">
@@ -85,6 +87,7 @@
                 <div class="label">4단계</div>
                 <div class="label">5단계</div>
             </div>
+            <img id="taste_img_bar" src="/static/images/sweet.png" alt="달아">
             <label><b>&nbsp;&nbsp;단맛&nbsp;</b></label><input id="sweet" type="range" min="1" max="6" step="0" value="0">
         </div>
         <div class="taste">
@@ -95,11 +98,12 @@
                 <div class="label">4단계</div>
                 <div class="label">5단계</div>
             </div>
+            <img id="taste_img_bar" src="/static/images/amount.png" alt="양">
             <label><b>식사량</b></label><input id="amount" type="range" min="1" max="6" step="0" value="0">
         </div>
 
         <div class="okay">
-            <button id="taste_btn_okay" type="button"><b>완 료</b></button>
+            <button id="taste_btn_okay" type="button" onclick="okay()"><b>완 료</b></button>
         </div>
     </div>
 
