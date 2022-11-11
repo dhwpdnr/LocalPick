@@ -1,8 +1,9 @@
 /*taste css*/
-.taste_box{
+.taste_box {
     padding: 0 15px 15px 15px;
     margin-left: 2px;
 }
+
 .title_taste {
     width: 100%;
     margin: 45px 0 20px 7px;
@@ -702,13 +703,13 @@ i {
     position: fixed;
     bottom: 0;
     background-color: white;
-    z-index: 90;
+    z-index: 100;
     justify-content: space-between;
 }
 
 .n-box {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     text-align: center;
     margin-right: 22px;
     margin-left: 15px;
@@ -719,7 +720,6 @@ i {
 }
 
 /*store detail css*/
-
 #sw {
     box-sizing: border-box;
     height: 200px;
@@ -727,9 +727,14 @@ i {
     border-radius: 5px;
     text-align: center;
     font-size: 18px;
-    padding: 96px 0px 96px 0;
-    background-color: #BDBDBD;
+    padding: 0px 0px 0px 0px;
     margin: 110px 0 0 0;
+}
+
+.detail_image {
+    width: 100%;
+    height: 194px;
+    overflow: hidden
 }
 
 .detail_top_box {
@@ -819,11 +824,18 @@ li {
     overflow: auto;
     z-index: 100;
 }
+.nickname_review > b{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
 
 .review_text {
     display: flex;
     margin-top: -30px;
-    margin-left: -60px;
+    border: 1px solid #878787;
+    height: 80px;
+    width: 250px;
+    margin-left: 10px;
 }
 
 #profile_review {
@@ -880,16 +892,19 @@ li {
 
 .box_r1 {
     display: flex;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin-top: 7px;
+    margin-left: 30px;
+    z-index: 50;
 }
-
-.box_r3 {
+.box_r3{
+   z-index: 40;
+}
+.box_r2 {
     display: flex;
 }
 
 /*search css*/
-.text_search_box2{
+.text_search_box2 {
     width: 100%;
     height: 60px;
     border-radius: 5px;
@@ -1002,7 +1017,7 @@ b {
 
 .head > h2 {
     margin-left: 15px;
-    margin-top: -20px;
+    margin-top: -30px;
 }
 
 .like_name_box {
@@ -1049,7 +1064,6 @@ b {
 }
 
 
-
 /*store list css*/
 .first_box {
     margin-bottom: 150px;
@@ -1058,16 +1072,23 @@ b {
 .list_name {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
-    margin-bottom: 15px;
+    margin-top: 18px;
+
 }
 
 .list_name > b {
     margin-left: 10px;
 }
 
+.list_image {
+    width: 100%;
+    height: 100px;
+    overflow: hidden
+}
+
 .name_box {
-    margin-top: 105px;
+    margin-top: 5px;
+    margin-left: 15px;
     z-index: 30;
     text-align: center;
 }
@@ -1076,33 +1097,26 @@ b {
     background: white;
     border: 1px solid white;
     border-radius: 5px;
-    margin: 5px 15px 5px 5px;
+    margin: 0 15px 5px 5px;
     height: 135px;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
     box-shadow: 10px 5px 10px 5px #F5F5F5;
 }
 
 .swiper-slide img {
     display: block;
-    width: 100px;
-    height: 50px;
-    object-fit: cover;
 }
 
 #photo {
-    border: 1px solid darkgrey;
-    border-radius: 5px;
     height: 100px;
-    width: 100%;
-    margin-bottom: 15px;
     z-index: 40;
 }
 
 #photo > i {
     float: right;
     margin-top: 10px;
-    margin-right: 10px;
-    z-index: 50;
+    margin-right: 5px;
+    z-index: 60;
 }
 
 #photo > i:active {

@@ -2,63 +2,65 @@
 
 {% block content %}
 
-<div class="review_top_box">
-    <div class="review_top">
-        <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
-        <b id="title_review">리뷰 작성하기</b>
+    <div class="review_top_box">
+        <div class="review_top">
+            <button id="back" onclick="history.back()"><i class="fas fa-chevron-left fa-2x"></i></button>
+            <b id="title_review">리뷰 작성하기</b>
+        </div>
     </div>
-</div>
 
-<div class="box">
-<div class="review_bar">
-    <div class="label-container">
-        <div class="label">1단계</div>
-        <div class="label">2단계</div>
-        <div class="label">3단계</div>
-        <div class="label">4단계</div>
-        <div class="label">5단계</div>
-    </div>
-    <img id="review_img_bar" src="/static/images/review_amount.png" alt="양">
-    <label><b>&nbsp;&nbsp;&nbsp;양&nbsp;&nbsp;&nbsp;</b></label><input class="slider" id="amount" type="range" min="1" max="5" step="1" value="1">
-</div>
-<div class="review_bar">
-    <div class="label-container">
-        <div class="label">1단계</div>
-        <div class="label">2단계</div>
-        <div class="label">3단계</div>
-        <div class="label">4단계</div>
-        <div class="label">5단계</div>
-    </div>
-    <img id="review_img_bar" src="/static/images/kindness.png" alt="친철도">
-    <label><b>친절도</b></label><input id="kindness" type="range" min="1" max="5" step="1" value="1">
-</div>
-<div class="review_bar">
-    <div class="label-container">
-        <div class="label">1단계</div>
-        <div class="label">2단계</div>
-        <div class="label">3단계</div>
-        <div class="label">4단계</div>
-        <div class="label">5단계</div>
-    </div>
-    <img id="review_img_bar" src="/static/images/hygiene.png" alt="위생">
-    <label><b>&nbsp;&nbsp;위생&nbsp;</b></label><input id="hygiene" type="range" min="1" max="5" step="1" value="1">
-</div>
-<div class="review_bar">
-    <div class="label-container">
-        <div class="label">1단계</div>
-        <div class="label">2단계</div>
-        <div class="label">3단계</div>
-        <div class="label">4단계</div>
-        <div class="label">5단계</div>
-    </div>
-    <img id="review_img_bar" src="/static/images/price.png" alt="가격">
-    <label><b>&nbsp;&nbsp;가격&nbsp;</b></label><input id="price" type="range" min="1" max="5" step="1" value="1">
-</div>
+    <div class="box">
+        <div class="review_bar">
+            <div class="label-container">
+                <div class="label">1단계</div>
+                <div class="label">2단계</div>
+                <div class="label">3단계</div>
+                <div class="label">4단계</div>
+                <div class="label">5단계</div>
+            </div>
+            <img id="review_img_bar" src="/static/images/review_amount.png" alt="양">
+            <label><b>&nbsp;&nbsp;&nbsp;양&nbsp;&nbsp;&nbsp;</b></label><input class="slider" id="amount" type="range"
+                                                                              min="1" max="5" step="1" value="1">
+        </div>
+        <div class="review_bar">
+            <div class="label-container">
+                <div class="label">1단계</div>
+                <div class="label">2단계</div>
+                <div class="label">3단계</div>
+                <div class="label">4단계</div>
+                <div class="label">5단계</div>
+            </div>
+            <img id="review_img_bar" src="/static/images/kindness.png" alt="친철도">
+            <label><b>친절도</b></label><input id="kindness" type="range" min="1" max="5" step="1" value="1">
+        </div>
+        <div class="review_bar">
+            <div class="label-container">
+                <div class="label">1단계</div>
+                <div class="label">2단계</div>
+                <div class="label">3단계</div>
+                <div class="label">4단계</div>
+                <div class="label">5단계</div>
+            </div>
+            <img id="review_img_bar" src="/static/images/hygiene.png" alt="위생">
+            <label><b>&nbsp;&nbsp;위생&nbsp;</b></label><input id="hygiene" type="range" min="1" max="5" step="1"
+                                                             value="1">
+        </div>
+        <div class="review_bar">
+            <div class="label-container">
+                <div class="label">1단계</div>
+                <div class="label">2단계</div>
+                <div class="label">3단계</div>
+                <div class="label">4단계</div>
+                <div class="label">5단계</div>
+            </div>
+            <img id="review_img_bar" src="/static/images/price.png" alt="가격">
+            <label><b>&nbsp;&nbsp;가격&nbsp;</b></label><input id="price" type="range" min="1" max="5" step="1" value="1">
+        </div>
 
-<div class="star">
-    <i class="fas fa-star"></i>
-    <b>별점</b>
-    <div class="star-input">
+        <div class="star">
+            <i class="fas fa-star"></i>
+            <b>별점</b>
+            <div class="star-input">
 	<span class="input">
 		<input type="radio" name="star-input" value="1" id="p1">
 		<label for="p1">1</label>
@@ -81,56 +83,56 @@
 		<input type="radio" name="star-input" value="4.5" id="p5_2">
 		<label for="p5_2">4.5</label>
 	</span>
-</div>
-</div>
+            </div>
+        </div>
 
-<div class="memo">
-    <i class="fas fa-pen"></i>
-    <b>리뷰 내용 작성하기</b>
-</div>
+        <div class="memo">
+            <i class="fas fa-pen"></i>
+            <b>리뷰 내용 작성하기</b>
+        </div>
 
-<input id="text_write" type="text" min="0" max="500">
-</div>
+        <input id="text_write" type="text" min="0" max="500">
+    </div>
 
-<div class="okay">
-    <button id="btn_review_okay" type="button" onclick="okay()"><b>완 료</b></button>
-</div>
+    <div class="okay">
+        <button id="btn_review_okay" type="button" onclick="okay()"><b>완 료</b></button>
+    </div>
 
-<script>
+    <script>
 
-    $('#btn_review_okay').click(function () {
-        let amount = $('#amount').val();
-        let kindness = $('#kindness').val();
-        let hygiene = $('#hygiene').val();
-        let price = $('#price').val();
-        let text = $('#text_write').val();
-        $.ajax({
-            url: "{% url 'review:create_api' %}",
-            dataType: "json",
-            data: {
-                'csrfmiddlewaretoken': "{{ csrf_token }}",
-                amount: amount,
-                kindness: kindness,
-                hygiene: hygiene,
-                price: price,
-                text: text,
-                store_id: {{ pk }},
-                user_id: {{ user.id }}
-            },
-            method: "POST",
-            success: function (response, data) {
-                location.replace("{% url 'store:detail' pk=pk %}");
-            },
-            error: function (request, status, error) {
-                alert("실패");
-                console.log(error);
-            },
-            complete: function () {
-                console.log("성공");
-            }
-        })
-    });
+        $('#btn_review_okay').click(function () {
+            let amount = $('#amount').val();
+            let kindness = $('#kindness').val();
+            let hygiene = $('#hygiene').val();
+            let price = $('#price').val();
+            let text = $('#text_write').val();
+            $.ajax({
+                url: "{% url 'review:create_api' %}",
+                dataType: "json",
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}",
+                    amount: amount,
+                    kindness: kindness,
+                    hygiene: hygiene,
+                    price: price,
+                    text: text,
+                    store_id: {{ pk }},
+                    user_id: {{ user.id }}
+                },
+                method: "POST",
+                success: function (response, data) {
+                    location.replace("{% url 'store:detail' pk=pk %}");
+                },
+                error: function (request, status, error) {
+                    alert("실패");
+                    console.log(error);
+                },
+                complete: function () {
+                    console.log("성공");
+                }
+            })
+        });
 
 
-</script>
+    </script>
 {% endblock %}

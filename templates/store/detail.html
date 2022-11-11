@@ -31,31 +31,7 @@
     </div>
 
     <div id="review_list" class="review_detail">
-        <div class="box_r1">
-            <img id="profile_review" src="/static/images/profile.png" alt="프로필">
-            <div class="star_review">
-                <b>별점</b>
-            </div>
-            <div class="review_img">
-                <img id="review_img" src="/static/images/review_amount.png" alt="양">
-                <img id="review_img" src="/static/images/kindness.png" alt="친철도">
-                <img id="review_img" src="/static/images/hygiene.png" alt="위생">
-                <img id="review_img" src="/static/images/price.png" alt="가격">
-            </div>
-        </div>
-        <div class="box_r3">
-            <div class="box_r2">
-                <div class="nickname_review">
-                    <b>{{ user.nickname }}</b>
-                </div>
-                <div class="taste_img">
-                    <img id="taste_img1" src="/static/images/spicy.png" alt="매워">
-                    <img id="taste_img" src="/static/images/salt.png" alt="짜">
-                    <img id="taste_img" src="/static/images/sweet.png" alt="달아">
-                    <img id="taste_img2" src="/static/images/amount.png" alt="양">
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <script>
@@ -103,6 +79,7 @@
                     console.log('끝');
                 }
             });
+
             $.ajax({
                 url: "{% url 'store:image_api' pk=pk %}",
                 headers: {
@@ -113,9 +90,9 @@
                 success: function (data) {
                     var image_html = "";
                     console.log(data);
-                    for(var i =0 ; i < data.length ; i++ ){
+                    for (var i = 0; i < data.length; i++) {
                         image_html += "<div id='sw' class='swiper-slide'>"
-                        image_html += "<img class='list_image' src='" + data[i].image_tag + "'>"
+                        image_html += "<img class='detail_image' src='" + data[i].image_tag + "'>"
                         image_html += "</div>"
                     }
 
@@ -130,6 +107,7 @@
                     console.log('끝');
                 }
             });
+
             $.ajax({
                 url: "{% url 'review:list_api' pk=pk %}",
                 headers: {
@@ -140,12 +118,27 @@
                 success: function (review) {
                     var review_desc = ""
                     for (var i = 0; i < review.length; i++) {
-                        review_desc += "<ul>"
-                        review_desc += "<li><p> user id : " + review[i].user_id + "</li></p>"
-                        review_desc += "<li><p> start rating : " + review[i].star_rating + "</li></p>"
-                        review_desc += "<li><p> description : " + review[i].description + "</li></p>"
-                        review_desc += "</ul>"
-                        review_desc += "</div>"
+                        review_desc += "<div class='review_box'>";
+                        review_desc += "<div class='box_r1'>";
+                        review_desc += "<img id='profile_review' src='/static/images/profile.png'>";
+                        review_desc += "<div class='star_review'>";
+                        review_desc += "<b>별점 " + review[i].star_rating + "</b>";
+                        review_desc += "<div class='review_img'>";
+                        review_desc += "<img id='review_img' src='/static/images/review_amount.png' alt='양'>";
+                        review_desc += "<img id='review_img' src='/static/images/kindness.png' alt='친철도'>";
+                        review_desc += " <img id='review_img' src='/static/images/hygiene.png' alt='위생'>";
+                        review_desc += "<img id='review_img' src='/static/images/price.png' alt='가격'>";
+                        review_desc += "<div class='box_r3'>";
+                        review_desc += "<div class='nickname_review'>";
+                        review_desc += "<b>" + review[i].user_id + "</b>";
+                        review_desc += "<div class='taste_img'>";
+                        review_desc += "<img id='taste_img1' src='/static/images/spicy.png' alt='매워'>";
+                        review_desc += "<img id='taste_img' src='/static/images/salt.png' alt='짜'>";
+                        review_desc += "<img id='taste_img' src='/static/images/sweet.png' alt='달아'>";
+                        review_desc += "<img id='taste_img2' src='/static/images/amount.png' alt='양'>";
+                        review_desc += "<div class='review_text'>";
+                        review_desc += "<b>" + review[i].description + "</b>";
+                        review_desc += "</div></div></div></div></div></div></div></div></div></div>"
                     }
                     document.getElementById("review_list").innerHTML = review_desc
 
