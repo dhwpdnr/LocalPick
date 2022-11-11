@@ -23,5 +23,5 @@ urlpatterns = [
 
 
     path("duffufkckaRo/", StoreCreateView.as_view()),
-    path("api/image/<int:pk>", StoreImageAPI.as_view())
+    path("api/image/<int:pk>", StoreImageAPI.as_view(),name="image_api")
 ]

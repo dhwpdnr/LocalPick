@@ -12,10 +12,8 @@
 
     <div class="store">
         <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div id="sw" class="swiper-slide"></div>
-                <div id="sw" class="swiper-slide"></div>
-                <div id="sw" class="swiper-slide"></div>
+            <div id="image_slide" class="swiper-wrapper">
+
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -95,6 +93,33 @@
                     info_html += "</ul>"
                     document.getElementById("store_info").innerHTML = info_html
                     $('#store_name').text(data.store_name);
+
+                },
+                error: function (request, status, error) {
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
+                }
+            });
+            $.ajax({
+                url: "{% url 'store:image_api' pk=pk %}",
+                headers: {
+                    "Authorization": "Token {{ token }}",
+                },
+                method: "GET",
+                datatype: 'json',
+                success: function (data) {
+                    var image_html = "";
+                    console.log(data);
+                    for(var i =0 ; i < data.length ; i++ ){
+                        image_html += "<div id='sw' class='swiper-slide'>"
+                        image_html += "<img class='list_image' src='" + data[i].image_tag + "'>"
+                        image_html += "</div>"
+                    }
+
+                    document.getElementById("image_slide").innerHTML = image_html
 
                 },
                 error: function (request, status, error) {
