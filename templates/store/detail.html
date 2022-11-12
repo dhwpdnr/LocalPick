@@ -22,7 +22,18 @@
     <div id="store_info" class="detail"></div>
 
     <div class="result">
-        <b id="">전체 리뷰 결과</b>
+        <b id="detail_review">전체 리뷰 결과</b>
+        <div class="detail_star">
+            <div class="star-ratings">
+
+                <div class="star-ratings-fill space-x-2 text-lg" :style="{ width: ratingToPercent + '%' }">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <div class="star-ratings-base space-x-2 text-lg">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+            </div>
+        </div>
         <button id="write" type="button"><i class="fas fa-pen"> 리뷰 작성하기</i></button>
     </div>
 
@@ -65,7 +76,6 @@
                     info_html += "<ul>"
                     info_html += "<li><p>" + data.store_adress + "</p></li>"
                     info_html += "<li><p>" + data.store_tel + "</p></li>"
-                    info_html += "<li><p>" + data.store_time + "</p></li>"
                     info_html += "</ul>"
                     document.getElementById("store_info").innerHTML = info_html
                     $('#store_name').text(data.store_name);

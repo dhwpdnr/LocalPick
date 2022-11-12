@@ -13,7 +13,7 @@
             <div id="box">
                 <div class="like_photo_box">
                     <div id="like_photo">
-                        <i id=iconLove class="far fa-heart"></i>
+                        <i id=like_btn class="far fa-heart"></i>
                     </div>
                     <div class="like_name_box">
                         <a href="{% url 'like:api' %}"></a>
@@ -24,7 +24,7 @@
             <div id="box">
                 <div class="like_photo_box">
                     <div id="like_photo">
-                        <i id=iconLove class="far fa-heart"></i>
+                        <i id=like_btn class="far fa-heart"></i>
                     </div>
                     <div class="like_name_box">
                         <a href="{% url 'like:api' %}"></a>
@@ -50,6 +50,63 @@
     </div>
 
     <script>
+
+        /*
+                $("#like_btn").on("click", function () {
+                    $.ajax({
+                        uurl: "#",
+                        dataType: "json",
+                        data: {
+                            'csrfmiddlewaretoken': "{{ csrf_token }}",
+                    store_id: store_id,
+                    user_id: user_id,
+                },
+                method: "POST",
+                success: function (response) {
+                    if (data == 1) {
+                        $("#like_btn").attr("class", "fas fa-heart");
+                        location.reload();
+                    } else {
+                        $("#like_btn").attr("class", "far fa-heart");
+                        location.reload();
+                    }
+                },
+                error: function (request, status, error) {
+                    console.log('error')
+                }
+            })
+        });
+
+        /* $(document).ready(function () {
+                    $('#like_btn').click(function () {
+                        $(this).css('color', '#33C7F7');
+                    });
+                });
+
+
+                $("#like_btn").click(function () {
+                    var pk = $(this).attr('name')
+                    $.ajax({
+                        url: "#",
+                        dataType: "json",
+                        data: {
+                            'csrfmiddlewaretoken': "{{ csrf_token }}",
+
+                },
+                method: "POST",
+                success: function (response, data) {
+                    location.replace("#");
+                    $("#like_btn").css("background-color", "yellow");
+                },
+                error: function (request, status, error) {
+                    alert("실패");
+                    console.log(error);
+                },
+                complete: function () {
+                    console.log("성공");
+                }
+            })
+        }); */
 
         $(document).ready(function () {
             $.ajax({
@@ -101,5 +158,7 @@
                 }
             });
         });
+
+
     </script>
 {% endblock %}
