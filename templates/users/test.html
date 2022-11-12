@@ -122,57 +122,62 @@
 
             if (username && phone_number && password && password2 && nickname && gender) {
                 if (password == password2) {
-                    $.ajax({
-                        url: "{% url 'users:phone_check' %}",
-                        dataType: "json",
-                        data: {
-                            phone_number: phone_number
-                        },
-                        method: "GET",
-                        success: function (data) {
-                            console.log(data);
-                            if (data) {
-                                $.ajax({
-                                    url: "{% url 'users:nickname_check' %}",
-                                    dataType: "json",
-                                    data: {
-                                        nickname: nickname
-                                    },
-                                    method: "GET",
-                                    success: function (data) {
-                                        console.log(data);
-                                        if (data) {
-                                            $('#appetite_box').css({
-                                                display: 'flex'
-                                            });
-                                            $('#user_info_box').css({
-                                                display: 'none'
-                                            });
-                                        } else {
-                                            alert("중복된 닉네임")
+                    if (password.length > 8) {
+                        $.ajax({
+                            url: "{% url 'users:phone_check' %}",
+                            dataType: "json",
+                            data: {
+                                phone_number: phone_number
+                            },
+                            method: "GET",
+                            success: function (data) {
+                                console.log(data);
+                                if (data) {
+                                    $.ajax({
+                                        url: "{% url 'users:nickname_check' %}",
+                                        dataType: "json",
+                                        data: {
+                                            nickname: nickname
+                                        },
+                                        method: "GET",
+                                        success: function (data) {
+                                            console.log(data);
+                                            if (data) {
+                                                $('#appetite_box').css({
+                                                    display: 'flex'
+                                                });
+                                                $('#user_info_box').css({
+                                                    display: 'none'
+                                                });
+                                            } else {
+                                                alert("중복된 닉네임")
+                                            }
+                                        },
+                                        error: function (request, status, error) {
+                                            console.log("에러");
+                                            console.log(error)
+                                        },
+                                        complete: function () {
+                                            console.log("성공");
                                         }
-                                    },
-                                    error: function (request, status, error) {
-                                        console.log("에러");
-                                        console.log(error)
-                                    },
-                                    complete: function () {
-                                        console.log("성공");
-                                    }
-                                });
-                            } else {
-                                alert("중복된 전화번호")
-                            }
-                        },
-                        error: function (request, status, error) {
-                            console.log("에러");
-                            console.log(error)
-                        },
-                        complete: function () {
-                            console.log("끝");
+                                    });
+                                } else {
+                                    alert("중복된 전화번호")
+                                }
+                            },
+                            error: function (request, status, error) {
+                                console.log("에러");
+                                console.log(error)
+                            },
+                            complete: function () {
+                                console.log("끝");
 
-                        }
-                    });
+                            }
+                        });
+                    } else {
+                        alert("비밀번호는 8자리 이상으로 설정해야합니다.")
+                    }
+
                 } else {
                     alert("비밀번호 불일치")
                 }
