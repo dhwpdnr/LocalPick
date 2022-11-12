@@ -75,7 +75,8 @@
                                 list_html += "<div class='swiper-slide'>";
                                 list_html += "<div class='photo_box'>";
                                 list_html += "<div id='photo'>";
-                                list_html += "<img class='list_image' src='" + data[0].image_tag + "'>";
+                                list_html += "<a href='/store/detail/" + store_id + "'>"
+                                list_html += "<img class='list_image' src='" + data[0].image_tag + "'></a>";
                                 list_html += "<i id= like_btn class='far fa-heart'></i>";
                                 list_html += "<div class='name_box'>";
                                 list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";

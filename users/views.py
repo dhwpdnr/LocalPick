@@ -8,27 +8,36 @@ from .models import User
 # Create your views here.
 class SignupView(APIView):
     def get(self, request):
-        return render(request, "users/signup.html")
+        info = user_session_authticate(request)
+        if info is None:
+            return render(request, "users/test.html")
+        return render(request, "store/list.html")
 
 
 class LoginView(APIView):
     def get(self, request):
-        return render(request, "users/login.html")
+        info = user_session_authticate(request)
+        if info is None:
+            return render(request, "users/login.html")
+        return render(request, "store/list.html")
+
 
 
 class FindPasswordView(APIView):
-    def get(self,request):
-        return render(request, "users/password.html")
-
-
-class TestView(APIView):
     def get(self, request):
-        return render(request, "users/test.html")
+        info = user_session_authticate(request)
+        if info is None:
+            return render(request, "users/password.html")
+        return render(request, "store/list.html")
 
 
 class ChangePasswordView(APIView):
     def get(self, request):
-        return render(request, "users/passwordch.html")
+        info = user_session_authticate(request)
+        if info is None:
+            return render(request, "users/passwordch.html")
+        return render(request, "store/list.html")
+
 
 
 class MypageView(APIView):
@@ -43,7 +52,6 @@ class Logout(APIView):
     def get(self, request):
         request.session.flush()
         return Response('Logged out successfully')
-
 
 # class Withdrawal(APIView):
 #     def post(self, request):
