@@ -5,7 +5,7 @@
     {% include 'header.html' %}
 
     <div class="head">
-        <h2>{{ user.nickname }} 님의<br><span style="color: #F66C6C">좋아요</span> 맛집 리스트입니다.</h2>
+        <h2>{{ user.nickname }} 님의<br><span style="color: royalblue">좋아요</span> 맛집 리스트입니다.</h2>
     </div>
 
     <div class="listbox1" id="listbox1">
@@ -13,7 +13,7 @@
             <div id="box">
                 <div class="like_photo_box">
                     <div id="like_photo">
-                        <i id=like_btn class="far fa-heart"></i>
+                        <i id=like_btn class="far fa-heart fas fa-heart" onclick="like(this)" style="color: royalblue;"></i>
                     </div>
                     <div class="like_name_box">
                         <a href="{% url 'like:api' %}"></a>
@@ -24,7 +24,7 @@
             <div id="box">
                 <div class="like_photo_box">
                     <div id="like_photo">
-                        <i id=like_btn class="far fa-heart"></i>
+                        <i id=like_btn class="far fa-heart fas fa-heart" onclick="like(this)" style="color: royalblue;"></i>
                     </div>
                     <div class="like_name_box">
                         <a href="{% url 'like:api' %}"></a>
@@ -33,6 +33,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="local_navbar">
         <div class="n-box" id="list">
@@ -50,6 +51,16 @@
     </div>
 
     <script>
+        function like(obj) {
+            if ($(obj).hasClass("far fa-heart") == true) {
+                $(obj).removeClass("far fa-heart");
+                $(obj).addClass("fas fa-heart");
+            } else {
+                $(obj).removeClass("fas fa-heart");
+                $(obj).addClass("far fa-heart");
+            }
+
+        }
 
         /*
                 $("#like_btn").on("click", function () {

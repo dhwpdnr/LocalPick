@@ -282,7 +282,7 @@ star-input > .input.focus {
     display: flex;
     border-bottom: 2px solid lightskyblue;
     border-top: 2px solid lightskyblue;
-    margin-top: 155px;
+    margin-top: 110px;
 }
 
 #profile_ph {
@@ -708,8 +708,8 @@ i {
 }
 
 .n-box {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 12px;
+    padding-bottom: 10px;
     text-align: center;
     margin-right: 22px;
     margin-left: 15px;
@@ -728,7 +728,36 @@ i {
 .detail_star {
     margin-right: 40px;
 }
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  justify-content: space-around;
+  padding: 0 0.2em;
+  text-align: center;
+  width: 5em;
+}
 
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-color: #2b2a29;
+  cursor: pointer;
+}
+
+.star-rating :checked ~ label {
+  -webkit-text-fill-color: gold;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-fill-color: #fff58c;
+}
 .star-ratings {
     color: #aaa9a9;
     position: relative;
@@ -1172,13 +1201,6 @@ b {
     z-index: 50;
 }
 
-#like_btn:hover {
-    color: #33C7F7;
-}
-
-/* #like_photo > i:active {
-    color: #33C7F7;
-}
 
 
 /*store list css*/
