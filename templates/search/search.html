@@ -4,25 +4,26 @@
 
     {% include 'header.html' %}
 
-    <div class="search_box">
-        <form action="{% url 'search:result_api' %}" method="GET" id="text_search_box">
-            <div class="text_search_box2">
-                <input type="text" id="content" name="s" placeholder="장소를 입력해 주세요.">
-                <button class="search_btn" type="submit" onclick="search()">
-                    <i class="fas fa-search"></i>
-                </button>
+    <div class="wrapper">
+        <div class="search_box">
+            <form action="{% url 'search:result_api' %}" method="GET" id="todo-form" class="form">
+                <div class="text_search_box2">
+                    <input type="text" id="content" name="s" placeholder="장소를 입력해 주세요.">
+                    <button type="submit" class="search_btn" form="todo-form" onclick="search()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="todo-inner">
+            <div class="allDelete off">
+                <b class="tit">최근 검색어</b>
+                <span class="delete_btn">전체 삭제</span>
             </div>
-        </form>
-
-    </div>
-
-    <div class="search_box2">
-        <b>최근검색어</b>
-        <button id="delete_btn" type="button">전체 삭제</button>
-    </div>
-
-    <div class="search_list">
-
+            <p class="txt"></p>
+            <ul id="todo-list"></ul>
+        </div>
     </div>
 
     <div class="local_navbar">
@@ -41,23 +42,21 @@
     </div>
 
     <script>
+        function search() {
+            location.href = "{% url 'search:result_api' %}";
+        }
+
         $(document).ready(function () {
             $.ajax({
-                url: "#",
+                url: "{% url 'search:result_api' %}",
                 headers: {
                     "Authorization": "Token {{ token }}",
                 },
                 method: "GET",
                 datatype: 'json',
                 success: function (search) {
-                    var list = data.searchList;
-                    var search_list = ""
-                    for (var i = 0; i <= search.length; i++) {
-                        search_list += "<div id='search_list_text'>"
-                        search_list += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
-                        search_list += "</div>"
-                    }
-                    document.getElementById("search_list").innerHTML = search_list
+                    console.log("성공");
+
                 },
                 error: function (request, status, error) {
                     alert("error");
@@ -70,31 +69,64 @@
             });
         });
 
-        /* $('.search_btn').click(function () {
-             $.ajax({
-                 url: "{% url 'search:result_api' %}",
-                dataType: "json",
-                data: {
-                    'csrfmiddlewaretoken': "{{ csrf_token }}",
-                    s: $('input[name=s]'.val())
-                },
-                method: "GET",
-                success: function (data) {
-                    console.log("성공");
-                    location.replace("{% url 'search:result_api' %}");
+        const toDoForm = document.querySelector('#todo-form');
+        const toDoInput = toDoForm.querySelector('input');
+        const toDoList = document.querySelector('#todo-list');
+        const allDelete = document.querySelector('.allDelete');
+        const txt = document.querySelector('.txt');
+        const TODOS_KEY = "todos";
 
-                },
+        let toDos = new Array();
 
-                error: function (request, status, error) {
-                    console.log("에러");
-                    console.log(error)
-                },
-                complete: function () {
-                    console.log("성공");
-                }
-            })
-        }); */
+        function saveToDos() {
+            typeof (Storage) !== 'undefined' && localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+        };
 
+        function allDeleteToDo() {
+            localStorage.clear(toDos);
+            toDoList.innerText = '최근검색어 내역이 없습니다.';
+        };
+
+        function deleteToDo(e) {
+            const li = e.target.parentElement;
+            li.remove();
+            toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+            toDos.length === 0 && (txt.innerText = '최근검색어 내역이 없습니다.')
+            saveToDos();
+        };
+
+        function paintToDo(newTodo) {
+            const {id, text} = newTodo;
+            const item = document.createElement("li");
+            const span = document.createElement("span");
+            item.id = id;
+            span.innerText = text;
+            allDelete.addEventListener("click", allDeleteToDo);
+            item.appendChild(span);
+            toDoList.appendChild(item);
+            newTodo !== null && allDelete.classList.remove('off');
+        };
+
+        function handleToDoSubmit(event) {
+            event.preventDefault();
+            const newTodoItem = toDoInput.value;
+            toDoInput.value = '';
+            const newTodoObj = {
+                id: Date.now(),
+                text: newTodoItem
+            };
+            toDos.push(newTodoObj);
+            paintToDo(newTodoObj);
+            saveToDos();
+        };
+
+        toDoForm.addEventListener('submit', handleToDoSubmit);
+
+        const savedToDos = JSON.parse(localStorage.getItem(TODOS_KEY));
+        if (savedToDos !== null) {
+            toDos = savedToDos
+            savedToDos.forEach(paintToDo);
+        }
     </script>
 {% endblock %}
 
