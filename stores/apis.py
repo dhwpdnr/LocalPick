@@ -70,8 +70,8 @@ class StoreListPagination(PageNumberPagination):
 
 
 class StoreListAPI(generics.ListAPIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticated,)
 
     # 이부분(queryset) 수정 해서 보내는 쿼리 변경 / 값 안 받아도 될 때는 이렇게
     # queryset = Store.objects.all()
@@ -93,6 +93,8 @@ class StoreListAPI(generics.ListAPIView):
         store_list = queryset.values()
         for store in store_list :
             store_id = store.get("id")
+            image = Image.objects.filter(store_id=store_id).first()
+            store['image_tag'] = image.image_tag
             like = Like.objects.filter(
                 user_id=user_id, store_id=store_id).first()
             if like is None:
