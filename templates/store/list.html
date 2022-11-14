@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
     {% include 'header.html' %}
+
     <div class="head">
         <h2>{{ user.nickname }} 님의<br>추천 맛집입니다.</h2>
     </div>
+
     <div class="first_box">
         <div class="store_list_box">
             <div class="list_name">
@@ -11,29 +13,36 @@
             </div>
             <div class="swiper mySwiper">
                 <div id="cafe_slider" class="swiper-wrapper">
+
                 </div>
             </div>
         </div>
+
         <div class="store_list_box">
             <div class="list_name">
                 <b>한식 추천</b>
             </div>
             <div class="swiper mySwiper">
                 <div id="korean_slider" class="swiper-wrapper">
+
                 </div>
             </div>
         </div>
+
         <div class="store_list_box">
             <div class="list_name">
                 <b>술집 추천</b>
             </div>
             <div class="swiper mySwiper">
                 <div id="drink_slider" class="swiper-wrapper">
+
                 </div>
             </div>
         </div>
     </div>
+
     {% include 'navbar.html' %}
+
     <script>
         function like(obj) {
             if ($(obj).hasClass("far fa-heart") == true) {
@@ -82,6 +91,8 @@
                     console.log('끝');
                 }
             });
+
+
             $.ajax({
                 url: "{% url 'store:list_api' 1 %}",
                 headers: {
@@ -93,6 +104,7 @@
                 success: function (data) {
                     var list = data.storeList;
                     var list_html = "";
+
                     for (var i = 0; i < list.length; i++) {
                         var store_id = list[i].id;
                         var store_name = list[i].store_name;
@@ -118,6 +130,8 @@
                     console.log('끝');
                 }
             });
+
+
             $.ajax({
                 url: "{% url 'store:list_api' 7 %}",
                 headers: {
@@ -129,6 +143,7 @@
                 success: function (data) {
                     var list = data.storeList;
                     var list_html = "";
+
                     for (var i = 0; i < list.length; i++) {
                         var store_id = list[i].id;
                         var store_name = list[i].store_name;
@@ -154,9 +169,12 @@
                     console.log('끝');
                 }
             });
+
         });
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
     <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 2,
