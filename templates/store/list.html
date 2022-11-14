@@ -1,48 +1,39 @@
 {% extends 'base.html' %}
-
 {% block content %}
     {% include 'header.html' %}
-
     <div class="head">
         <h2>{{ user.nickname }} 님의<br>추천 맛집입니다.</h2>
     </div>
     <div class="first_box">
         <div class="store_list_box">
             <div class="list_name">
-                <b>{{ user.nickname }}님 맛춤 맛집</b>
+                <b>추천 카페</b>
             </div>
             <div class="swiper mySwiper">
-                <div id="slider" class="swiper-wrapper">
-
+                <div id="cafe_slider" class="swiper-wrapper">
                 </div>
             </div>
         </div>
-
         <div class="store_list_box">
             <div class="list_name">
-                <b>인기있는맛집</b>
+                <b>한식 추천</b>
             </div>
             <div class="swiper mySwiper">
-                <div id="slider" class="swiper-wrapper">
-
+                <div id="korean_slider" class="swiper-wrapper">
                 </div>
             </div>
         </div>
-
         <div class="store_list_box">
             <div class="list_name">
-                <b>비슷한 연령대 추천</b>
+                <b>술집 추천</b>
             </div>
             <div class="swiper mySwiper">
-                <div id="slider" class="swiper-wrapper">
-
+                <div id="drink_slider" class="swiper-wrapper">
                 </div>
             </div>
         </div>
     </div>
-
     {% include 'navbar.html' %}
-
     <script>
         function like(obj) {
             if ($(obj).hasClass("far fa-heart") == true) {
@@ -52,12 +43,11 @@
                 $(obj).removeClass("fas fa-heart");
                 $(obj).addClass("far fa-heart");
             }
-
         }
 
         $(document).ready(function () {
             $.ajax({
-                url: "{% url 'store:list_api' 3 %}",
+                url: "{% url 'store:list_api' 6 %}",
                 headers: {
                     "Authorization": "Token {{ token }}",
                 },
@@ -67,41 +57,93 @@
                 success: function (data) {
                     var list = data.storeList;
                     var list_html = "";
-
                     for (var i = 0; i < list.length; i++) {
                         var store_id = list[i].id;
                         var store_name = list[i].store_name;
-                        var image_list;
-                        $.ajax({
-                            url: "/store/api/image/" + store_id,
-                            headers: {
-                                "Authorization": "Token {{ token }}",
-                            },
-                            method: "GET",
-                            datatype: 'json',
-                            async: false,
-                            success: function (data) {
-                                console.log(data);
-                                list_html += "<div class='swiper-slide'>";
-                                list_html += "<div class='photo_box'>";
-                                list_html += "<div id='photo'>";
-                                list_html += "<a href='/store/detail/" + store_id + "'>"
-                                list_html += "<img class='list_image' src='" + data[0].image_tag + "'></a>";
-                                list_html += "<i id= like_btn class='far fa-heart fas fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
-                                list_html += "<div class='name_box'>";
-                                list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
-                                list_html += "</div></div></div></div>";
-
-                            },
-                            error: function (request, status, error) {
-                                console.log(error)
-                            },
-                            complete: function (data) {
-
-                            }
-                        });
+                        var image_tag = list[i].image_tag;
+                        list_html += "<div class='swiper-slide'>";
+                        list_html += "<div class='photo_box'>";
+                        list_html += "<div id='photo'>";
+                        list_html += "<a href='/store/detail/" + store_id + "'>"
+                        list_html += "<img class='list_image' src='" + image_tag + "'></a>";
+                        list_html += "<i id= like_btn class='far fa-heart fas fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
+                        list_html += "<div class='name_box'>";
+                        list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
+                        list_html += "</div></div></div></div>";
                     }
-                    document.getElementById("slider").innerHTML = list_html;
+                    document.getElementById("cafe_slider").innerHTML = list_html;
+                },
+                error: function (request, status, error) {
+                    alert("error");
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
+                }
+            });
+            $.ajax({
+                url: "{% url 'store:list_api' 1 %}",
+                headers: {
+                    "Authorization": "Token {{ token }}",
+                },
+                method: "GET",
+                datatype: 'json',
+                async: false,
+                success: function (data) {
+                    var list = data.storeList;
+                    var list_html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        var store_id = list[i].id;
+                        var store_name = list[i].store_name;
+                        var image_tag = list[i].image_tag;
+                        list_html += "<div class='swiper-slide'>";
+                        list_html += "<div class='photo_box'>";
+                        list_html += "<div id='photo'>";
+                        list_html += "<a href='/store/detail/" + store_id + "'>"
+                        list_html += "<img class='list_image' src='" + image_tag + "'></a>";
+                        list_html += "<i id= like_btn class='far fa-heart fas fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
+                        list_html += "<div class='name_box'>";
+                        list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
+                        list_html += "</div></div></div></div>";
+                    }
+                    document.getElementById("korean_slider").innerHTML = list_html;
+                },
+                error: function (request, status, error) {
+                    alert("error");
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
+                }
+            });
+            $.ajax({
+                url: "{% url 'store:list_api' 7 %}",
+                headers: {
+                    "Authorization": "Token {{ token }}",
+                },
+                method: "GET",
+                datatype: 'json',
+                async: false,
+                success: function (data) {
+                    var list = data.storeList;
+                    var list_html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        var store_id = list[i].id;
+                        var store_name = list[i].store_name;
+                        var image_tag = list[i].image_tag;
+                        list_html += "<div class='swiper-slide'>";
+                        list_html += "<div class='photo_box'>";
+                        list_html += "<div id='photo'>";
+                        list_html += "<a href='/store/detail/" + store_id + "'>"
+                        list_html += "<img class='list_image' src='" + image_tag + "'></a>";
+                        list_html += "<i id= like_btn class='far fa-heart fas fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
+                        list_html += "<div class='name_box'>";
+                        list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
+                        list_html += "</div></div></div></div>";
+                    }
+                    document.getElementById("drink_slider").innerHTML = list_html;
                 },
                 error: function (request, status, error) {
                     alert("error");
@@ -114,9 +156,7 @@
             });
         });
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
     <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 2,

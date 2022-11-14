@@ -13,7 +13,8 @@
             <div id="box">
                 <div class="like_photo_box">
                     <div id="like_photo">
-                        <i id=like_btn class="far fa-heart fas fa-heart" onclick="like(this)" style="color: royalblue;"></i>
+                        <i id=like_btn class="far fa-heart fas fa-heart" onclick="like(this)"
+                           style="color: royalblue;"></i>
                     </div>
                     <div class="like_name_box">
                         <a href="{% url 'like:api' %}"></a>
@@ -24,7 +25,8 @@
             <div id="box">
                 <div class="like_photo_box">
                     <div id="like_photo">
-                        <i id=like_btn class="far fa-heart fas fa-heart" onclick="like(this)" style="color: royalblue;"></i>
+                        <i id=like_btn class="far fa-heart fas fa-heart" onclick="like(this)"
+                           style="color: royalblue;"></i>
                     </div>
                     <div class="like_name_box">
                         <a href="{% url 'like:api' %}"></a>
@@ -51,6 +53,7 @@
     </div>
 
     <script>
+
         function like(obj) {
             if ($(obj).hasClass("far fa-heart") == true) {
                 $(obj).removeClass("far fa-heart");
@@ -59,27 +62,26 @@
                 $(obj).removeClass("fas fa-heart");
                 $(obj).addClass("far fa-heart");
             }
-
         }
 
-        /*
-                $("#like_btn").on("click", function () {
-                    $.ajax({
-                        uurl: "#",
-                        dataType: "json",
-                        data: {
-                            'csrfmiddlewaretoken': "{{ csrf_token }}",
+
+        $("#like_btn").on("click", function () {
+            $.ajax({
+                uurl: "#",
+                dataType: "json",
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}",
                     store_id: store_id,
                     user_id: user_id,
                 },
                 method: "POST",
                 success: function (response) {
-                    if (data == 1) {
-                        $("#like_btn").attr("class", "fas fa-heart");
-                        location.reload();
+                    if ($(obj).hasClass("far fa-heart") == true) {
+                        $(obj).removeClass("far fa-heart");
+                        $(obj).addClass("fas fa-heart");
                     } else {
-                        $("#like_btn").attr("class", "far fa-heart");
-                        location.reload();
+                        $(obj).removeClass("fas fa-heart");
+                        $(obj).addClass("far fa-heart");
                     }
                 },
                 error: function (request, status, error) {
@@ -87,37 +89,6 @@
                 }
             })
         });
-
-        /* $(document).ready(function () {
-                    $('#like_btn').click(function () {
-                        $(this).css('color', '#33C7F7');
-                    });
-                });
-
-
-                $("#like_btn").click(function () {
-                    var pk = $(this).attr('name')
-                    $.ajax({
-                        url: "#",
-                        dataType: "json",
-                        data: {
-                            'csrfmiddlewaretoken': "{{ csrf_token }}",
-
-                },
-                method: "POST",
-                success: function (response, data) {
-                    location.replace("#");
-                    $("#like_btn").css("background-color", "yellow");
-                },
-                error: function (request, status, error) {
-                    alert("실패");
-                    console.log(error);
-                },
-                complete: function () {
-                    console.log("성공");
-                }
-            })
-        }); */
 
         $(document).ready(function () {
             $.ajax({
