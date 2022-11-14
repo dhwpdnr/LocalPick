@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
+
 {% block content %}
     {% include 'header.html' %}
-
     <div class="head">
         <h2>{{ user.nickname }} 님의<br>추천 맛집입니다.</h2>
     </div>
-
     <div class="first_box">
         <div class="store_list_box">
             <div class="list_name">
@@ -17,7 +16,6 @@
                 </div>
             </div>
         </div>
-
         <div class="store_list_box">
             <div class="list_name">
                 <b>한식 추천</b>
@@ -28,7 +26,6 @@
                 </div>
             </div>
         </div>
-
         <div class="store_list_box">
             <div class="list_name">
                 <b>술집 추천</b>
@@ -54,6 +51,29 @@
             }
         }
 
+        $("#like_btn").on("click", function () {
+            $.ajax({
+                url: "{% url 'like:api' %}",
+                dataType: "json",
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}",
+                },
+                method: "POST",
+                success: function (response) {
+                    if ($(obj).hasClass("far fa-heart") == true) {
+                        $(obj).removeClass("far fa-heart");
+                        $(obj).addClass("fas fa-heart");
+                    } else {
+                        $(obj).removeClass("fas fa-heart");
+                        $(obj).addClass("far fa-heart");
+                    }
+                },
+                error: function (request, status, error) {
+                    console.log('error')
+                }
+            })
+        });
+
         $(document).ready(function () {
             $.ajax({
                 url: "{% url 'store:list_api' 6 %}",
@@ -75,7 +95,7 @@
                         list_html += "<div id='photo'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>"
                         list_html += "<img class='list_image' src='" + image_tag + "'></a>";
-                        list_html += "<i id= like_btn class='far fa-heart fas fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
+                        list_html += "<i id= like_btn class='far fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
                         list_html += "<div class='name_box'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
                         list_html += "</div></div></div></div>";
@@ -114,7 +134,7 @@
                         list_html += "<div id='photo'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>"
                         list_html += "<img class='list_image' src='" + image_tag + "'></a>";
-                        list_html += "<i id= like_btn class='far fa-heart fas fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
+                        list_html += "<i id= like_btn class='far fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
                         list_html += "<div class='name_box'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
                         list_html += "</div></div></div></div>";
@@ -153,7 +173,7 @@
                         list_html += "<div id='photo'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>"
                         list_html += "<img class='list_image' src='" + image_tag + "'></a>";
-                        list_html += "<i id= like_btn class='far fa-heart fas fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
+                        list_html += "<i id= like_btn class='far fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
                         list_html += "<div class='name_box'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
                         list_html += "</div></div></div></div>";
@@ -172,9 +192,7 @@
 
         });
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
     <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 2,

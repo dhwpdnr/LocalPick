@@ -67,12 +67,11 @@
 
         $("#like_btn").on("click", function () {
             $.ajax({
-                uurl: "#",
+                url: "{% url 'like:list_api' %}",
                 dataType: "json",
                 data: {
                     'csrfmiddlewaretoken': "{{ csrf_token }}",
-                    store_id: store_id,
-                    user_id: user_id,
+                    'pk' : pk
                 },
                 method: "POST",
                 success: function (response) {
@@ -89,6 +88,7 @@
                 }
             })
         });
+
 
         $(document).ready(function () {
             $.ajax({
@@ -123,7 +123,7 @@
 
                             }
                         });
-                        like_list += "<i id=like_btn class='far fa-heart'></i>"
+                        like_list += "<i id=like_btn class='far fa-heart fas fa-heart' onclick='like(this)' style='color: royalblue;'></i>"
                         like_list += "<div id='like_name_box'>"
                         like_list += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
                         like_list += "</div></div></div></div></div>"
