@@ -9,7 +9,7 @@
             <form action="{% url 'search:result_api' %}" method="GET" id="todo-form" class="form">
                 <div class="text_search_box2">
                     <input type="text" id="content" name="s" placeholder="장소를 입력해 주세요.">
-                    <button type="submit" class="search_btn" form="todo-form" onclick="search()">
+                    <button type="submit" class="search_btn" form="todo-form" id="btn_submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
@@ -42,32 +42,7 @@
     </div>
 
     <script>
-        function search() {
-            location.href = "{% url 'search:result_api' %}";
-        }
 
-        $(document).ready(function () {
-            $.ajax({
-                url: "{% url 'search:result_api' %}",
-                headers: {
-                    "Authorization": "Token {{ token }}",
-                },
-                method: "GET",
-                datatype: 'json',
-                success: function (search) {
-                    console.log("성공");
-
-                },
-                error: function (request, status, error) {
-                    alert("error");
-                    console.log('error');
-                    console.log(error);
-                },
-                complete: function (data) {
-                    console.log('끝');
-                }
-            });
-        });
 
         const toDoForm = document.querySelector('#todo-form');
         const toDoInput = toDoForm.querySelector('input');

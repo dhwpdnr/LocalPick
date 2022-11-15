@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% include 'header.html' %}
+
+
+    <div class="local_navbar">
+        <div class="n-box" id="list">
+            <i class="fas fa-th fa-2x"></i>
+        </div>
+        <div class="n-box" id="search">
+            <i class="fas fa-search fa-2x fc-blue"></i>
+        </div>
+        <div class="n-box" id="heart">
+            <i class="fas fa-heart fa-2x"></i>
+        </div>
+        <div class="n-box" id="user">
+            <i class="fas fa-user-circle fa-2x"></i>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "/search/api/result/{{ search_word }}",
+                headers: {
+                    "Authorization": "Token {{ token }}",
+                },
+                method: "GET",
+                datatype: 'json',
+                async: false,
+                success: function (data) {
+                    console.log(data);
+                    /* 여기에 리스트 html */
+                },
+                error: function (request, status, error) {
+                    alert("error");
+                    console.log('error');
+                    console.log(error);
+                },
+                complete: function (data) {
+                    console.log('끝');
+                }
+            });
+        });
+    </script>
+
+{% endblock %}
