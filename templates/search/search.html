@@ -6,14 +6,12 @@
 
     <div class="wrapper">
         <div class="search_box">
-            <form action="{% url 'search:search' %}" method="GET" id="todo-form" class="form">
-                <div class="text_search_box2">
-                    <input type="text" id="content" name="s" placeholder="장소를 입력해 주세요.">
-                    <button type="submit" class="search_btn" form="todo-form" id="btn_submit" onclick="search_list()">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </form>
+            <div class="text_search_box2">
+                <input type="text" id="content" placeholder="장소를 입력해 주세요.">
+                <button type="submit" class="search_btn" form="todo-form" id="btn_submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         </div>
 
         <div class="todo-inner">
