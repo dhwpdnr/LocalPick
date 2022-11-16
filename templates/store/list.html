@@ -41,6 +41,23 @@
     {% include 'navbar.html' %}
 
     <script>
+        $('#like_btn').click(function (e) {
+            var storeId = e.target.dataset.store_id;
+            $.ajax({
+                method: 'json',
+                url: '{% url 'like:api' %}',
+                data: {
+                    _id: storeId
+                }
+            }).done((result) => {
+                console.log('성공했습니다!');
+                $(this).parent('li').fadeOut();
+            }).fail((xhr, textStatus, errorThrown) => {
+                console.log(xhr, textStatus, errorThrown);
+            });
+
+        });
+
         function like(obj) {
             if ($(obj).hasClass("far fa-heart") == true) {
                 $(obj).removeClass("far fa-heart");
