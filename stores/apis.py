@@ -83,7 +83,7 @@ class StoreListAPI(generics.ListAPIView):
 
     def get_queryset(self, pk):
         # instance 는 우리가 사용할 쿼리 / url 에서 값 받아서 조회도 가능
-        instance = Store.objects.filter(category_id=pk)
+        instance = Store.objects.filter(category_id=pk).order_by('?')
         return instance
 
     def get(self, request, pk, *args, **kwargs):
@@ -123,4 +123,80 @@ class StoreImageAPI(generics.ListAPIView):
     def list(self, request, pk, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset(pk))
         serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+
+class StorePersonalListPagination(PageNumberPagination):
+    page_size = 8
+
+    def get_paginated_response(self, data):
+        try:
+            previous_page_number = self.page.previous_page_number()
+        except:
+            previous_page_number = None
+
+        try:
+            next_page_number = self.page.next_page_number()
+        except:
+            next_page_number = None
+
+        return Response(
+            OrderedDict(
+                [
+                    ("storeList", data),
+                    ("pageCnt", self.page.paginator.num_pages),
+                    ("curPage", self.page.number),
+                    ("nextPage", next_page_number),
+                    ("previousPage", previous_page_number),
+                ]
+            )
+        )
+
+
+class StorePersonalListAPI(generics.ListAPIView):
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticated,)
+
+    # 이부분(queryset) 수정 해서 보내는 쿼리 변경 / 값 안 받아도 될 때는 이렇게
+    # queryset = Store.objects.all()
+
+    serializer_class = StoreSerializer
+
+    # pagination 설정 클래스 지정
+    pagination_class = StoreListPagination
+
+    def get_queryset(self, last_like_category):
+        # instance 는 우리가 사용할 쿼리 / url 에서 값 받아서 조회도 가능
+        instance = Store.objects.filter(category_id = last_like_category)
+        return instance
+
+    def get(self, request, *args, **kwargs):
+        # self.get_queryset() 부분은 사전에 정의 해둔 queryset 가져온
+        recent_like = Like.objects.order_by('id').latest()
+        print(recent_like.store_id.category_id)
+        if recent_like is None:
+            store_list = Store.objects.order_by("?")
+        else:
+            last_like_category = recent_like.store_id.category_id
+            queryset = self.filter_queryset(self.get_queryset(last_like_category))
+            user_id = request.session.get("_auth_user_id")
+            store_list = queryset.values()
+        for store in store_list :
+            store_id = store.get("id")
+            image = Image.objects.filter(store_id=store_id).first()
+            store['image_tag'] = image.image_tag
+            like = Like.objects.filter(
+                user_id=user_id, store_id=store_id).first()
+            if like is None:
+                store['is_liked'] = False
+            else :
+                store['is_liked'] = True
+
+        page = self.paginate_queryset(store_list)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(store_list)
+
+        serializer = self.get_serializer(store_list, many=True)
+
         return Response(serializer.data)
