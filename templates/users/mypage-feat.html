@@ -13,64 +13,62 @@
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
 -->
-    <div id="section">
-
-        <div class="box1">
-            <img id="profile_ph" src="/static/images/profile.png" alt="프로필">
-            <div class="profile">
-                <div class="name">
-                    <b>{{ user.nickname }} 님</b>
-                </div>
-                <div class="phone">
-                    <b>{{ user.phone_number }}</b>
-                </div>
+    
+    <div class="box1">
+        <img id="profile_ph" src="/static/images/profile.png" alt="프로필">
+        <div class="profile">
+            <div class="name">
+                <b>{{ user.nickname }} 님</b>
+            </div>
+            <div class="phone">
+                <b>{{ user.phone_number }}</b>
             </div>
         </div>
+    </div>
 
-        <div class="box2">
-            <div class="revise">
-                <button id="btn_revise" type="button" onclick="revise()">회원 정보 수정</button>
-            </div>
+    <div class="box2">
+        <div class="revise">
+            <button id="btn_revise" type="button" onclick="revise()">회원 정보 수정</button>
         </div>
+    </div>
 
 
-        <div class="logout">
-            <button id="btn_logout" type="button"><b>로그아웃</b></button>
-        </div>
+    <div class="logout">
+        <button id="btn_logout" type="button"><b>로그아웃</b></button>
+    </div>
 
-        <div class="out">
-            <button id="btn_out" type="button"><b>서비스 탈퇴</b></button>
-            <label id="text">회원 탈퇴시 안내 사항을 반드시 확인해 주십시오.</label>
-        </div>
+    <div class="out">
+        <button id="btn_out" type="button"><b>서비스 탈퇴</b></button>
+        <label id="text">회원 탈퇴시 안내 사항을 반드시 확인해 주십시오.</label>
+    </div>
 
-        <div id="logoutModalBox" class="modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title">로그아웃 하시겠습니까?</h3>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="logout_close_button" class="btn btn-secondary" data-bs-dismiss="modal">취소
-                        </button>
-                        <button type="button" id="logout_okay_button" class="btn btn-primary">로그아웃</button>
-                    </div>
+    <div id="logoutModalBox" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">로그아웃 하시겠습니까?</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="logout_close_button" class="btn btn-secondary" data-bs-dismiss="modal">취소
+                    </button>
+                    <button type="button" id="logout_okay_button" class="btn btn-primary">로그아웃</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div id="withdrawalModalBox" class="modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title">탈퇴 하시겠습니까?</h3>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="withdrawal_close_button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">
-                            취소
-                        </button>
-                        <button type="button" id="withdrawal_okay_button" class="btn btn-primary">탈퇴</button>
-                    </div>
+    <div id="withdrawalModalBox" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">탈퇴 하시겠습니까?</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="withdrawal_close_button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                        취소
+                    </button>
+                    <button type="button" id="withdrawal_okay_button" class="btn btn-primary">탈퇴</button>
                 </div>
             </div>
         </div>

@@ -786,6 +786,7 @@ i {
     padding: 0;
 }
 
+/* 여기 테두리좀 없앨게요
 #sw {
     box-sizing: border-box;
     height: 200px;
@@ -796,6 +797,7 @@ i {
     padding: 0px 0px 0px 0px;
     margin: 110px 0 0 0;
 }
+*/
 
 .detail_image {
     width: 100%;
@@ -1238,7 +1240,7 @@ b {
     text-align: center;
 }
 
-.swiper-slide {
+/* .swiper-slide {
     background: white;
     border: 1px solid white;
     border-radius: 5px;
@@ -1246,7 +1248,7 @@ b {
     height: 135px;
     padding: 20px 20px 10px 20px;
     box-shadow: 10px 5px 10px 5px #F5F5F5;
-}
+} */
 
 .swiper-slide img {
     display: block;
@@ -1271,3 +1273,43 @@ b {
 .like_name_box > a {
     font-size: 13px;
 }
+
+/* 22.11.18 현민 start */
+#section {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    background: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 20px 10px;
+    height: 135px;
+    padding: 20px 20px 10px 20px;
+    box-shadow: 10px 5px 10px 5px #F5F5F5;
+}
+.name_box{
+    display: inline-block;
+    width: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    margin-left: 15px;
+    z-index: 30;
+    text-align: center;
+}
+.name_box a{
+    text-decoration: none;
+}
+#sw {
+    box-sizing: border-box;
+    height: 200px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    padding: 0px 0px 0px 0px;
+    margin: 110px 0 0 0;
+}
+/* 22.11.18 현민 end */

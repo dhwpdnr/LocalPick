@@ -2,41 +2,43 @@
 
 {% block content %}
     {% include 'header.html' %}
-    <div class="head">
-        <h2>{{ user.nickname }} 님의<br>추천 맛집입니다.</h2>
-    </div>
-    <div class="first_box">
-        <div class="store_list_box">
-            <div class="list_name">
-                <b>{{ user.nickname }} 님 맞춤!!</b>
-            </div>
-            <div class="swiper mySwiper">
-                <div id="personal_slider" class="swiper-wrapper">
+    <div id="section">
+        <div class="head">
+            <h2>{{ user.nickname }} 님의<br>추천 맛집입니다.</h2>
+        </div>
+        <div class="first_box">
+            <div class="store_list_box">
+                <div class="list_name">
+                    <b>{{ user.nickname }} 님 맞춤!!</b>
+                </div>
+                <div class="swiper mySwiper">
+                    <div id="personal_slider" class="swiper-wrapper">
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="store_list_box">
-            <div class="list_name">
-                <b>추천 카페</b>
-            </div>
-            <div class="swiper mySwiper">
-                <div id="cafe_slider" class="swiper-wrapper">
+            <div class="store_list_box">
+                <div class="list_name">
+                    <b>추천 카페</b>
+                </div>
+                <div class="swiper mySwiper">
+                    <div id="cafe_slider" class="swiper-wrapper">
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="store_list_box">
-            <div class="list_name">
-                <b>한식 추천</b>
-            </div>
-            <div class="swiper mySwiper">
-                <div id="korean_slider" class="swiper-wrapper">
+            <div class="store_list_box">
+                <div class="list_name">
+                    <b>한식 추천</b>
+                </div>
+                <div class="swiper mySwiper">
+                    <div id="korean_slider" class="swiper-wrapper">
 
+                    </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
 
     {% include 'navbar.html' %}
