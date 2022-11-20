@@ -30,7 +30,7 @@ class StoreDetailAPI(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
-    
+
     def get(self, request, pk):
         store = Store.objects.get(id=pk)
         serializer = self.get_serializer(store)
@@ -41,7 +41,7 @@ class StoreDetailAPI(generics.ListAPIView):
 
         return Response(store_data)
 
-    
+
 class StoreListPagination(PageNumberPagination):
     page_size = 8
 
@@ -166,21 +166,26 @@ class StorePersonalListAPI(generics.ListAPIView):
     pagination_class = StoreListPagination
 
     def get_queryset(self, last_like_category):
-        # instance 는 우리가 사용할 쿼리 / url 에서 값 받아서 조회도 가능
         instance = Store.objects.filter(category_id = last_like_category)
         return instance
 
     def get(self, request, *args, **kwargs):
         # self.get_queryset() 부분은 사전에 정의 해둔 queryset 가져온
-        recent_like = Like.objects.order_by('id').latest()
-        print(recent_like.store_id.category_id)
+        user_id = request.session.get("_auth_user_id")
+        like = Like.objects.filter(user_id=user_id)
+        print(user_id)
+        print(like)
+        recent_like = like.order_by('id').last()
+        print(recent_like)
         if recent_like is None:
-            store_list = Store.objects.order_by("?")
+            print("like record none")
+            stores = Store.objects.order_by("?")
+            store_list = stores.values()
         else:
             last_like_category = recent_like.store_id.category_id
             queryset = self.filter_queryset(self.get_queryset(last_like_category))
-            user_id = request.session.get("_auth_user_id")
             store_list = queryset.values()
+
         for store in store_list :
             store_id = store.get("id")
             image = Image.objects.filter(store_id=store_id).first()
@@ -200,3 +205,7 @@ class StorePersonalListAPI(generics.ListAPIView):
         serializer = self.get_serializer(store_list, many=True)
 
         return Response(serializer.data)
+
+
+    # 좋아요 기록 없는 상태 인식 못함
+    # 좋아요 기록 있을때 리스트 가져오는 쿼리에서 문제 있는듯
