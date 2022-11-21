@@ -9,30 +9,8 @@
     </div>
 
     <div class="listbox1" id="listbox1">
-        <div class="listbox">
-            <div id="box">
-                <div class="like_photo_box">
-                    <div id="like_photo">
-                        <i id=like_btn class="far fa-heart fas fa-heart" onclick="like(this)"
-                           style="color: royalblue;"></i>
-                    </div>
-                    <div class="like_name_box">
-                        <a href="{% url 'like:api' %}"></a>
-                    </div>
-                </div>
-            </div>
+        <div id="like_list" class="listbox" style="flex-direction: row">
 
-            <div id="box">
-                <div class="like_photo_box">
-                    <div id="like_photo">
-                        <i id=like_btn class="far fa-heart fas fa-heart" onclick="like(this)"
-                           style="color: royalblue;"></i>
-                    </div>
-                    <div class="like_name_box">
-                        <a href="{% url 'like:api' %}"></a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -54,40 +32,6 @@
 
     <script>
 
-        function like(obj) {
-            if ($(obj).hasClass("far fa-heart") == true) {
-                $(obj).removeClass("far fa-heart");
-                $(obj).addClass("fas fa-heart");
-            } else {
-                $(obj).removeClass("fas fa-heart");
-                $(obj).addClass("far fa-heart");
-            }
-        }
-
-
-        $("#like_btn").on("click", function () {
-            $.ajax({
-                url: "{% url 'like:list_api' %}",
-                dataType: "json",
-                data: {
-                    'csrfmiddlewaretoken': "{{ csrf_token }}",
-                },
-                method: "POST",
-                success: function (response) {
-                    if ($(obj).hasClass("far fa-heart") == true) {
-                        $(obj).removeClass("far fa-heart");
-                        $(obj).addClass("fas fa-heart");
-                    } else {
-                        $(obj).removeClass("fas fa-heart");
-                        $(obj).addClass("far fa-heart");
-                    }
-                },
-                error: function (request, status, error) {
-                    console.log('error')
-                }
-            })
-        });
-
 
         $(document).ready(function () {
             $.ajax({
@@ -97,37 +41,37 @@
                 },
                 method: "GET",
                 datatype: 'json',
-                success: function (like) {
-                    var list = data.likeList;
-                    var like_list = ""
-                    for (var i = 0; i <= like.length; i++) {
-                        like_list += "<div class='listbox'>"
-                        like_list += "<div id='box'>"
-                        like_list += "<div id='like_photo_box'>"
-                        like_list += "<div id='like_photo'>"
-                        $.ajax({
-                            url: "/store/api/image/" + store_id,
-                            headers: {
-                                "Authorization": "Token {{ token }}",
-                            },
-                            method: "GET",
-                            datatype: 'json',
-                            success: function (data) {
-                                like_list += "<img class='like_image' src='" + data.image_tag + "'>"
-                            },
-                            error: function (request, status, error) {
-                                console.log(error)
-                            },
-                            complete: function (data) {
-
-                            }
-                        });
-                        like_list += "<i id=like_btn class='far fa-heart fas fa-heart' onclick='like(this)' style='color: royalblue;'></i>"
-                        like_list += "<div id='like_name_box'>"
-                        like_list += "<a href='/store/detail/" + store_id + "'>" + list[i].store_name + "</a>"
-                        like_list += "</div></div></div></div></div>"
+                async: false,
+                success: function (data) {
+                    console.log(data);
+                    var list = data.storeList;
+                    var list_html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        var store_id = list[i].store_id_id;
+                        var is_liked = list[i].is_liked;
+                        var store_name = list[i].store_name;
+                        var image_tag = list[i].image_tag;
+                        if(i%2 == 0){
+                            list_html += "<div>";
+                        }
+                        list_html += "<div id='box'>";
+                        list_html += "<div class='photo_box'>";
+                        list_html += "<div id='photo'>";
+                        list_html += "<a href='/store/detail/" + store_id + "'>"
+                        list_html += "<img class='list_image' src='" + image_tag + "'></a>";
+                        if (is_liked == false) {
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart " + store_id + "' style='color: royalblue;'></i>";
+                        } else if (is_liked == true) {
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart " + store_id + "' style='color: red;'></i>";
+                        }
+                        list_html += "</div><div class='name_box'>";
+                        list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
+                        list_html += "</div> </div> </div>";
+                        if(i%2 == 1){
+                            list_html += "</div>";
+                        }
                     }
-                    document.getElementById("listbox1").innerHTML = like_list
+                    document.getElementById("like_list").innerHTML = list_html;
                 },
                 error: function (request, status, error) {
                     alert("error");
@@ -138,6 +82,7 @@
                     console.log('끝');
                 }
             });
+
         });
 
 

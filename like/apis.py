@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from collections import OrderedDict
 
 from .models import Like
+from stores.models import Image, Store
 from .serializers import LikeSerializer
 
 
@@ -15,6 +16,7 @@ class LikeAPI(generics.CreateAPIView):
     serializer_class = LikeSerializer
 
     def post(self, request, *args, **kwargs):
+
         check_like = Like.objects.filter(
             user_id=request.data['user_id'], store_id=request.data['store_id']).first()
         print(check_like)
@@ -62,17 +64,34 @@ class LikeListAPI(generics.ListAPIView):
     # pagination 설정 클래스 지정
     pagination_class = LikeListPagination
 
+    def get_queryset(self,user_id):
+        instance = Like.objects.filter(user_id=user_id)
+        return instance
+
     def get(self, request, *args, **kwargs):
         # 가져온 user_id
         user_id = request.session.get("_auth_user_id")
         # 좋아요 목록 조회 orm
-        queryset = Like.objects.filter(user_id=user_id)
-        page = self.paginate_queryset(queryset)
+        queryset = self.filter_queryset(self.get_queryset(user_id))
+        like_list = queryset.values()
+        for store in like_list :
+            store_id = store.get("store_id_id")
+            image = Image.objects.filter(store_id=store_id).first()
+            store['image_tag'] = image.image_tag
+            stores = Store.objects.get(id=store_id)
+            store['store_name'] = stores.store_name
+            like = Like.objects.filter(
+                user_id=user_id, store_id=store_id).first()
+            if like is None:
+                store['is_liked'] = False
+            else :
+                store['is_liked'] = True
+        page = self.paginate_queryset(like_list)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
+            return self.get_paginated_response(like_list)
 
-        serializer = self.get_serializer(queryset, many=True)
+        serializer = self.get_serializer(like_list, many=True)
         return Response(serializer.data)
 
         # store 정보 사용 할때 "data.store_id.원하는 정보 " 이런식으로 사용

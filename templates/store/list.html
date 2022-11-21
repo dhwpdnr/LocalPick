@@ -44,55 +44,36 @@
     {% include 'navbar.html' %}
 
     <script>
-        $('#like_btn').click(function (e) {
-            var storeId = e.target.dataset.store_id;
+
+
+
+        function store_like(id) {
+            console.log("hi")
             $.ajax({
-                method: 'json',
-                url: '{% url 'like:api' %}',
-                data: {
-                    _id: storeId
-                }
-            }).done((result) => {
-                console.log('성공했습니다!');
-                $(this).parent('li').fadeOut();
-            }).fail((xhr, textStatus, errorThrown) => {
-                console.log(xhr, textStatus, errorThrown);
-            });
-
-        });
-
-        function like(obj) {
-            if ($(obj).hasClass("far fa-heart") == true) {
-                $(obj).removeClass("far fa-heart");
-                $(obj).addClass("fas fa-heart");
-            } else {
-                $(obj).removeClass("fas fa-heart");
-                $(obj).addClass("far fa-heart");
-            }
-        }
-
-        $("#like_btn").on("click", function () {
-            $.ajax({
-                url: "{% url 'like:api' %}",
-                dataType: "json",
+                url: "{% url 'like:api' %}", // data를 전송할 url 입니다.
+                method: "POST",
                 data: {
                     'csrfmiddlewaretoken': "{{ csrf_token }}",
-                },
-                method: "POST",
-                success: function (response) {
-                    if ($(obj).hasClass("far fa-heart") == true) {
-                        $(obj).removeClass("far fa-heart");
-                        $(obj).addClass("fas fa-heart");
+                    'store_id': id
+                }, // post_id 라는 name으로 id 값 전송
+                dataType: "json",
+                success: function (response) { // ajax 통신이 정상적으로 완료되었을 때
+                    if (response.is_liked) {
+                        var class_cnt = document.getElementsByClassName(response.store_id).length;
+                        for (var i = 0; i < class_cnt; i++){
+                            document.getElementsByClassName(response.store_id)[i].style.color = "red";
+                        }
+
                     } else {
-                        $(obj).removeClass("fas fa-heart");
-                        $(obj).addClass("far fa-heart");
+                        var class_cnt = document.getElementsByClassName(response.store_id).length;
+                        for (var i = 0; i < class_cnt; i++){
+                            document.getElementsByClassName(response.store_id)[i].style.color = "royalblue";
+                        }
+
                     }
-                },
-                error: function (request, status, error) {
-                    console.log('error')
                 }
-            })
-        });
+            });
+        }
 
         $(document).ready(function () {
             $.ajax({
@@ -108,6 +89,7 @@
                     var list_html = "";
                     for (var i = 0; i < list.length; i++) {
                         var store_id = list[i].id;
+                        var is_liked = list[i].is_liked;
                         var store_name = list[i].store_name;
                         var image_tag = list[i].image_tag;
                         list_html += "<div class='swiper-slide'>";
@@ -115,7 +97,11 @@
                         list_html += "<div id='photo'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>"
                         list_html += "<img class='list_image' src='" + image_tag + "'></a>";
-                        list_html += "<i id= like_btn class='far fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
+                        if (is_liked == false) {
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: royalblue;'></i>";
+                        } else if (is_liked == true) {
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: red;'></i>";
+                        }
                         list_html += "<div class='name_box'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
                         list_html += "</div></div></div></div>";
@@ -147,6 +133,7 @@
 
                     for (var i = 0; i < list.length; i++) {
                         var store_id = list[i].id;
+                        var is_liked = list[i].is_liked;
                         var store_name = list[i].store_name;
                         var image_tag = list[i].image_tag;
                         list_html += "<div class='swiper-slide'>";
@@ -154,7 +141,11 @@
                         list_html += "<div id='photo'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>"
                         list_html += "<img class='list_image' src='" + image_tag + "'></a>";
-                        list_html += "<i id= like_btn class='far fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
+                        if (is_liked == false) {
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: royalblue;'></i>";
+                        } else if (is_liked == true) {
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: red;'></i>";
+                        }
                         list_html += "<div class='name_box'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
                         list_html += "</div></div></div></div>";
@@ -186,6 +177,8 @@
 
                     for (var i = 0; i < list.length; i++) {
                         var store_id = list[i].id;
+                        var is_liked = list[i].is_liked;
+                        console.log(is_liked);
                         var store_name = list[i].store_name;
                         var image_tag = list[i].image_tag;
                         list_html += "<div class='swiper-slide'>";
@@ -193,7 +186,12 @@
                         list_html += "<div id='photo'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>"
                         list_html += "<img class='list_image' src='" + image_tag + "'></a>";
-                        list_html += "<i id= like_btn class='far fa-heart' onclick='like(this)' style='color: royalblue;'></i>";
+                        if (is_liked == false) {
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: royalblue;'></i>";
+                        } else if (is_liked == true) {
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: red;'></i>";
+                        }
+
                         list_html += "<div class='name_box'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
                         list_html += "</div></div></div></div>";
@@ -209,6 +207,7 @@
                     console.log('끝');
                 }
             });
+
 
         });
     </script>
