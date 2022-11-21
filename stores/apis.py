@@ -93,8 +93,13 @@ class StoreListAPI(generics.ListAPIView):
         store_list = queryset.values()
         for store in store_list :
             store_id = store.get("id")
-            image = Image.objects.filter(store_id=store_id).first()
-            store['image_tag'] = image.image_tag
+            
+            
+            
+            if Image.objects.filter(store_id=store_id).first():
+                image = Image.objects.filter(store_id=store_id).first()
+                
+                store['image_tag'] = image.image_tag
             like = Like.objects.filter(
                 user_id=user_id, store_id=store_id).first()
             if like is None:
@@ -184,8 +189,10 @@ class StorePersonalListAPI(generics.ListAPIView):
 
         for store in store_list :
             store_id = store.get("id")
-            image = Image.objects.filter(store_id=store_id).first()
-            store['image_tag'] = image.image_tag
+            if Image.objects.filter(store_id=store_id).first():
+                image = Image.objects.filter(store_id=store_id).first()
+                
+                store['image_tag'] = image.image_tag
             like = Like.objects.filter(
                 user_id=user_id, store_id=store_id).first()
             if like is None:
