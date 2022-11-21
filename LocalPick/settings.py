@@ -155,3 +155,5 @@ STORE_IMAGE = os.path.join(BASE_DIR, 'media/store')
 
 
 AUTH_USER_MODEL = "users.User"
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
