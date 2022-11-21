@@ -173,12 +173,8 @@ class StorePersonalListAPI(generics.ListAPIView):
         # self.get_queryset() 부분은 사전에 정의 해둔 queryset 가져온
         user_id = request.session.get("_auth_user_id")
         like = Like.objects.filter(user_id=user_id)
-        print(user_id)
-        print(like)
         recent_like = like.order_by('id').last()
-        print(recent_like)
         if recent_like is None:
-            print("like record none")
             stores = Store.objects.order_by("?")
             store_list = stores.values()
         else:
