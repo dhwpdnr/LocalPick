@@ -997,7 +997,7 @@ li {
     margin-bottom: 15px;
 }
 
-.search_box {
+/* .search_box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1007,7 +1007,7 @@ li {
     margin-bottom: 60px;
     margin-top: 140px;
     color: dimgray;
-}
+} */
 
 .allDelete > b {
     margin-left: 10px;
@@ -1313,3 +1313,14 @@ b {
     margin: 110px 0 0 0;
 }
 /* 22.11.18 현민 end */
+/* 22.11.21 현민 start */
+.search_box {
+    align-items: center;
+    z-index: 1;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-bottom: 60px;
+    margin-top: 140px;
+    color: dimgray;
+}
+/* 22.11.21 현민 end */

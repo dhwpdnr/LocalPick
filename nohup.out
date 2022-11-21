@@ -3239,3 +3239,1200 @@ like.models.Like.DoesNotExist: Like matching query does not exist.
 [18/Nov/2022 16:25:57] "GET /static/images/profile.png HTTP/1.1" 200 3187
 [18/Nov/2022 16:26:29] "GET /search/ HTTP/1.1" 200 4701
 [18/Nov/2022 16:26:29] "GET /static/css/stylesheet.css HTTP/1.1" 304 0
+Watching for file changes with StatReloader
+[20/Nov/2022 23:51:01] "GET /search/ HTTP/1.1" 200 4701
+[20/Nov/2022 23:51:09] "GET /admin/ HTTP/1.1" 302 0
+[20/Nov/2022 23:51:09] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2401
+[20/Nov/2022 23:51:09] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[20/Nov/2022 23:51:09] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[20/Nov/2022 23:51:10] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[20/Nov/2022 23:51:10] "GET /static/admin/css/login.css HTTP/1.1" 304 0
+[20/Nov/2022 23:51:10] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[20/Nov/2022 23:51:10] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[20/Nov/2022 23:51:10] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+[20/Nov/2022 23:51:10] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[20/Nov/2022 23:51:10] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[20/Nov/2022 23:51:16] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2571
+[20/Nov/2022 23:51:23] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[20/Nov/2022 23:51:23] "GET /admin/ HTTP/1.1" 200 8743
+[20/Nov/2022 23:51:24] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[20/Nov/2022 23:51:24] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[20/Nov/2022 23:51:24] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[20/Nov/2022 23:51:32] "GET /admin/stores/store/ HTTP/1.1" 200 28973
+[20/Nov/2022 23:51:32] "GET /admin/jsi18n/ HTTP/1.1" 200 8330
+[20/Nov/2022 23:51:32] "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[20/Nov/2022 23:51:32] "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[20/Nov/2022 23:51:32] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[20/Nov/2022 23:51:32] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[20/Nov/2022 23:51:32] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[20/Nov/2022 23:51:32] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[20/Nov/2022 23:51:32] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[20/Nov/2022 23:51:32] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[20/Nov/2022 23:51:32] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[20/Nov/2022 23:51:33] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[20/Nov/2022 23:56:15] "GET /admin/stores/category/ HTTP/1.1" 200 9535
+[20/Nov/2022 23:56:15] "GET /admin/jsi18n/ HTTP/1.1" 200 8330
+Internal Server Error: /upload/store/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/upload/views.py", line 18, in post
+    store_data = Store.objects.create(store_name=store_name, store_tel=store_tel, store_adress=store_adress, category_id=category_id)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 881, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 921, in _do_insert
+    using=using, raw=raw,
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1415, in execute_sql
+    for sql, params in self.as_sql():
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1360, in as_sql
+    for obj in self.query.objs
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1360, in <listcomp>
+    for obj in self.query.objs
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1359, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1300, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/related.py", line 971, in get_db_prep_save
+    return self.target_field.get_db_prep_save(value, connection=connection)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 842, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 2486, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1827, in get_prep_value
+    ) from e
+TypeError: Field 'id' expected a number but got ['6'].
+[21/Nov/2022 00:00:20] "POST /upload/store/ HTTP/1.1" 500 180932
+Internal Server Error: /upload/store/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/upload/views.py", line 18, in post
+    store_data = Store.objects.create(store_name=store_name, store_tel=store_tel, store_adress=store_adress, category_id=category_id)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 881, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 921, in _do_insert
+    using=using, raw=raw,
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1415, in execute_sql
+    for sql, params in self.as_sql():
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1360, in as_sql
+    for obj in self.query.objs
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1360, in <listcomp>
+    for obj in self.query.objs
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1359, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1300, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/related.py", line 971, in get_db_prep_save
+    return self.target_field.get_db_prep_save(value, connection=connection)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 842, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 2486, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1827, in get_prep_value
+    ) from e
+TypeError: Field 'id' expected a number but got ['6'].
+[21/Nov/2022 00:00:32] "POST /upload/store/ HTTP/1.1" 500 180932
+Internal Server Error: /upload/store/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/upload/views.py", line 18, in post
+    store_data = Store.objects.create(store_name=store_name, store_tel=store_tel, store_adress=store_adress, category_id=category_id)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 881, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 921, in _do_insert
+    using=using, raw=raw,
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1415, in execute_sql
+    for sql, params in self.as_sql():
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1360, in as_sql
+    for obj in self.query.objs
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1360, in <listcomp>
+    for obj in self.query.objs
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1359, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1300, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/related.py", line 971, in get_db_prep_save
+    return self.target_field.get_db_prep_save(value, connection=connection)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 842, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 2486, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1827, in get_prep_value
+    ) from e
+TypeError: Field 'id' expected a number but got ['6'].
+[21/Nov/2022 00:01:35] "POST /upload/store/ HTTP/1.1" 500 180931
+Internal Server Error: /upload/store/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/upload/views.py", line 18, in post
+    store_data = Store.objects.create(store_name=store_name, store_tel=store_tel, store_adress=store_adress, category_id=category_id)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 881, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/base.py", line 921, in _do_insert
+    using=using, raw=raw,
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1415, in execute_sql
+    for sql, params in self.as_sql():
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1360, in as_sql
+    for obj in self.query.objs
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1360, in <listcomp>
+    for obj in self.query.objs
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1359, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1300, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/related.py", line 971, in get_db_prep_save
+    return self.target_field.get_db_prep_save(value, connection=connection)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 842, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 2486, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1827, in get_prep_value
+    ) from e
+TypeError: Field 'id' expected a number but got ['6'].
+[21/Nov/2022 00:02:13] "POST /upload/store/ HTTP/1.1" 500 180931
+[21/Nov/2022 00:02:33] "GET /admin/stores/store/ HTTP/1.1" 200 28973
+[21/Nov/2022 00:02:33] "GET /admin/jsi18n/ HTTP/1.1" 200 8330
+[21/Nov/2022 00:02:37] "GET /admin/stores/store/add/ HTTP/1.1" 200 10786
+[21/Nov/2022 00:02:38] "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[21/Nov/2022 00:02:38] "GET /admin/jsi18n/ HTTP/1.1" 200 8330
+[21/Nov/2022 00:02:38] "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[21/Nov/2022 00:02:38] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[21/Nov/2022 00:02:38] "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[21/Nov/2022 00:02:38] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[21/Nov/2022 00:03:22] "POST /admin/stores/store/add/ HTTP/1.1" 302 0
+[21/Nov/2022 00:03:22] "GET /admin/stores/store/ HTTP/1.1" 200 29405
+[21/Nov/2022 00:03:22] "GET /admin/jsi18n/ HTTP/1.1" 200 8330
+[21/Nov/2022 00:03:22] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[21/Nov/2022 00:03:24] "GET /admin/stores/store/add/ HTTP/1.1" 200 10786
+[21/Nov/2022 00:03:24] "GET /admin/jsi18n/ HTTP/1.1" 200 8330
+[21/Nov/2022 00:03:55] "POST /admin/stores/store/add/ HTTP/1.1" 302 0
+[21/Nov/2022 00:03:55] "GET /admin/stores/store/ HTTP/1.1" 200 29609
+[21/Nov/2022 00:03:55] "GET /admin/jsi18n/ HTTP/1.1" 200 8330
+[21/Nov/2022 00:03:57] "GET /admin/stores/store/add/ HTTP/1.1" 200 10786
+[21/Nov/2022 00:03:57] "GET /admin/jsi18n/ HTTP/1.1" 200 8330
+[21/Nov/2022 00:04:26] "POST /admin/stores/store/add/ HTTP/1.1" 302 0
+[21/Nov/2022 00:04:26] "GET /admin/stores/store/ HTTP/1.1" 200 29831
+[21/Nov/2022 00:04:26] "GET /admin/jsi18n/ HTTP/1.1" 200 8330
+/workspace/LocalPick/LocalPick/settings.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 20, 2022 - 23:49:28
+Django version 3.2.15, using settings 'LocalPick.settings'
+Starting development server at http://0.0.0.0:80/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+[21/Nov/2022 18:44:50] "GET /store/list/ HTTP/1.1" 200 10614
+[21/Nov/2022 18:44:50] "GET /static/css/stylesheet.css HTTP/1.1" 200 21231
+[21/Nov/2022 18:44:50] "GET /static/js/nav.js HTTP/1.1" 200 478
+[21/Nov/2022 18:44:50] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:44:51] "GET /store/api/list/6 HTTP/1.1" 500 105522
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:44:53] "GET /store/api/list/1 HTTP/1.1" 500 105127
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:44:55] "GET /store/personal/api/list/ HTTP/1.1" 500 105462
+[21/Nov/2022 18:45:01] "GET /auth/my/ HTTP/1.1" 200 6560
+[21/Nov/2022 18:45:02] "GET /static/images/profile.png HTTP/1.1" 200 3187
+[21/Nov/2022 18:45:03] "GET /store/list/ HTTP/1.1" 200 10614
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:45:03] "GET /store/api/list/6 HTTP/1.1" 500 105397
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:45:05] "GET /store/api/list/1 HTTP/1.1" 500 105060
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:45:06] "GET /store/personal/api/list/ HTTP/1.1" 500 105676
+[21/Nov/2022 18:45:21] "GET /store/list/ HTTP/1.1" 200 10614
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:45:21] "GET /store/api/list/6 HTTP/1.1" 500 104402
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:45:23] "GET /store/api/list/1 HTTP/1.1" 500 105083
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:45:23] "GET /store/personal/api/list/ HTTP/1.1" 500 105327
+[21/Nov/2022 18:45:28] "GET /like/list/ HTTP/1.1" 200 6607
+/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/pagination.py:200: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'like.models.Like'> QuerySet.
+  paginator = self.django_paginator_class(queryset, page_size)
+[21/Nov/2022 18:45:28] "GET /like/api/list/ HTTP/1.1" 200 76
+[21/Nov/2022 18:45:30] "GET /auth/my/ HTTP/1.1" 200 6560
+[21/Nov/2022 18:45:32] "GET /store/list/ HTTP/1.1" 200 10614
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:45:32] "GET /store/api/list/6 HTTP/1.1" 500 105087
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:45:34] "GET /store/api/list/1 HTTP/1.1" 500 105046
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 18:45:36] "GET /store/personal/api/list/ HTTP/1.1" 500 105314
+[21/Nov/2022 20:48:01] "GET /store/list/ HTTP/1.1" 200 10614
+[21/Nov/2022 20:48:01] "GET /static/css/stylesheet.css HTTP/1.1" 200 21231
+[21/Nov/2022 20:48:02] "GET /static/js/nav.js HTTP/1.1" 200 478
+[21/Nov/2022 20:48:02] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 20:48:02] "GET /store/api/list/6 HTTP/1.1" 500 107813
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 20:48:04] "GET /store/api/list/1 HTTP/1.1" 500 107533
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 20:48:05] "GET /store/personal/api/list/ HTTP/1.1" 500 106442
+[21/Nov/2022 20:48:09] "GET /auth/my/ HTTP/1.1" 200 6560
+[21/Nov/2022 20:48:12] "GET /store/list/ HTTP/1.1" 200 10614
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 20:48:12] "GET /store/api/list/6 HTTP/1.1" 500 106739
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 20:48:17] "GET /store/api/list/1 HTTP/1.1" 500 107117
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 20:48:19] "GET /store/personal/api/list/ HTTP/1.1" 500 107214
+[21/Nov/2022 20:49:10] "GET /search/ HTTP/1.1" 200 4726
+[21/Nov/2022 20:51:10] "GET /search/ HTTP/1.1" 200 4726
+[21/Nov/2022 20:51:10] "GET /static/css/stylesheet.css HTTP/1.1" 200 21231
+[21/Nov/2022 20:51:10] "GET /static/js/nav.js HTTP/1.1" 200 478
+[21/Nov/2022 20:51:10] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+[21/Nov/2022 20:57:51] "GET /search/ HTTP/1.1" 200 4726
+[21/Nov/2022 20:57:51] "GET /static/css/stylesheet.css HTTP/1.1" 200 21463
+[21/Nov/2022 20:57:51] "GET /static/js/nav.js HTTP/1.1" 200 478
+[21/Nov/2022 20:57:52] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+[21/Nov/2022 20:57:56] "GET /store/list/ HTTP/1.1" 200 10614
+[21/Nov/2022 20:57:56] "GET /static/css/stylesheet.css HTTP/1.1" 304 0
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 20:57:56] "GET /store/api/list/6 HTTP/1.1" 500 105952
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 20:57:58] "GET /store/api/list/1 HTTP/1.1" 500 105668
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 20:57:59] "GET /store/personal/api/list/ HTTP/1.1" 500 106858
+[21/Nov/2022 21:05:46] "GET /like/list/ HTTP/1.1" 200 6607
+[21/Nov/2022 21:05:46] "GET /static/css/stylesheet.css HTTP/1.1" 304 0
+[21/Nov/2022 21:05:46] "GET /like/api/list/ HTTP/1.1" 200 76
+[21/Nov/2022 21:05:51] "GET /store/list/ HTTP/1.1" 200 10614
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:05:52] "GET /store/api/list/6 HTTP/1.1" 500 106538
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:05:55] "GET /store/api/list/1 HTTP/1.1" 500 106994
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:05:58] "GET /store/personal/api/list/ HTTP/1.1" 500 106829
+[21/Nov/2022 21:06:05] "GET /search/ HTTP/1.1" 200 4726
+[21/Nov/2022 21:08:53] "GET /store/list/ HTTP/1.1" 200 10614
+[21/Nov/2022 21:08:54] "GET /static/css/stylesheet.css HTTP/1.1" 304 0
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:08:54] "GET /store/api/list/6 HTTP/1.1" 500 105805
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:08:56] "GET /store/api/list/1 HTTP/1.1" 500 106777
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:08:58] "GET /store/personal/api/list/ HTTP/1.1" 500 107360
+[21/Nov/2022 21:10:26] "GET /store/list/ HTTP/1.1" 200 10614
+[21/Nov/2022 21:10:26] "GET /static/css/stylesheet.css HTTP/1.1" 200 21463
+[21/Nov/2022 21:10:26] "GET /static/js/nav.js HTTP/1.1" 200 478
+[21/Nov/2022 21:10:26] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:10:26] "GET /store/api/list/6 HTTP/1.1" 500 107528
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:10:28] "GET /store/api/list/1 HTTP/1.1" 500 107065
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:10:29] "GET /store/personal/api/list/ HTTP/1.1" 500 107497
+[21/Nov/2022 21:10:32] "GET /search/ HTTP/1.1" 200 4887
+[21/Nov/2022 21:10:37] "GET /like/list/ HTTP/1.1" 200 6607
+[21/Nov/2022 21:10:37] "GET /like/api/list/ HTTP/1.1" 200 76
+[21/Nov/2022 21:15:24] "GET /store/list/ HTTP/1.1" 200 10614
+[21/Nov/2022 21:15:24] "GET /static/css/stylesheet.css HTTP/1.1" 304 0
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:15:24] "GET /store/api/list/6 HTTP/1.1" 500 107236
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:15:26] "GET /store/api/list/1 HTTP/1.1" 500 106972
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:15:27] "GET /store/personal/api/list/ HTTP/1.1" 500 106880
+[21/Nov/2022 21:15:55] "GET /like/list/ HTTP/1.1" 200 6607
+[21/Nov/2022 21:15:55] "GET /like/api/list/ HTTP/1.1" 200 76
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:15:57] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:15:57] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:15:57] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:15:58] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:51:23] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:51:23] "POST /like/api/list/ HTTP/1.1" 405 69
+[21/Nov/2022 21:51:30] "GET /like/list/ HTTP/1.1" 200 6607
+[21/Nov/2022 21:51:30] "GET /static/css/stylesheet.css HTTP/1.1" 200 21463
+[21/Nov/2022 21:51:30] "GET /static/js/nav.js HTTP/1.1" 200 478
+[21/Nov/2022 21:51:30] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+[21/Nov/2022 21:51:31] "GET /like/api/list/ HTTP/1.1" 200 76
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:51:33] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:51:34] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:51:44] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:51:45] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:51:46] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:51:47] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:51:47] "POST /like/api/list/ HTTP/1.1" 405 69
+Method Not Allowed: /like/api/list/
+[21/Nov/2022 21:51:52] "POST /like/api/list/ HTTP/1.1" 405 69
+[21/Nov/2022 21:51:55] "GET /like/list/ HTTP/1.1" 200 6607
+[21/Nov/2022 21:51:55] "GET /static/css/stylesheet.css HTTP/1.1" 200 21463
+[21/Nov/2022 21:51:55] "GET /static/js/nav.js HTTP/1.1" 200 478
+[21/Nov/2022 21:51:55] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+[21/Nov/2022 21:51:55] "GET /like/api/list/ HTTP/1.1" 200 76
+[21/Nov/2022 21:51:59] "GET /store/list/ HTTP/1.1" 200 10614
+Internal Server Error: /store/api/list/6
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:51:59] "GET /store/api/list/6 HTTP/1.1" 500 106699
+Internal Server Error: /store/api/list/1
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 97, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:52:04] "GET /store/api/list/1 HTTP/1.1" 500 106278
+Internal Server Error: /store/personal/api/list/
+Traceback (most recent call last):
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/workspace/LocalPick/stores/apis.py", line 192, in get
+    store['image_tag'] = image.image_tag
+AttributeError: 'NoneType' object has no attribute 'image_tag'
+[21/Nov/2022 21:52:08] "GET /store/personal/api/list/ HTTP/1.1" 500 106345
