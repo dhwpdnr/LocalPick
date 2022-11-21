@@ -8,7 +8,7 @@
         <div class="search_box">
             <div class="text_search_box2">
                 <input type="text" id="content" placeholder="장소를 입력해 주세요.">
-                <button type="submit" class="search_btn" form="todo-form" id="btn_submit">
+                <button type="submit" class="search_btn" form="todo-form" id="btn_submit" onclick="redirection()">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
@@ -40,8 +40,9 @@
     </div>
 
     <script>
-        function search_list() {
-            location.href = "/store/detail/";
+        function redirection() {
+            let search_word = $('#content').val();
+            location.href = "/search/result/"+search_word;
         }
 
         const toDoForm = document.querySelector('#todo-form');

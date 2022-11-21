@@ -4,6 +4,16 @@
 
     {% include 'header.html' %}
 
+    <div class="head">
+        <h2><span style="color:royalblue">{{ search_word }}</span><br>검색 결과</h2>
+    </div>
+
+    <div class="listbox1" id="listbox1">
+        <div id="search_list" class="listbox" style="flex-direction: column">
+
+        </div>
+    </div>
+
     <div class="local_navbar">
         <div class="n-box" id="list">
             <i class="fas fa-th fa-2x"></i>
@@ -20,6 +30,34 @@
     </div>
 
     <script>
+        function store_like(id) {
+            console.log("hi")
+            $.ajax({
+                url: "{% url 'like:api' %}", // data를 전송할 url 입니다.
+                method: "POST",
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}",
+                    'store_id': id
+                }, // post_id 라는 name으로 id 값 전송
+                dataType: "json",
+                success: function (response) { // ajax 통신이 정상적으로 완료되었을 때
+                    if (response.is_liked) {
+                        var class_cnt = document.getElementsByClassName(response.store_id).length;
+                        for (var i = 0; i < class_cnt; i++) {
+                            document.getElementsByClassName(response.store_id)[i].style.color = "red";
+                        }
+
+                    } else {
+                        var class_cnt = document.getElementsByClassName(response.store_id).length;
+                        for (var i = 0; i < class_cnt; i++) {
+                            document.getElementsByClassName(response.store_id)[i].style.color = "royalblue";
+                        }
+
+                    }
+                }
+            });
+        }
+
         $(document).ready(function () {
             $.ajax({
                 url: "/search/api/result/{{ search_word }}",
@@ -31,7 +69,35 @@
                 async: false,
                 success: function (data) {
                     console.log(data);
-                    /* 여기에 리스트 html */
+                    var list = data.storeList;
+                    var list_html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        var store_id = list[i].id;
+                        var is_liked = list[i].is_liked;
+                        var store_name = list[i].store_name;
+                        var image_tag = list[i].image_tag;
+                        if (i % 2 == 0) {
+                            list_html += "<div style='display: flex'>";
+                        }
+                        list_html += "<div id='box'>";
+                        list_html += "<div class='photo_box'>";
+                        list_html += "<div id='photo'>";
+                        list_html += "<a href='/store/detail/" + store_id + "'>"
+                        list_html += "<img class='list_image' src='" + image_tag + "'></a>";
+                        if (is_liked == false) {
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart " + store_id + "' style='color: royalblue;'></i>";
+                        } else if (is_liked == true) {
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart " + store_id + "' style='color: red;'></i>";
+                        }
+                        list_html += "</div><div class='name_box'>";
+                        list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
+                        list_html += "</div> </div> </div>";
+                        if (i % 2 == 1) {
+                            list_html += "</div>";
+                        }
+                    }
+                    document.getElementById("search_list").innerHTML = list_html;
+
                 },
                 error: function (request, status, error) {
                     alert("error");

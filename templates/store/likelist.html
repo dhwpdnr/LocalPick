@@ -9,7 +9,7 @@
     </div>
 
     <div class="listbox1" id="listbox1">
-        <div id="like_list" class="listbox" style="flex-direction: row">
+        <div id="like_list" class="listbox" style="flex-direction: column">
 
         </div>
     </div>
@@ -32,6 +32,34 @@
 
     <script>
 
+     function store_like(id) {
+            console.log("hi")
+            $.ajax({
+                url: "{% url 'like:api' %}", // data를 전송할 url 입니다.
+                method: "POST",
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}",
+                    'store_id': id
+                }, // post_id 라는 name으로 id 값 전송
+                dataType: "json",
+                success: function (response) { // ajax 통신이 정상적으로 완료되었을 때
+                    if (response.is_liked) {
+                        var class_cnt = document.getElementsByClassName(response.store_id).length;
+                        for (var i = 0; i < class_cnt; i++){
+                            document.getElementsByClassName(response.store_id)[i].style.color = "red";
+                        }
+
+                    } else {
+                        var class_cnt = document.getElementsByClassName(response.store_id).length;
+                        for (var i = 0; i < class_cnt; i++){
+                            document.getElementsByClassName(response.store_id)[i].style.color = "royalblue";
+                        }
+
+                    }
+                }
+            });
+        }
+
 
         $(document).ready(function () {
             $.ajax({
@@ -52,7 +80,7 @@
                         var store_name = list[i].store_name;
                         var image_tag = list[i].image_tag;
                         if(i%2 == 0){
-                            list_html += "<div>";
+                            list_html += "<div style='display: flex'>";
                         }
                         list_html += "<div id='box'>";
                         list_html += "<div class='photo_box'>";
