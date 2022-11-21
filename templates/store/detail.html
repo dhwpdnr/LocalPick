@@ -44,7 +44,30 @@
     </div>
 
     <div id="review_list" class="review_detail">
-
+        <div class='review_box' style="display:flex; flex-direction : row">
+            <div style="display: flex;flex-direction : column ; align-items: center; width:120px; border-left: solide 1px black">
+                <img id='profile_review' src='/static/images/profile.png'>
+                <div>{{ user.nickname }}</div>
+                <div style="justify-content: space-evenly ; flex-direction : row;">
+                    <img id='taste_img' src='/static/images/spicy.png' alt='매워'>
+                    <img id='taste_img' src='/static/images/salt.png' alt='짜'>
+                    <img id='taste_img' src='/static/images/sweet.png' alt='달아'>
+                    <img id='taste_img' src='/static/images/amount.png' alt='양'>
+                </div>
+            </div>
+            <div style="flex-direction : column">
+                <div>
+                    
+                    <div>
+                        <img id='review_img' src='/static/images/review_amount.png' alt='양'>
+                        <img id='review_img' src='/static/images/kindness.png' alt='친철도'>
+                        <img id='review_img' src='/static/images/hygiene.png' alt='위생'>
+                        <img id='review_img' src='/static/images/price.png' alt='가격'>
+                    </div>
+                </div>
+                <div class='review_text'>
+            </div>
+        </div>
     </div>
     
 </div>
@@ -122,7 +145,7 @@
                 }
             });
 
-            $.ajax({
+            /*$.ajax({
                 url: "{% url 'review:list_api' pk=pk %}",
                 headers: {
                     "Authorization": "Token {{ token }}",
@@ -165,7 +188,7 @@
                 complete: function (data) {
                     console.log('끝');
                 }
-            });
+            }); */
         });
     </script>
 {% endblock %}
