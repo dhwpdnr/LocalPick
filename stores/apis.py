@@ -208,7 +208,3 @@ class StorePersonalListAPI(generics.ListAPIView):
         serializer = self.get_serializer(store_list, many=True)
 
         return Response(serializer.data)
-
-
-    # 좋아요 기록 없는 상태 인식 못함
-    # 좋아요 기록 있을때 리스트 가져오는 쿼리에서 문제 있는듯
