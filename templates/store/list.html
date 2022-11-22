@@ -61,12 +61,14 @@
                     if (response.is_liked) {
                         var class_cnt = document.getElementsByClassName(response.store_id).length;
                         for (var i = 0; i < class_cnt; i++){
+                            document.getElementsByClassName(response.store_id)[i].classList.replace('far', 'fas');
                             document.getElementsByClassName(response.store_id)[i].style.color = "red";
                         }
 
                     } else {
                         var class_cnt = document.getElementsByClassName(response.store_id).length;
                         for (var i = 0; i < class_cnt; i++){
+                            document.getElementsByClassName(response.store_id)[i].classList.replace('fas', 'far');
                             document.getElementsByClassName(response.store_id)[i].style.color = "royalblue";
                         }
 
@@ -100,7 +102,7 @@
                         if (is_liked == false) {
                             list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: royalblue;'></i>";
                         } else if (is_liked == true) {
-                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: red;'></i>";
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='fas fa-heart "+ store_id +"' style='color: red;'></i>";
                         }
                         list_html += "<div class='name_box'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
@@ -144,7 +146,7 @@
                         if (is_liked == false) {
                             list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: royalblue;'></i>";
                         } else if (is_liked == true) {
-                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: red;'></i>";
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='fas fa-heart "+ store_id +"' style='color: red;'></i>";
                         }
                         list_html += "<div class='name_box'>";
                         list_html += "<a href='/store/detail/" + store_id + "'>" + store_name + "</a>";
@@ -189,7 +191,7 @@
                         if (is_liked == false) {
                             list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: royalblue;'></i>";
                         } else if (is_liked == true) {
-                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='far fa-heart "+ store_id +"' style='color: red;'></i>";
+                            list_html += "<i id='" + store_id + "' onclick='store_like(this.id)' class='fas fa-heart "+ store_id +"' style='color: red;'></i>";
                         }
 
                         list_html += "<div class='name_box'>";

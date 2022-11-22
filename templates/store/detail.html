@@ -44,35 +44,7 @@
     </div>
 
     <div id="review_list" class="review_detail">
-        <div class='review_box' style="display:flex; flex-direction : row">
-            <div style="display: flex;flex-direction : column ; align-items: center; width:120px;">
-                <img style="margin-top: 5px" id='profile_review' src='/static/images/profile.png'>
-                <div>{{ user.nickname }}</div>
-                <div style=" border-radius:18px; border: 1px solid white; background-color: #dddddd; padding:5px">
-                    <img id='taste_img' src='/static/images/spicy.png' alt='매워'>
-                    <img id='taste_img' src='/static/images/salt.png' alt='짜'>
-                    <img id='taste_img' src='/static/images/sweet.png' alt='달아'>
-                    <img id='taste_img' src='/static/images/amount.png' alt='양'>
-                </div>
-            </div>
-            <div style="flex-direction : column; ">
-                <div style="display:flex;justify-content: space-between; flex-direction: row; padding-left: 8px; padding-right: 8px; padding-top: 5px">
-                    <div>
-                        별점
-                    </div>
-                    <div></div>
-                    <div>
-                        <img id='review_img' src='/static/images/review_amount.png' alt='양'>
-                        <img id='review_img' src='/static/images/kindness.png' alt='친철도'>
-                        <img id='review_img' src='/static/images/hygiene.png' alt='위생'>
-                        <img id='review_img' src='/static/images/price.png' alt='가격'>
-                    </div>
-                </div>
-                <div style="border: solid 1px #BDBDBD; height: 83px; width: 219px; border-radius: 6px; margin-top: 7px">
-                    리뷰 텍스트 들어갈 곳
-                </div>
-            </div>
-        </div>
+        
 
     </div>
 
@@ -92,6 +64,7 @@
         $('#write').click(function () {
             location.href = "{% url 'review:create' pk=pk %}";
         });
+        
 
         $(document).ready(function () {
             $.ajax({
@@ -149,7 +122,7 @@
                 }
             });
 
-            /*$.ajax({
+            $.ajax({
                 url: "
             {% url 'review:list_api' pk=pk %}",
                 headers: {
@@ -161,27 +134,43 @@
                 success: function (review) {
                     var review_desc = ""
                     for (var i = 0; i < review.length; i++) {
-                        review_desc += "<div class='review_box'>";
-                        review_desc += "<div class='box_r1'>";
-                        review_desc += "<img id='profile_review' src='/static/images/profile.png'>";
-                        review_desc += "<div class='star_review'>";
-                        review_desc += "<b>별점 " + review[i].star_rating + "</b>";
-                        review_desc += "<div class='review_img'>";
-                        review_desc += "<img id='review_img' src='/static/images/review_amount.png' alt='양'>";
-                        review_desc += "<img id='review_img' src='/static/images/kindness.png' alt='친철도'>";
-                        review_desc += " <img id='review_img' src='/static/images/hygiene.png' alt='위생'>";
-                        review_desc += "<img id='review_img' src='/static/images/price.png' alt='가격'>";
-                        review_desc += "<div class='box_r3'>";
-                        review_desc += "<div class='nickname_review'>";
-                        review_desc += "<b>" + review[i].user_id + "</b>";
-                        review_desc += "<div class='taste_img'>";
-                        review_desc += "<img id='taste_img1' src='/static/images/spicy.png' alt='매워'>";
-                        review_desc += "<img id='taste_img' src='/static/images/salt.png' alt='짜'>";
-                        review_desc += "<img id='taste_img' src='/static/images/sweet.png' alt='달아'>";
-                        review_desc += "<img id='taste_img2' src='/static/images/amount.png' alt='양'>";
-                        review_desc += "<div class='review_text'>";
-                        review_desc += "<b>" + review[i].description + "</b>";
-                        review_desc += "</div></div></div></div></div></div></div></div></div></div>"
+                        review_desc += "<div class='review_box' style='display:flex; flex-direction : row;'>"
+                        review_desc += "<div style='display: flex;flex-direction : column ; align-items: center; width:120px;'>"
+                        review_desc += "<img style='margin-top: 5px' id='profile_review' src='/static/images/profile.png'>"
+                        review_desc += "<div>{{ user.nickname }}</div>"
+                        review_desc += "<div style='border-radius:18px; border: 1px solid white; background-color: #dddddd; padding:5px'>"
+                        review_desc += "<img id='taste_img' src='/static/images/spicy.png' alt='매워'>"
+                        review_desc += "<img id='taste_img' src='/static/images/salt.png' alt='짜'>"
+                        review_desc += "<img id='taste_img' src='/static/images/sweet.png' alt='달아'>"
+                        review_desc += "<img id='taste_img' src='/static/images/amount.png' alt='양'>"
+                        review_desc += "</div></div>"
+            <div style="flex-direction : column; ">
+                <div style="display:flex;justify-content: space-between; flex-direction: row; padding-right: 8px; padding-top: 5px">
+                    <div>
+                        <div class="star-ratings">
+
+                            <div class="star-ratings-fill space-x-2 text-lg" :style="{ width: ratingToPercent + '%' }">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                            <div class="star-ratings-base space-x-2 text-lg">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span> 5.0
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div></div>
+                    <div>
+                        <img id='review_img' src='/static/images/review_amount.png' alt='양'>
+                        <img id='review_img' src='/static/images/kindness.png' alt='친철도'>
+                        <img id='review_img' src='/static/images/hygiene.png' alt='위생'>
+                        <img id='review_img' src='/static/images/price.png' alt='가격'>
+                    </div>
+                </div>
+                <div style="border: solid 1px #BDBDBD; height: 83px; width: 219px; border-radius: 6px; margin-top: 7px">
+                    리뷰 텍스트 들어갈 곳
+                </div>
+            </div>
+        </div>
                     }
                     document.getElementById("review_list").innerHTML = review_desc
 
@@ -194,7 +183,7 @@
                 complete: function (data) {
                     console.log('끝');
                 }
-            }); */
+            });
         });
     </script>
 {% endblock %}
