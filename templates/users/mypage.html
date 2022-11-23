@@ -88,15 +88,9 @@
         }
 
         // 로그아웃 클릭 하면 모달창
-        $('#btn_logout').on('click', function () {
-            $('#logoutModalBox').modal('show');
-        });
-        // 로그아웃 모달 안에 취소 버튼
-        $('#logout_close_button').on('click', function () {
-            $('#modalBox').modal('hide');
-        });
+    
         // 로그아웃 모달 안에 확인 버튼 (로그아웃 ajax)
-        $('#logout_okay_button').on('click', function () {
+        $('#btn_logout').on('click', function () {
             $.ajax({
                 url: "{% url 'users:logout' %}",
                 headers: {
@@ -119,15 +113,9 @@
 
 
         // 회원탈퇴 클릭하면 모달 창
-        $('#btn_out').on('click', function () {
-            $('#withdrawalModalBox').modal('show');
-        });
-        // 회원탈퇴 모달 안에 취소 버튼
-        $('#withdrawal_close_button').on('click', function () {
-            $('#modalBox').modal('hide');
-        });
+        
         // 회원탈퇴 모달 안에 확인 버튼 (회원탈퇴 ajax)
-        $('#withdrawal_okay_button').on('click', function () {
+        $('#btn_out').on('click', function () {
             $.ajax({
                 url: "/auth/withdrawal/{{ user.id }}",
                 data: {},

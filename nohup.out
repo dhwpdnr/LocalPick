@@ -5186,3 +5186,338 @@ Watching for file changes with StatReloader
 [22/Nov/2022 11:53:46] "GET /static/images/hygiene.png HTTP/1.1" 200 37133
 [22/Nov/2022 11:53:46] "GET /static/images/price.png HTTP/1.1" 200 53270
 [22/Nov/2022 11:53:46] "GET /static/star/grade_img.png HTTP/1.1" 200 5950
+/workspace/LocalPick/stores/apis.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 22, 2022 - 01:31:19
+Django version 3.2.15, using settings 'LocalPick.settings'
+Starting development server at http://0.0.0.0:80/
+Quit the server with CONTROL-C.
+광주
+{'user': <User: <2 01066058706>>, 'token': '66695b6ae2f87aa576a4aead06d7acb1e69dbbc2', 'search_word': '광주'}
+문어
+{'user': <User: <2 01066058706>>, 'token': '66695b6ae2f87aa576a4aead06d7acb1e69dbbc2', 'search_word': '문어'}
+Watching for file changes with StatReloader
+[22/Nov/2022 17:25:01] "GET /auth/login/ HTTP/1.1" 200 11434
+[22/Nov/2022 17:25:01] "GET /static/css/stylesheet.css HTTP/1.1" 200 21463
+[22/Nov/2022 17:25:01] "GET /static/js/nav.js HTTP/1.1" 200 478
+[22/Nov/2022 17:25:02] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+Unauthorized: /store/api/list/6
+[22/Nov/2022 17:25:02] "GET /store/api/list/6 HTTP/1.1" 401 118
+Unauthorized: /store/api/list/1
+[22/Nov/2022 17:25:07] "GET /store/api/list/1 HTTP/1.1" 401 118
+Unauthorized: /store/personal/api/list/
+[22/Nov/2022 17:25:08] "GET /store/personal/api/list/ HTTP/1.1" 401 118
+Not Found: /favicon.ico
+[22/Nov/2022 17:25:09] "GET /favicon.ico HTTP/1.1" 404 2873
+[22/Nov/2022 17:25:13] "GET /search/ HTTP/1.1" 200 4977
+[22/Nov/2022 17:25:14] "GET /like/list/ HTTP/1.1" 200 6177
+/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/pagination.py:200: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'like.models.Like'> QuerySet.
+  paginator = self.django_paginator_class(queryset, page_size)
+[22/Nov/2022 17:25:14] "GET /like/api/list/ HTTP/1.1" 200 76
+[22/Nov/2022 17:25:16] "GET /store/list/ HTTP/1.1" 200 11562
+[22/Nov/2022 17:25:16] "GET /store/api/list/6 HTTP/1.1" 200 7419
+[22/Nov/2022 17:25:16] "GET /store/api/list/1 HTTP/1.1" 200 11446
+[22/Nov/2022 17:25:17] "GET /store/personal/api/list/ HTTP/1.1" 200 28460
+[22/Nov/2022 17:25:17] "GET /search/ HTTP/1.1" 200 4977
+[22/Nov/2022 17:25:19] "GET /like/list/ HTTP/1.1" 200 6177
+[22/Nov/2022 17:25:20] "GET /like/api/list/ HTTP/1.1" 200 76
+[22/Nov/2022 17:25:21] "GET /store/list/ HTTP/1.1" 200 11562
+[22/Nov/2022 17:25:21] "GET /store/api/list/6 HTTP/1.1" 200 7419
+[22/Nov/2022 17:25:22] "GET /store/api/list/1 HTTP/1.1" 200 11446
+[22/Nov/2022 17:25:22] "GET /store/personal/api/list/ HTTP/1.1" 200 28460
+[22/Nov/2022 17:25:27] "GET /store/detail/8 HTTP/1.1" 200 8859
+[22/Nov/2022 17:25:27] "GET /store/api/detail/8 HTTP/1.1" 200 173
+[22/Nov/2022 17:25:27] "GET /store/api/image/8 HTTP/1.1" 200 353
+[22/Nov/2022 17:25:27] "GET /review/api/list/8/ HTTP/1.1" 200 2
+[22/Nov/2022 17:25:28] "GET /store/list/ HTTP/1.1" 200 11562
+[22/Nov/2022 17:25:28] "GET /store/api/list/6 HTTP/1.1" 200 7419
+[22/Nov/2022 17:25:29] "GET /store/api/list/1 HTTP/1.1" 200 11446
+[22/Nov/2022 17:25:29] "GET /store/personal/api/list/ HTTP/1.1" 200 28460
+[22/Nov/2022 17:25:31] "POST /like/api/ HTTP/1.1" 201 36
+[22/Nov/2022 17:25:33] "GET /search/ HTTP/1.1" 200 4977
+[22/Nov/2022 17:25:34] "GET /like/list/ HTTP/1.1" 200 6177
+[22/Nov/2022 17:25:34] "GET /like/api/list/ HTTP/1.1" 200 294
+[22/Nov/2022 17:25:35] "GET /like/list/ HTTP/1.1" 200 6177
+[22/Nov/2022 17:25:35] "GET /like/api/list/ HTTP/1.1" 200 294
+[22/Nov/2022 17:25:36] "GET /store/list/ HTTP/1.1" 200 11562
+[22/Nov/2022 17:25:37] "GET /store/api/list/6 HTTP/1.1" 200 7418
+[22/Nov/2022 17:25:37] "GET /store/api/list/1 HTTP/1.1" 200 11446
+/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/pagination.py:200: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'stores.models.Store'> QuerySet.
+  paginator = self.django_paginator_class(queryset, page_size)
+[22/Nov/2022 17:25:37] "GET /store/personal/api/list/ HTTP/1.1" 200 7418
+[22/Nov/2022 17:25:40] "POST /like/api/ HTTP/1.1" 201 35
+[22/Nov/2022 17:25:41] "POST /like/api/ HTTP/1.1" 201 36
+[22/Nov/2022 17:25:45] "GET /like/list/ HTTP/1.1" 200 6177
+[22/Nov/2022 17:25:45] "GET /like/api/list/ HTTP/1.1" 200 696
+[22/Nov/2022 17:25:49] "POST /like/api/ HTTP/1.1" 201 37
+[22/Nov/2022 17:25:50] "GET /search/ HTTP/1.1" 200 4977
+[22/Nov/2022 17:25:50] "GET /search/ HTTP/1.1" 200 4977
+[22/Nov/2022 17:25:51] "GET /like/list/ HTTP/1.1" 200 6177
+[22/Nov/2022 17:25:51] "GET /like/api/list/ HTTP/1.1" 200 477
+[22/Nov/2022 17:25:56] "GET /store/detail/7 HTTP/1.1" 200 8859
+[22/Nov/2022 17:25:56] "GET /store/api/detail/7 HTTP/1.1" 200 159
+[22/Nov/2022 17:25:56] "GET /store/api/image/7 HTTP/1.1" 200 375
+[22/Nov/2022 17:25:56] "GET /review/api/list/7/ HTTP/1.1" 200 398
+[22/Nov/2022 17:25:56] "GET /static/images/profile.png HTTP/1.1" 200 3187
+[22/Nov/2022 17:25:56] "GET /static/images/salt.png HTTP/1.1" 200 27331
+[22/Nov/2022 17:25:56] "GET /static/images/spicy.png HTTP/1.1" 200 28406
+[22/Nov/2022 17:25:56] "GET /static/images/hygiene.png HTTP/1.1" 200 37133
+[22/Nov/2022 17:25:56] "GET /static/images/price.png HTTP/1.1" 200 53270
+[22/Nov/2022 17:25:56] "GET /static/images/kindness.png HTTP/1.1" 200 27580
+[22/Nov/2022 17:25:56] "GET /static/images/sweet.png HTTP/1.1" 200 41774
+[22/Nov/2022 17:25:56] "GET /static/images/review_amount.png HTTP/1.1" 200 46400
+[22/Nov/2022 17:25:56] "GET /static/images/amount.png HTTP/1.1" 200 15723
+[22/Nov/2022 17:26:09] "GET /auth/login/ HTTP/1.1" 200 11434
+[22/Nov/2022 17:26:09] "GET /static/css/stylesheet.css HTTP/1.1" 200 21463
+[22/Nov/2022 17:26:09] "GET /static/js/nav.js HTTP/1.1" 200 478
+[22/Nov/2022 17:26:10] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+Unauthorized: /store/api/list/6
+[22/Nov/2022 17:26:10] "GET /store/api/list/6 HTTP/1.1" 401 118
+Unauthorized: /store/api/list/1
+[22/Nov/2022 17:26:11] "GET /store/api/list/1 HTTP/1.1" 401 118
+Unauthorized: /store/personal/api/list/
+[22/Nov/2022 17:26:12] "GET /store/personal/api/list/ HTTP/1.1" 401 118
+Not Found: /favicon.ico
+[22/Nov/2022 17:26:12] "GET /favicon.ico HTTP/1.1" 404 2873
+[22/Nov/2022 17:26:20] "GET /like/list/ HTTP/1.1" 200 6177
+[22/Nov/2022 17:26:20] "GET /like/api/list/ HTTP/1.1" 200 477
+[22/Nov/2022 17:26:21] "GET /store/detail/12 HTTP/1.1" 200 8863
+[22/Nov/2022 17:26:22] "GET /store/api/image/12 HTTP/1.1" 200 407
+[22/Nov/2022 17:26:22] "GET /store/api/detail/12 HTTP/1.1" 200 179
+[22/Nov/2022 17:26:22] "GET /review/api/list/12/ HTTP/1.1" 200 2
+[22/Nov/2022 17:26:25] "GET /review/create/12 HTTP/1.1" 200 7187
+[22/Nov/2022 17:26:25] "GET /static/star/grade_img.png HTTP/1.1" 200 5950
+[22/Nov/2022 17:26:33] "POST /review/api/create/ HTTP/1.1" 201 188
+[22/Nov/2022 17:26:33] "GET /store/detail/12 HTTP/1.1" 200 8863
+[22/Nov/2022 17:26:33] "GET /store/api/detail/12 HTTP/1.1" 200 179
+[22/Nov/2022 17:26:33] "GET /review/api/list/12/ HTTP/1.1" 200 207
+[22/Nov/2022 17:26:33] "GET /store/api/image/12 HTTP/1.1" 200 407
+[22/Nov/2022 17:26:38] "GET /review/create/12 HTTP/1.1" 302 0
+[22/Nov/2022 17:26:38] "GET /store/detail/12 HTTP/1.1" 200 8863
+[22/Nov/2022 17:26:39] "GET /review/api/list/12/ HTTP/1.1" 200 207
+[22/Nov/2022 17:26:39] "GET /store/api/detail/12 HTTP/1.1" 200 179
+[22/Nov/2022 17:26:39] "GET /store/api/image/12 HTTP/1.1" 200 407
+[22/Nov/2022 17:26:39] "GET /review/create/12 HTTP/1.1" 302 0
+[22/Nov/2022 17:26:39] "GET /store/detail/12 HTTP/1.1" 200 8863
+[22/Nov/2022 17:26:39] "GET /store/api/detail/12 HTTP/1.1" 200 179
+[22/Nov/2022 17:26:39] "GET /review/api/list/12/ HTTP/1.1" 200 207
+[22/Nov/2022 17:26:39] "GET /store/api/image/12 HTTP/1.1" 200 407
+[22/Nov/2022 17:26:41] "GET /review/create/12 HTTP/1.1" 302 0
+[22/Nov/2022 17:26:41] "GET /store/detail/12 HTTP/1.1" 200 8863
+[22/Nov/2022 17:26:41] "GET /store/api/image/12 HTTP/1.1" 200 407
+[22/Nov/2022 17:26:41] "GET /store/api/detail/12 HTTP/1.1" 200 179
+[22/Nov/2022 17:26:41] "GET /review/api/list/12/ HTTP/1.1" 200 207
+[22/Nov/2022 17:26:43] "GET /review/create/12 HTTP/1.1" 302 0
+[22/Nov/2022 17:26:43] "GET /store/detail/12 HTTP/1.1" 200 8863
+[22/Nov/2022 17:26:43] "GET /review/api/list/12/ HTTP/1.1" 200 207
+[22/Nov/2022 17:26:43] "GET /store/api/detail/12 HTTP/1.1" 200 179
+[22/Nov/2022 17:26:43] "GET /store/api/image/12 HTTP/1.1" 200 407
+[22/Nov/2022 17:26:44] "GET /store/api/detail/12 HTTP/1.1" 200 179
+[22/Nov/2022 17:26:44] "GET /review/api/list/12/ HTTP/1.1" 200 207
+[22/Nov/2022 17:26:44] "GET /store/api/image/12 HTTP/1.1" 200 407
+[22/Nov/2022 17:26:48] "GET /auth/login/ HTTP/1.1" 200 11434
+Unauthorized: /store/api/list/6
+[22/Nov/2022 17:26:48] "GET /store/api/list/6 HTTP/1.1" 401 118
+Unauthorized: /store/api/list/1
+[22/Nov/2022 17:26:49] "GET /store/api/list/1 HTTP/1.1" 401 118
+Unauthorized: /store/personal/api/list/
+[22/Nov/2022 17:26:50] "GET /store/personal/api/list/ HTTP/1.1" 401 118
+Not Found: /favicon.ico
+[22/Nov/2022 17:26:50] "GET /favicon.ico HTTP/1.1" 404 2873
+[22/Nov/2022 17:26:51] "GET /auth/my/ HTTP/1.1" 200 6552
+[22/Nov/2022 21:26:18] "GET /auth/login/ HTTP/1.1" 200 11434
+[22/Nov/2022 21:26:18] "GET /static/css/stylesheet.css HTTP/1.1" 304 0
+Unauthorized: /store/api/list/6
+[22/Nov/2022 21:26:19] "GET /store/api/list/6 HTTP/1.1" 401 118
+Unauthorized: /store/api/list/1
+[22/Nov/2022 21:26:21] "GET /store/api/list/1 HTTP/1.1" 401 118
+Unauthorized: /store/personal/api/list/
+[22/Nov/2022 21:26:22] "GET /store/personal/api/list/ HTTP/1.1" 401 118
+Not Found: /favicon.ico
+[22/Nov/2022 21:26:23] "GET /favicon.ico HTTP/1.1" 404 2873
+[22/Nov/2022 21:26:23] "GET /like/list/ HTTP/1.1" 200 6177
+[22/Nov/2022 21:26:24] "GET /like/api/list/ HTTP/1.1" 200 477
+[22/Nov/2022 21:26:27] "POST /like/api/ HTTP/1.1" 201 36
+[22/Nov/2022 21:26:28] "POST /like/api/ HTTP/1.1" 201 37
+[22/Nov/2022 21:26:30] "GET /store/list/ HTTP/1.1" 200 11562
+[22/Nov/2022 21:26:31] "GET /store/api/list/6 HTTP/1.1" 200 7419
+[22/Nov/2022 21:26:31] "GET /store/api/list/1 HTTP/1.1" 200 11446
+[22/Nov/2022 21:26:31] "GET /store/personal/api/list/ HTTP/1.1" 200 28460
+[22/Nov/2022 21:26:44] "GET /search/ HTTP/1.1" 200 4977
+[22/Nov/2022 21:26:54] "GET /search/result/%ED%82%A4%EC%8A%A4%EB%A7%81 HTTP/1.1" 200 5938
+[22/Nov/2022 21:26:54] "GET /search/api/result/%ED%82%A4%EC%8A%A4%EB%A7%81 HTTP/1.1" 200 345
+[22/Nov/2022 21:26:57] "GET /search/ HTTP/1.1" 200 4977
+[22/Nov/2022 21:27:01] "GET /search/result/%EB%A7%81 HTTP/1.1" 200 5926
+[22/Nov/2022 21:27:01] "GET /search/api/result/%EB%A7%81 HTTP/1.1" 200 345
+[22/Nov/2022 21:27:04] "GET /auth/login/ HTTP/1.1" 200 11434
+[22/Nov/2022 21:27:04] "GET /static/css/stylesheet.css HTTP/1.1" 200 21463
+[22/Nov/2022 21:27:04] "GET /static/js/nav.js HTTP/1.1" 200 478
+[22/Nov/2022 21:27:04] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+Unauthorized: /store/api/list/6
+[22/Nov/2022 21:27:04] "GET /store/api/list/6 HTTP/1.1" 401 118
+Unauthorized: /store/api/list/1
+[22/Nov/2022 21:27:05] "GET /store/api/list/1 HTTP/1.1" 401 118
+Unauthorized: /store/personal/api/list/
+[22/Nov/2022 21:27:06] "GET /store/personal/api/list/ HTTP/1.1" 401 118
+Not Found: /favicon.ico
+[22/Nov/2022 21:27:06] "GET /favicon.ico HTTP/1.1" 404 2873
+[22/Nov/2022 21:27:07] "GET /store/list/ HTTP/1.1" 200 11562
+[22/Nov/2022 21:27:08] "GET /store/api/list/6 HTTP/1.1" 200 7419
+[22/Nov/2022 21:27:08] "GET /store/api/list/1 HTTP/1.1" 200 11446
+[22/Nov/2022 21:27:08] "GET /store/personal/api/list/ HTTP/1.1" 200 28460
+[22/Nov/2022 21:27:09] "GET /auth/my/ HTTP/1.1" 200 6552
+[22/Nov/2022 21:27:09] "GET /static/images/profile.png HTTP/1.1" 200 3187
+[22/Nov/2022 21:27:12] "GET /auth/chpasswd/ HTTP/1.1" 200 11434
+Unauthorized: /store/api/list/6
+[22/Nov/2022 21:27:12] "GET /store/api/list/6 HTTP/1.1" 401 118
+Unauthorized: /store/api/list/1
+[22/Nov/2022 21:27:13] "GET /store/api/list/1 HTTP/1.1" 401 118
+Unauthorized: /store/personal/api/list/
+[22/Nov/2022 21:27:14] "GET /store/personal/api/list/ HTTP/1.1" 401 118
+[22/Nov/2022 21:27:17] "GET /auth/my/ HTTP/1.1" 200 6552
+[22/Nov/2022 21:27:21] "GET /auth/chpasswd/ HTTP/1.1" 200 11434
+Unauthorized: /store/api/list/6
+[22/Nov/2022 21:27:21] "GET /store/api/list/6 HTTP/1.1" 401 118
+Unauthorized: /store/api/list/1
+[22/Nov/2022 21:27:22] "GET /store/api/list/1 HTTP/1.1" 401 118
+Unauthorized: /store/personal/api/list/
+[22/Nov/2022 21:27:23] "GET /store/personal/api/list/ HTTP/1.1" 401 118
+[22/Nov/2022 21:27:25] "GET /auth/login/ HTTP/1.1" 200 11434
+Unauthorized: /store/api/list/6
+[22/Nov/2022 21:27:26] "GET /store/api/list/6 HTTP/1.1" 401 118
+Unauthorized: /store/api/list/1
+[22/Nov/2022 21:27:26] "GET /store/api/list/1 HTTP/1.1" 401 118
+Unauthorized: /store/personal/api/list/
+[22/Nov/2022 21:27:27] "GET /store/personal/api/list/ HTTP/1.1" 401 118
+Not Found: /favicon.ico
+[22/Nov/2022 21:27:28] "GET /favicon.ico HTTP/1.1" 404 2873
+[22/Nov/2022 21:27:29] "GET /auth/my/ HTTP/1.1" 200 6552
+[22/Nov/2022 21:27:30] "GET /auth/chpasswd/ HTTP/1.1" 200 11434
+Unauthorized: /store/api/list/6
+[22/Nov/2022 21:27:30] "GET /store/api/list/6 HTTP/1.1" 401 118
+Unauthorized: /store/api/list/1
+[22/Nov/2022 21:27:31] "GET /store/api/list/1 HTTP/1.1" 401 118
+Unauthorized: /store/personal/api/list/
+[22/Nov/2022 21:27:32] "GET /store/personal/api/list/ HTTP/1.1" 401 118
+[22/Nov/2022 21:27:33] "GET /auth/my/ HTTP/1.1" 200 6552
+/workspace/LocalPick/users/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 22, 2022 - 15:02:24
+Django version 3.2.15, using settings 'LocalPick.settings'
+Starting development server at http://0.0.0.0:80/
+Quit the server with CONTROL-C.
+<QuerySet []>
+<QuerySet [{'id': 9, 'amount': 3, 'kindness': 2, 'hygiene': 4, 'price': 3, 'star_rating': 3.0, 'description': None, 'created': datetime.datetime(2022, 11, 15, 6, 57, 57, 202149, tzinfo=<UTC>), 'store_id_id': 7, 'user_id_id': 1, 'local': 'N'}, {'id': 10, 'amount': 3, 'kindness': 5, 'hygiene': 4, 'price': 4, 'star_rating': 3.0, 'description': None, 'created': datetime.datetime(2022, 11, 21, 16, 34, 35, 951435, tzinfo=<UTC>), 'store_id_id': 7, 'user_id_id': 3, 'local': 'N'}]>
+1
+None
+3
+테스트 계정
+<QuerySet []>
+<QuerySet [{'id': 19, 'amount': 3, 'kindness': 2, 'hygiene': 2, 'price': 2, 'star_rating': 2.0, 'description': 'ㅇㄹㄹㄹㄹ', 'created': datetime.datetime(2022, 11, 22, 8, 26, 33, 290530, tzinfo=<UTC>), 'store_id_id': 12, 'user_id_id': 1, 'local': 'N'}]>
+1
+None
+<QuerySet [{'id': 19, 'amount': 3, 'kindness': 2, 'hygiene': 2, 'price': 2, 'star_rating': 2.0, 'description': 'ㅇㄹㄹㄹㄹ', 'created': datetime.datetime(2022, 11, 22, 8, 26, 33, 290530, tzinfo=<UTC>), 'store_id_id': 12, 'user_id_id': 1, 'local': 'N'}]>
+1
+None
+<QuerySet [{'id': 19, 'amount': 3, 'kindness': 2, 'hygiene': 2, 'price': 2, 'star_rating': 2.0, 'description': 'ㅇㄹㄹㄹㄹ', 'created': datetime.datetime(2022, 11, 22, 8, 26, 33, 290530, tzinfo=<UTC>), 'store_id_id': 12, 'user_id_id': 1, 'local': 'N'}]>
+1
+None
+<QuerySet [{'id': 19, 'amount': 3, 'kindness': 2, 'hygiene': 2, 'price': 2, 'star_rating': 2.0, 'description': 'ㅇㄹㄹㄹㄹ', 'created': datetime.datetime(2022, 11, 22, 8, 26, 33, 290530, tzinfo=<UTC>), 'store_id_id': 12, 'user_id_id': 1, 'local': 'N'}]>
+1
+None
+<QuerySet [{'id': 19, 'amount': 3, 'kindness': 2, 'hygiene': 2, 'price': 2, 'star_rating': 2.0, 'description': 'ㅇㄹㄹㄹㄹ', 'created': datetime.datetime(2022, 11, 22, 8, 26, 33, 290530, tzinfo=<UTC>), 'store_id_id': 12, 'user_id_id': 1, 'local': 'N'}]>
+1
+None
+<QuerySet [{'id': 19, 'amount': 3, 'kindness': 2, 'hygiene': 2, 'price': 2, 'star_rating': 2.0, 'description': 'ㅇㄹㄹㄹㄹ', 'created': datetime.datetime(2022, 11, 22, 8, 26, 33, 290530, tzinfo=<UTC>), 'store_id_id': 12, 'user_id_id': 1, 'local': 'N'}]>
+1
+None
+키스링
+{'user': <User: <1 admin>>, 'token': '40eae35bc34e0338f2dd1bd286909e5688de5809', 'search_word': '키스링'}
+링
+{'user': <User: <1 admin>>, 'token': '40eae35bc34e0338f2dd1bd286909e5688de5809', 'search_word': '링'}
+Watching for file changes with StatReloader
+/workspace/LocalPick/users/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 22, 2022 - 21:40:31
+Django version 3.2.15, using settings 'LocalPick.settings'
+Starting development server at http://0.0.0.0:80/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+[22/Nov/2022 22:03:44] "GET /store/list/ HTTP/1.1" 200 11562
+[22/Nov/2022 22:03:44] "GET /store/api/list/6 HTTP/1.1" 200 7419
+[22/Nov/2022 22:03:44] "GET /store/api/list/1 HTTP/1.1" 200 11446
+[22/Nov/2022 22:03:45] "GET /store/personal/api/list/ HTTP/1.1" 200 28460
+[22/Nov/2022 22:03:46] "GET /auth/my/ HTTP/1.1" 200 5984
+[22/Nov/2022 22:03:47] "GET /auth/logout/ HTTP/1.1" 200 25
+[22/Nov/2022 22:03:48] "GET /auth/login/ HTTP/1.1" 200 3117
+[22/Nov/2022 22:04:35] "GET /auth/signup/ HTTP/1.1" 200 12446
+[22/Nov/2022 22:04:35] "GET /static/images/spicy.png HTTP/1.1" 200 28406
+[22/Nov/2022 22:04:35] "GET /static/images/salt.png HTTP/1.1" 200 27331
+[22/Nov/2022 22:04:35] "GET /static/images/sweet.png HTTP/1.1" 200 41774
+[22/Nov/2022 22:04:35] "GET /static/images/amount.png HTTP/1.1" 200 15723
+[22/Nov/2022 22:05:20] "GET /auth/phone/check/?phone_number=01099998888 HTTP/1.1" 200 4
+[22/Nov/2022 22:05:20] "GET /auth/nickname/check/?nickname=%ED%85%8C%EC%8A%A4%ED%84%B00000 HTTP/1.1" 200 4
+[22/Nov/2022 22:05:26] "POST /auth/api/signup/ HTTP/1.1" 201 13
+[22/Nov/2022 22:05:27] "POST /appetite/api/create/ HTTP/1.1" 201 62
+[22/Nov/2022 22:05:27] "GET /auth/login/ HTTP/1.1" 200 3117
+[22/Nov/2022 22:05:27] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+[22/Nov/2022 22:05:42] "POST /auth/api/login/ HTTP/1.1" 200 23
+[22/Nov/2022 22:05:43] "GET /store/list/ HTTP/1.1" 200 11580
+[22/Nov/2022 22:05:44] "GET /store/api/list/6 HTTP/1.1" 200 7419
+[22/Nov/2022 22:05:44] "GET /store/api/list/1 HTTP/1.1" 200 11446
+[22/Nov/2022 22:05:44] "GET /store/personal/api/list/ HTTP/1.1" 200 28460
+[22/Nov/2022 22:06:01] "POST /like/api/ HTTP/1.1" 201 36
+[22/Nov/2022 22:06:02] "POST /like/api/ HTTP/1.1" 201 36
+[22/Nov/2022 22:06:05] "POST /like/api/ HTTP/1.1" 201 36
+[22/Nov/2022 22:06:11] "POST /like/api/ HTTP/1.1" 201 36
+[22/Nov/2022 22:06:14] "GET /like/list/ HTTP/1.1" 200 6186
+/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/pagination.py:200: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'like.models.Like'> QuerySet.
+  paginator = self.django_paginator_class(queryset, page_size)
+[22/Nov/2022 22:06:14] "GET /like/api/list/ HTTP/1.1" 200 891
+[22/Nov/2022 22:06:17] "GET /search/ HTTP/1.1" 200 4977
+[22/Nov/2022 22:06:25] "GET /search/result/%EC%8B%9D%EB%8B%B9 HTTP/1.1" 200 5932
+/workspace/LocalPick/venv/lib/python3.7/site-packages/rest_framework/pagination.py:200: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'stores.models.Store'> QuerySet.
+  paginator = self.django_paginator_class(queryset, page_size)
+[22/Nov/2022 22:06:25] "GET /search/api/result/%EC%8B%9D%EB%8B%B9 HTTP/1.1" 200 3192
+[22/Nov/2022 22:06:32] "POST /like/api/ HTTP/1.1" 201 36
+[22/Nov/2022 22:06:34] "GET /like/list/ HTTP/1.1" 200 6186
+[22/Nov/2022 22:06:34] "GET /like/api/list/ HTTP/1.1" 200 1086
+[22/Nov/2022 22:06:37] "GET /store/list/ HTTP/1.1" 200 11580
+[22/Nov/2022 22:06:38] "GET /store/api/list/6 HTTP/1.1" 200 7416
+[22/Nov/2022 22:06:38] "GET /store/api/list/1 HTTP/1.1" 200 11444
+[22/Nov/2022 22:06:38] "GET /store/personal/api/list/ HTTP/1.1" 200 11444
+[22/Nov/2022 22:06:45] "GET /like/list/ HTTP/1.1" 200 6186
+[22/Nov/2022 22:06:45] "GET /like/api/list/ HTTP/1.1" 200 1086
+[22/Nov/2022 22:06:48] "GET /store/detail/42 HTTP/1.1" 200 8863
+[22/Nov/2022 22:06:49] "GET /store/api/detail/42 HTTP/1.1" 200 191
+[22/Nov/2022 22:06:49] "GET /store/api/image/42 HTTP/1.1" 200 435
+[22/Nov/2022 22:06:49] "GET /review/api/list/42/ HTTP/1.1" 200 2
+[22/Nov/2022 22:06:51] "GET /review/create/42 HTTP/1.1" 200 7187
+[22/Nov/2022 22:06:51] "GET /static/images/kindness.png HTTP/1.1" 200 27580
+[22/Nov/2022 22:06:51] "GET /static/images/review_amount.png HTTP/1.1" 200 46400
+[22/Nov/2022 22:06:51] "GET /static/images/hygiene.png HTTP/1.1" 200 37133
+[22/Nov/2022 22:06:51] "GET /static/images/price.png HTTP/1.1" 200 53270
+[22/Nov/2022 22:06:51] "GET /static/star/grade_img.png HTTP/1.1" 200 5950
+[22/Nov/2022 22:07:03] "POST /review/api/create/ HTTP/1.1" 201 188
+[22/Nov/2022 22:07:03] "GET /store/detail/42 HTTP/1.1" 200 8863
+[22/Nov/2022 22:07:04] "GET /store/api/detail/42 HTTP/1.1" 200 191
+[22/Nov/2022 22:07:04] "GET /store/api/image/42 HTTP/1.1" 200 435
+[22/Nov/2022 22:07:04] "GET /review/api/list/42/ HTTP/1.1" 200 218
+[22/Nov/2022 22:07:04] "GET /static/images/profile.png HTTP/1.1" 200 3187
+[22/Nov/2022 22:07:04] "GET /static/images/sweet.png HTTP/1.1" 200 41774
+[22/Nov/2022 22:07:04] "GET /static/images/spicy.png HTTP/1.1" 200 28406
+[22/Nov/2022 22:07:04] "GET /static/images/amount.png HTTP/1.1" 200 15723
+[22/Nov/2022 22:07:04] "GET /static/images/salt.png HTTP/1.1" 200 27331
+[22/Nov/2022 22:07:12] "GET /review/api/list/42/ HTTP/1.1" 200 218
+[22/Nov/2022 22:07:12] "GET /store/api/image/42 HTTP/1.1" 200 435
+[22/Nov/2022 22:07:12] "GET /store/api/detail/42 HTTP/1.1" 200 191
+[22/Nov/2022 22:07:12] "GET /static/images/IMG_4613.png HTTP/1.1" 200 78751
+[22/Nov/2022 22:07:14] "GET /auth/my/ HTTP/1.1" 200 5999
+[22/Nov/2022 22:07:16] "GET /auth/logout/ HTTP/1.1" 200 25
+[22/Nov/2022 22:07:18] "GET /auth/login/ HTTP/1.1" 200 3117
